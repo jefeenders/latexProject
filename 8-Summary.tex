@@ -1,0 +1,300 @@
+\chapter{Conclusion and Outlook}
+\label{chap:summary}
+
+%aus Leo.phd: In this chapter, the progress made regarding the individual research questions motivated in the introduction are outlined before related ongoing and near-future investigations are stated.
+
+%\textit{This chapter describes the progress made in the present work with regard to the research questions motivated in the introduction. Finally, related ongoing and near future investigations are indicated.}
+
+\section{Main results of this thesis}
+
+
+%1. research question/aufgabe war geeignete teststrukturen zu finden. hat geklappt für SHJ und sitj! nochmal erwähnen, dass es auch grenzen gibt, wie zB beim versuch HTL auf SiTJ zu testen?
+
+This thesis aimed at gaining better understanding of carrier transport in two different thin film heterojunction stacks: First, the TCO/a-Si:H/c-Si contact stack for selective carrier extraction in SHJ solar cells. Second, the poly-Si($p^+$/$n^+$)/SiO$_x$/c-Si stack for top and bottom cell interconnection (poly-Si($p^+$/$n^+$)) and formation of the bottom cell front contact (poly-Si($n^+$)/SiO$_x$/c-Si) in monolithic perovskite/Si tandems. 
+
+For that objective \textbf{A} was to utilize suited test structures for the respective contact stack depending on the current research question.
+By systematically subdividing the respective multilayer stack into single layers it was possible to work out the limitations set on transport %bzw die anforderungen an die jeweiligen layer und interfaces...
+by each individual layer and interface and to quantify their contribution to the total transport losses. This approach was first successfully applied to the SHJ to identify the a-Si:H/c-Si and the TCO/a-Si:H interface as transport limiting for both the hole and electron contact (Section \ref{sec:critical junctions}). Based on that, the test structures were refined to allow for an in-depth investigation of the charge carrier transport at the TCO/a-Si:H (Section \ref{sec:TCO-aSi}) and the a-Si:H/c-Si junction (Section \ref{sec:aSi-cSi}). For the poly-Si-based multilayer stack, this approach helped to distinguish whether the poly-Si/SiO$_x$/c-Si passivating contact or the poly-Si($p^+$/$n^+$) tunneling junction (SiTJ) limited the overall transport.
+
+%gemeinsamkeit wäre noch sinkender rhoc mit höherem N... 
+
+In the following, the detailed results for the two different contact stacks are summarized.
+
+\paragraph*{SHJ}
+
+%hier könnte man dann noch auf fundamental correlation between passivation and transport eingehen..
+%man könnte schreiben, dass auf jeden fall starke korrelation, siehe rhoc vs. tau, und natürlich auch gewisse fundamental links (low defective interface nötig für passivierung, nimmt aber einen wichtigen transport weg). daher muss transport pfad so tailored werden, dass low-defective interface okay für transport. scheint to some extent possible for SHJ, siehe eta results with HPT variation... 
+%erst in summary? Ja, hat Leo auch so gemacht!!
+
+The main findings from Chapter \ref{chap:SHJ} with respect to research question \textbf{B} regarding the optimization of transport and its link to surface passivation in SHJ solar cells  can be summarized as follows:
+\begin{itemize}%wohl eher im flißtext und dann einzelne sachen fett...
+	\item The a-Si:H/c-Si and the TCO/a-Si:H interface create transport barriers that cause non-ohmic losses. %For lower total resistance the signature of non-ohmic and temperature activated transport becomes less pronounced indicating optimization towards more efficient tunneling??? eher weglassen...
+	For both interfaces the respective barrier is larger for the hole as compared to the electron contact. The optimization yielded minimum $\rho_c$ values of $\approx 50 ~\textrm{m}\upOmega\textrm{cm}^2$ for the electron and $\approx 130 ~\textrm{m}\upOmega\textrm{cm}^2$ for the hole contact. For the hole contact this represents a reduction of $\rho_{c}$ by $\approx 40 ~\%_{abs}$ during this work.
+	\item While $\rho_{c}$ of simple metal/doped a-Si:H/c-Si contacts are stable beyond 400°C annealing, %it could be shown that % it could be shown here that the, also was hier aufgezählt wird, sind ja die ergebnisse...
+	a-Si:H($i$) and TCO limit the thermal stability of $\rho_{c}$ to temperatures below 200 °C. In case of the TCO it is limited by the TCO/a-Si:H interface and not by the TCO bulk.
+	\item For a-Si:H, there is an optimal dopant concentration with respect to $\rho_c$, which is determined by the balance between sufficient dopant supply and dopant-induced defect formation that lowers the doping efficiency. 
+	\item Regarding TCO doping, higher $N_{TCO}$ is always beneficial for transport at the electron contact, and in most cases also for the hole contact. At the hole contact, deteriorated band alignment for very high $N_{TCO} > 7.0 \times 10^{20} ~\textrm{cm}^{-3}$ impedes transport if $E_{a,a-Si:H(p)}$ is restricted to $\ge 220 ~\textrm{meV}$.
+	%\item For both investigated TCOs, AZO and ITO, $\rho_c$ increased and showed lower thermal stability upon annealing with increasing O$_2$ content, independently of the a-Si:H doping polarity. %naja nicht ganz für lochkontakt...
+	\item $\rho_c$ for AZO can be as low as or even lower than for ITO. The trends are dominated by $N_{TCO}$ and not the zinc oxide or tin oxide nature of the two TCOs. Fundamentally the TCO/a-Si:H contact always yielded higher $\rho_{c}$ compared to the metal/a-Si:H contact. %e-contact 100% lower and h-contact 200%
+	\item With TCO layer stacks (high doping at the interfaces and low bulk doping) electrical and optical properties can be decoupled to some extent.
+	\item A porous, void-rich a-Si:H($i$) at the c-Si surface is vital to prevent epitaxial growth but is also the main contributor to a-Si:H($i$)-induced resistive losses for both electron and hole contact. %An a-Si:H(i1) buffer with graded structural propertied is an effective means to balance this trade-off.
+	\item Improving transport by tuning the structural properties ($R^*$) and thickness of the porous interfacial a-Si:H($i$1) (almost) always results in a worse surface passivation, but a gain in $\eta$ is still possible by proper fine-tuning of the deposition parameters.
+	\item To balance passivation and transport $R^*$ and the thickness of the interfacial a-Si:H($i$1) should be as low as possible, without inducing epitaxial growth. Enough hydrogen must be provided (here in form of an HPT) at the a-Si:H/c-Si interface to keep the interface defect density low and to not impair the surface passivation. % jedoch starker tradeoff mit passivierung, hilft passivierung schadet transport nicht, wenn R* klein genug/bulk conductivity groß genug, 
+\end{itemize}
+
+Fig. \ref{fig:banddiagram-p-MPP-summary} shows once more the band diagram of the SHJ hole contact. 
+TCO requirements are driven by optical and electrical constraints, and the trade-off between transport and surface passivation determines the requirements for a-Si:H(i).
+In both cases multilayer stacks, as illustrated in Fig. \ref{fig:banddiagram-p-MPP-summary}, are an effective means to satisfy these demands and to engineer such heterojunctions towards better opto-electronic properties. 
+
+This work represents an important contribution to increasing the efficiency of the SHJ baseline at Fraunhofer ISE due to reduced transport losses and deepens the understanding that will enable future optimization. 
+
+
+
+
+%The results presented allow further fine-tuning of the hole and electron contact. 
+%Thus, it seems there is still some room for improvement,% but state-of-the-art SHJ are close to the optimum regarding the trade-off between surface passivation and transport.
+
+
+
+%Based on these findings, the following guidelines to optimize transport in SHJs can be derived:
+%\begin{enumerate}[label=\textbf{\Roman*}]
+%	\item Use the optimum doping for a-Si:H that gives the lowest $E_a$/highest $N_{a-Si:H}$. %(rhoc and increase due to TCO was lowest at the same doping concentration!)
+%	%	\item lowest asi thickness possible...thickness hier nicht wirklich untersucht...
+%	\item Choose the TCO with lowest O$_2$ content/highest $N_{TCO}$ and acceptable optical properties for most efficient transport at the electron contact and the hole contact. Effects of impeded work function matching for very high $N_{TCO} > 7.0 \times 10^{20} ~\textrm{cm}^{-3}$ at the hole contact are small and negligible in most cases. Use a TCO layer stack if necessary.
+%	%\item use optimum Ne regarding transport/rhoc for hole contact,  aber kein starkes optimum, im zweifel Ne hochdrehen!
+%	\item $R^*$ and the thickness of the interfacial a-Si:H(i1) should be as low as possible, without inducing epitaxial growth. Provide enough hydrogen at the a-Si:H/c-Si interface to keep the interface defect density low and to not impair the surface passivation. % jedoch starker tradeoff mit passivierung, hilft passivierung schadet transport nicht, wenn R* klein genug/bulk conductivity groß genug, 
+%\end{enumerate}
+%Guidelines \textbf{I} and \textbf{II} are quite straightforward. Within \textbf{II} fine-tuning for the hole contact is possible. %auf TCO stack eingehen...
+%Guideline \textbf{III} might give the most room for improvement regarding transport with respect to already refined state-of-the-art SHJ solar cells, but it is limited by the strong trade-off between transport and surface passivation.
+
+%With respect to the research question \textbf{B} motivated in the introduction about the link between transport and passivation in SHJ solar cells, it can be stated
+%%The specific research question for Chapter \ref{chap:SHJ} was: Is there a fundamental link between passivation and transport in SHJ cells? Considering the presented results, it can be stated 
+%that these two properties are indeed fundamentally linked via the a-Si:H/c-Si interface state density and the ability of the i-layer to screen the defective doped a-Si:H from charge carriers in the c-Si absorber. This makes the improvement in transport without impairing the passivation extremely difficult. Basically, the a-Si:H(i) bulk conductivity (and the effective contact area determined by the a-Si:H(i) surface coverage/void-density) has to be increased by adjusting the thickness and microstructure without while keeping the density of states at the a-Si:H/c-Si interface low. Here this could apparently be achieved through a prolonged HPT.  %daher muss transport pfad so tailored werden, dass low-defective interface okay.
+%%- gain in Rs ohne verlust in pFF/Voc kaum möglich, provide enough H for defect passivation and reduce bulk resistivity be going to the minimum thickness and maximum density (minimum $R^*$)
+%%- entweder gains in Rs groesser als loss in pFF/Voc wie hier gezeigt 
+%Since the optimization of SHJ is usually focused(nicht schreiben!) on the surface passivation, it could be shown in this thesis that $\eta$ could be further improved if small passivation losses are tolerated and overcompensated for by improved transport. 
+%The presented results allow for further fine-tuning of the hole and the electron contact. 
+%Thus, it seems there is still some small room for improvement, but state-of-the-art SHJ are close to the optimum regarding the trade-off between surface passivation and transport. %(vor allem für e-contact kaum möglichkeiten zur verbesserung...)
+
+%vorher alles mit bullet points, die etwas länger sind, guidelines raus...HPT muss dann noch erwähnt werden und rhoc bzw eta werte aufzählen..
+
+%hier als abschließende worte unter bullet points: anforderungen für die verschiedenen schichten können nicht mit einzelschnichten erfüllt werden (TCO optik, elektrik), i-layer (transport, passi), multilayer stacks sind nötig um eigenschaften zu entkoppeln.., as shown in fig. banddiagramm mit stakcs...
+
+
+
+\begin{figure}[htp]
+	\centering{
+		\begin{minipage}[b]{0.7\textwidth}
+			\centering
+			\subfloat[\textbf{(a) SHJ}  \label{fig:banddiagram-p-MPP-summary}] {\includegraphics[width=\textwidth]{images/Summary/pTSHJ-BD_MPP-summary}}
+		\end{minipage}
+		\par\bigskip % force a bit of vertical whitespace
+		\begin{minipage}[b]{0.7\textwidth}
+			\centering
+			\subfloat[\textbf{(b) SiTJ} \label{fig:band-diagram-TJ-summary}] {\includegraphics[width=\textwidth]{images/Summary/band-diagram-TJ-summary}}
+		\end{minipage}
+	}
+	\caption[Band diagrams of the two different thin film heterojunction stacks investigated in this thesis]{Band diagrams of the two different thin film heterojunction stacks investigated in this thesis. (a) SHJ with multilayer TCO and a-Si:H($i$) and (b) poly-SiTJ with diffusion blocking interlayer (DBI). The resistance contribution of the critical junctions within each stack is shown as a series connection above.}
+	\label{fig:band-diagramms-summary}
+\end{figure}
+
+
+
+\paragraph*{SiTJ and TOPerc}
+%Toperc nur kurz, fokus auf SiTJ! auch wenn TOPERc kapitel grundlage für siTJ darstellt, fokus war hier auf SiTJ!!
+
+
+
+
+
+%industrial feasible hervorheben, passivating contact hervorheben?
+
+%design constraints für TOPerc bzw SiTJ hier dann auch in stichworten auflisten?
+%- low rhoc zu wafer, FA oder HNO3 oxid mit gewissem Trtp nötig
+%- surface passivaiton, mit FA gut direkt nach feuern (hängt aber auch von Temp und genauem prozess ab), ohne FA hydro nötig
+%- low rhoc zu pero oder TCO, HF dip nötig!!
+%- low resistive SiTJ by preventing interdiffusion, mölgich mit niedrigem T oder C-alloying bzw DBI
+
+Research objective \textbf{C} to design and realize a process sequence for a low-resistive poly-SiTJ as recombination junction for perovskite/Si tandem solar cells, compatible with the mainstream PERC technology, was addressed in Chapters \ref{chap:Towards-Tandem} and \ref{chap:TJ}. 
+For that, in this work the so-called TOPerc concept was developed, which replaces the diffused phosphorous emitter of PERC by a full-area passivating poly-Si($n^+$)/SiO$_x$ contact (TOPCon) as an upgrade for application in a perovskite/Si tandem solar cell.
+In this multilayer stack (Fig. \ref{fig:band-diagram-TJ-summary}) the poly-Si($n^+$) forms the SiTJ ($\rho_{TJ}$) together with the poly-Si($p^+$) on the one hand and the passivating contact to the c-Si absorber ($\rho_{Si}$) together with the SiO$_x$ on the other hand. 
+The high potential of the TOPerc approach could be shown in large-area proof-of-concept solar cells, providing a high $V_{oc}$ of 691 mV and a low $R_s$ of $0.7 ~\upOmega\textrm{cm}^2$.
+%was ist das engeneering problem für siTJ wie gezeigt  in banddiagramm?? dort sollte eindiffusion in wafer noch dargestellt werden!
+%
+%dann diff trade off beschreiben...
+%
+%$N$ must be high in p+ and n+ poly-Si and in c-Si(n) in the vincinity of the surface for a low-resistive majority carrier transport. 
+%This requires a post-dep treatment with sufficient thermal budget to activate dopants in both poly-Si layers, for a shallow in-diffusion into c-Si, and to modify the SiOx/c-Si interface (e.g. formation of pinholes,... ). The thermal budget is also necessary to modify the Siox/cSi interface for a low interface state density for good passivation.. 
+%
+%
+%However, a low-resistive SiTJ requires in addition to high $N$ on both sides a very narrow depletion width, i.e. an abrupt transition from p- to n-type doping. Therefore parasitic dopant interdiffusion at the p+/n+ interface must be prevented.
+%als bullet points:
+%- high N in all layers..
+%- 2 wie bisher auch..
+%- narrow depletion width, abrupt dopant transition at SiTJ interface
+
+As identified throughout this thesis, the SiTJ TOPerc concept evokes several basic requirements. Low recombination at the c-Si surface (i.e., a high quality SiO$_x$) and a shallow dopant diffusion tail in the c-Si absorber must be ensured for good bottom cell surface passivation. 
+For low-resistive carrier transport a sufficiently high charge carrier concentration $N$ in both doped poly-Si layers as well as in the c-Si absorber in the vicinity of the surface (c-Si diffusion tail) and a sufficiently permeable SiO$_x$ are required.
+Further, an abrupt transition from $p$- to $n$-type doping at the poly-Si($p^+$/$n^+$) interface, i.e., a steep junction is necessary for a low-resistive SiTJ. %(Therefore parasitic dopant interdiffusion at the p+/n+ interface must be prevented.)
+
+
+%nimmt dann die punkte vorweg, macht also eigentlich keinen sinn hier, außer man verzichtet auf die buellet points: which are mainly based on controlling and balancing the dopant activation, dopant inter-diffusion and SiOx interface oxide quality for this p/n/SiOx/n layer stack.
+
+%\begin{enumerate}[label=\textbf{\arabic*}]
+%	\item A low recombination at the c-Si surface (i.e., a high quality SiO$_x$) and a shallow dopant diffusion tail in the c-Si absorber for good bottom cell surface passivation. %qualität des oxids auch durch thermisches budget bestimmt, wird durch FA nochmal besser!!
+%	\item A sufficiently high charge carrier concentration $N$ in both doped poly-Si layers as well as in the c-Si absorber in the vicinity of the surface (cSi diffusion tail) and a sufficiently permeable SiO$_x$ for a low-resistive carrier transport.
+%	\item An abrupt transition from $p$- to $n$-type doping at the poly-Si($p^+$/$n^+$) interface for a low-resistive SiTJ. %(Therefore parasitic dopant interdiffusion at the p+/n+ interface must be prevented.)
+%\end{enumerate}%Eventuell einfach ausschreiben, auf requirements wird nämlich nicht wirklich verwiesen..höchstens dann in der abbildung...
+%bullet points, was durch thermal budget erreicht werden muss: %bietet sich nicht an, es so zu machen!
+%- high N via dopant acitaviton und diff
+%- high quality Siox via modifikaiton (aber wie sehen die aus...)
+%- narrow depl. width --> einfach nicht zu lange heiß machen..
+%Further, the basic design constraints to realize low $\rho_{c}$ and high passivation quality with the leaner and thus industrially preferable process route without the FA (RTP-only) were elaborated.
+
+
+
+It was demonstrated that for structures exposed to a single thermal treatment (process routes RTP-only and FA-only) a conflict of interest regarding the thermal budget exists between the activation of dopants ($T_{RTP} \ge 700~\textrm{°C}$), the low-resistive contact formation to the c-Si absorber ($T_{RTP} > 900~\textrm{°C}$) and the avoidance of unwanted dopant interdiffusion for an abrupt SiTJ interface ($T_{RTP} < 900~\textrm{°C}$). %The post-deposition thermal budget necessary to meet the requirements was shown to depend on the carbon content within the poly-Si layers and the nature of the SiO$_x$. %ist dieser satz hier nötig/passend? könnt eventeull auch weggelassen werden...
+%The above described trade-off between transport and passivation was most pronounced for the most lean process applying one  final single thermal treatment (RTP-only) to form the TJ and contact to the absorber on one process.
+Strategies to circumvent this trade-off identified in the thesis where
+\begin{enumerate}[label=\textbf{\alph*}]
+	\item an additional thermal treatment for the poly-Si($n^+$)/SiO$_x$/c-Si($n$) contact prior to Si($p^+$) deposition. % to form a low-resistive contact to the absorber (low $\rho_{Si}$). 
+	\item proper engineering of the Si($p^+$) and Si($n^+$) layers and their interface during deposition, as well as the SiO$_x$ properties in such a way that parasitic interdiffusion at the $p^+$/$n^+$ SiTJ is suppressed while a efficient contact to the absorber is formed.
+\end{enumerate}
+
+In case \textbf{a} the additonal furnace anneal (FA) ensures a low-resistive contact to the absorber (low $\rho_{Si}$) and the second and final thermal treatment (RTP) can be optimized solely in terms of forming the $p^+$/$n^+$ SiTJ contact ($\rho_{TJ}$). 
+Moreover, the less steep temperature ramps of the FA compared to the RTP help to ensure good surface passivation.
+Further, a hydrogenation step after RTP was demonstrated to effectively reduce defects at the SiO$_x$/c-Si interface (as in regular TOPCon structures \cite{Feldmann.PhD}).
+
+
+%mit wet-chemical SiOx fällt aktivierung der dotierstoffe und modification of SiOx/formation of low-resistive conact to absorber in ähnliche/gleiche T-bereiche, also kein tradeoff mehr..
+%The post-deposition thermal budget necessary to meet the requirements was shown to depend on the C content within the poly-Si layers and the nature/stoichiometry of the SiO$_x$. 
+%formation of a low-resistive poly-Si/SiOx contact requires a certain thermal budget, depending on the oxide stoichiometry (and poly-Si(Cx) carbon content), lower oxygen content in SiOx and C- content in poly-Si beneficial for contact formation
+%carbon-free poly-Si and less-stoichiometric wet-chemical SiOx required
+The lean process of a single thermal treatment (RTP-only) in case \textbf{b} 
+could be realized by utilizing a more permeable wet-chemical (HNO$_3$) Si oxide instead of a dense, stoichiometric thermally grown Si oxide. 
+This made the thermal budget for contact formation to the absorber ($700~\textrm{°C} <T_{RTP} < 900~\textrm{°C}$) compatible with the thermal budget required to avoid interdiffusion at the SiTJ interface, and the trade-off could be circumvented in this case.
+%Moreover, for the lean process route of RTP-only an hydrogenation step after or an hydrogen source during RTP is mandatory to obtain good surface passivation (i$V_{oc} > 710 ~\textrm{mV}$ as compared to i$V_{oc} \le 625 ~\textrm{mV}$ without hydrogenation). 
+%Meeting the design constraints, $\rho_{c} < 30 ~\textrm{m}\upOmega\textrm{cm}^2$ and i$V_{oc} > 710 ~\textrm{mV}$ after hydrogenation were obtained with the lean process route of RTP-only.
+%In contrast to the SHJ..eher weglassen, da bei SHJ ja auch curing usw bei 200 °C, beeinflusst ja auch in gewissen maße die eigenschaften...
+%im gegensatz zu SHJ is hier nicht alles durch as dep gegeben, sondern kann/muss durch thermisches budget nach dep eingestellt werden. 
+%In analogy to the SHJ, but instead of replacing a single layer with a multilayer stack as discussed above, the post-deposition thermal budget for the SiTJ structure was split into two processes (one before and one after Si($p^+$) deposition, process route FA+RTP) to achieve optimal device performance. 
+%The less steep temperature ramps of the FA compared to the RTP helped to ensure good surface passivation. %(via rearrangements at the interface during annealing for high quality SiOx?). 
+%Further, a hydrogenation step after RTP was demonstrated to effectively reduce defects at the SiO$_x$/c-Si interface (as in regular TOPCon structures \cite{Feldmann.PhD}). 
+%The transport at the SiTJ was found to correlate strongly with the charge carrier concentration $N$ on either side of the junction and the transition between both oppositely doped regions, determining the junction's depletion width. %steht schon in requirements..
+%%%%%%%%No negative differential resistance region was observed in the $J-V$ characteristic, indicating that charge carrier transport across the SiTJ was mainly facilitated by defect states at the interface (trap-assisted tunneling). 
+%Parastic dopant interdiffusion deteriorated the transport by lowering $N$ on both sides and increasing the depletion width. 
+%ist schon als requirement 4 oben gelistet: Thus, to realize TOPerc with a SiTJ interconnection, not only good contact formation to the wafer and a high surface passivation quality has to be ensured. Additionally, interdiffusion of dopants at the SiTJ interface has to be kept to a minimum.  
+%steht schon oben:
+%Low-resistive and passivating SiTJ-TOPerc contact stacks were obtained, when the RTP peak temperature $T_{RTP}$ was kept below 900 °C but high enough to activate dopants within poly-Si(p$^+$) ($T_{RTP} > 700 ~\textrm{°C}$) and to ensure good contact formation to the wafer in the case of process route RTP-only ($T_{RTP} > 700 ~\textrm{°C}$ with HNO$_3$ oxide).
+To make the SiTJ compatible also with higher $T_{RTP} > 900 ~\textrm{°C}$ by reducing parasitic dopant interdiffusion at these temperatures, two approaches have been successfully investigated and applied. Namely, C-alloying of the poly-Si layers and/or utilizing a diffusion blocking interlayer (DBI) at the SiTJ interface. % (C-alloying vorteilhaft da höherer Rsheet...)...
+
+
+For process route FA+RTP, $\rho_{c}$ as low as $\approx 10 ~\textrm{m}\upOmega\textrm{cm}^2$ and i$V_{oc}$ as high as 726 mV after hydrogenation have been achieved for the whole stack of poly-Si($p^+$/$n^+$)/SiO$_x$/c-Si. And even for the lean RTP-only process route low contact resistivity ($\rho_c \approx 30 ~\textrm{m}\upOmega\textrm{cm}^2$) and high surface passivation quality (i$V_{oc} = 711 ~\textrm{mV}$) was obtained. Efficent transport and surface passivation could be transferred for both process routes in proof-of-concept solar cells.
+
+This work lays the foundation for the implementation of PERC-like Si bottom cells %at Fraunhofer ISE and for the research community 
+by replacing the diffused emitter with a full-area passivating front contact. 
+With respect to the poly-SiTJ, an industrially feasible TCO-free sub-cell interconnection was presented as a basis for future work on the realization of large-area perovskite/Si tandem solar cells. 
+
+%wo sollen diese ergebnisse hin?? hier überhaupt erwähnen? ganz am Ende wahrscheinlich, zusammen mi tanderen zellergebnissen
+%Finally, the high potential of the TOPerc approach could be shown in proof-of-concept solar cells, providing a high $V_{oc}$ of 691 mV and a low $R_s$ of $0.7 ~\upOmega\textrm{cm}^2$.
+
+
+%mit TCo ohne SiTJ dann einfach hier gar nicht erwähnen, passt nicht...
+%wenn nicht SiTJ sondern mit TCO wird das Problem auch entkoppelt...eine anforderung weniger.., auf kosten eines anderen  prozesses..andere anlage...hier nicht diskutieren ob TCO oder SiTJ besser!!
+
+%4 research objectives mit TOPerc ohne siTJ extra? nee, ABC reicht so!
+
+
+
+
+%alternative summary:
+%During TOPerc development, four requirements were found to be met:
+%\begin{enumerate}[label=\textbf{\arabic*}]
+%	\item Sufficient thermal budget for a low-resistive front side contact formation to the absorber (activation of dopants, modification of the SiOx/c-Si interface,...)
+%	\item Low state density at the c-Si surface (high quality SiOx) %qualität des oxids auch durch thermisches budget bestimmt, wird durch FA nochmal besser!!
+%	for good front side surface passivation
+%	\item Removal of resistive Si oxide for a low-resistive contact formation to the TCO respectively the top cell's selective contact
+%	\item Prevention of parasitic dopant interdiffusion for a low-resistive SiTJ
+%\end{enumerate}
+%
+%
+%Requirements \textbf{1}-\textbf{3} are mandatory for TOPerc in general, while requirement \textbf{4} is an additional design constraints if TOPerc is combined with a SiTJ as recombination junction between both subcells. 
+
+%Two possible process routes were discussed. With a furnace anneal (FA) prior to the RTP (FA+RTP), requirements \textbf{1} and \textbf{2} can be met directly after RTP, without the need of an additional hydrogenation step. $\rho_{c} < 10 ~\textrm{m}\upOmega\textrm{cm}^2$ and i$V_{oc} > 720 ~\textrm{mV}$ at 1 sun illumination were obtained. A single-sided HF treatment after RTP and prior to TCO or perovskite processing is critical to meet requirement \textbf{3}. 
+%
+%Further, the basic design constraints to realize low $\rho_{c}$ and high passivation quality with the leaner and thus industrially preferable process route without the FA (RTP-only) were elaborated. 
+%For good front side contact formation with a single fast thermal treatment, a wet-chemical (HNO$_3$) oxide was found to be superior compared to a dense, stoichiometric thermally grown Si oxide. Moreover, for the lean process route of RTP-only an hydrogenation step after or an hydrogen source during RTP is mandatory to obtain good surface passivation (i$V_{oc} > 710 ~\textrm{mV}$ as compared to i$V_{oc} \le 625 ~\textrm{mV}$ without hydrogenation). Meeting the design constraints, $\rho_{c} < 30 ~\textrm{m}\upOmega\textrm{cm}^2$ and i$V_{oc} > 710 ~\textrm{mV}$ after hydrogenation were obtained with the lean process route of RTP-only.
+%Finally, the high potential of the TOPerc approach could be shown in proof-of-concept solar cells, providing a high $V_{oc}$ of 691 mV and a low $R_s$ of $0.7 ~\upOmega\textrm{cm}^2$.
+%
+%The transport at the SiTJ was found to correlate strongly with the charge carrier concentration $N$ on either side of the junction and the transition between both oppositely doped regions, determining the junction's depletion width. 
+%No negative differential resistance region was observed, indicating that charge carrier transport across the SiTJ is mainly facilitated by defect states at the interface (trap-assisted tunneling). 
+%
+%Parastic dopant interdiffusion deteriorated the transport by lowering $N$ on both sides and increasing the depletion width. 
+%%ist schon als requirement 4 oben gelistet: Thus, to realize TOPerc with a SiTJ interconnection, not only good contact formation to the wafer and a high surface passivation quality has to be ensured. Additionally, interdiffusion of dopants at the SiTJ interface has to be kept to a minimum.  
+%Low-resistive and passivating SiTJ-TOPerc contact stacks were obtained, when the RTP peak temperature $T_{RTP}$ was kept below 900 °C but high enough to activate dopants within poly-Si(p$^+$) ($T_{RTP} > 700 ~\textrm{°C}$) and to ensure good contact formation to the wafer in the case of process route RTP-only ($T_{RTP} > 700 ~\textrm{°C}$ with HNO$_3$ oxide). To make the SiTJ compatible also with higher $T_{RTP} > 900 ~\textrm{°C}$ by reducing parasitic dopant interdiffusion at these temperatures (requirement \textbf{4}), two approaches have been successfully investigated and applied. Namely, C-alloying of the poly-Si layers and/or utilizing a diffusion blocking interlayer (DBI) at the SiTJ. % (C-alloying vorteilhaft da höherer Rsheet...)...
+%For route FA+RTP $\rho_{c}$ for the full stack of poly-Si(p$^+$)/poly-Si(n$^+$)/SiO$_x$/c-Si as low as $\approx 10 ~\textrm{m}\upOmega\textrm{cm}^2$ and i$V_{oc}$ as high as 726 mV after hydrogenation have been achieved. And even for the lean RTP-only process route low contact resistivity ($\rho_c \approx 30 ~\textrm{m}\upOmega\textrm{cm}^2$) and high surface passivation quality (i$V_{oc} = 711 ~\textrm{mV}$) was obtained. These results could be transferred for both studied process routes in proof-of-concept Si single junction solar cells.
+
+%TEM ergebnisse hier oder in chapter summary 7.5 bringen? in 7.5 erwähnt, dass es gemacht wurde...
+
+\section{Ongoing investigations and outlook}
+
+\paragraph*{SHJ}
+
+
+%uc-si wachsen für bessere optik und transport, mit C oder O alloying? wohl hier rauslassen!
+
+%further finetuning possible at hole contact, triple stacks, gradient layers, however, it has to be evaluated critical if triple stacks are sinvoll für industrielle anwendung, dort überhaupt umsetzbar, insgesamt reporduzierbarkeit limitiert bei 1s prozessen...taktzeiten zu hoch, benefit zu klein?
+The results presented above allow further fine-tuning of the contact formation in SHJ solar cells. Regarding the a-Si:H/c-Si junction further refinement of the intrinsic layer stack might be possible, i.e., triple or quadruple layer stacks or so-called gradient layers, where parameters like the H$_2$ dilution are gradually changed during a-Si:H deposition \cite{Lee.2018}. However, one should consider the industrial feasibility of such approaches with respect to throughput. Is the benefit (improved cell efficiency) high enough to allow for potentially lower cycle times?
+
+%finetuning also at electron contact, lower rhoc necessary if less tco used... current investigation of direct SP Ag/aSi contact...
+%- less or indium-free SHJ.. Cu plating to reduce Ag consumption/and sP does not work on aSi directly (durch diesen grund ist das auch relevant für die arbeit hier!)
+%anstieg Ag preis durch corona erwähnen!!
+%- cite Geissbühler 2011 und phd thesis for copper plating...
+A hot topic regarding SHJ is the reduction of expensive and/or rare consumables like \ac{In} and Ag. Aside using an In-free TCO like AZO, the TCO thickness could also be reduced to save In and to make SHJ cells more economically attractive. This has interesting implications on transport, as more lateral transport is shifted to the Si wafer, which is only efficient for good coupling of the TCO and the c-Si via low $\rho_c$ \cite{Haschke.2020}. Complete omission of the TCO is also possible in the rear emitter design with respect to transport, i.e., the c-Si wafer can support the lateral transport at the front side. However, this requires very low $\rho_{c}$ at the metal/doped a-Si:H interface and, as recent results from our research group show, this is a major problem for screen-printed Ag %\cite{martin. Sipv21, Leo?eupvsec21}
+and in part also for evaporated Ag. % \cite{martin sipv21?}
+Thus, other metallization concepts are required, e.g., Ag sputtering or \ac{Cu} plating. The latter is coming more into focus with the strongly increased Ag price in the last year (2020) \cite{Heraeus.2020}. 
+
+%-light soaking and its effect on transport/rhoc..
+Another interesting aspect that could not be covered in this thesis is the so-called light soaking effect of SHJ, i.e., the light-induced improvement of $V_{oc}$, $FF$ and $R_s$ \cite{Moldovan.2020,Cattin.2021}. In particular, its effects on the transport properties of SHJ, which are not yet fully understood, are of interest in the context of the present work.
+
+
+\paragraph*{SiTJ and TOPerc}
+
+%outlook...SiTJ
+
+%transport mechanism studied at lower temps?
+Temperature-dependent $J-V$ measurements of SiTJ structures might give further insight to the transport mechanisms at play. For example Feldmann \textit{et al.} could show for TOPCon that the dominant transport mechanism is temperature-dependent and changes in the temperature range of $114-350 ~\textrm{K}$ %can be described properly with the metal-insulator-semiconductor (MIS) theory if tunneling of charge carriers through the silicon oxide layer is taken into account 
+\cite{Feldmann.2018}. Since the here presented SiTJ is based on the poly-Si/SiO$_x$ contact (TOPCon), this temperature range is also expected to be critical to study transport mechanisms of the poly-SiTJ. Unfortunately measurements at such low temperatures were not possible in this thesis. 
+
+%reverse TJ für nip structure? eher rauslassen...
+%In the presented work, the passivating poly-Si/SiO$_x$ contact was always n-type with the poly-Si(p$^+$) layer on top to form the SiTJ, as this matches with the currently preffered n-i-p configuration of the perovskite top cell. Nevertheless, also the reverse poly-Si(n$^+$)/poly-Si(p$^+$)/SiO$_x$/c-Si structure could be realized. In principle all requirements worked out here and stated above should also hold true for this reverse structure. However, as reported several times ...\cite{.15.06.202021.08.2020}, the poly-Si(p$^+$)/SiO$_x$ contact is inferioer to the poly-Si(n$^+$)/SIo$_x$ contact in both contact resistance and surface passivation. This will be directly transferred to the passivating SiTJ. Especially the firing stability/stability against an RTP has to be tested for p-TOPCon. 
+
+
+%evaporated HTLs nötig für TJ, hybrid route läuft an am ISE...
+More ongoing research is based on the results stated above. Since this thesis focused on the Si side of the tandem device, the next step is to connect the SiTJ to the perovskite sub-cell. As mentioned in Section \ref{sec:tandem-results}, applying a spin-coated HTL on top of the poly-Si is very difficult. However, a so-called hybrid route with a evaporated HTL and a hybrid perovskite absorber sequentially deposited via thermal evaporation and spin-coating 
+is more and more used in perovskite solar cell processing (e.g., in Refs. \cite{Werner.2018,Sahli.2018b,Schulze.2020b}). It enables the growth of the perovskite cell on top of non-planar surfaces, like the typically random-pyramid textured surface of Si solar cell. This approach was already succesfully applied on a textured, low-temperature micro-crystalline p$^+$/n$^+$ SiTJ by Sahli \textit{et al.} \cite{Sahli.2018b} and is currently also a research focus at Fraunhofer ISE \cite{Schulze.2020b}. 
+
+%combine SiTJ and TOPErc, large area pero processes missing...
+Industrial tandem solar cells with a TOPerc bottom cell rely on large-area perovskite processing, which is generally the main issue and the biggest hurdle for perovskite photovoltaics on the way to industrial production \cite{Cojocaru.2020}. 
+On the Si side, SiTJ TOPerc bottom cells could be realized by following the process routes developed in this thesis. 
+However, the TOPerc bottom cell can be further improved, e.g., via adapting the local Al BSF at the rear side to the requirements in tandem solar cells. As an example, as higher $R_s$ is tolerable in a tandem device as compared to a single junction (see Fig. \ref{fig:Rs-power-loss}), the LCO pitch could be increased to further improved the passivation quality and thus the bottom cell's $V_{oc}$. 
+
+%auch noch textured front erwähnen? noch mehr arbeit nötig um das gut hinzubekommen...textured front wird schon im absatz vorher für pero angesprochen, passt also so!
+
+
+%The mentioned results encourage further effort to test the performance limit of passivating contacts featuring TCO electrodes. Due to the new in-sights obtained about the sputter-induced damage and how to cope with it, both a-Si:H and poly-Si based contact structures are currently engineered towards a further reduction of the SiTF thickness. For both-side poly-Si based contacts one major limitation so far was the passivation quality at the p-type contact. Here progress was made recently, which enables a de-tailed benchmarking of the SHJ and poly-Si / SiOx technology in the near future. Regarding the contact formation, in this work the focus was more on the TCO / SiTF interface (considered as more critical), while the metal / TCO contact was only partly addressed within the TCO development, see e.g. [124]. However, the combination of hydrogenated TCOs and industrial met-allization (TCO deposition ? screen printing of metal pastes ? tempera-ture treatment combining passivation recovery, TCO anneal-ing / crystallization and paste sintering) lacks more structured investigation. The minimization of the water / hydrogen partial pressure, as was done in
+%section 5.4, is considered important here [116]. Furthermore, an oxygen-poor TCO interlayer towards the metal fingers was applied for SHJ cells, but its benefit concerning the contact resistivity was not separately studied so far.
+%Since low resistivity TCOs allow the reduction of the film´s thickness with-out considerably impairing the cell´s Rs, SHJ cells with thinner ITO front side layer were fabricated recently. In order to still ensure anti-reflection prop-erties, TiOx was evaporated on top after metallization and indeed the cell performance improved due to the lower parasitic absorption within the TiOx / ITO stack. Further, promising optical spectra were measured14 for TiOx films fabricated via low-temperature spray coating, a low-cost deposition method performed in ambient air [204]. Combined with thin ITO films (~20 -25 nm) on the front side of SHJ cells, conversion efficiencies compa-rable to the reference comprising ITO layers only (75 nm thick) could be demonstrated recently [205].
+%On the one hand, the usage of thinner TCO films allows to reduce the mate-rial (indium) consumption and to increase the deposition throughput. On the other hand, these dielectric capping layers are promising for solving the difficulties encountered when performing the solid phase crystallization (SPC) of high mobility TCOs in air. Moreover, even though poly-In2O3:Ce,H (3 wt.% CeO2) layers with large crystal grains (~?m) were fabricated via DC sputtering followed by SPC, the transfer of the fabrication of films with ? > 100 cm²/Vs to DC sputtering is still pending. For this, a target with opti-mized material composition, In2O3:CeO2 (98.5:1.5 wt.%) has been ordered for a DC sputter coater. Further, the development of sintering processes to fabricate a rotatable target from this material is part of ongoing work.
+%Apart from this, Si-perovskite tandem solar cells gained lots of attention within the last years and the sensitive perovskite top cell typically also comprises a TCO front electrode. Here an ITO sputter process was devel-oped15, which does not degrade the perovskite cell [206]. However, the more detailed understanding of the interaction of these devices with the sputter-process requires further investigation. Regarding the optimization of the electro-optical TCO properties, the boundary conditions differ from the Si single-junction cells, mainly due to the reduced current density dur-ing operation, mitigating the influence of Rs, and the lower temperature
+%14The spray-coating processes were developed by Ulrike Heitmann and Leonie Jakob, both co-workers within the author´s department.
+%15The ITO sputter process for application on perovskite cells was developed in a collaboration between the author and Alexander Bett, a co-worker within the author´s department.
+%152 9.2 Ongoing investigations and outlook
+%stability (< ~100°C). Hence, the knowledge obtained in this work about the TCO implementation in Si based contacts is currently transferred to the application as front electrode in Si-perovskite (tandem) solar cells.
+
+
+
+
+\clearpage
+
+

@@ -1,0 +1,442 @@
+\chapter{Technology}
+\label{chap:technology}
+
+\textit{In this chapter the basic technology used for the fabrication of the test structures and solar cells is presented. Further, the experimental details for the results shown in Chapters \ref{chap:SHJ}, \ref{chap:Towards-Tandem} and \ref{chap:TJ} are given.}
+
+
+\section{PECVD}
+
+%Indeotec und AK400 bzw cPLASMA...
+%muss man schreiben, wer prozesse entwickelt hat...?
+
+%For more detailed information about the cluster tool it is referred to Ref. [22] and for the process conditions to Ref. [102].
+
+
+%Plasma-enhanced chemical vapor deposition (PECVD) is a wide-spread deposition
+%technology in the PV industry for realizing dielectric passivation layers, antireflection
+%coatings, or a-Si:H/c-Si heterojunctions. 
+
+
+In plasma-enhanced chemical vapor deposition (PECVD) atoms from different precursor gases form a solid thin film at a substrate's surface. For that, the precursor gases are led in a vacuum chamber where energy is supplied to dissociated the molecules and to activate chemical reactions. The radicals then diffuse to the surface and eventually deposit there. The energy for dissociation is provided by a plasma source. This allows for lower temperatures compared to conventionally thermal CVD. 
+In the following the basic principle of the deposition method is briefly
+outlined. For a very comprehensive overview of the fundamental physics of plasmas the
+reader is referred to Ref. \cite{Lieberman.2005}.
+
+The plasma was ignited and maintained %generated
+by a high-frequency electric field between two electrodes.
+%The first electrode of the HF generator is the substrate holder which is powered by 108 mW/cm2 with a frequency of 13.56 MHz while the second electrode is the vacuum chamber itself (grounded). %bei Ak400, auch bei anderen Anlagen? Nein! cPLASMA nutz 40 kHz plasma source!!! cite steinhauser.2018, wie ist es bei der indeotec?? anlagen im text erwähnen!!
+A weakly ionized, non-equilibrium plasma was utilized. The former means that the density of ionized particles was much smaller than the overall gas density. The latter refers to the much higher energy and temperature of the electrons as compared to the ions, as light electrons respond much more strongly to the alternating field compared to heavy ions \cite{Lieberman.2005}.
+%Some of the fast-moving electrons are collected by the electrodes, leading to a electron depopulation/mangel in the vincinty of the electrodes. This region is referred to as plasma sheath. It forces the electrons traveling toward the walls back into the plasma and thus acts as a confining potential on the electrons. Conversely, ions in the vincinity ot the sheath are accelareted towards the electrodes and thus towards the substrate \cite{Lieberman.2005}. %thereby influencing the film growth...
+
+Radicals undergo reactions in the gas-phase as well as surface reactions once diffused to the substrate's surface. The deposition rate is determined by the competing reaction mechanisms of adsorption and desorption, which are in turn influenced by the concentration and energy distribution of the reactants \cite{Lieberman.2005}. 
+Regarding adsorption it can be differentiated between physisorption (weak attractive van der Waals force between a molecule and a surface) and chemisorption (formation of a chemical bond between the atom or molecule and the surface) \cite{Lieberman.2005}. Desorption is the reverse reaction to adsorption. %matsuda.2004 hier zitierbar? 
+%wie Leo:For further reading, a very comprehensive introduction to such ?glow discharge processes? can be found in [90].
+%For further reading, a very comprehensive overview to such "plasma discharge processes" can be found in Ref. \cite{Lieberman.2005}.
+
+
+The deposition of a-Si:H for the SHJ technology was carried out at substrate temperatures of 200 °C at the Octopus II PECVD tool from INDEOtec. 
+%Already existing baseline processes were partly altered/adapted by the author, mainly for the hole contact as described in Section \ref{sec:aSi-cSi}.
+In contrast to that, the a-Si:H deposition for the poly-Si/SiO$_x$ and SiTJ technology was carried out at substrate temperatures between 280 and 450 °C at the AK400 tool from Roth\&Rau and at an industrial-scale centrotherm cPLASMA tube furnace parallel plate PECVD tool (hereafter cPLASMA). %wie beeinflusst das a-Si:H growth? AK400 aSi dichter, weil höhere diffsuionsenergie and er oberfläche? Was ist temperatur für cPLASMA? drücke angeben? AK400 pressure of 0.3 hPa. 
+%cPLASMA aSi(np) für 200390: T=300 °C (real ungefähr =set, da 15 min aufheizzeit vor process), P=1200 W, p=1630 mTorr = 2.17 hPa, 400 sccm Ar, 1 slm SiH4, 650 sccm PH3, 850 sccm H2. conc PH3 und b2h6 ist 1 %, PH3/SiH4 = 0.0065, PH3/total fluss = 0.0026
+%cPLASMA aSi(p), delta=high: T=450 °C (real ungefähr =set, da 15 min aufheizzeit vor process), P=1100/5/50 W (warum 3 Leistungen aber nur zwei schichten?), p=1770 mTorr = 2.36 hPa, 400 sccm Ar, 500 sccm SiH4 + 3slm H2 (aSi(i)) bzw. 1 slm H2 und 2 slm B2H6 (aSi(p)).
+For intrinsic a-Si:H deposition only \ac{SiH4} and \acp{H2} were used as precursor gases. Diborane (B$_2$H$_6$), trimethylborane (TMB) and phosphine (PH$_3$), all diluted in hydrogen, served as sources for boron and phosphorus doping, respectively.
+
+Carbon (C) alloying was achieved with adding methane (CH$_4$) to the gas mixture. The processes for the deposition of silicon-rich a-SiC$_x$:H for the C-alloyed SiTJ in Section \ref{sec:carbon} were conducted in the so-called silane-starving low plasma power density regime \cite{Solomon.1988}. In this regime, the SiH$_4$ flow is low so that all SiH$_4$ molecules are decomposed by the plasma \cite{Pereyra.1996}.
+As higher plasma power densities would be necessary for CH$_4$ dissociation, CH$_4$ is decomposed via chemical reactions with SiH$_4$ radicals \cite{Solomon.1988}. Thus, the deposition rate is mainly determined by the SiH$_4$ gas flow fed into the plasma and the C content of the a-SiC$_x$:H layers can be easily controlled via the CH$_4$ to SiH$_4$ gas flow ratio $\gamma$. %\footnotemark\footnotetext{Note that doping can influence the C content of the film, e.g., boron can increase the Si-C bond density \cite{Feldmann.PhD}. %frank zitiert uthanna.1991, dort aber noch nicht die richtige stelle gefunden...}
+In the following C-alloyed films are labeled with the respective $\gamma$ value to distinguish different C contents. 
+
+%It should
+%be noted that doping can have an effect on the C fraction of the film. In particular
+%boron is known to increase the Si-C bond density [114] but as can be seen from the
+%FTIR spectra in Figure 4.2a) the effect was small when using ???????? = 278 °C. Furthermore,
+%doping influences the hydrogen content in the film. It seems like that boron
+%promotes the formation of monohydratic bonds (e.g. Si-H) as it was observed for ion
+%implanted a-Si1-xCx:H films [115]. From Figure 4.2b) one can readily see that a higher
+%substrate temperature (378 °C) reduced the hydrogen incorporation. However, at
+%such a high temperature the addition of boron promoted the incorporation of C significantly.
+
+ 
+
+%bis hier ist eigener text...
+
+
+
+
+
+
+
+%The a-Si1-xCx:H(i) films were deposited from the precursor gases silane (SiH4),
+%methane (CH4), and hydrogen (H2). Phosphine (PH3) diluted in H2 and diborane
+%(B2H6) diluted in H2 were added to the gas phase to realize n-type and p-type films,
+%respectively. Due to the higher activation energy for the decomposition of CH4 than
+%that of SiH4 two plasma power density regimes can be distinguished. While the high
+%power plasma process decomposes both SiH4 and CH4 molecules, the low plasma
+%power process operates underneath the activation threshold of CH4 and thus only
+%decomposes SiH4. Compared to the high power plasma regime the deposition process
+%is more controlled and the deposition rate is lower. The deposition process4 used in
+%this work was a so-called silane-starving low plasma power process which combines
+%a low power plasma with a low SiH4 flow so that the SiH4 molecules are completely
+%decomposed by the plasma [113]. Since there is no primary decomposition of CH4 by
+%the plasma the incorporation of C into the film requires a chemical reaction of CH4
+%with the decomposed SiH4-species. The low SiH4 flow is thus the main driver of the
+%chemical reaction and controls the deposition rate. This process offers the advantage
+%that the C fraction of the a-Si1-xCx films can be easily controlled by the CH4 flux
+%without the need to adjust other process parameters. Hence, throughout this work the
+
+
+
+%4 The basic recipe of this process was developed by Dr. M. Künle for the realization
+%of Si quantum dot structures and then transferred to TOPCon by the author of this
+%work. Bachelor student T. Unmüssig investigated the influence of various process
+%parameters on the hydrogen incorporation and studied the associated phenomenon
+%of blistering in more detail.
+
+
+%CH4 gas flux was adjusted to produce Si-rich a-Si1-xCx films of different composition.
+%The films are labelled by the methane/silane ratio g used during deposition. It should
+%be noted that doping can have an effect on the C fraction of the film. In particular
+%boron is known to increase the Si-C bond density [114] but as can be seen from the
+%FTIR spectra in Figure 4.2a) the effect was small when using ???????? = 278 °C. Furthermore,
+%doping influences the hydrogen content in the film. It seems like that boron
+%promotes the formation of monohydratic bonds (e.g. Si-H) as it was observed for ion
+%implanted a-Si1-xCx:H films [115]. From Figure 4.2b) one can readily see that a higher
+%substrate temperature (378 °C) reduced the hydrogen incorporation. However, at
+%such a high temperature the addition of boron promoted the incorporation of C significantly.
+
+
+
+
+
+
+
+
+%
+%
+%In the following the basic principle of the plasma process is briefly
+%outlined and for a detailed discussion of the fundamental physics of plasmas the
+%reader is kindly referred to Ref. [111]. 
+%
+%
+%As the average path
+%length of the electrons is much larger some of them may be collected by the electrodes
+%thereby leading to a depopulation of the electrons in the vicinity of the electrodes
+%which is referred to as the plasma sheath. 
+%For an asymmetric capacitor configuration
+%the smaller electrode collects more electrons and becomes negatively charged
+%when isolated by a blocking capacitor. This leads to a time-averaged potential drop
+%between the electrodes (DC bias) of which the drop is largest across the plasma
+%sheath. Thus, positively charged ions in the vicinity of the sheath are accelerated by
+%the electric field and bombard the substrate thereby influencing the film growth (e.g.
+%knock-out of hydrogen). 
+%
+%
+%
+%The geometry of the AK400M PECVD reactor that was used in this work is displayed in Figure 3.1.
+%
+%Samples are loaded onto a heated substrate plate in a vacuum vessel and the reaction gases are introduced into the chamber. The plasma can be generated by a capacitive driven high-frequency (HF) source or by two microwave antennas, however, only the former was used for the depositions in this work.  The strong alternating electric field accelerates charged particles of the precursor gases, leading to impact ionization and dissociation of molecules and atoms such that a plasma state is achieved. Usually the plasma is only weakly ionized, meaning that the density of ionized particles is much smaller than the overall gas density. Additionally, the plasma is quasi-neutral. However, due to the higher mobility of electrons they respond much more to the alternating field compared to heavy ions. 
+%
+%
+%
+%
+%
+
+
+
+
+
+\section{SHJ process routine}
+
+
+%\begin{figure}[htp] 
+%	\centering
+%	\includegraphics[width=0.55\linewidth]{images/SHJ/SHJ-structures}
+%	\caption[CV Messung an einer LSMO-Dünnschicht]{i variation raus, metal grau, Prozessfluss noch wie für TJ darstellen..., siehe bivour phd. fig. 3.1, planare SE, FTIR Proben fehlen noch...}
+%	\label{fig:SHJ-structures}
+%\end{figure}
+
+
+\begin{figure}[hb]
+%	\centering{
+		\begin{minipage}[c]{0.7\textwidth} %c bedeuted dass minipages vertikal mittig angeordnet werden, alternativ gibt es t und b für top oder bottom alignment, wobei das hier nicht wirklich passt...
+			\centering
+			\begin{minipage}{0.45\linewidth}
+					\subfloat[\textbf{(a)}  \label{fig:SHJ-cells}] {\includegraphics[width=\textwidth]{images/Technology/SHJ-cells}}
+			\end{minipage}
+			\hfill
+			\begin{minipage}{0.45\linewidth}
+				\subfloat[\textbf{(b)}  \label{fig:SHJ-rhoc}] {\includegraphics[width=\textwidth]{images/Technology/SHJ-rhoc}}
+			\end{minipage} \\
+			\par\bigskip % force a bit of vertical whitespace
+			\begin{minipage}{0.45\linewidth}
+				\subfloat[\textbf{(c)}  \label{fig:SHJ-lifetime}] {\includegraphics[width=\textwidth]{images/Technology/SHJ-lifetime}}
+			\end{minipage}
+			\hfill
+			\begin{minipage}{0.25\linewidth}
+				\subfloat[  \label{fig:SHJ-legend}] {\includegraphics[width=\textwidth]{images/Technology/SHJ-legend}}
+			\end{minipage}
+		\end{minipage}	
+		\hfill
+		\begin{minipage}[c]{0.23\textwidth}
+		%	\centering
+	%	\par\bigskip % force a bit of vertical whitespace
+			\subfloat[\textbf{(d)}  \label{fig:SHJ-processes}] {\includegraphics[width=\textwidth]{images/Technology/SHJ-processes}}
+		\end{minipage}	
+%	}
+	\caption[SHJ process flow and sample structures]{SHJ process flow and sample structures. (a) Solar cells, (b) hole contact resistance test structures, (c) lifetime test structures, (d) process flow.}
+	\label{fig:SHJ-structures}
+\end{figure}
+
+
+
+%noch auf process route eingehen auf figure.. d) verweisen?
+
+In Fig. \ref{fig:SHJ-structures} the basic process route and sketches of utilized solar cells and test structures are depicted.
+%txt prozesse erwähnen!! sdr txt cleaning...
+%curing in belt furnace ist heißluftofen, konvektions curing, kein optisches heizen
+%\paragraph*{Solar cells}
+SHJ solar cells with an active area of $2\times2 ~\textrm{cm}^2$ were fabricated on random pyramid textured $180 ~\upmu \textrm{m}$ thick $1 ~\upOmega\textrm{cm}$  $n$-type c-Si wafers (Fig. \ref{fig:SHJ-cells}). After an RCA cleaning procedure \cite{Kern.1970}, doped
+and intrinsic a-Si:H layers were deposited via \ac{PECVD}, with the hole-contact at the rear and the electron contact at the front (rear emitter design). Then, the TCO\footnotemark\footnotetext{For an excellent and very recent overview on sputtered TCOs for solar cell application it is referred to the doctoral thesis of Leonard Tutsch \cite{Tutsch.PhD}, a colleague within the author's research group.} is applied on both sides via sputter deposition using $2.1 \times 2.1 ~\textrm{cm}^2$ shadow masks. The metallization of the cells was realized via
+screen printing (SP) of an \ac{Ag} paste cured at $200 ~\textrm{°C}$ for $10 ~\textrm{min}$ in
+a belt furnace.
+
+
+%leo in metrology: J-V characteristics of completed solar cells were evaluated at 25°C using a solar simulator under AM1.5 and 100 mWcm?2 illumination, calibrated with a reference cell. From the obtained J-V curves, Voc, Jsc, FF and finally ? were extracted to describe the solar cell operation.
+
+
+
+
+%\paragraph*{Resistance test structures}
+Resistance test structures for the electron (hole) contact were
+fabricated on random pyramid textured 180 (230) $\upmu \textrm{m}$ thick $1 ~\upOmega\textrm{cm}$ $n$-type ($p$-type) \ac{FZ} silicon wafers and received the same a-Si:H depositions parameters as the solar cells (Fig. \ref{fig:SHJ-rhoc}). Only the thickness of the doped a-Si:H layers was slightly thinner on cell level ($\approx 9 ~\textrm{nm}$) as compared to the resistance test structures ($\approx12 ~\textrm{nm}$).
+On the rear side, a
+$\approx 16 ~\textrm{nm}$ thick doped a-Si:H layer capped with a stack of TiPdAg
+(33/33/667 nm) served as low-ohmic rear contact. For the contacts to be investigated on the front side, stacks of intrinsic
+a-Si:H ($\approx 6 ~\textrm{nm}$) and doped a-Si:H ($\approx 12 ~\textrm{nm}$) have been deposited
+and contacted either by a TCO or a metal electrode. Structuring
+of sputtered TCO (70 nm) and electron-beam evaporated
+TiPdAg at the front (33/33/2400 nm) was realized using shadow
+masks ($2.2 \times 2.2 ~\textrm{cm}^2$ windows for ITO and $2.0 \times 2.0 ~\textrm{cm}^2$ windows
+for TiPdAg). It is worth mentioning that different metallization
+techniques have also been tested, namely, thermally
+evaporated TiPdAg and screen-printed \ac{Ag}, and very similar
+results were obtained (not shown).\footnotemark\footnotetext{With screen-printed Ag only TCO could be contacted well, direct contact to a-Si:H led to very high $\rho_c > 10^4 ~\textrm{m}\upOmega\textrm{cm}^2$.} %The reason for that is currently under investigation, e.g. in cite leo eupvsec21, martin sipv21...
+Two-terminal dark $J-V$ measurements were
+performed on a WAVELABS Sinus-220 sun simulator by covering
+the sample with a black blanket during the measurement. Resistance values were extracted by means of curve fitting at zero voltage and c-Si bulk and rear contact contributions were subtracted from the total resistance to obtain $\rho_c$ for the front contact. 
+Subsequent consecutive thermal treatments were performed on
+a Präzitherm hotplate in air for 10 min each.
+
+
+%\paragraph*{Lifetime test structures} 
+Lifetime samples received the same a-Si:H depositions parameters as the solar cells (Fig. \ref{fig:SHJ-lifetime}). They were co-processed with resistance test structures and received therefore slightly thicker doped a-Si:H layers ($\approx12 ~\textrm{nm}$ as compared to $\approx 9 ~\textrm{nm}$ on cell level).
+%\paragraph*{...}
+Planar $200 ~\upmu \textrm{m}$ thick $1 ~\upOmega\textrm{cm}$ $n$-type \ac{FZ} silicon wafers were used for spectroscopic ellipsometry (SE) measurements and infrared spectroscopy to characterize the a-Si:H layer properties (not shown).%dicke meist nicht angepasst auf plan, da parallel du txt abscheidung...
+%bisher nicht gezeigt in figure 3.1...
+
+
+%TCO/aSi paper:
+
+Structures containing a-Si:H layers with different doping concentrations, as investigated in Section \ref{sec:TCO doping}, were fabricated via changing the dopant gas flow during PECVD. The total gas flow of pure hydrogen and dopant gas diluted in hydrogen was fixed for all groups, as well as all other deposition parameters. The deposition time was adapted to reach a comparable layer thickness. For the \ac{ITO} and \ac{AZO} doping variation the O$_2$ gas flow was varied during DC magnetron sputter deposition at ~100 °C with target compositions of In$_2$O$_3$:SnO$_2$ ($90:10 ~\textrm{wt}\%$) and ZnO:Al$_2$O$_3$ ($98:2 ~\textrm{wt}\%$). The O$_2$ content in the sputtering gas, defined as the ratio of O$_2$ gas flow to the total gas flow, was in the range of 0 to $5.4 ~\%$ for ITO and between 0 and $1.2 ~\%$ for AZO. TCO layer properties were obtained from Hall Effect measurements using the van der Pauw's method for films on glass substrates. Tungsten oxide (WO$_x$) layers were deposited by evaporation of a stoichiometric WO$_3$ powder ($\textrm{purity} > 99.99 ~\%$). 
+
+
+%i-layer mod paper:
+For the intrinsic a-Si:H multilayers in Section \ref{sec:aSi-cSi}, the deposition parameters like power density, pressure and H$_2$ dilution (ratio $R$ of H$_2$ to total gas flow) were varied as depicted in Tab. \ref{tab:i1-i2}. The intrinsic a-Si:H stack was formed by the deposition of two a-Si:H layers and a hydrogen plasma treatment (HPT) was used to further modify the properties of the first layer and of the a-Si:H/c-Si interface (i1 + HPT + i2). %The a-Si:H(i) layer properties and microstructure was studied via spectroscopic ellipsometry and Fourier-transformed infrared spectroscopy (FTIR).
+
+
+
+%All the thicknesses indicated above are related to film thickness on planar substrate, the actual thicknesses on the textured substrate are expected to be lower by the geometric factor of ?1.7. 
+
+
+
+%\footnotemark\footnotetext{TCO window area was increased to $2.2 \times 2.2 ~\textrm{cm}^2$ for resistance test structures to allow easier alignment of metal and TCO windows using shadow masks.}
+
+
+
+\begin{table}[htp]
+	\centering
+	\renewcommand{\arraystretch}{1.0}
+	\begin{tabular}{|c|c|c|c|c|c|}
+		\toprule \textbf{Process} & \textbf{SiH$_4$}  & \textbf{H$_2$}  &  \boldmath{$R$} & \textbf{Press.} & \textbf{Pow. dens.} \\ 
+		 & \textbf{(sccm)} & \textbf{(sccm)} & \textbf{(\%)} & \textbf{(mbar)} & \textbf{(mWcm$^{-2}$)}\\
+		\midrule a-Si:H($i$1) & $200-60$ & $0-140$ & $0-30$ & $1.6-2.2$ & $37.5-75$\\
+		\midrule a-Si:H($i$2) & $25$ & $800$ & $97$ & $2.2$ & $25$\\
+		\midrule HPT & $0$ & $500$ & $100$ & $3.5$ & $50$\\
+		\bottomrule
+	\end{tabular} 
+	\caption[Overview of the intrinsic a-Si:H process parameters]{Overview of the intrinsic a-Si:H process parameters.}
+	\label{tab:i1-i2}
+\end{table}
+%auch parameter für dotierte schichten angeben? im appendix? temperatur fehlt noch...
+
+
+
+
+
+
+%tabelle process parameter i1 i2 hpt hier oder in 5.3?
+
+
+
+\section{SiTJ process routes}\label{sec:routes-TJ}
+
+
+%2-3 Seiten, besser in chapter 3??
+%tabelle mit interlayer overview wie michaela??
+
+The different process routes for the TOPerc concept are depicted in Fig. \ref{fig:TJ-ReCo-routes}. The SiTJ presented in Chapter \ref{chap:TJ} was fabricated using either only a 10 min-annealing in a tube furnace ("FA-only"), only a rapid thermal process ("RTP-only") or both post-deposition thermal treatments ("FA+RTP"). For realizing cell interconnection with a TCO ("ReCo") instead of a SiTJ the process routes FA+RTP and RTP-only are equal to the SiTJ process routes, but the a-Si(C$_x$):H($p^+$) \textit{prior to} the RTP is replaced with sputtered TCO \textit{after} RTP. Fig. \ref{fig:TJ-structures} depicts sketches of utilized reference, SiTJ and ReCo test structures.%solarzellen erst in chap. 7.1, 
+
+\begin{figure}[ht] 
+	\centering
+	%\includegraphics[width=0.45\linewidth]{images/TJ/TJ-routes}
+	\includegraphics[width=0.9\linewidth]{images/Technology/TJ-ReCo-routes}
+	\caption[Different process routes for SiTJ and ReCo test structures]{Different process routes for SiTJ and ReCo test structures.}
+	\label{fig:TJ-ReCo-routes}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering{
+		\begin{minipage}[b]{0.28\textwidth}
+			\centering
+			\subfloat[\textbf{(a) reference}  \label{fig:reference}] {\includegraphics[width=\textwidth]{images/Technology/reference}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.28\textwidth}
+			\centering
+			\subfloat[\textbf{(b) SiTJ}  \label{fig:TJ-structures-J-V}] {\includegraphics[width=\textwidth]{images/Technology/TJ+interlayer}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.28\textwidth}
+			\centering
+			\subfloat[\textbf{(c) ReCo}  \label{fig:ReCo}] {\includegraphics[width=\textwidth]{images/Technology/ReCo}}
+		\end{minipage}
+	}
+	\caption[SiTJ and ReCo test structures for dark $J-V$ measurements]{SiTJ and ReCo test structures for dark $J-V$ measurements. Sister samples without metal were used for QSSPC and ECV measurements. Colors correspond to the processes in Fig. \ref{fig:TJ-ReCo-routes}.} 
+	\label{fig:TJ-structures}
+\end{figure}
+
+
+
+$200 ~\upmu\textrm{m}$ thick planar <100> oriented $1 ~\upOmega\textrm{cm}$ $n$-type \ac{FZ} silicon wafers were used as a substrate. After an RCA clean, an 1.2 nm thin tunnel
+oxide layer was thermally grown in a furnace at 600 °C for 10 min.
+For the RTP-only route the thermally grown Si tunnel oxide was replaced during the course of this thesis by a 1.1 nm thin wet-chemically grown oxide using \ac{HNO3}, as discussed in the text.
+Subsequently, 20-50 nm thick \ac{P}-doped Si layers were deposited
+on both sides via \ac{PECVD}, yielding a symmetrical a-Si:H($n^+$)/ SiO$_x$/c-Si($n$)/SiO$_x$/a-Si:H($n^+$)
+structure. Such structures served as references for SiTJ structures to evaluate the contact formation to the c-Si substrate and are referred to as $n$-TOPCon.
+Three different sets of deposition parameters were used,
+resulting in three different active \ac{P} concentrations of $\approx 2.0 \times 10^{20} ~\textrm{cm}^{-3}$, $\approx 1.0 \times 10^{20} ~\textrm{cm}^{-3}$ and $\approx 8 \times 10^{19} ~\textrm{cm}^{-3}$ within the poly-Si($n^+$) layer after the \ac{FA}. The three different P concentrations within poly-Si($n^+$) layers are referred to as $\delta$ = high, medium and low, respectively. %tabelle mit prozessparametern? aus 190156, PO9 und 190277
+% $\delta$ oder ähnliches für P doping..., entweder auch ph3 zu sih4 mit verdünnung für ph3 beachten! oder einfach $\delta_\textrm{high}$, $\delta_\textrm{medium}$ (PO9) und $\delta_\textrm{low}$ (AK400) (oder nur low im ECV weil dünner?) 
+Samples of route FA+RTP received the \ac{FA} in a
+tube furnace at 900 °C for 10 min prior to single-sided deposition of a 20 nm thick \ac{B}-doped
+a-Si:H layer. Samples of route FA-only received the same FA but after a-Si:H($p^+$) deposition. 
+ 
+For Section \ref{sec:carbon} \ac{CH4} gas was introduced in the reactor chamber during PECVD, yielding carbon-alloyed a-SiC$_x$:H($n^+$) or a-SiC$_x$:H($p^+$) with the \ac{C} content denoted by $\gamma$, the ratio of \ac{CH4} to \ac{SiH4} gas flow. SiTJs comprising such C-alloyed doped layers are referred to as $p$C/$n$ SiTJ, $p$/$n$C SiTJ or $p$C/$n$C SiTJ, respectively. Standard SiTJs without C-alloying are thus called $p$/$n$ SiTJ. Analogously, poly-SiC$_x$($n^+$)/SiO$_x$ references without Si($p^+$) layer are referred to as $n$C-TOPCon.
+
+The deposition of a \ac{DBI} directly before a-Si:H($p^+$) deposition is optional for all process routes. Several DBIs were tested, including SiO$_x$ grown either thermally, wet-chemically or via \ac{ALD}, further ALD SiN$_x$ and B-doped PECVD SiC$_x$. %An overview of the different DBIs is given in Tab. \ref{tab:DBIs}. Tabelle raus, zu viele Prozessdetails, geheim halten
+Their performance is discussed in Section \ref{sec:diffusion-interlayer}. 
+Finally, the samples were exposed to a rapid thermal annealing
+process (RTP) with peak plateau temperatures $T_{RTP}$ and times $t_{RTP}$ in the range of 700 to $950 ~\textrm{°C}$ and 1 to $60 ~\textrm{s}$, respectively. 
+
+
+
+
+
+%wenn pC layer hier (Sic1) dann auch in chap 7 erwähnen!
+%in fußnote jeweils erwähnen, wer den Prozess entwickelt hat? ALD Christian reichel, SiC Künle? hno3, TO, keine ahnung!
+%\begin{table}[htp]
+%	\centering
+%	\renewcommand{\arraystretch}{1.0}
+%	\begin{tabular}{|c|l|c|}
+%		\toprule \textbf{Notation}  & \textbf{Process details}  &  \textbf{Thickness}  \\ 
+%		& & \textbf{(nm)} \\
+%		%\midrule SiC1 & $T = 500 ~\textrm{°C}$, $t = 0:30 ~\textrm{min}$ & 6\\
+%		%& gases: 10 sccm SiH$_4$, 5 sccm CH$_4$, & \\  
+%		%& 100 sccm B$_2$H$_6$:H$_2$ & \\
+%		\midrule SiC & PECVD & 6\\
+%		& $T = 400 ~\textrm{°C}$, $t = 0:29 ~\textrm{min}$ &  \\  
+%		& gases: 7 sccm SiH$_4$, 60 sccm CH$_4$, &  \\  
+%			& 100 sccm B$_2$H$_6$:H$_2$ & \\
+%		\midrule TO1 & thermal oxidation & 1.2\\
+%		  & $T = 600 ~\textrm{°C}$, $t = 10 ~\textrm{min}$ &  \\ 
+%		 & gases: 3 slm O$_2$, 7 slm N$_2$ &  \\ 
+%		\midrule TO2 & thermal oxidation & 1.3\\
+%		& $T = 600 ~\textrm{°C}$, $t = 10 ~\textrm{min}$ &  \\ 
+%		& gases: 10 slm O$_2$, 0 slm N$_2$ &  \\ 
+%		\midrule HNO$_3$ & wet-chemical oxidation & 1.1\\
+%		& $T = 110 ~\textrm{°C}$, $t = 10 ~\textrm{min}$ &  \\ 
+%		& in liquid HNO$_3$ &  \\ 
+%		\midrule SiO1 & ALD & 0.8\\
+%		& $T = 230 ~\textrm{°C}$, $t = 11 ~\textrm{min}$, $\textrm{cycles} = 3$  &  \\ 
+%		& gases: BDEASi, O$_2$  &  \\ 
+%		\midrule SiO2 & ALD & 1.5\\
+%		& $T = 230 ~\textrm{°C}$, $t = 11 ~\textrm{min}$, $\textrm{cycles} = 10$ &  \\ 
+%		& gases: BDEASi, O$_2$ &  \\ 
+%		\midrule SiN1 & ALD & 0.8\\
+%		& $T = 230 ~\textrm{°C}$, $t = 15 ~\textrm{min}$, $\textrm{cycles} = 16$ &  \\
+%		& gases: BDEASi, N$_2$ &  \\  
+%		\midrule SiN2 & ALD & 1.5\\
+%		& $T = 230 ~\textrm{°C}$, $t = 15 ~\textrm{min}$, $\textrm{cycles} = 55$ &  \\ 
+%		& gases: BDEASi, N$_2$ &  \\  
+%		\bottomrule
+%	\end{tabular} 
+%	\caption[Overview of the utilized diffusion blocking interlayers]{Overview of the utilized diffusion blocking interlayers. Temperatures $T$ are set temperatures and thicknesses depicted here are nominal thicknesses.}
+%	\label{tab:DBIs}
+%\end{table}
+%prozessparameter für poly-Si schichten fehlen...sollen auch besser geheim gehalten werden? diese TAbelle mit interlayern ist eigentlich nicht sehr wichtig...fliegt raus!
+
+%\ac{ECV} was measured with a ...tool. 
+
+Selected samples received a re-hydrogenation process step after RTP, consisting of either 20 nm ALD Al$_2$O$_3$ deposition and subsequent hotplate annealing at 425 °C for 25 min or an \ac{RPHP} with a thermal budget of 400 °C for 30 min \cite{Lindekugel.2008}. The passivation quality was measured after each process step via \ac{QSSPC} using a WCT-120 lifetime tester from Sinton Instruments. % or via \ac{QSSPL} with a in-house built setup \cite{Giesecke.2012}.%so zitiert in feldmann.phd
+
+
+To assess the contact resistivity $\rho_c$
+of the SiTJ, ReCo and references structures without TCO or poly-Si($p^+$) via dark $J-V$ measurements (Fig. \ref{fig:TJ-structures}), a stack of Ti/Pd/Ag was thermally evaporated on both
+sides of the samples, which were cleaved into square $0.5 \times 0.5 ~\textrm{cm}^2$ pieces using a dicing saw. %DISCO DAD3350 dicing saw
+%and the $J-V$ characteristic of the whole structure was measured.
+
+
+
+%Dopant depth profiles were measured with time of flight secondary-ion mass spectroscopy (ToF-SIMS) and the electrochemical capacitance-voltage (ECV) method and the Si thin film microstructure was recorded using transmission electron microscopy (TEM).
+
+
+
+\section{Post-deposition thermal treatments}\label{sec:thermal-treatments}
+
+%SHS10, nähere Infos bei Armin?
+
+
+%aus leo diss:
+%Thermal treatments in air were performed on a conventional hotplate with top cover. Together with a sufficient preheating time, a spatially and temporally homogeneous temperature profile was ensured. The tempera-ture values stated in the text correspond to setting values and the effective sample temperature can be up to 5°C lower.
+
+\paragraph*{SHJ}
+
+Post-deposition thermal treatments for the SHJ structures were performed on a Präzitherm hotplate in air for 10 min each. During annealing of the samples on dummy wafers the top cover of the hotplate was closed. Depicted annealing temperatures throughout this thesis represent set temperatures. Due to a sufficient pre-heating time %wie leo geschrieben, waren immer so 3 min mindestens...
+of the hotplate and dummy wafer, the actual sample temperature was expected to agree within 5 K with the set values, but was not measured. The same holds true for the curing of the screen-printed \ac{Ag} paste in a belt furnace in air directly after screen printing. 
+%erwähnen, dass erst bei 200 Grad für 1 min getrocknet?
+
+
+%diesen teil dann wohl bei thermal treatments!
+\paragraph*{SiTJ}
+
+
+\begin{figure}[t] 
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/Technology/SHS10-profile}
+	\caption[Temperature profile for an RTP in the SHS10]{Set and actual sample temperature profile for an RTP in the SHS10. The actual temperature profile of the sample is sketched, since the readout of the measured profiles on the SHS10 was not possible.}
+	\label{fig:SHS10-profile}
+\end{figure}
+
+
+For the \ac{RTP} of poly-Si/SiO$_x$ passivating contacts and SiTJ structures an optically heated SHS10 from A.S.T. was used. The processes were tested to be also compatible with an industrial fast-firing oven (FFO) from Rehm Thermal Systems
+used for TOPerc bottom cell fabrication in Chapter \ref{chap:Towards-Tandem}. Whereas the SHS10 allowed static single-wafer processing in a nitrogen-purged chamber, in the FFO samples were placed on a conveyor belt that passed through an optically heated area that was under ambient atmosphere. The actual sample temperature during an RTP depends on the sample structure like the surface morphology (planar or textured) and the thin film optical properties (e.g., anti-reflective coating). Therefore, for processing in the SHS10, preliminary tests with thermocouples were performed on test samples to measure the sample temperature during the process and to calibrate the optical heating system for different sample structures.
+Consequently, actual sample temperatures agreed within 20 K with the set RTP peak temperatures. This calibration was not possible for the FFO. Actual sample temperatures were therefore lower than set temperatures and can only be estimated. Colleagues of the author at Fraunofer ISE estimated an offset in set and actual temperature of $\approx 70-80 ~\textrm{K}$, which can be increased by another $\approx 40-50 ~\textrm{K}$ if the sample was not placed on the conveyor belt directly but on a dummy wafer instead. However, actual temperature will vary from sample to sample, therefore, for discussing results obtained with the FFO in Chapter \ref{chap:Towards-Tandem} only set temperatures will be used. Fig. \ref{fig:SHS10-profile} depicts an exemplary temperature profile in the SHS10 for an RTP with $T_{RTP} = 850 ~\textrm{°C}$. % 2 min abkühlen unter N2 fluss einzeichnen, erwähnen.. auch profile vom FFO zeigen?
+
+
+
+
+
+
+
+%\section{Metallisation (PVD (evaporation), screen printing)}
+%eher nicht nötig, braucht man nicht, um ergebnisse zu verstehen...
+
+

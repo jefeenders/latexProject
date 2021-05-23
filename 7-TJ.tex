@@ -1,0 +1,1151 @@
+\chapter{Poly-Si Tunneling Junction}
+\label{chap:TJ}
+
+
+%diss schnabel einarbeiten!! transport wohl über rekombination von ladungsträger an der grenzfläche...
+
+%RTP-only als eigenes kapitel nach prozessen mit FA? C-alloying und interlayer würde dann auch vorher kommen. interlayer für fired-only müsste man dann auf jeden fall diskutieren, aber letztlich aussage wie im paper, mit hno3 alles top, braucht keine interlayer...
+%nee, wohl so lassen...
+
+%25-30 Seiten
+
+%driving force einbauen als schöne formulierung :D
+
+
+%muss optik irgendwo mit rein oder könnte man es tatsächlich weglassen? was möglich wäre: n und k halb gemessen, halb berechnet wie michaela, alternativ Absorption aus T-R auf Si, also nur nicht relevante wellenlängen, dort aber FCA zu sehen...(das sollte man zumindest im Anhang zeigen...), quantitative Bewertung der optik hier nicht möglich!! sollte auch nicht schwerpunkt sein
+%optik mit C alloying kurz bei n only proben ansprechen? C oft eingesetzt gegen blistern, hier allerdings nicht nötig! C hätte aber eventuell optische vorteile, weniger kristallin, weniger FCA, das allerdings auf kosten des rhoc ... FCA kann nicht quantifiziert werden...UV-vis wird aktuell in chapter 6 ganz kurz erwähnt...passt so...
+
+\textit{In this chapter\footnotemark\footnotetext{This chapter is partly adapted from the author's publications \cite{Luderer.2019} (Section \ref{sec:TJ-APL}) and \cite{Luderer.2021b} (Section \ref{sec:diffusion-control}), in which the author conducted the experiments, interpreted the results, and wrote the manuscript. Section \ref{sec:diffusion-control} is also partly based on the master's thesis of Michaela Penn \cite{Penn.Master}, which was supervised by the author. M. Penn's main tasks were sample fabrication via PECVD, characterization and data analysis. The physical interpretation of the results was done in close collaboration with the author of this work.
+%The experiments were planned and guided by the author of this work and mainly conducted by M. Simon. M. Simon?s main tasks were characterization and data analysis. The physical interpretation of the results was done in close collaboration with the author of this work.
+The ToF-SIMS and TEM measurements were performed by Susanne Richter and Angelika Hähnel, respectively, at Fraunhofer CSP, but interpreted by the author.} a poly-Si based tunneling junction (SiTJ) compatible with the TOPerc concept is developed, that enables both low contact
+resistivity and a high surface passivation quality. In the first section, it is shown that the charge carrier profile of the SiTJ and the contact resistance are strongly affected by the applied thermal budget, consisting of a furnace anneal and/or a rapid thermal process, and the deposition parameters of the a-Si:H layers.
+%the influence of the post-deposition thermal budget on dopant diffusion, crystallization and its effect on transport in a SiTJ is investigated. 
+Parasitic dopant interdiffusion is identified as the major limiting factor for transport in the SiTJ.}
+
+\textit{Therefore, in the second section, two different approaches to reduce the dopant interdiffusion and thus the contact resistivity, without impairing the passivation quality, are presented.
+Both, carbon-alloying of poly-Si layers and the application of diffusion blocking interlayers are effective means to maintain a low contact resistivity at high process temperatures of up to $950 ~\textrm{°C}$.}
+
+\textit{Finally, the SiTJ is successfully integrated into solar cells.
+%Finally, the microstructure of the poly-SiTJ is briefly discussed
+Even for the lean and thus highly desirable process route with only a single rapid thermal treatment (RTP-only), low contact resistivity and good surface passivation can be transferred from test structures to device level.}
+
+
+%Problem: Motivation ist Optik, angeschaut wurde aber vor allem rhoc...
+
+
+
+%\section{Motivation: Low-resistive, transparent interconnection}\label{sec:motivation-TJ}
+%\section{Motivation}\label{sec:motivation-TJ}
+
+%~3-5 Seiten
+
+\begin{figure}[htp] 
+	\centering
+	\includegraphics[width=0.9\linewidth]{images/TJ/tandem-3-rhoc+n}
+	\caption[Sketch of a monolithic perovskite/Si tandem showing the different resistive contributions to the sub-cell interconnection]{Sketch of a monolithic perovskite/Si tandem showing the different resistive contributions to the sub-cell interconnection. On the right refractive indices $n$ at a wavelength of 700 nm for the two absorbers and the SiTJ are indicated.} 
+	\label{fig:tandem-3-rhoc+n}
+\end{figure}
+
+
+In order to profit from potential optical advantages \cite{Sahli.2017} %cite...
+and possible cost reduction \cite{Messmer.2020c}, as discussed in Section \ref{sec:tandems}, the electrical performance of the \ac{SiTJ} in a two-terminal tandem has to be as good as for TCO sub-cell interconnection. Thus, in this section the vertical transport in a SiTJ was investigated.
+Fig. \ref{fig:tandem-3-rhoc+n} sketches the connection of the Si bottom cell to the perovskite top cell via a poly-SiTJ. %\footnotemark\footnotetext{The arrangement of charge carrier selective contacts shown in Fig. \ref{fig:tandem-3-rhoc+n} is arbitrary but was chosen as in commonly used tandem devices since the p-i-n configuration of the perovskite top cell is advantageous over the n-i-p configuration.} %bastiani: dictated by the broadband transparency of the sunward contact stacks of the perovskite subcell. For this reason, at present, the p?i?n configuration (i.e., the ETL side is sunward) is preferred over its n?i?p counterpart in silicon/perovskite tandems.50
+%irgendwo erwähnen, das hier immer pin top zelle, prinzipiell aber auch für nip zelle möglich. wohl in fundamentals? 
+The total interconnection resistance comprises four different contributions from bottom to top: 
+\begin{itemize}
+	\item $\rho_{Si}$, the contact resistivity of the Si-ETL, here in form of a poly-Si($n^+$)/SiO$_x$ passivating contact, to the c-Si absorber
+	\item $\rho_{TJ}$, the resistivity of the $p^+$/$n^+$ poly-SiTJ
+	\item $\rho_{HTL}$, the contact resistivity between the top cell's HTL and the poly-Si($p^+$)
+	\item $\rho_{Pero}$, the contact resistivity of the top cell's HTL to the perovskite absorber. 
+\end{itemize}
+
+
+
+As a side note, it was attempted to extract meaningful resistance values for the direct Pero-HTL/Si-ETL connection by utilizing test structures comprising the HTL/ETL stack between a Si substrate and a metal contact (Appendix \ref{sec:SI}, Fig. \ref{fig:TMO-structures}). For the extracted $\rho_c$ values to be meaningful $R_t$ of the test structure should be dominated by the $\rho_c$ of interest. It could be seen, however, that $R_t$ of these structures depended strongly on the metal chosen for contact formation (Appendix \ref{sec:SI}, Fig. \ref{fig:TMOs}). Thus, $\rho_c$ extracted from these structures do not allow meaningful predictions of the contact formation on tandem cell level, when the metal contacts are replaced by the perovskite absorber.
+Since $\rho_{Pero}$ and $\rho_{HTL}$ will depend strongly on the perovskite top cell processes and thus are out of the scope of this thesis, the focus in the following is on $\rho_{TJ}$ and $\rho_{Si}$.
+
+
+
+%dass n-poly-Si ~ n-Si wurde gezeigt in Ma Penn für unsere schichten und natürlich noch in....Feldmann usw..., daher hier nicht gezeigt!
+
+
+%\subsection{Parasitic absorption}
+
+%\begin{figure}[htp] 
+%	\centering
+%	\includegraphics[width=0.55\linewidth]{images/TJ/alpha-sim+exp}
+%	\caption[CV Messung an einer LSMO-Dünnschicht]{....}
+%	\label{fig:alpha-calc}
+%\end{figure}
+
+%\begin{figure}[htp] 
+%	\centering
+%	\includegraphics[width=0.55\linewidth]{images/TJ/alpha-vs-ITO}
+%	\caption[CV Messung an einer LSMO-Dünnschicht]{....}
+%	\label{fig:alpha-vs-ITO}
+%\end{figure}
+
+
+
+
+\section{SiTJ performance for different process routes}\label{sec:TJ-APL}
+
+\subsection{Dopant depth profile}\label{sec:dopant-profiles}
+
+
+%könnte noch erwähnen, dass signal nach Si standards kalibriert wurde, aber nicht extakt durch zB C in poly-Si...nee, bei sims einfach nur original intensity plotten...
+
+
+
+%für sims primary ions nennen, also oxygen bzw caseum? nicht nötig, oder?
+\begin{figure}[htp]
+	\centering{
+		\begin{minipage}[b]{0.65\textwidth}
+			\centering
+			\subfloat[\textbf{(a)} \label{fig:SIMS-RTP-Temp}] {\includegraphics[width=\textwidth]{images/TJ/SIMS-RTP-temp}}
+		\end{minipage}
+		\par\bigskip % force a bit of vertical whitespace
+		\begin{minipage}[b]{0.65\textwidth}
+			\centering
+			\subfloat[\textbf{(b)} \label{fig:SIMS-doping}] {\includegraphics[width=\textwidth]{images/TJ/SIMS-ohne-FA-high-n-doping}}
+		\end{minipage}
+	}
+	\caption[ToF-SIMS dopant depth profiles for different post-deposition thermal treatments]{Dopant depth profiles, as measured with ToF-SIMS, for different post-deposition thermal treatments.  (a) Influence of $T_{RTP}$ on the P depth profile. (b) Comparison between RTP+FA and RTP-only and influence of higher PH$_3$ concentration $\delta$ during a-Si:H deposition.}
+	\label{fig:SIMS1}
+\end{figure}
+
+
+
+An abrupt transition of the differently doped layers, i.e., a steep junction is a necessary condition for a SiTJ. Dopant depth profiles of regular $p$/$n$ SiTJs using process route FA+RTP (Fig. \ref{fig:TJ-ReCo-routes}), as measured with \ac{ToF-SIMS}, for different post-deposition thermal treatments are shown in Fig. \ref{fig:SIMS-RTP-Temp}. The sample structure is depicted above. Without any post-deposition thermal treatment (neither FA nor RTP) a high and homogenous phosphorus (P) intensity was observed within the as-deposited a-Si:H($n^+$), which abruptly decreased to a very low level within the a-Si:H($p^+$) and c-Si. The asymmetry in the profile with a slightly lower slope for the tail at the a-Si:H($n^+$)/c-Si interface can be explained by P atoms driven due to the sputtering process during the measurement. 
+
+The diffusion of phosphorus into the absorber at the poly-Si($n^+$)/SiO$_x$/ c-Si($n$) interface, which supports the surface passivation \cite{Feldmann.2019}, was defined by the FA and hardly changed by the RTP.
+Thus, the P profiles within c-Si were very similar independent of $T_{RTP}$. 
+
+The P intensity in the poly-Si($p^+$) was increased significantly  with increasing $T_{RTP}$. %Please note that these samples were exposed to the \ac{FA} after a-Si:H(n$^+$) and prior to a-Si:H(p$^+$) deposition and RTP. 
+The P plateau within poly-Si($n^+$) was decreased accordingly with increasing $T_{RTP}$. Apparently, P diffused into the poly-Si($p^+$) region during the RTP with the strength of diffusion determined by the applied thermal budget. Similarly, boron (B) diffusion from the poly-Si($p^+$) into the poly-Si($n^+$) was enhanced at higher thermal budgets (not shown). At $T_{RTP}=900 ~\textrm{°C}$ the P intensity was similar in both $p$-type and $n$-type poly-Si and at $T_{RTP}=950 ~\textrm{°C}$ the P intensity was even higher in poly-Si($p^+$) compared to poly-Si($n^+$). %This could be explained with higher löslichkeit... of P in B environment...stimmt das?
+
+
+
+
+Prominent is the peak at the position of the thermally grown SiO$_x$ at the poly-Si/c-Si interface. It is known that SiO$_x$ is a diffusion barrier for P and that P piles up at such oxides \cite{Johannessen.1978,Schwarz.1981}, %eventuell noch source 19 aus Feldmann.2019
+which was also previously observed for TOPCon structures \cite{Feldmann.2019,Polzin.2020}.
+However, quantitative analysis of the peak at the poly-Si/SiO$_x$ interface is difficult due to the so-called SIMS matrix effect, which describes the enhancement of ion yield resulting from the presence of oxygen \cite{Deline.1978,Krohn.1962}. The increase in P signal toward the poly-Si/air interface is also likely due to this effect, as the poly-Si surface was oxidized during RTP. More importantly, a local maximum of the P signal was observed at the position of the SiTJ interface. This can be explained by a thin native SiO$_x$ present at this interface, despite an \ac{HF} treatment before a-Si:H($p^+$) deposition.
+%hier schon bringen, wie im paper?
+%The thin native oxide present at the SiTJ obviously could not provide sufficient dopant diffusion blocking, although a diffusion blocking behavior of the native SiOx was observed to some extent by comparing SiTJ deposited with and without vacuum break (not shown).
+
+Omitting the \ac{FA} after the deposition of the P- and
+prior to the B-doped a-Si:H layer (route RTP-only) resulted in a markedly higher P signal in the  poly-Si($n^+$) (Fig. \ref{fig:SIMS-doping}, blue vs. green data). The diffusion tail into the c-Si bulk was clearly reduced due to significantly decreased thermal budget of this sample.
+The thermal budget of the RTP, even at higher temperatures, was not high enough for pronounced diffusion through the SiO$_x$ into the c-Si bulk \cite{Feldmann.2019}. 
+
+By adapting the PECVD process, poly-Si($n^+$) layers with
+further increased P signal in the poly-Si($n^+$) could
+be obtained ($\delta = \textrm{high}$). However, after an RTP at $T_{RTP}=950 ~\textrm{°C}$, the P signal was similarly high in the poly-Si($p^+$) due to pronounced dopant interdiffusion (violet data).
+
+
+\begin{figure}[htp]
+	\centering{
+		\begin{minipage}[b]{0.65\textwidth}
+			\centering
+			\subfloat[\textbf{(a)} \label{fig:ECV-APL-RTP-temperature}] {\includegraphics[width=\textwidth]{images/TJ/ECV-APL-RTP-temperature}}
+		\end{minipage}
+		\par\bigskip % force a bit of vertical whitespace
+		\begin{minipage}[b]{0.65\textwidth}
+			\centering
+			\subfloat[\textbf{(b)} \label{fig:ECV-APL-doping}] {\includegraphics[width=\textwidth]{images/TJ/ECV-APL-doping}}
+		\end{minipage}
+	}
+	\caption[Active dopant depth profiles for different SiTJ structures]{(a) Active dopant depth profile, as measured with ECV, depending on $T_{RTP}$. (b) Impact of FA and higher P doping ($\delta = \textrm{high}$) with B overcompensation for a high RTP thermal budget. Non-tempered samples could not be measured with ECV, as not enough dopants were activated.}
+	\label{fig:ECV-APL}
+\end{figure}
+
+
+For device application not the total amount of dopants is important but the active dopant concentration.
+Without tempering no active dopant concentration could be detected with \ac{ECV}. An RTP with a peak temperature of $T_{RTP}=700$ °C and peak time $t_{RTP} = 5 ~\textrm{s}$ was the lowest thermal budget after which active $p$-type doping in the poly-Si($p^+$) could be measured with ECV (not shown). %If only p was not tempered, only the n layer was detected in ECV. stimmt so nicht, beides war nicht getempert...
+The influence of $T_{RTP}$ on the active dopant depth profile of the $p^+$/$n^+$ poly-SiTJ is shown in Fig. \ref{fig:ECV-APL-RTP-temperature}. All structures comprised poly-Si($n^+$) layers with the medium P doping ($\delta = \textrm{medium}$) and received the FA prior to the Si($p^+$) deposition (FA+RTP).
+For $T_{RTP} = 800 ~\textrm{°C}$, the
+charge carrier concentrations $N$ were as high as $1.8 \times 10^{20} ~\textrm{cm}^{-3}$ in the
+$p^+$- and  $1.0 \times 10^{20} ~\textrm{cm}^{-3}$ in the $n^+$-region, respectively. The transition between the two doping regions was very sharp according to the resolution of the ECV setup used. Therefore, two necessary and sufficient conditions
+for a low-resistive Esaki-type SiTJ (as mentioned in Section \ref{sec:transport-mechanisms}), a narrow space charge region as well as degeneracy of the semiconductors seem to be fulfilled \cite{Esaki.1958,Peibst.2019}. With increasing $T_{RTP}$, unwanted dopant interdiffusion \cite{Jin.2003} was enhanced, resulting in a lower net doping on both sides of the
+junction and hence a widened space charge region. Very similar results
+were obtained by increasing the RTP peak time $t_{RTP}$ from 1 to $60 ~\textrm{s}$ at a
+fixed peak temperature of $T_{RTP}=850 ~\textrm{°C}$ (not shown). 
+
+
+RTP-only samples resulted in a similar sharp SiTJ and even higher $N$ in the poly-Si($n^+$) of up to
+$2.0 \times 10^{20} ~\textrm{cm}^{-3}$ (Fig. \ref{fig:ECV-APL-doping}) after RTP. 
+One explanation for the higher $N$ in RTP-only samples is the reduced P diffusion into the c-Si bulk compared to samples with FA, as observed with SIMS (Fig. \ref{fig:SIMS-doping}). In addition, effusion of P during the FA is possible.
+
+Using poly-Si($n^+$) layers with higher P doping ($\delta = \textrm{high}$), even higher $N$ up to $2.5 \times 10^{20} ~\textrm{cm}^{-3}$ were obtained. For these samples with a very heavily P-doped
+poly-Si layer, complete overcompensation of the \ac{B} doping was
+observed in ECV, if the thermal budget of the RTP was too high ($T_{RTP} \ge 900 ~\textrm{°C}$). Active
+P doping concentrations above $2.0 \times 10^{19} ~\textrm{cm}^{-3}$ were
+measured throughout both poly-Si layers for $T_{RTP} = 950 ~\textrm{°C}$.
+
+In conclusion, a post-deposition thermal treatment
+of the heavily-doped a-Si:H layers is required to activate the dopants,
+but for the best SiTJ behavior, the thermal budget must be as low as possible
+to avoid dopant interdiffusion into the adjacent part of the junction. Otherwise, depending on the dopant dose in the $p^+$- and n$^+$-region, complete overcompensation of one dopant species is possible. 
+In general, the dopant dose for both Si($p^+$) and Si($n^+$) depends on the layer thickness as well as on the dopant gas concentration during deposition and other parameters that affect the incorporation of dopants into the Si layer.
+In the next section it will be shown, that the contact resistivity $\rho_c$ strongly depends on the active dopant depth profiles.
+
+
+\subsection{Contact resistivity}\label{sec:rhoc-TJ-routes}
+
+%3-4 Seiten
+
+In the following, depicted contact resistivity $\rho_c$ values denote the contact resistivity of the whole poly-Si($p^+$/$n^+$)/SiO$_x$/c-Si($n$) stack, i.e., $\rho_c = \rho_{TJ} + \rho_{Si}$. 
+Fig. \ref{fig:rhoc-APL+HNO3} illustrates measured $\rho_c$ values
+as a function of $T_{RTP}$. 
+The results for the variation
+of $t_{RTP}$ were again very similar (not shown). Poly-Si($n^+$)/SiO$_x$ ($n$-TOPCon) references after FA without Si($p^+$) served as references (dotted and solid horizontal line).
+$\rho_{c}$ of the SiTJ using process route FA+RTP and the medium P doping ($\delta = \textrm{medium}$, plain black boxes) increased strongly with the RTP thermal
+budget. This finding correlates very well with the ECV results in
+Fig. \ref{fig:ECV-APL-RTP-temperature}. A less abrupt space charge region and lower net doping on
+both sides of the junction reduced the tunneling probability \cite{Messmer.2018,Kirner.2015} and therefore hindered charge carrier transport across the junction, resulting
+in higher $\rho_c$. 
+
+In addition, a transition from an linear (ohmic) $J-V$ characteristic to a non-linear, diode-like behavior was observed with the increasing thermal budget (Fig. \ref{fig:I-V-TJ-temps} in Appendix \ref{sec:SI}). A strong diode behavior was observed for the FA-only process route, indicating that a regular $p$/$n$ junction was formed with too high thermal budget applied. Accordingly, $\rho_c$ for the FA-only route was very high ($\rho_c > 10^5~\textrm{m}\upOmega\textrm{cm}^2$). Similarly high $\rho_{c}$ values were obtained for a non-tempered sample, in which the dopants were not sufficiently activated.
+
+\begin{figure}[htp] 
+	\centering
+	\includegraphics[width=0.99\textwidth]{images/TJ/rhoc-APL+HNO3}
+	\caption[$\rho_{c}$ of $p^+$/$n^+$ poly-SiTJ depending on $T_{RTP}$]{Contact resistivity $\rho_{c}$ of the $p^+$/$n^+$ poly-SiTJ depending on $T_{RTP}$. Horizontal lines represent $n$-TOPCon references without Si($p^+$) layer. The indicated i$V_{oc}$ values at 1 sun illumination show the good surface passivation after re-hydrogenation.}
+	\label{fig:rhoc-APL+HNO3}
+\end{figure}
+
+
+Using the high P doping ($\delta = \textrm{high}$), $\rho_{Si}$ of the poly-Si($n^+$)/SiO$_x$ ($n$-TOPCon) reference could be reduced due to an even better contact formation to the c-Si wafer (dotted horizontal line) compared to
+the medium P doping (solid horizontal line). 
+A reduction in $\rho_c$ could also be
+seen for the SiTJ using the high P
+doping (hatched vs. plain black boxes). In addition to the improved contact to the c-Si
+absorber (reduced $\rho_{Si}$), this can be explained by a more efficient SiTJ due to a
+higher charge carrier concentration in the $n^+$-region (reduced $\rho_{TJ}$), leading to a
+minimum combined junction resistance of the  poly-Si($p^+$/$n^+$)/SiO$_x$/c-Si stack of only $\rho_c=10~\textrm{m}\upOmega\textrm{cm}^2$. 
+Moreover, good surface passivation was observed for these structures after re-hydrogenation following the RTP at 800 and $850 ~\textrm{°C}$, allowing for an i$V_{oc}$ at 1 sun illumination of 723 and $726 ~\textrm{mV}$, respectively. This shows that the additional Si($p^+$) layer does not impede the passivation properties of the poly-Si($n^+$)/SiO$_x$ passivating contact underneath. %hier noch ein satz, verweis auf chapter six, compatibility TOPCon und RTP?
+
+Unlike for the medium P doping (plain black boxes),
+a strong increase in $\rho_c$ for a higher thermal budget was not observed with $\delta = \textrm{high}$. However, this is not explained by the formation of an efficient SiTJ. For $T_{RTP} \ge 900 ~\textrm{°C}$ the P doping overcompensated the B doping, as seen in Fig. \ref{fig:ECV-APL-doping}. After RTP, these contacts were isotype poly-Si($n^+$)/SiO$_x$/c-Si($n$) heterojunctions, just like the references without the
+poly-Si($p^+$) layer (dotted horizontal line), and thus behaved very similarly. 
+
+%$\rho_c$ of the RTP-only SiTJ using the medium P doping (plain red boxes) was very high for $T_{RTP}=800 ~\textrm{°C}$ ($\rho_{c} > 10^3 ~\textrm{m}\upOmega\textrm{cm}^2$), but decreased with increasing $T_{RTP}$. 
+
+As mentioned in Section \ref{sec:n-only-RTP}, symmetrical RTP-only reference samples without Si($p^+$) showed high $\rho_{Si}$ and $J-V$ curves characteristic for back-to-back contacted Schottky diodes \cite{Elhadidy.2012} at $T_{RTP}=800/850 ~\textrm{°C}$ (Appendix \ref{sec:SI}, Fig. \ref{fig:I-V-n-only-Schottky}). With increasing $T_{RTP}$ $\rho_{Si}$ decreased due to an increased crystalline fraction of the PECVD Si layers (Figs. \ref{fig:crystalline-n} and \ref{fig:crystalline-p}). Therefore the active dopant incorporation was more efficient \cite{Stutzmann.1987}, resulting in higher $N$ within poly-Si($n^+$), which eased contact formation to the absorber.
+
+Hence, $\rho_c$ of the RTP-only SiTJ shown in Fig. \ref{fig:rhoc-APL+HNO3} (plain red boxes) was limited by $\rho_{Si}$ for $T_{RTP}<900 ~\textrm{°C}$ and the decrease in $\rho_c$ with increasing $T_{RTP}$ was due to an improved contact formation between the poly-Si($n^+$)
+and the c-Si bulk (decreased $\rho_{Si}$).
+For  $T_{RTP} > 900 ~\textrm{°C}$, $\rho_c$ increased again similar to SiTJ samples of route FA+RTP (plain black boxes). In this temperature range $\rho_c$ was limited by $\rho_{TJ}$ due to enhanced dopant interdiffusion at the SiTJ.
+At $T_{RTP}=900 ~\textrm{°C}$, $\rho_c=250 ~\textrm{m}\upOmega\textrm{cm}^2$ was obtained with RTP-only, similar to FA+RTP structures. 
+
+It has to be mentioned, however, that strong batch-to-batch variations were observed using the standard thermally grown SiO$_x$ in the RTP-only route.
+As mentioned in Section \ref{sec:n-only-RTP}, wet-chemical (HNO$_3$) oxide is preferred over thermally grown oxides for RTP-only to obtain lower $\rho_{Si}$. For this reason, an HNO$_3$ oxide was also used in SiTJ structures and more reliable and even lower $\rho_c$ were obtained for the RTP-only process route (red cross-hatched boxes). At $T_{RTP}=850 ~\textrm{°C}$ a very low-resistive SiTJ with $\rho_c \approx 30 ~\textrm{m}\upOmega\textrm{cm}^2$ and a good surface passivation after hydrogenation (i$V_{oc} = 711 ~\textrm{mV}$) was obtained with RTP-only. 
+This shows that
+a SiTJ with sufficiently low $\rho_c$ for tandem device application (Fig. \ref{fig:power-loss}) can be achieved
+with a lean process route, which might be preferred for industrial
+applications. 
+
+
+%schnabel. diss:No region of negative differential resistance that one expects for direct tunnelling was found, but no rectifying behaviour occurred either.
+None of the measured $J-V$ curves of SiTJ structures showed a region of negative differential resistance (NDR), i.e., an Esaki-type $J-V$ characteristic that one expects for direct band-to-band tunneling (B2BT). %(fig. ... im appendix.. für i-V kurven, verweis auf fundamentals...))
+One simple explanation is that the current densities were limited to the maximum current allowed for the setup used. With the commonly used contact area of $A_c=0.25 ~\textrm{cm}^2$, only the low-voltage, ohmic region of an Esaki-type tunneling junction $J-V$ characteristic is accessible (yellow region in Fig. \ref{fig:J-V-B2BT-TAT}). But even using very small contact areas down to $\approx 5 \times 10^{-5} ~\textrm{cm}^2$, allowing for measured current densities of up to $\approx 100 ~\textrm{Acm}^{-2}$ %eventuell immernoch nicht hoch genug...im vergleich zu sim christoph
+did not yield a NDR region (Fig. \ref{fig:200124}). 
+Another explanation could be that the total resistance of the test structures used, which includes the c-Si bulk and the poly-Si/c-Si contact resistance in addition to $\rho_{TJ}$, was too high. %schnabel.diss: For both types of junctions substrates were chosen so as to have minimal impact on the measured IV curves.
+This assumption is supported by numerical device simulations in which the NDR characteristic vanished when a small ohmic resistance of $1 ~\textrm{m}\upOmega\textrm{cm}^2$ was connected in series to the SiTJ (not shown).
+Not observing the NDR might also indicate that in the presented SiTJ trap-assisted tunneling (TAT) dominates over direct B2BT (Fig. \ref{fig:J-V-B2BT-TAT}). %cannot be the only transport %zu hart formuliert...einfluss serienwiderstand hier noch erwähnen! 
+%mechanism and 
+%is assisted by trap-assisted tunneling (TAT). TAT might be even the dominating transport mechanism . 
+
+%beeinflusst T_meas easkiverlauf??!!! erwähnen, dass hier leider nicht tiefer als 15 °C möglich, aber in Feldmann.2018 zB gesehen ,dass interessante effekte für TOPCon erst bei tieferen temp..
+Independent of %Despite TAT possibly being 
+the dominating transport mechanism, the strong correlation between $\rho_{c}$ and the charge carrier concentration $N$ on both sides of the junction is evident in Fig. \ref{fig:TJ-rhoc-vs-N} in the appendix. This emphasizes the need to ensure high $N$ on both sides of the junction for SiTJ fabrication.
+
+ 
+
+%\subsection{Passivation}
+
+%dann auch in toperc kapitel?
+%offensichtlich mehr defekte nach RTP bei höheren temperaturen, die nicht so leicht zu passivieruen sind. Eventuell nicht nur oberfläche sondern auch oberlfächen nahe regionen im c-Si betroffen?...
+
+%passivation based on TOPcon, therefore referred to... for detailed passivation discussion.., here: impact of RTP...
+%Passivierung nach RTP schlecht, kann mit nTOPCon wieder hergestellt werden bis 900 Grad, für pTOPCon auch bei 800 Grad nicht vollständig
+
+
+%
+%\begin{figure}[htp] 
+%	\centering
+%	\includegraphics[width=0.55\linewidth]{images/TJ/QSSPC-p++-benefit}
+%	\caption[CV Messung an einer LSMO-Dünnschicht]{appendix? sample after RPHP is nTOPCon without p+ layer...}
+%	\label{fig:alpha-vs-ITO}
+%\end{figure}
+%
+%
+%\begin{figure}[htp]
+%	\centering{
+%		\begin{minipage}[b]{0.49\textwidth}
+%			\centering
+%			\subfloat[\textbf{(a) 800 °C } \label{fig:800C}] {\includegraphics[width=\textwidth]{images/TJ/800C}}
+%		\end{minipage}
+%		\hfill
+%		\begin{minipage}[b]{0.49\textwidth}
+%			\centering
+%			\subfloat[\textbf{(b) 850 °C} \label{fig:850C}] {\includegraphics[width=\textwidth]{images/TJ/850C}}
+%		\end{minipage}
+%		\par\bigskip % force a bit of vertical whitespace
+%		\begin{minipage}[b]{0.49\textwidth}
+%			\centering
+%			\subfloat[\textbf{(c) 900 °C} \label{fig:900C}] {\includegraphics[width=\textwidth]{images/TJ/900C}}
+%		\end{minipage}
+%		\hfill
+%		\begin{minipage}[b]{0.49\textwidth}
+%			\centering
+%			\subfloat[\textbf{(d) 950 °C} \label{fig:950C}] {\includegraphics[width=\textwidth]{images/TJ/950C}}
+%		\end{minipage}
+%	}
+%	\caption[Passivation quality after different RTP peak temperatures.]{pC/n TJ aus 200138, iFF, iVoc Werte noch jeweils angeben, Verlust von 30-40 mV natürlich nicht schön, aber im TAndem mit Voc ~ 1800 mV nicht so schlimm wie in einzelzelle..., im Vergleich zu fired-only aus 200138 scheinen Proben mit FA noch mehr einzubrechen bei 950 °C, weil durch FA pinholes welche eindiffusion von verunreinigungen erleichtern?}
+%	\label{fig:TJ-passivierung-temps}
+%\end{figure}
+
+
+
+%\begin{figure}[htp] 
+%	\centering
+%	\includegraphics[width=0.55\linewidth]{images/TJ/QSSPC-RTP-damage}
+%	\caption[CV Messung an einer LSMO-Dünnschicht]{appendix? oder ganz raus? bei zellen erwähnen?}
+%	\label{fig:alpha-vs-ITO}
+%\end{figure}
+
+
+\section{Control of diffusion}\label{sec:diffusion-control}
+
+%hier irgendwo nochmal klar machen, dass passivierung nicht beeinträchtigt (auf jeden fall nicht durch pC oder interlayer), auch wenn nicht überall iVoc WErte verfügbar...
+
+%erwähnen, dass dosen nicht ausrechenbar in so dünnen schichten mit ecv auflösung von mehreren nm, also nur 3-4 punkte in manchen schichten und conc nicht bestimmbar in SIMS...
+
+%segragation von dotierstoffen nachlesen, ansprechen...Verhältnis von konzentration auf Seiten A und B, Bor geht gerne ins Oxid, Phosphor nicht...
+%laut schnabel.phd segregiert bor in SiC!! er zitiert diploma thesis, welche widerum teilseiwe in janz.phd verwendet , wird, janz phd kann als zitat verwendet werden...bzw besser noch schnabel.2014 zitieren, wie in diffusion paper.
+
+%Carbon content, gamma überall angegeben??
+
+In the previous section it was shown that the SiTJ performance is determined by the charge carrier concentration in the vicinity of the junction, which in turn is strongly influenced by dopant interdiffusion. In this section two different approaches to prevent parasitic diffusion at the SiTJ are examined.
+
+
+
+\subsection{Carbon alloying}\label{sec:carbon}
+
+%Carbon alloying at a concentration in the order of 1020 cm-3 is known to strongly suppress dopant diffusion in c-Si. Incorporated at substitutional lattice sites carbon atoms couple to other point defects such as self-interstitials and decrease their density. Since both phosphorus and boron diffuse via an interstitial mechanism in silicon, they are thus immobilized. For this reason, carbon alloying is used to increase the thermal stability of steep dopant profiles in microelectronic devices such as heterojunction bipolar transistors [68]. This effect could be also exploited in a TJ to reduce undesired diffusion of phosphorus and boron and an induced decrease in active doping concentrations.
+%However, poly-Si is not directly comparable with c-Si because it is less ordered and exhibits a large amount of defects such as grain boundaries. Grain boundaries can act as high-diffusivity paths, along which dopant atoms diffuse much faster compared to within the crystalline grains [69?71]. For example, the diffusivity of phosphorus in poly-Si was found to exceed that in c-Si by a factor of 100 [70], while for boron a factor of 50-220 was obtained [71]. Since there is an additional diffusion mechanism in poly-Si by which dopants can migrate through the material the incorporation of carbon can also have a different effect than in c-Si. In fact, it was shown that carbon implantation could even enhance dopant diffusion in poly-Si by suppressing the grain growth during high temperature treatments. Thereby, the material contains a higher number of small grains and thus also more grain boundaries, by which dopants can diffuse [72].
+%Nevertheless, poly-Si is a very complex and diverse material that can exhibit different properties, depending on the fabrication method and the process parameters. For example, Losee et al. reported a less severe impact of the presence of grain boundaries on dopant diffusion. They found a significantly lower grain boundary diffusion coefficient for phosphorus compared to other groups and even stated that in poly-Si grain boundary diffusion is suppressed and comparable to the diffusion within grains [73].
+%In this section, the carbon incorporation into poly-Si layers is discussed and its influence on the TJ performance (e. g. the thermal stability) is evaluated.
+
+
+In c-Si boron (B) diffusion takes place via Si self-interstitials \cite{Windl.1999}. The diffusion mechanism for phosphorus (P), like for boron, is also related to Si self-interstitials for concentrations below $10^{20} ~\textrm{cm}^{-3}$ \cite{Hu.1983}. For higher P concentrations diffusion mechanisms related to vacancies are assumed to be dominant \cite{Fair.1977}. Carbon (C) impurities incorporated at substitutional lattice sites interact with other point defects such as Si self-interstitials and decrease their density. Consequently, a high C concentration can effectively hamper both B and P diffusion in c-Si \cite{Rucker.1998,Rucker.2006,Pawlak.2006b}. In poly-Si, which is of interest here, dopants diffuse either through the crystal grains with the same diffusion mechanisms being relevant as for c-Si, or via grain boundaries. Diffusion along grain boundaries is more effective as grain boundaries contain lattice detects which reduce the activation energy for dopant diffusion \cite{Luo.2018}. With this additional diffusion path, diffusivities can exceed that in c-Si by a factor of 10 for P \cite{Losee.1984} and a factor of $50-220$ for B \cite{Post.1991}. %, or even $10^4$ for arsenic \cite{Swaminathan.1982}.
+%Peibst.2019:
+%One should note that the diffusivity
+%of phosphorus is strongly increased in poly-Si as compared
+%with the values in c-Si [26] aka Spit.1986
+This factor depends on the value of grain boundary diffusivity, the segregation of dopants to the grain boundaries and the volume density of grain boundaries \cite{Post.1991}. While the first two parameters are dopant specific, the latter is strongly dependent on the fabrication method and the process parameters of poly-Si layer growth. % and might therefore differ markedly between two poly-Si layers. 
+%noch umschreiben...
+%For example, Losee et al. reported a less severe impact of the presence of grain boundaries on dopant diffusion. They found a significantly lower grain boundary diffusion coefficient for phosphorus compared to other groups and even stated that in their poly-Si layers grain boundary diffusion was suppressed and comparable to the diffusion within grains [73].
+P segregates very easily to grain boundaries in poly-Si \cite{Mandurah.1980}. B, on the other hand, shows weaker segregation to grain boundaries \cite{Mandurah.1980,Post.1991}. Accordingly, Han \textit{et al.} reported that P in poly-Si diffuses predominantly along grain boundaries whereas for B both diffusion along grain boundaries and through crystal grains is important \cite{Han.2015}.
+
+The influence of \ac{C} incorporation in poly-Si on dopant diffusion cannot be answered generally. C will decrease diffusion through crystal grains as in the case of c-Si. However, C-alloying might alter the poly-Si structure as it suppresses crystal grain growth. The resulting smaller average grain size increases the volume density of grain boundaries by which dopants can diffuse \cite{Luo.2018}.
+In the following, the effect of \ac{C} incorporation on SiTJ performance, particularly with respect to thermal stability, is evaluated.
+
+%han.2015:
+%These results indicate that P atoms diffuse
+%along grain boundaries much faster than through the bulk or
+%Therefore, B atoms diffuse not only along the grain
+%boundary but also through the bulk.
+%but: Moreover, under the same annealing conditions,
+%the grain boundary diffusion of B is faster than that of P.
+
+%--> für P ist grain boundary diffusion besonders wichtig, passt zu segregation, die auch woanders gesehen wurde, sieh post.1991
+%demzufolge sollte C phosphor diff nicht wirklich hemmen in poly-Si...
+%
+%--> für B diff über grains auch wichtig, diese komponente könnte mit C gehemmt werden, trotzdem effektive Diff über grain boundaries möglich, wo bei nicht so viel dort segregiert...
+%diffusivity factor von bor ja auch höher also von P, würde dann eigentlich das gegenteil aussagen!!
+
+
+%wie frank schreiben, hier auswirkung auf diffusion in TJ und rhoc wichtig, muss nicht komplett diffusion in poly-Si verstehen...
+%In this manuscript we aim to promote understanding of the impactdopant diffusion has on the surface passivation of poly-Si contacts
+
+
+%C interfers with quantititive anlysis (und kein SIMS gemacht) dadurch keine aussage möglich wie bor oder phosphor gehemmt wurden, nur zu sehen, das ecv profil insgesamt stabiler gegenüber T, überkompensation verhindert...
+
+
+%wie können B dann conc > 1e20 gemessen werden? in poly-Si höhere Löslichkeit?
+%The active solubility limit of boron and phosphorus increases with increasing
+%temperature. At a temperature of 950°C, the active solubility limit of phosphorus
+%Csol,P+ is 4.0·1020 cm-3. In comparison, the active solubility limit of boron Csol,B- at the
+%same temperature is 9.0·1019 cm-3. In the case of dopant concentrations exceeding the
+%depicted active solubility limit, dopants are acting inactive
+%
+%post.1991:
+%The solid solubility levels in Table 111 compare with
+%values in single-crystal silicon of 3 x 6 x lOI9, and
+%9 X 1019 cmP3 [27], [29], [30] for annealing temperatures
+%of 850, 900, and 95OoC, respectively. These values in
+%single-crystal silicon are about a factor of 2 less than the
+%values inferred from the SIMS analysis in Table 111. Also,
+%the single-crystal boron solid solubilities vary exponentially
+%with temperature, whereas the solid solubility values
+%in Table 111 only have a small temperature dependence.
+%These differences are probably caused by the
+%interaction of the boron with the grain boundaries.
+
+
+%mirabella.2013: diffusion in a-Si, interessant, aber wohl weglassen...nur mitnehmen, dass auch höher als in c-Si!
+%Whatever the matrix, B migration in amorphous (a-) or crystalline (c-) Si, or
+%c-Ge is revealed to be an indirect process, activated by point defects of the hosting medium. In a-Si
+%in the 450-650 C range, B diffusivity is 5 orders of magnitude higher than in c-Si,
+%In
+%c-Si, B diffusion is largely affected by the Fermi level position, occurring through the interaction
+%between the negatively charged substitutional B and a self-interstitial (I) in the neutral or doubly
+%positively charged state, if under intrinsic or extrinsic (p-type doping) conditions, respectively. After
+%charge exchanges, the migrating, uncharged BI pair is formed.
+%
+%in aSi B migration wohl durch coordination defects begünstigt, also dass Si coordination kleiner als 4 ist in aSi, mehr dreibündige Si atome..also über dangling bonds... ist aber im detail recht kompliziert..
+%in a-Si:H sind danglin bonds aber abgesättigt, daher dort diffusion auch wieder anders...gehemmt? allerdings geht ja h2 auch raus bei tempearturen um 500/600, wenn diffusion beginnt...
+%
+%An immobile, 3-fold coordinated, B atom jumps to an adjacent
+%site through the exchange of a dangling bond (db) and the temporary
+%restoring of a metastable, 4-fold coordinated configuration.
+%
+%b diffusion über interstitals, entweder als B alleine oder als BI Paar, also B-Si auf Zwischengitterplätzen...
+
+
+
+
+
+
+%\subsubsection{Contact resistivity (and doping depth profile)}
+
+%5 Seiten
+
+%SiC macht TJ weniger anfällig für Diffusion auf solidem Niveau, nicht geeignet für fired-only
+%dafür sind hohe Rsheets der SiC Schichten vorteilhaft da es upscaling erleichtert...gibt es Rsheet werte ausu 200053? nee, literaturwerte nehmen bzw werte von Frank cPLASMA vs AK400 Prozess sollte es geben
+
+Fig. \ref{fig:ECV-alloying-cPLASMA} shows the charge carrier concentration of a $p$C/$n$ SiTJ with $\gamma = 0.5$ in the $p^+$-region compared to a regular $p$/$n$ SiTJ. Both SiTJs comprised a heavily P-doped layer ($\delta = \textrm{high}$). As discussed in Section \ref{sec:dopant-profiles}, at $T_{RTP} \ge 900 ~\textrm{°C}$ (blue and green data) B was completely overcompensated in the $p^+$-region of the $p$/$n$ SiTJ and a fairly high electron concentration of $N > 2.0 \times 10^{19} ~\textrm{cm}^{-3}$ was measured throughout both poly-Si layers.  
+Please note that introducing \ac{C} into the poly-SiC$_x$($p^+$) leads to uncertainties regarding the absolute $N$ values in the $p^+$-region measured with ECV \cite{Steinhauser.PhD,Penn.Master}. Nevertheless, it can be stated that C-alloying prevented overcompensation as $p$-type doping was measured throughout the whole $p^+$-region for both $T_{RTP} = 900 ~\textrm{°C}$ (black data) and $950 ~\textrm{°C}$ (red data). %SiC interlayer blockt P-diffusion, wie später gezeigt wird, legt hier nahe, dass P-diff in p-region unterbunden wird, wobei dort höherer C-Gehalt...was wie diffundiert kann man aber eben anhand von ECV nicht sagen...SIMS Messung wäre auch schwierig, da andere Matrix in SiC quantifizierung erschwert...
+
+From Fig. \ref{fig:ECV-alloying-cPLASMA} it cannot be concluded how C influenced B or P diffusion specifically. 
+Since C is known to hamper the self-interstitial diffusion mechanism in Si crystals \cite{Rucker.1998} and in poly-Si diffusion through crystal grains is more important for B compared to P according to Ref. \cite{Han.2015}, especially B diffusion might be blocked in C-alloyed poly-Si. Further, B was observed to segregate to SiC at SiC/Si interfaces \cite{Schnabel.2014}. This might be another explanation, why C-alloying prevented overcompensation of B in Fig. \ref{fig:ECV-alloying-cPLASMA}.  
+
+%However, this cannot explain, that a similar effect was observed when the poly-Si(n+) was alloyed with C instead of the poly-Si(p+) (not shown). wie später gezeigt...
+
+%900/950 °C p/n in a) sind fired-only, eventuell noch ersetzen... 
+%position siox so okay eingezeichnet oder nochmal ändern? da schichtdicken nicht exakt gleich, müsste man eigentlich depth daten skalieren, wenn man nur einen skizee verwendet...
+\begin{figure}[htp]
+	\centering{
+		\begin{minipage}[b]{0.7\textwidth}
+			\centering
+			\subfloat[\textbf{(a)} \label{fig:ECV-alloying-cPLASMA}] {\includegraphics[width=\textwidth]{images/TJ/ECV-alloying-cPLASMA-2}}
+		\end{minipage}
+		\par\bigskip % force a bit of vertical whitespace
+		\begin{minipage}[b]{0.7\textwidth}
+			\centering
+			\subfloat[\textbf{(b)}  \label{fig:rhoc-alloying-TJ-cPLASMA}] {\includegraphics[width=\textwidth]{images/TJ/rhoc-alloying-TJ-cPLASMA}}
+		\end{minipage}
+	}
+	\caption[Diffusion blocking due to carbon alloying]{(a) Charge carrier concentration as measured with ECV of SiTJs comprising poly-Si($p^+$) with and without incorporated C. (b) Corresponding $\rho_c$ of $p$/$n$ and $p$C/$n$ SiTJs in dependence of $T_{RTP}$. All structures comprised a heavily P-doped layer ($\delta = \textrm{high}$).}
+	\label{fig:C-alloying-cPLASMA}
+\end{figure}
+%fired-only mit carbon weglassen...
+%hier müsste man mit fired only vergleichen aus 200138, gesamt niveau halt sehr hoch! optimum bleibt bei 900 °C, also keine verbesserung, daher not shown here! Überkompensation? ECV für fired only pC proben nicht gemessen.
+
+
+Comparing $\rho_c$ of the $p$/$n$ and the $p$C/$n$ SiTJ in Fig. \ref{fig:rhoc-alloying-TJ-cPLASMA}, a higher $\rho_c$ was observed for the $p$C/$n$ SiTJ in the range $T_{RTP} = 800-950 ~\textrm{°C}$. 
+This can be explained by the lower crystalline fraction and therefore also lower doping efficiency in SiC$_x$ with increasing C content (Figs. \ref{fig:crystalline-n} and \ref{fig:crystalline-p}). %Therefore, also the doping efficiency was decreased considerably.
+Consequently, $N$ was lower at the poly-Si($p^+$/$n^+$) interface and the depletion width was broadened. %according to Eq. \ref{eq:depletion-width}. 
+Hence, at $T_{RTP} = 800/850 ~\textrm{°C}$ the higher $\rho_{c}$ of the $p$C/$n$ SiTJ can most likely be attributed to less efficient tunneling at the SiTJ interface (higher  $\rho_{TJ}$) as a result of the broadened depletion width and to higher "bulk" resistivity of the poly-SiC$_x$ layer itself. %formation of SiCOx before metallisation erwähnen? als fußnote? nee!
+%Another factor that has not been mentioned yet is a possibly impaired contact to the metallization. Prior to evaporating titanium onto the samples, they are dipped in HF to remove the native oxide from the Si surface. However, HF etching of oxidized SiCx might be less efficient as it has been reported for example in [76,77]. Therefore it is possible that a thin transport barrier remains at the Ti/poly-SiCx interface that could affect the contact resistance.
+
+At $T_{RTP} \ge 900 ~\textrm{°C}$ the $p$/$n$ structure without C was no longer a tunneling junction because B was completed overcompensated by P, and the comparison of $\rho_c$ is obsolete. The $p$C/$n$ SiTJ, however, showed low resistance and good passivation with $\rho_{c}= 47 ~\textrm{m}\upOmega\textrm{cm}^2$ and i$V_{oc} = 726 ~\textrm{mV}$ at $T_{RTP} = 900 ~\textrm{°C}$.
+%with $\rho_c \approx 47 ~\textrm{m}\upOmega\textrm{cm}^2$ at $T_{RTP} = 900 ~\textrm{°C}$ and $\rho_c \approx 133 ~\textrm{m}\upOmega\textrm{cm}^2$ at $T_{RTP} = 950 ~\textrm{°C}$.
+Thus, it is possible to hamper interdiffusion at the poly-SiTJ by C-alloying, increasing the thermal stability of the poly-SiTJ thereby.  
+
+
+Further poly-Si(C$_x$)TJs were fabricated by either
+including C impurities only in the $n^+$-layer ("$p$/$n$C SiTJ") or in both $n^+$- and $p^+$-layers ("$p$C/$n$C SiTJ"). The C content in the poly-SiC$_x$($n^+$) layer corresponded to $\gamma = 1$, whereas $\gamma$ was again 0.5 for poly-SiC$_x$($p^+$). Their $\rho_c$ is compared to a regular $p$/$n$ SiTJ in Fig. \ref{fig:rhoc-alloying-TJ}. 
+Please note that the P dopant concentration was lower ($\delta = \textrm{low}$) compared to structures shown in Fig. \ref{fig:C-alloying-cPLASMA} and the poly-Si(C$_x$) thickness was $20 ~\textrm{nm}$ for both layers. Thus, for $T_{RTP} \ge 900 ~\textrm{°C}$ B was not overcompensated by P but $\rho_c$ was high for the $p$/$n$ SiTJ reference without C-alloying due to strong interdiffusion.
+The values of poly-Si(C$_x$)($n^+$)/SiO$_x$ reference contacts with and without C incorporated in the P-doped Si layer are indicated in Fig. \ref{fig:rhoc-alloying-TJ} by horizontal dotted lines. 
+
+\begin{figure}[htp] 
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/TJ/rhoc-alloying-TJ}
+	\caption[$\rho_c$ in dependence of $T_{RTP}$ for $p$/$n$, $p$/$n$C and $p$C/$n$C SiTJs]{$\rho_c$ in dependence of $T_{RTP}$ for $p$/$n$, $p$/$n$C and $p$C/$n$C SiTJs. All structures comprised a lower P-doped layer with $\delta = \textrm{low}$.}
+	\label{fig:rhoc-alloying-TJ}
+\end{figure}
+
+%The incorporated C atoms negatively affected the charge transport due to suppressed crystallization, as $\rho_c$ increased by about one order of magnitude. 
+%One obvious reason is the suppressed crystallization and the resulting high proportion of amorphous phase, as it is indicated by the low relative crystallinity of less than 35 \% for all temperature treatments of n+ poly-SiCx with ? = 1 in Figure Figure 5.8a.
+%The comparison of active doping profiles of n- and nC-TOPCon references in Figure 5.9b reveals another important aspect: The diffusion tail of dopants in the c-Si wafer is less pronounced for nC-TOPCon. This means that carbon alloying indeed suppresses dopant diffusion in the n+ poly-SiCx, therefore reducing the number of phosphorus atoms to reach the SiOx and migrate into the wafer.%doping diffusion durch pinholes wohl vernachlässigbar, cite Feldmann.2019
+%Fewer in-diffused dopants also imply a worse electrical contact to the wafer, which would be an additional explanation for the overall higher resistances of carbon-alloyed samples.
+%$\rho_c$ of the p/n SiTJ  increased strongly with increasing $T_{RTP}$ due to pronounced dopant interdiffusion. 
+
+For the $p$/$n$C SiTJ $\rho_c$ was higher at $T_{RTP} = 800 ~\textrm{°C}$ compared to the $p$/$n$ SiTJ ($\rho_c \approx 79 ~\textrm{m}\upOmega\textrm{cm}^2$ compared to $\rho_c \approx 16 ~\textrm{m}\upOmega\textrm{cm}^2$), but increased only slightly up to $\rho_c \approx 105 ~\textrm{m}\upOmega\textrm{cm}^2$ at $T_{RTP} = 900 ~\textrm{°C}$. Consequently, $\rho_c$ was similar to the $p$/$n$ SiTJ at $850 ~\textrm{°C}$ and significantly lower at $900 ~\textrm{°C}$.
+At $T_{RTP} = 950 ~\textrm{°C}$ $\rho_c$ increased drastically to $\approx 10^3 ~\textrm{m}\upOmega\textrm{cm}^2$ but was still more than one order of magnitude lower than the respective $\rho_{c}$ of the $p$/$n$ SiTJ.
+Alloying both sides of the SiTJ ($p$C/$n$C SiTJ, blue data) showed no advantage over only alloying one side of the junction, as $\rho_c$ was increased for all temperatures under investigation (blue vs. red data). %ausführlicher..?
+
+C-alloying the $n$-type region of the SiTJ had therefore a similar effect as alloying the $p$-type region: The temperature stability of $\rho_c$ was strongly increased at the cost of somewhat higher $\rho_c$ at lower temperatures ($\approx +20 ~\textrm{m}\upOmega\textrm{cm}^2$ for $p$C/$n$ and $\approx +60 ~\textrm{m}\upOmega\textrm{cm}^2$ for $p$/$n$C compared to the respective $p$/$n$ SiTJ at $T_{RTP} = 800 ~\textrm{°C}$). With respect to tandem application, according to Fig. \ref{fig:power-loss}, the relative power loss due to the increase in $\rho_c$ by $\approx 20-60 ~\textrm{m}\upOmega\textrm{cm}^2$ at $800 ~\textrm{°C}$ due to C-alloying is negligible ($\le 0.07 ~\%$), whereas the relative gain in power output due to the decreased $\rho_c$ by $> 1 ~\upOmega \textrm{cm}^2$ at $900 ~\textrm{°C}$ (red vs. black data in Fig. \ref{fig:rhoc-alloying-TJ}) is much higher ($\ge 1.25 ~\%$). 
+Another positive effect of C-alloyed poly-SiC$_x$ regarding tandem application is the increased $R_{sheet}$ (not shown), which might be beneficial to impair the connection of shunt paths in a tandem device \cite{Buehlmann.2007,Despeisse.2010} and to ease up-scaling \cite{Sahli.2017,Zheng.2018}.
+%mit cPLASMA prozessen aber 200 mohmcm² möglich bei 900 °C ohne C in PO9, naja, wird hier verschwiegen...der grundlegende positive effekt bleibt ja bestehen!
+
+%auch voltage drop über TJ angeben wie schnabel? als upper bound..nee, hier stattdessen bezug auf power loss...
+%aus diss schnabel:
+%The key issue is what voltage is needed to drive a current density j through the TRJ as V(j) will be reduced by this amount. This has little effect on Voc as no current needs to be driven through the TRJ at open-circuit for a current-matched tandem cell [250], and little effect on jsc as dj/dV at jsc is low in a standard solar cell, but leads to an S-shaped jV curve by reducing V(j) at and above the maximum power point where j and dj/dV are significant [250, 254], much like any other series resistance in the cell [255]. This is illustrated in Figure 6.15(b),(c). For SiC / Si and Si / SiC junctions, V(j=20 mAcm-2) is 9-130 mV and 25-60 mV, respectively, which represents a reasonable upper bound on voltage loss since jsc?20 mAcm-2 is a good estimate for two-junction tandem cells under one sun illumination.
+
+
+
+
+%muss man RTP-only ansprechen? wird wahrscheinlich keiner vermissen, wenn es nicht da ist.., passt so!
+%The formation of a RTP-only poly-SiTJ was not possible with C-alloyed poly-SiC$_x$(n$^+$). wurde ja schon in kapitel 6 mit Carbon angesprochen...
+
+%note that fired only not possible with increased $\gamma$ because of poor crystallisation (ist laut SE gleich wie nach FA!) and diffusion, pinhole formation durch C beeinflusst? eigentlich nicht, oder?...vielleicht doch, siehe Nogay.2016b, SiO wird durch C zersetzt, scheint bei uns aber wohl eher nicht aufzutreten...
+
+%diffusion durch SiOx passiert sowieso nicht mit RTP unter 1000 °C, siehe Feldmann.2019, fired-only contact ist daher von WF differenz bzw. band bending abhängig. mit C tendenziell mehr defekte, weniger kristallin, lower doping efficiency, das reduziert band bending, verschlechter rhoc und tau, cite Ingenito.2018
+%bei Ingenito.2018 wurde aber optimum mit etwas C erreicht (aber nur 2.5 at-%), ohne C blistern.
+
+%The incorporation of carbon makes the contact formation to the wafer with a single thermal treatment (fired-only) even more difficult due to the already stated reasons of poor crystallinity and doping efficiency as well as limited diffusion of dopants into c-Si. As a consequence, all fired-only TJ samples containing SiCx films exhibited very high resistances >>10^3 mOhmcm² (not shown). Therefore, in the following discussion the focus is on samples with FA+RTP where the effect of carbon-doping can be evaluated.
+
+
+
+\subsection{Diffusion blocking interlayer}\label{sec:diffusion-interlayer}
+
+%5 Seiten, sind eher 15 xD
+
+%interlayer hindern Diffusion, verbessern rhoc bei hohen RTP temps, verbessern rhoc für furnace bzw. fired only, trotzdem recht hoher Widerstand
+
+In this subsection another approach to suppress interdiffusion at the SiTJ is addressed. A thin additional layer is inserted between poly-Si($p^+$) and poly-Si($n^+$). The advantage of this approach over C-alloying is that the "bulk" properties of the poly-Si layers are not altered, leaving more degrees of freedom in process development. 
+This interlayer should act as diffusion barrier for dopants and confine them to their respective regions during high temperature post-deposition treatments without impairing charge carrier transport at the SiTJ. 
+
+This restricts the usage of insulating interlayers to very low thicknesses %(of less than 2 nm cite?) 
+for efficient tunneling. A prominent example for such an insulating diffusion barrier is \ac{SiNx}, which is hardly penetrable due to its high density and blocks the diffusion of various elements already at very low thicknesses \cite{Doo.1966}. SiN$_x$ was used previously as diffusion mask during successive diffusions to form $p$/$n$-junctions or against metal impurities for solar cells and other semiconductor devices \cite{Lohmuller.2013,Isenberg.2000,Doshi.2001}.
+%Early on, silicon nitrides have been used in microelectronics as diffusion barriers for phosphorus and boron, for example during the fabrication of integrated circuits (e.g. [doshi.2001])
+%Also in solar cell processing e. g. during sequential diffusion steps to form the emitter and back surface field, SiNx layers of only 15 nm have been shown to successively mask the wafer against dopant atoms [81]. 
+%Also in tunnelling diodes different \ac{DBI}s have been utilized previously (e.g. in \cite{Jin.2003,Mailoa.2015}).%der satz passt hier so nicht rein!
+SiO$_x$ is another obvious choice for a diffusion blocking interlayer (DBI), as it is already successfully applied in poly-Si/SiO$_x$ passivating contacts and known for its diffusion blocking ability \cite{Johannessen.1978,Schwarz.1981,Feldmann.2019}. %hier erwähnen, dass bor in SiOx segregiert, siehe feldmann.2019?? oder dann erst als erklärungsansatz bei ergebnissen? wenn überhaupt, hier passt es auf jeden fall nicht!
+Motivated by the positive effect of C-alloying on the thermal stability of the poly-SiTJ in the previous section, a SiC$_x$ interlayer % with different C content 
+was tested as well. %bisher nur hoher C-gehalt gezeigt!!
+%The first was of the same composition as the p+ poly-SiCx film in pC/nC and pC/n TJs with a carbon content of $\gamma = 0.5$ ($<15 \textrm{at}\%$ \cite{Kuenle.PhD}, while the second had a nearly stoichiometric carbon content of approximately 40 at\% \cite{Kuenle.PhD} ($\gamma \approx 8.6$).
+
+Several dopant \ac{DBI}s are evaluated in the following, including SiO$_x$ grown either thermally (TO), wet-chemically (HNO$_3$) or via atomic layer deposition (ALD), further PECVD SiC$_x$ and ALD SiN$_x$. %An overview of the different DBIs is given in Tab. \ref{tab:DBIs} in Section \ref{sec:routes-TJ}.
+
+
+
+%Also, the in-diffusion of phosphorus atoms into the c-Si bulk is not hampered (better: contact formation to the c-Si bulk is not hampered...). %Therefore, an adequate electrical contact to the wafer can be still ensured, making especially the fired-only process route more feasible.
+%Several layers of different compositions and thicknesses were investigated for their suitability as diffusion blocking interlayers. In the previous chapter it has been shown that carbon-alloying decreases dopant diffusion in our samples to a certain extent, hence two different carbide interlayers were tested. The first was of the same composition as the p+ poly-SiCx film in pC/nC and pC/n TJs with a carbon content of ~15 at\%, while the second had a nearly stoichiometric carbon content of approximately 40 at\% [56]. %With a thickness of only about 6 nm and heavy boron-doping, these two layers could ensure sufficient charge transport while the carbon atoms slow down diffusing dopants.
+%Insulating layers are also suitable if they are thin enough for carriers to tunnel through and/or locally penetrable due to pinholes. Hence, it was natural to try the same SiOx that is used in the TOPCon system also as diffusion blocking interlayer at the TJ. For comparison, a similar but slightly thicker and O2-richer thermal SiOx was also tested, as well as a wet-chemical HNO3 oxide. The latter is known to be less dense and thus more permeable [79]. Besides, two oxides of different thicknesses deposited by Atomic Layer Deposition (ALD) were investigated (see chapter 4.3).
+%Another insulating thin film that can be produced from ALD is non-stoichiometric silicon nitride (SiNx). Early on, silicon nitrides have been used in microelectronics as diffusion barriers for phosphorus and boron, for example during the fabrication of integrated circuits (e.g. [80]). Also in solar cell processing e. g. during sequential diffusion steps to form the emitter and back surface field, SiNx layers of only 15 nm have been shown to successively mask the wafer against dopant atoms [81]. Due to its high density, silicon nitride is a material that is not easily penetrable and therefore effectively blocks the diffusion of various elements already at very low thicknesses [82]. For these reasons, also two SiNx films deposited by ALD have been investigated as interlayers in a TJ.
+
+%boron diffusion through SiOx depends on SiOx stoichiometry, cite Feldmann.2019
+
+
+\subsubsection{Contact resistivity}
+
+\begin{figure}[htp] 
+	\centering
+	\includegraphics[width=0.99\textwidth]{images/TJ/rhoc-interlayer}
+	\caption[$\rho_c$ of SiTJs comprising different diffusion blocking interlayers]{$\rho_c$ in dependence of $T_{RTP}$ for SiTJs comprising different diffusion blocking interlayers. All structures received the FA prior to the a-Si:H($p^+$) deposition and the RTP (process route FA+RTP) to ensure low $\rho_{Si}$ and high sensitivity to $\rho_{TJ}$. The P-doping concentration $\delta  =\textrm{low}$ was chosen for all structures such that $\rho_{c}$ increased strongly at higher $T_{RTP}$ for the reference without interlayer ("Ref", black boxes) due to pronounced dopant interdiffusion at the SiTJ. Details about the different interlayers are given in the text.} %Details about the different interlayers can be found in Tab. \ref{tab:DBIs}.} %Christian will, dass nochmal abkürzungen für jede interlayer erwähnt, aber eigentlich ist das selbsterklärend bzw verweis auf tab. 3.2 reicht! tabelle ist jetzt raus, etwas blöd hier...
+	\label{fig:rhoc-interlayer}
+\end{figure}
+
+
+To show the potential as dopant \ac{DBI}, $\rho_c$ of several test structures comprising different interlayers at the SiTJ is plotted against $T_{RTP}$ in Fig. \ref{fig:rhoc-interlayer}. All structures received the FA prior to the a-Si:H(p$^+$) deposition and the RTP to ensure low $\rho_{Si}$ and high sensitivity to differences in $\rho_{TJ}$. The regular $p^+$/$n^+$ SiTJ without interlayer severed as a reference (black boxes). The P-doping concentration $\delta  =\textrm{low}$ was chosen for all structures such that $\rho_{c}$ increased strongly at higher $T_{RTP}$ for the reference without interlayer due to pronounced dopant interdiffusion at the SiTJ. Since $\rho_c$ was low ($< 100 ~\textrm{m}\upOmega\textrm{cm}^2$) up to $T_{RTP} = 850 ~\textrm{°C}$ even without interlayer, most interlayers were only tested at $T_{RTP} = 900 ~\textrm{°C}$ and $T_{RTP} = 950 ~\textrm{°C}$. 
+
+%auch pC interlayer mit gamma=0.5 hier zeigen, erwähnen?
+A 6 nm thick B-doped SiC$_x$ interlayer with $\gamma \approx 8.6$ (corresponding to a C content of $\approx 40 ~\textrm{at}\%$ \cite{Kuenle.PhD}) seemed to hamper parasitic interdiffusion very efficiently, as very low $\rho_c$ up to $T_{RTP} = 900 ~\textrm{°C}$ were measured (red boxes). The thickness of 6 nm was chosen as it was the minimum thickness required for a closed film, according to SE measurements. At $T_{RTP} = 800 ~\textrm{°C}$ the SiC$_x$ did not increase $\rho_c$ compared to the reference and a clear benefit is visible at 850 and $900 ~\textrm{°C}$. At $950 ~\textrm{°C}$, however,  $\rho_c$ degraded significantly and was of the same order of magnitude as the reference. With an ultrathin (nominally 0.8 nm, "SiN1") ALD SiN$_x$ also very low $\rho_c$ were obtained (brown boxes). In contrast to the SiC$_x$ interlayer, $\rho_c$ was low even at $T_{RTP} = 950 ~\textrm{°C}$, outperforming the reference structure by three orders of magnitude ($24 ~\textrm{m}\upOmega\textrm{cm}^2$ vs. $\approx 2.0 \times 10^4 ~\textrm{m}\upOmega\textrm{cm}^2$). 
+Using a slightly thicker SiN$_x$ layer (nominally 1.5 nm, "SiN2") led to mediocre $\rho_c$ around $10^3 ~\textrm{m}\upOmega\textrm{cm}^2$ independent of $T_{RTP}$ (ocher boxes). Since the diffusion blocking behavior should be as good or even better compared to the thinner SiN$_x$ layer, apparently the tunneling probability through the insulating SiN$_x$ was significantly decreased with increased SiN$_x$ thickness. %kann man da was simulieren?
+
+For SiO$_x$ interlayers similarly lower thickness was beneficial with respect to $\rho_c$ ("TO1" vs. "TO2" and "SiO1" vs. "SiO2"). Besides thickness, pinhole density and stoichiometry of the used oxide is decisive \cite{Polzin.2019,Polzin.2020}. Thermally grown TO2 was not only slightly thicker than TO1, it also comprised a higher O$_2$ content \cite{Polzin.2020}.
+This makes TO2 less susceptible to the formation of pinholes compared to TO1 \cite{Polzin.2019,Moldovan.2015}. On one hand, pinholes can facilitate transport across the oxide. On the other hand, pinholes represent local dopant diffusion paths. Thus, the role of pinholes cannot be conclusively assessed here. While $\rho_{c}$ for structures including TO1 was similar for both $T_{RTP} = 900 ~\textrm{°C}$ and $950 ~\textrm{°C}$, $\rho_{c}$ for TO2 was significantly higher compared to TO1 at $T_{RTP} = 900 ~\textrm{°C}$ but decreased to a similar level at $T_{RTP} = 950 ~\textrm{°C}$.
+
+
+%Using the same oxidation parameters, Polzin \textit{et al.} showed that TO2 had a pinhole density after FA roughly one order of magnitude lower compared to TO1 independent of the annealing temperature \cite{Polzin.2019}. Assuming similar behavior here, despite the differences in post-deposition thermal treatments, the lower pinhole density might explain the higher $\rho_c$ of TO2 compared to TO1 at $T_{RTP} = 900 ~\textrm{°C}$. At $T_{RTP} = 950 ~\textrm{°C}$ the pinhole density in TO2 presumably was increased and sufficiently high so that similar $\rho_c$ was obtained for both oxide interlayers.
+
+%michaelas abstract:
+Despite the more permeable matrix of wet-chemically
+grown HNO$_3$ oxides \cite{Polzin.2020}, as discussed in Section \ref{sec:n-only-RTP}, results similar to TO1 samples were obtained when
+including it between poly-Si($n^+$) and poly-Si($p^+$).
+A $0.8 ~\textrm{nm}$ thick ALD SiO$_x$ ("SiO1") interlayer provided similar $\rho_c$ as the previously mentioned oxides in the range of $200-400 ~\textrm{m}\upOmega\textrm{cm}^2$ at $T_{RTP} = 900 ~\textrm{°C}$.
+However, at $950 ~\textrm{°C}$ the oxide seemed to be penetrated by dopants, as higher
+$\rho_{c}$ was measured and no active $n$-type doping in the poly-Si($n^+$) was detected via \ac{ECV} (not shown). 
+Hence, in contrast to SiN$_x$ $0.8 ~\textrm{nm}$ of ALD SiO$_x$ were apparently too thin to hold back dopants at this
+temperature. Moreover, the structure of ALD oxides might be less stoichiometric than that
+of thermal oxides, since a lower temperature has been used during the ALD process
+compared to thermal oxidation. This could be another reason why they are less effective
+diffusion barriers \cite{Polzin.2020}.
+%boron diffusion through SiOx depends on SiOx stoichiometry, cite Feldmann.2019
+%Another aspect is the possible segregation of boron atoms into SiOx layers. It was observed for thermal and ALD oxides (e.g. [7, 8]) that diffusing phosphorus atoms are effectively stopped, while boron readily segregates into SiOx due to a higher solubility,
+It is worth mentioning, while the passivation quality was not tested for the structures presented in Fig. \ref{fig:rhoc-interlayer}, on similar sister samples the SiN$_x$ and SiC$_x$ interlayers (and presumably also the oxide interlayers) were found not to deteriorate the passivation quality of TOPCon and allowed for i$V_{oc} \approx 725 ~\textrm{mV}$.
+
+
+
+%fired only mit interlayer könnte man nochmal bringen, aber oben schon geschrieben, das mit TO nicht zuverlässig, im appendix vielleicth 200138 oder AK 400 charge wo trend klar anders, optimum bei 950 °C, aber rhoc absolut eben nicht geeignet...
+
+
+%fired only vielleicht erst in chapter summary ansprechen? hätte den vorteil, dass dort zumindest der wert für SInx RTP-only im summary graph gezeigt ist, verweis auf appendix nur für n-only refs nötig und dass gleicher trend erzielt wurde...
+
+
+%Interlayers are especially attractive for the application in a RTP-only process route, since the
+%formation of a good contact to the wafer at highest RTP temperatures is accompanied by
+%excessive TJ interdiffusion (see chapter 5.1.1, Figure 5.4). By counteracting interdiffusion with a
+%suitable interlayer, the realization of a low-resistive TJ stack on TOPCon with only one high
+%temperature step might be possible.
+%However, as already mentioned in Section \ref{sec:rhoc-TJ-routes}, using the standard thermally grown oxide TO1 at the n$^+$ poly-Si/c-Si interface in the RTP-only process route led to%strong run-to-run variations
+%unreliable results regarding $\rho_{Si}$. As a consequence, $\rho_c$ values were rather high for all structures. 
+
+
+
+\begin{figure}[ht] 
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/TJ/RTP-only-interlayer-journal-v2}
+	\caption[$R_t$ of RTP-only SiTJs with and without DBI]{Total resistance $R_t$ of RTP-only SiTJs with and without DBI. Note that $R_t$ includes bulk and rear side contributions. Calculation of $\rho_c$ was not possible since references for measuring the rear side contributions were not included in this batch. As a guide to the eye, the expected trend of reference structures where the $p$-type Si deposition was omitted is represented by the dashed line.}
+	\label{fig:rhoc-RTP-only}
+\end{figure}
+
+
+%aus paper:
+In the lean RTP-only process route high $T_{RTP}$ are necessary for the formation of a low-ohmic contact to the wafer (low $\rho_{Si}$), especially if a thermally grown Si tunnel oxide is used (Section \ref{sec:n-only-RTP}). By counteracting interdiffusion at these high temperatures with a suitable DBI, the formation of a low-resistive SiTJ stack with only a single high temperature step might be possible. The most promising interlayers providing the lowest $\rho_c$, namely PECVD SiC$_x$ and $0.8 ~\textrm{nm}$ thick ALD SiN$_x$, were thus also tested in the RTP-only route with a thermally grown Si tunnel oxide (Fig. \ref{fig:rhoc-RTP-only}). Note that Fig. \ref{fig:rhoc-RTP-only} depicts the total resistance $R_t$ of the structures including bulk and rear side contributions. Whereas the resistance of SiTJ increased drastically for $T_{RTP} > 900 ~\textrm{°C}$, SiTJs with DBI followed the trend of decreasing $R_t$ of reference structures where the poly-Si($p^+$) was omitted. The SiC$_x$ SiTJ was again degraded at $T_{RTP} = 950 ~\textrm{°C}$, but the SiN$_x$ SiTJ was still stable at this temperature and provided a reasonable $R_t$ of $\approx 450 ~\textrm{m}\upOmega\textrm{cm}^2$. This value is mainly limited by the contact to the wafer ($\rho_{Si}$) and not by the SiTJ. 
+The wet-chemical HNO$_3$ oxide therefore remains as first option for the RTP-only process route. Unfortunately its thermal stability is limited to temperatures below $900 ~\textrm{°C}$. Above $900 ~\textrm{°C}$ it cannot provide satisfying surface passivation anymore (i$V_{oc} < 700 ~\textrm{mV}$) \cite{Moldovan.2015,Harter.Master,Polzin.2020}. Thus, the gain in $\rho_c$ due to diffusion blocking interlayers, which is highest at $T_{RTP} \ge 900 ~\textrm{°C}$, cannot be exploited.
+
+
+As a side note, the SiN$_x$ DBI provided enough diffusion blocking to allow for $\rho_{c} \approx 800 ~\textrm{m}\upOmega\textrm{cm}^2$ with the simple process route FA-only, as compared to $\rho_{c} > 10^5 ~\textrm{m}\upOmega\textrm{cm}^2$ without DBI. Dopant overcompensation was prevented by the SiN$_x$ layer, as $p$- and $n$-type doping was detected with ECV after the FA (not shown).
+
+
+In the following sections the most promising interlayers providing the lowest $\rho_c$, namely PECVD SiC$_x$ and $0.8 ~\textrm{nm}$ thick ALD SiN$_x$, are investigated more thoroughly.
+
+
+\subsubsection{Dopant depth profiles}
+
+%eventuell ECV von Proben anders als SiNx oder SiCx, aber wohl einfach im rhoc kapitel ohne ECV diskutieren bzw auf appendix verweisen. andere ECV werden nicht gezeigt!
+
+\begin{figure}[htp]
+	\centering{
+		\begin{minipage}[b]{0.7\textwidth}
+			\centering
+			\subfloat[\textbf{(a) SiN$_x$ interlayer}  \label{fig:ECV-SiNx-AK400}] {\includegraphics[width=\textwidth]{images/TJ/ECV-SiNx-AK400}}
+		\end{minipage}
+		\par\bigskip % force a bit of vertical whitespace
+		\begin{minipage}[b]{0.7\textwidth}
+			\centering
+			\subfloat[\textbf{(b) SiC$_x$ interlayer} \label{fig:ECV-SiCx-AK400}] {\includegraphics[width=\textwidth]{images/TJ/ECV-SiCx-AK400}}
+		\end{minipage}
+	}
+	\caption[Active dopant profiles of SiTJ structures including \ac{DBI}s]{Charge carrier concentration as measured with ECV of a SiTJ comprising (a) an ALD SiN$_x$ interlayer and (b) a PECVD SiC$_x$ interlayer.}
+	\label{fig:ECV-interlayer-AK400}
+\end{figure}
+
+
+To prove the dopant diffusion blocking ability of the SiC$_x$ and SiN$_x$ interlayer, dopant depth profiles were measured. For SiN$_x$ in Fig. \ref{fig:ECV-SiNx-AK400} very high charge carrier concentrations $N > 1.0 \times 10^{20} ~\textrm{cm}^{-3}$ in both the $p^+$- and the $n^+$-region were measured with ECV, even at $T_{RTP} = 950 ~\textrm{°C}$. The resulting abrupt transition, i.e., small depletion width, at the $p^+$/$n^+$ interface explains the very low $\rho_c$ observed in Fig. \ref{fig:rhoc-interlayer}. For SiC$_x$ $N$ was similarly high in poly-Si($p^+$) but lower in poly-Si($n^+$). Still, $N$ was as high as $\approx 4 \times 10^{19} ~\textrm{cm}^{-3}$ at $T_{RTP} = 900 ~\textrm{°C}$. At $T_{RTP} = 950 ~\textrm{°C}$, however, $p$-type doping was detected almost throughout the nominally $n$-type poly-Si layer. In this case, P-doping was apparently overcompensated by B-doping. The dopant profile correlates well with the high $\rho_c$ for structures comprising the SiC$_x$ at $T_{RTP} = 950 ~\textrm{°C}$ in Fig. \ref{fig:rhoc-interlayer}, as the $p$-type poly-Si layer formed a $p$/$n$ junction with the $n$-type c-Si Wafer. These results indicate that diffusion is very efficiently blocked using the ALD SiN$_x$ layer. The PECVD SiC$_x$ layer apparently blocked parasitic dopant diffusion to some extent, but failed at highest thermal budget. 
+
+%bei 900 °C hat poly-Si große körner (außer SiC Probe...) diffusion bis SiC schicht, dort viele interstital C Atome die Diff blocken...?
+%ein grund warum SiC schicht P diffusion blockiert ist dass korngrenzen senkrecht zur grenzfläche unterbrochen werden und daher nicht als schneller diffusions pfad ins p+ poly-Si dienen können...
+%ausrichtung der korngrenzen ist für diffusion aber wohl ziemlich egal, siehe Han.2015...
+
+
+
+%ECV Daten aus 200138 fired only, zwar schöne plateaus, passen aber nicht zu rhoc im vorherigen kapitel...
+%\begin{figure}[htp] 
+%	\centering
+%	\includegraphics[width=0.55\linewidth]{images/TJ/ECV-SiCx}
+%	\caption[CV Messung an einer LSMO-Dünnschicht]{SiCx, hier nur bis 925 °C! bei 950 °C AK400 sieht man deutlich Bor in n+ poly-Si.}
+%	\label{fig:ECV-alloying-cPLASMA}
+%\end{figure}
+%
+%\begin{figure}[htp] 
+%	\centering
+%	\includegraphics[width=0.55\linewidth]{images/TJ/ECV-SiNx}
+%	\caption[CV Messung an einer LSMO-Dünnschicht]{SiNx}
+%	\label{fig:ECV-alloying-cPLASMA}
+%\end{figure}
+
+%einheitlich zu oben, p- b+ oder einfach p und b? primärionen angeben?
+%so ähnlich wie in schnabel.phd schreiben: The depth axis is rescaled such that the depth where the carbon signal decreases to half its value in the nc-SiC equals the film thickness measured by SEM
+\begin{figure}[htp]
+	\centering{
+		\begin{minipage}[b]{0.7\textwidth}
+			\centering
+			\subfloat[\textbf{(a)} \label{fig:SIMS-P}] {\includegraphics[width=\textwidth]{images/TJ/SIMS-P}}
+		\end{minipage}
+		\par\bigskip % force a bit of vertical whitespace
+		\begin{minipage}[b]{0.7\textwidth}
+			\centering
+			\subfloat[\textbf{(b)} \label{fig:SIMS-boron}] {\includegraphics[width=\textwidth]{images/TJ/SIMS-boron}}
+		\end{minipage}
+	}
+	\caption[ToF-SIMS dopant depth profiles of SiTJ structures including \ac{DBI}s]{(a) P and (b) B depth profile as measured with ToF-SIMS of SiTJ comprising PECVD SiC$_x$ interlayer or a ALD SiN$_x$ interlayer in comparison to a SiTJ without interlayer.}
+	\label{fig:SIMS-interlayer}
+\end{figure}
+
+To visualize diffusion and to distinguish between B and P SIMS measurements were conducted on structures exposed to an RTP with $T_{RTP} = 900 ~\textrm{°C}$. 
+Please note that these samples were not exposed to the FA after a-Si:H($n^+$) and prior to a-Si:H($p^+$) deposition.
+The profiles were aligned by setting the maximum of the peak at the poly-Si/SiO$_x$/c-Si interface to a depth of zero. A constant sputter rate was assumed in all layers to convert the sputter time into a sample depth. The depth axis of Fig. \ref{fig:SIMS-P} was re-scaled such that the depth difference between the two maxima of the P signal at the Si($p^+$)/Si($n^+$) and the Si(n$^+$)/SiO$_x$/c-Si interface equaled the Si($n^+$) thickness measured via \ac{TEM}. Similarly, the depth axis of Fig. \ref{fig:SIMS-boron} was re-scaled such that the depth at the B signal maximum referring to the Si($p^+$)/Si($n^+$) interface corresponded to the Si($p^+$) thickness measured via TEM. 
+
+Without interlayer P diffused heavily into the nominally $p$-type region, resulting in a high P concentration throughout both poly-Si layers (Fig. \ref{fig:SIMS-P}). The profile evidently resembles the profiles after RTP at $T_{RTP} = 900/950 ~\textrm{°C}$ in Fig. \ref{fig:SIMS-RTP-Temp}.
+The thin native oxide present at the SiTJ obviously could not provide sufficient dopant diffusion blocking, although diffusion blocking behavior of the native SiO$_x$ was observed to some extent by comparing SiTJ deposited with and without vacuum break (not shown).
+In contrast, the profile for the structure comprising the SiN$_x$ interlayer shows the high P diffusion blocking ability of SiN$_x$. Consequently, the P plateau concentration in poly-Si($n^+$) was higher compared to the sample without interlayer.
+The SiC$_x$ interlayer also blocked P diffusion, as P signal dropped to background noise level in the $p$-type region. Nevertheless, the P concentration was lower throughout the entire poly-Si($n^+$) region. Presumably P atoms diffused into the $6 ~\textrm{nm}$ thick SiC$_x$ layer but were slowed down and stopped there. % P dosen ausrechnen, kommt das hin? später confirmed via TEM EDX
+
+B diffusion was also efficiently blocked by SiN$_x$ as the B concentration decreased steeply down to %shallow?
+noise level within the first few nanometers of poly-Si($n^+$) (Fig. \ref{fig:SIMS-boron}). On the contrary, with the SiC$_x$ interlayer the B concentration decreased not as abruptly and reached deeper into the poly-Si($n^+$), similar to the B profile for the structure without interlayer. One reason why B diffusion is not blocked by the SiC$_x$ might be that it is itself heavily B-doped. B-doping was added to the SiC$_x$ layer to ease charge carrier transport across the SiTJ.
+
+
+
+
+
+\subsubsection{TEM microstructure}
+
+\ac{TEM} images were recorded to gain insight into the microstructure of the poly-Si layers and the DBI forming the SiTJ. 
+
+
+
+\paragraph*{Reference without DBI}
+
+
+
+%\begin{figure}[htp] 
+%	\centering
+%	\includegraphics[width=\textwidth]{images/TJ/TEM-overview-ohneDBI}
+%	\caption[CV Messung an einer LSMO-Dünnschicht]{TEM overview ohne DBI, kristallzwillinge als säulen zu sehen.}
+%	\label{fig:summary-TJ-rhoc}
+%\end{figure}
+
+
+\begin{figure}[ht]
+	\centering{
+		\begin{minipage}[b]{0.49\textwidth}
+			\centering
+			\subfloat[\textbf{(a)} \label{fig:TEM-ohneDBI-overview}] {\includegraphics[width=\textwidth]{images/TJ/TEM-ohneDBI}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.49\textwidth}
+			\centering
+			\subfloat[\textbf{(b)}  \label{fig:TEM-ohneDBI-zoom}] {\includegraphics[width=\textwidth]{images/TJ/TEM-ohneDBI-zoom}}
+		\end{minipage}
+	}
+	\caption[Microstructure of the SiTJ without DBI]{Microstructure of the SiTJ without DBI. (a) Overview showing crystal grains and moiré patterns. The yellow square represents the image section shown in (b) with higher magnification. (b) Grain growth spread across both poly-Si layers.}
+	\label{fig:TEM-ohneDBI}
+\end{figure}
+
+
+Fig. \ref{fig:TEM-ohneDBI-overview} shows a cross-section overview of both poly-Si layers on top of the c-Si bulk. The bright contrast at the top corresponds to a C layer deposited during lamella preparation. 
+The striped interference patterns especially on the left in the poly-Si layers are so-called moiré patterns that arise when two crystal grains of slightly different orientation are in the electron beam path. %Further, column-like structures were observed, indicating twin-grain growth (not shown). %drin lassen? dann erklären können!
+Noticeably, the interface between the Si($p^+$) and the Si($n^+$) layer is not visible. This could be explained by a rough interface. In that case, the interface position would vary slightly across the thickness of the lamella ($\approx 50 - 100 ~\textrm{nm}$) and clear projection of the interface would not be possible. 
+Consequently, the native oxide at the SiTJ interface, visible in the ToF-SIMS profiles (Figs. \ref{fig:SIMS-RTP-Temp} and \ref{fig:SIMS-P}), was not detected here. In contrast, the amorphous, intentionally thermally grown SiO$_x$ at the poly-Si/c-Si interface was clearly distinguished from the adjacent (poly-)crystalline Si. An oxide thickness of $\approx 1.2 ~\textrm{nm}$ was extracted from \ac{HRTEM} images, in excellent agreement to the nominal thickness.
+ 
+\begin{figure}[hpt]
+	\centering{
+		\begin{minipage}[b]{0.32\textwidth}
+			\centering
+			\subfloat[\textbf{(a)}  \label{fig:TEM-ohneDBI-O}] {\includegraphics[width=\textwidth]{images/TJ/TEM-ohneDBI-O}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.32\textwidth}
+			\centering
+			\subfloat[\textbf{(b)}  \label{fig:TEM-ohneDBI-P}] {\includegraphics[width=\textwidth]{images/TJ/TEM-ohneDBI-P}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.32\textwidth}
+			\centering
+			\subfloat[\textbf{(c)}  \label{fig:TEM-ohneDBI-HAADF}] {\includegraphics[width=\textwidth]{images/TJ/TEM-ohneDBI-HAADF}}
+		\end{minipage}
+	}
+	\caption[EDX mapping of the SiTJ without DBI]{EDX mapping of the SiTJ without DBI. EDX map of (a) O and (b) P distribution. (c) High-angle annular dark-field (HAADF)  image of the region of interest. Different layers are colored for better visualization. %Der oder die BF-Detektoren liegen auf der optischen Achse des Mikroskops und erfassen die nicht oder in sehr kleine Winkel gestreuten Elektronen. Die DF-Detektoren sind in der Regel konzentrisch um die optische Achse des Mikroskops angeordnet, man bezeichnet sie dann auch als annulare Dunkelfelddetektoren (engl. annular dark field, ADF). Das HAADF-Signal ermöglicht oftmals die Unterscheidung von chemischen Elementen einfach anhand der Signalintensität, da die Streuung in den entsprechenden Winkelbereich annähernd mit dem Quadrat der Ordnungszahl skaliert. Für genügend dünne Proben hängt die HAADF-Intensität außerdem etwa linear von der durchstrahlten Probendicke ab. wiki https://de.wikipedia.org/wiki/Rastertransmissionselektronenmikroskop#:~:text=annular%20dark%20field%2C%20ADF).,dark%20field%20(HAADF)%20eingesetzt.
+	}
+	\label{fig:TEM-ohneDBI-EDX}
+\end{figure}
+
+
+The yellow square represents the image section shown in Fig. \ref{fig:TEM-ohneDBI-zoom} with higher magnification. One large grain can be seen that spreads across the entire combined poly-Si layer thickness of roughly $50 ~\textrm{nm}$. This shows, that the SiTJ interface was not very distinct and the native oxide was not thick enough to separate both poly-Si layers.
+In general, dopant diffusion in poly-Si is much faster along grain boundaries compared to migration through Si crystal grains \cite{Queisser.1961,Post.1991}, thus large grains rather hamper diffusion. Nevertheless, grain boundaries spreading across the Si($p^+$)/Si($n^+$) interface might act as fast diffusion paths and facilitate parasitic interdiffusion.
+% durch ganzes korn über grenzfläche auch diff begünstigt? oder gehemmt, da diff in aSi schneller als in c-Si...
+%paper zitieren, in dem auch epi-growth über TJ hinweg zu sehen ist...ist in tomasi.2017, dort aber ja nc growth, also nicht direkt zu vergleichen...
+
+
+
+
+
+The \ac{EDX} mapping in Fig. \ref{fig:TEM-ohneDBI-EDX} confirms the ToF-SIMS profiles shown in the previous section. Besides the clearly visible thermally grown tunneling oxide at the poly-Si/c-Si interface and the oxide at the poly-Si/C interface (former sample surface), % due to native oxidation and sample preparation?) 
+an O enrichment was also detected at the SiTJ interface (Fig. \ref{fig:TEM-ohneDBI-O}). This is the result of native oxidation during the vacuum break between a-Si:H($n^+$) and a-Si:H($p^+$) deposition. However, this native oxide was not sufficient to block P diffusion, as P was detected throughout both poly-Si layers. At the position of the SiTJ interface the P intensity was increased. Thus, it can be concluded that the peak in the ToF-SIMS P profile was only partially due to the SIMS matrix effect and the P concentration was indeed enriched in the native oxide at this interface. The P enrichment was even more pronounced in the thicker, more stoichiometric thermally grown SiO$_x$ at the c-Si surface.
+
+
+
+\paragraph*{SiN$_x$ interlayer}
+
+
+%ist nichts neues, könnte man weglassen! bleibt aber wohl der Vollständigkeit halber drin!
+\begin{figure}[]
+	\centering{
+		\begin{minipage}[b]{0.49\textwidth}
+			\centering
+			\subfloat[\textbf{(a)} \label{fig:TEM-SiNx-overview}] {\includegraphics[width=\textwidth]{images/TJ/TEM-overview-SiNx}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.49\textwidth}
+			\centering
+			\subfloat[\textbf{(b)}  \label{fig:TEM-SiNx-zoom}] {\includegraphics[width=\textwidth]{images/TJ/TEM-SiNx}}
+		\end{minipage}
+	}
+	\caption[Microstructure of the SiTJ with SiN$_x$ interlayer]{Microstructure of the SiTJ with SiN$_x$ interlayer. (a) Overview showing crystal grains and moiré patterns. (b) Both poly-Si layers were separated by the amorphous SiN$_x$ interlayer. Grain growth across the SiTJ interface was thus prevented, in contrast to the structure without DBI.}
+	\label{fig:TEM-SiNx}
+\end{figure}
+
+\begin{figure}[]
+	\centering{
+		\begin{minipage}[b]{0.32\textwidth}
+			\centering
+			\subfloat[\textbf{(a)}  \label{fig:TEM-SiNx-O}] {\includegraphics[width=\textwidth]{images/TJ/TEM-SiNx-O}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.32\textwidth}
+			\centering
+			\subfloat[\textbf{(b)}  \label{fig:TEM-SiNx-P}] {\includegraphics[width=\textwidth]{images/TJ/TEM-SiNx-P}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.32\textwidth}
+			\centering
+			\subfloat[\textbf{(c)}  \label{fig:TEM-SiNx-HAADF}] {\includegraphics[width=\textwidth]{images/TJ/TEM-SiNx-HAADF}}
+		\end{minipage}
+	}
+	\caption[EDX mapping of SiTJ with SiN$_x$ interlayer]{EDX mapping of SiTJ with SiN$_x$ interlayer. EDX map of (a) O and (b) P distribution. (c) \ac{HAADF} image of the region of interest. Different layers are colored for better visualization.}
+	\label{fig:TEM-EDX-Map-SiNx}
+\end{figure}
+
+
+On the cross-section overview of the SiTJ with SiN$_x$ interlayer (Fig. \ref{fig:TEM-SiNx-overview}) it is noticeable that the nitride layer is clearly visible, separating the different doped Si layers. Both doped layers were clearly poly-crystalline, as without DBI. Again, in some cases, grains spread across the entire thickness of the respective poly-Si layer but were separated by the thin amorphous SiN$_x$ interlayer (Fig. \ref{fig:TEM-SiNx-zoom}). 
+
+
+
+
+EDX mapping was also performed for this structure (Fig. \ref{fig:TEM-EDX-Map-SiNx}). The ability to block P was confirmed as the P concentration was at noise level throughout the Si($p^+$)-region. %, similar to the structure with SiC$_x$ interlayer. 
+Again enrichment of P and O at the SiTJ and in the SiO$_x$ at the c-Si surface was detected. 
+
+
+
+
+
+
+\paragraph*{SiC$_x$ interlayer} 
+
+
+\begin{figure}[]
+	\centering{
+		\begin{minipage}[b]{0.49\textwidth}
+			\centering
+			\subfloat[\textbf{(a)}  \label{fig:TEM-overview-SiCx}] {\includegraphics[width=\textwidth]{images/TJ/TEM-overview-SiCx}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.49\textwidth}
+			\centering
+			\subfloat[\textbf{(b)}  \label{fig:TEM-SiCx-zoom}] {\includegraphics[width=\textwidth]{images/TJ/TEM-SiCx-zoom}}
+		\end{minipage}
+		\par\bigskip % force a bit of vertical whitespace
+		\begin{minipage}[b]{0.49\textwidth}
+			\centering
+			\subfloat[\textbf{(c)}  \label{fig:TEM-FFT-SiCx}] {\includegraphics[width=\textwidth]{images/TJ/TEM-FFT-SiCx}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.49\textwidth}
+			\centering
+			\subfloat[\textbf{(d)}  \label{fig:TEM-FFT-SiCx-ROI}] {\includegraphics[width=\textwidth]{images/TJ/TEM-FFT-SiCx-ROI}}
+		\end{minipage}
+	}
+	\caption[Microstructure of the SiTJ with SiC$_x$ interlayer]{Microstructure of the SiTJ with SiC$_x$ interlayer. (a) Overview of the multilayer stack. (b) Crystal grain and moiré pattern in poly-Si($n^+$). (c),(d) Comparison of the three different thin films using FFT.}
+	\label{fig:TEM-SiCx}
+\end{figure}
+
+
+
+On the cross-section overview of the SiTJ with SiC$_x$ interlayer (Fig. \ref{fig:TEM-overview-SiCx}) it is noticeable that the carbide layer is clearly visible, separating the oppositely doped Si layers. A SiC$_x$ thickness of $\approx 5 ~\textrm{nm}$ was extracted, compared to a thickness of $\approx 6-7 ~\textrm{nm}$ measured via \ac{SE}. On closer examination of the multilayer stack, significant differences appeared between the different layers. The P-doped layer was clearly poly-crystalline, similar to the case without DBI. In Fig. \ref{fig:TEM-SiCx-zoom} a large grain is shown, spreading across the entire thickness of the poly-Si($n^+$). %Due to interference with grains in the volume of the lamella moiré pattern appeared also for this sample. 
+%Again the amorphous SiO$_x$ was easily distinguished between the poly-Si and the mono-crystalline Si Substrate. %oxiddicke hier zu 1.4 nm bestimmt, ist aber wohl messungenauigkeit, sollte nicht dicker sein als in probe ohne interlayer...
+
+
+In the SiC$_x$ and the B-doped Si layer no larger scale grains were visible (Fig. \ref{fig:TEM-FFT-SiCx}). In the three red marked regions of interest, representing poly-Si($n^+$) (FFT1), the SiC$_x$ interlayer (FFT2) and Si($p^+$) %\footnotemark\footnotetext{Note that strictly speaking the SiC$_x$ is also part of the p$^+$-region, since it is also B-doped.}
+(FFT3), the signal was undertaken a \ac{FFT} to display the crystal lattice in reciprocal space (Fig. \ref{fig:TEM-FFT-SiCx-ROI}). Note that FFT2 covers both SiC$_x$ and Si($p^+$). FFT1 showed circular brightness contrasts corresponding to the amorphous phase without long-range order, superimposed with a distinct dot pattern representing the lattice of the grain. FFT2 and FFT3 showed no sign of long-range order, only the amorphous phase was visible. For the SiC$_x$ layer this can be readily understood, since due to the high C content of roughly $40 ~\textrm{at}\%$ crystallization was impeded and higher temperatures above 900 °C are necessary to crystallize SiC$_x$ with such a high C content \cite{Calcagno.2002}. 
+%aus frank phd...
+%The higher crystallization temperature
+%was explained by the fact that the a-SiC films have to undergo a phase sepa-
+%5 This chapter is partly adapted from the Diplom thesis of M. Simon who was supervised
+%by the author of this thesis. The experiments were planned and guided by the
+%author of this work and mainly conducted by M. Simon. M. Simon?s main tasks
+%were characterization and data analysis. The physical interpretation of the results
+%was done in close collaboration with the author of this work.
+%60 5.2 Sample preparation and measurement conditions
+%ration first. This also explains why stoichiometric Si0.5C0.5 films do not show a c-Si
+%Raman line [129]. The formation of b-SiC can be studied indirectly by means of
+%FTIR which probes the chemical bonding configuration of annealed a-Si1-xCx films.
+%In this case the shape and position of the Si-C stretching mode at about 750 cm-1 was
+%typically studied. For instance, Calcagno et al. deconvoluted this band in a Gaussian
+%(area G) and Laurentzian (area L) contribution and determined the degree of SiC
+%crystallinity from the ratio of the L/(L+G). They reported that the crystallization of
+%a-Si0.7C0.3 started at 800 °C and was completed at 900 °C. Moreover, they found that
+%the crystallization temperature increased with the C fraction of the film [130]. The
+%formation of b-SiC was also studied by others. Künle et al. studied annealed
+%a-Si0.8C0.2 films by GIXRD (grazing incidence X-ray diffraction) and reported that
+%very small SiC nanocrystals formed upon annealing at 1000 °C [131].
+The Si($p^+$) layer was deposited subsequently without vacuum break, which lead to some C contamination (C content $\approx 5 ~\textrm{at}\%$) according to an \ac{EDX} line scan (not shown). Nevertheless, very high active dopant concentrations $N$ close to $1.0 \times 10^{20} ~\textrm{cm}^{-3}$ were measured with ECV in the Si($p^+$) layer (Fig. \ref{fig:ECV-SiCx-AK400}), which would not be possible in a completely amorphous layer \cite{Spear.1975,Luderer.2021}. 
+%For the p$^+$ Si layer this is rather puzzling, however, as high active dopant concentrations $N>1.0 \times 10^{20} ~\textrm{cm}^{-3}$ were measured with ECV in this layer, which would not be possible in a complete amorphous layer.%richtig? irgendwas zitieren?
+%The same Si($p^+$) was clearly poly-crystalline in the structure without DBI, so the thermal budget of $T_{RTP}$ for 5 seconds was high enough for (partial) crystallization. For the grains spreading across both poly-Si layers without DBI it is possible, that nucleation started in the n$^+$-region and induced crystallization also in the p$^+$-region. However, also smaller grains, only in the p$^+$-region were observed as well, indicating that the p$^+$ matrix crystallized independently from the n$^+$-region solely due to the applied thermal budget. %prüfen
+Since a TEM lamella represents only a small fraction of the whole sample, it might be possible that an amorphous section was selected coincidentally. This scenario is, however, very unlikely.
+Another important aspect is the orientation of the lamella to the incident electron beam. A crystal grain is only visible if Bragg's law 
+\begin{equation}
+	k \lambda = 2 d \cdot \sin\left( \frac{\theta}{2} \right) %\approx d \cdot \theta
+\end{equation}
+is fulfilled, where $k$ is the diffraction order, $\lambda$ is the de Broglie wavelength of the incident electron beam, and $2 d \cdot \sin\left( \frac{\theta}{2} \right)$ is the path difference of electrons reflected at two different lattice planes of the crystal. 
+%For different orientations in which the electron beam hits the crystal, one almost always receives different images on the detector behind the crystal, because there are always different sets of parallel lattice planes (with different Bragg angles and with different orientations in the crystal) in the reflection position to the incident beam \cite{wiki bragg's law}. %abstaz drinlassen? 
+\begin{figure}[]
+	\centering{
+		\begin{minipage}[b]{0.32\textwidth}
+			\centering
+			\subfloat[\textbf{(a)}  \label{fig:TEM-SiCx-O}] {\includegraphics[width=\textwidth]{images/TJ/TEM-SiCx-O}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.32\textwidth}
+			\centering
+			\subfloat[\textbf{(b)}  \label{fig:TEM-SiCx-P}] {\includegraphics[width=\textwidth]{images/TJ/TEM-SiCx-P}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.32\textwidth}
+			\centering
+			\subfloat[\textbf{(c)}  \label{fig:TEM-SiCx-HAADF}] {\includegraphics[width=\textwidth]{images/TJ/TEM-SiCx-HAADF}}
+		\end{minipage}
+	}
+	\caption[EDX mapping of the SiTJ with SiC$_x$ interlayer]{EDX mapping of the SiTJ with SiC$_x$ interlayer. EDX map of (a) O and (b) P distribution. (c) \ac{HAADF} image of the region of interest. Different layers are colored for better visualization.}
+	\label{fig:TEM-EDX-Map-SiCx}
+\end{figure}
+Yet, although the lamella was tilted in several orientations, the image was basically unchanged, and no crystal grains appeared.
+It is also possible that very small grains on the nanometer scale are present with a broad distribution of orientation, which would make them appear as amorphous phase or not detectable in the FFT. %There are clustered light/dark contrasts visible in Fig. \ref{fig:TEM-FFT-SiCx} which might be an indication for nano-crystalline grains.%in bild einzeichnen, markieren? wirklich welche da? satz drinlassen?
+This could explain the high activation of dopants measured in ECV. 
+Lastly, damage of the Si($p^+$) layer during lamella preparation that caused its amorphization cannot be ruled out completely. Evidence for that is the further increased C content in the Si($p^+$) layer close to the C protection layer detected via EDX and the rougher Si($p^+$) surface compared to the lamella without DBI (not shown). %lamella nicht so gut präpariert wie die ohne DBI, deutlich erhöhter C und sogar Ga gehalt in der p+ schicht!
+
+
+
+
+
+
+
+The EDX mapping again confirms results obtained from ToF-SIMS analysis (Fig. \ref{fig:TEM-EDX-Map-SiCx}). The P concentration was abruptly decreased in the Si($p^+$) region, but P was enriched in the SiC$_x$ layer (Fig. \ref{fig:TEM-SiCx-P}). Based on the ToF-SIMS results in the previous section, it was assumed that P diffuses into the carbide layer. Here, without a matrix effect interfering with the evaluation, this assumption can be confirmed. %noch was zu O map?
+O enrichment was also detected in the region of the SiC$_x$ layer (Fig. \ref{fig:TEM-SiCx-O}), most likely due to the native oxide formed during vacuum break between a-Si:H($n^+$) and a-SiC$_x$:H($p^+$) deposition.\footnotemark\footnotetext{Note that the a-SiC$_x$:H($p^+$) interlayer and the a-Si:H($p^+$) were deposited without breaking the vacuum.}
+
+
+
+
+
+\section{TOPCon solar cells including SiTJ}
+
+%200390, eta bis 17 \% 
+
+In this section the SiTJ developed in the previous sections is integrated into a Si single-junction solar cell to test its performance on cell level.
+
+
+
+\paragraph{Experimental details}
+
+
+\begin{figure}[]
+	\centering{
+		\begin{minipage}[b]{0.28\textwidth}
+			\centering
+			\subfloat[\textbf{(a)}  \label{fig:TJ-cells}] {\includegraphics[width=\textwidth]{images/TJ/TJ-cells}}
+		\end{minipage}
+		\hfill%\hspace{2cm}
+		\begin{minipage}[b]{0.28\textwidth}
+			\centering
+			\subfloat[\textbf{(b)}  \label{fig:ref-cells}] {\includegraphics[width=\textwidth]{images/TJ/ref-cells}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.19\textwidth}
+			\centering
+			\subfloat[  \label{fig:TJ-cell-color-code}] {\includegraphics[width=\textwidth]{images/TJ/TJ-cell-color-code}}
+		\end{minipage}
+	}
+	\caption[Si single-junction solar cell structures with and without SiTJ]{Sketch of utilized Si single-junction solar cell structures (a) with and (b) without SiTJ.}
+	\label{fig:200390-structures}
+\end{figure}
+
+
+
+The cell design of choice comprised a planar $n$-type FZ 1 $\upOmega\textrm{cm}$ c-Si absorber and poly-Si/SiO$_x$ passivating contacts (TOPCon) on both sides with the full-area poly-Si($p^+$) emitter at the front. The SiTJ was formed with an additional poly-Si($p^+$) layer on top of the rear side poly-Si($n^+$)/SiO$_x$ contact (Fig. \ref{fig:TJ-cells}). Cells without this additional poly-Si($p^+$) at the rear side served as references (Fig. \ref{fig:ref-cells}). The two most promising processes developed in the previous sections were tested. Namely a SiTJ utilizing both the FA and an RTP at $T_{RTP}=800 ~\textrm{°C}$ and an RTP-only SiTJ with an wet-chemical HNO$_3$ passivating Si tunnel oxide and $T_{RTP}=850 ~\textrm{°C}$. 
+
+The poly-Si($p^+$)/SiO$_x$ emitter was the same for all cells and comprised a SiO$_x$ thermally grown at 600 °C for 10 minutes in pure oxygen atmosphere ($\approx 1.3 ~\textrm{nm}$ thickness, TO2) and a FA at 950 °C for 10 min. The emitter was completed before the rear side contact and the SiTJ which were formed with lower thermal budget. For group FA+RTP the thermally grown rear side SiO$_x$ (600 °C for 10 min under N$_2$/O$_2$ atmosphere, TO1) and the Si($n^+$) received the FA at 900 °C for 10 min before Si($p^+$) deposition, followed by an RTP at $T_{RTP} = 800 ~\textrm{°C}$. For group RTP-only Si($n^+$) and Si($p^+$) were deposited on a wet-chemical HNO$_3$ oxide at the rear, followed by an RTP at $T_{RTP} = 850 ~\textrm{°C}$. Then, for lateral transport between the metal finger grid and for better light coupling $75 ~\textrm{nm}$ of ITO was sputtered on the front side using a shadow mask with $2.1 \times 2.1 ~\textrm{cm}^2$ openings. To reduce sputter damage on the passivation quality, a low power/high power stack was used in combination with a subsequent hotplate annealing at $350 ~\textrm{°C}$ for $3 ~\textrm{min}$. This process sequence was developed in the doctoral thesis of Leonard Tutsch \cite{Tutsch.PhD}, a colleague of the author. The metallization was realized with full-area thermal evaporation of a TiPdAg stack at the rear side and TiPdAg evaporation and the photolithography lift-off technique for the front side grid with a pitch of $800 ~\upmu\textrm{m}$. The illuminated $J-V$ characteristics were measured with a shadow mask, setting the active cell area to $2.0 \times 2.0 ~\textrm{cm}^2$.
+
+
+
+
+
+\paragraph{Cell results}
+
+Fig. \ref{fig:200390-results} depicts the solar cell parameters of the different groups. Very similar results were obtained for both SiTJs groups compared to the reference without SiTJ, proving the suitability of the developed SiTJ for solar cell application. This is especially remarkable for group RTP-only, where the electron selective poly-Si($n^+$)/SiO$_x$ passivating rear contact and the SiTJ were formed with a single rapid thermal treatment.
+
+
+%\begin{figure}[ht]
+%	\centering{
+%		\begin{minipage}[b]{0.49\textwidth}
+%			\centering
+%			\subfloat[\textbf{(a)}  \label{fig:200390-eta}] {\includegraphics[width=\textwidth]{images/TJ/eta}}
+%		\end{minipage}
+%		\hfill
+%		\begin{minipage}[b]{0.49\textwidth}
+%			\centering
+%			\subfloat[\textbf{(b)}  \label{fig:200390-Voc}] {\includegraphics[width=\textwidth]{images/TJ/Voc}}
+%		\end{minipage}
+%		\par\bigskip % force a bit of vertical whitespace
+%		\begin{minipage}[b]{0.49\textwidth}
+%			\centering
+%			\subfloat[\textbf{(c)}  \label{fig:200390-Rs}] {\includegraphics[width=\textwidth]{images/TJ/Rs}}
+%		\end{minipage}
+%		\hfill
+%		\begin{minipage}[b]{0.49\textwidth}
+%			\centering
+%			\subfloat[\textbf{(d)}  \label{fig:200390-FF}] {\includegraphics[width=\textwidth]{images/TJ/FF}}
+%		\end{minipage}
+%	}
+%	\caption[Cell parameters of Si single junctions with and without SiTJ.]{Cell parameters of Si single junctions with and without SiTJ.}
+%	\label{fig:200390-results}
+%\end{figure}
+
+\begin{figure}[htp] 
+	\centering
+	\includegraphics[width=1\textwidth]{images/TJ/200390-cell-results}
+	\caption[Solar cell parameters of Si single-junctions with and without SiTJ]{Solar cell parameters of Si single-junctions with and without SiTJ.}
+	\label{fig:200390-results}
+\end{figure}
+
+%dritter aspekt wäre TCO/poly-si(p) rhoc, welcher wohl Rs limitiert, sollte noch erwähnt werden, aber gibt es rhoc werte dafür?
+Three aspects, not related to the SiTJ, are the main limitation for $\eta$ in this test batch: The planar surface of the c-Si absorber, limiting the $J_{sc}$ to $\approx 32.0 ~\textrm{mAcm}^{-2}$, the TCO/poly-Si($p^+$) contact resistance %gibt es da werte für?
+and the low p$FF<80 ~\%$. The latter is mainly caused by the so-called dark emitter effect, since the poly-Si($p^+$) area is larger than the illuminated cell area. Due to non-negligible lateral conductivity in the 35 nm thick poly-Si($p^+$) layer the cells are connected to non-illuminated emitter areas ($p$/$n$ junctions) acting as a sink for charge carriers, i.e., a highly recombinative region. This effect was quantified measuring the p$FF$ of the solar cells using the SunsVoc method \cite{Sinton.2000}. %cite sinton.2000, wie feldmann.phd? describe method?
+Measuring with and without a $2.0 \times 2.0 ~\textrm{cm}^2$ mask amounted to a difference in p$FF$ of $\approx 4~\%_{abs}$. For comparison, the SunsVoc method was also conducted on SHJ front-emitter cells with and without mask. There, only a minor difference of $\approx 0.2 ~\%_{abs}$ was measured, which was most likely due to the small offset between ITO ($2.1 \times 2.1 ~\textrm{cm}^2$) and mask area ($2.0 \times 2.0 ~\textrm{cm}^2$). The significant difference of the dark emitter effect for both cell technologies can be ascribed to the difference in lateral conductivity of a-Si:H and poly-Si. The sheet resistance of a-Si:H is too high to support lateral transport and to contribute to the dark emitter effect. 
+This emphasizes that for application in perovskite/Si-tandem solar cells care has to be taken to control the lateral conductivity of heavily-doped poly-Si layers to avoid efficient connection of shunt paths. Options for higher $R_{sheet}$ are, e.g., thinner layers or C-alloying, as mentioned above.
+
+%Overall, scatter is high with a spread of $1.5-2.0 ~\%_{abs}$ in power-conversion efficiency, leaving room for further improvement...
+
+
+
+
+\section{Perovskite/Si tandem solar cells}\label{sec:tandem-results}
+%200028 bzw. B19, vorergebnisse besprechen, direkter kontakt HTL - poly-Si nicht möglich...eventuell verweis auf rem bild von özde im anhang?
+
+%verweis auf ausblick mit hybrid pero route welche kompatibel mit poly-Si sein sollte...im outlook dann.
+
+In this section the SiTJ is integrated into a perovskite/Si tandem solar cell comprising a TOPCon bottom cell.\footnotemark\footnotetext{The perovskite processes were coordinated by Jan-Christoph Goldschmidt and Özde Kabakli and conducted by Raphael Efinger, who also measured the finished tandem devices.}
+Note that it was not possible to grow the perovskite's \ac{HTL} directly on the poly-SiTJ. 
+
+The HTL used in the perovskite sub-cell was \ac{PTAA}, deposited via spin-coating. Spin-coating %/solution processing 
+is a commonly used deposition method in the perovskite PV community. It requires a hydrophilic substrate for homogeneous layer deposition. To ensure good wettability, usually the substrate is exposed to a ozone treatment. %duration?, nicht so wichtig!
+This process works well on substrates with ITO (as cell interconnection layer) at the surface, for example in the 25.1 \%-efficient perovskite/Si tandem utilizing a SHJ bottom cell demonstrated by Schulze \textit{et al.} \cite{Schulze.2020}, colleagues of the author at Fraunhofer ISE. 
+However, the poly-Si surface of a SiTJ was oxizized during this ozone treatment, as verified with SE measurements (not shown), and induced a strong transport barrier. Similar results were presented in Refs. \cite{Hoye.2018,Zheng.2018}.
+For low-resistive connection of Si heterojunctions it is critical to remove SiO$_x$ layers natively grown at the Si surface, as these oxide layers in general represent a significant transport barrier. The SiO$_x$ is typically removed by \ac{HF} treatment, which usually results in a hydrogen terminated and thus hydrophobic surface that counteracts the hydrophilic surface required for spin coating.  For that reason, it was not possible to grow the perovskite's \ac{HTL} directly on the poly-SiTJ without inducing a strong transport barrier. Using an evaporated HTL would circumvent this issue, as will be outlined in Chapter \ref{chap:summary}. %evaporated HTLs nötig für TJ, hybrid route läuft an am ISE...
+Here, ITO was used instead as interconnection layer on top of the SiTJ. Although this approach does not allow the SiTJ to fulfill its main purpose of replacing the ITO as an interconnecting layer, it does allow the poly-SiTJ to be integrated into a perovskite/Si tandem at this very early stage of development.
+
+%aus \cite{Hoye.2018}:
+%We first investigated the use of a silicon interband recombination
+%contact with opposite polarity to that previously used for
+%n-type silicon. This recombination contact (comprised of n++
+%and p++ silicon) is advantageous because it has minimal optical
+%absorption [13]. However, our first attempts resulted in extraction
+%barriers (see Fig. S1, Supporting Information). To identify
+%the root cause, we characterized the silicon bottom cell by XPS
+%and found that a thicker layer of insulating SiOx formed on
+%the silicon surface [see Fig. 1(a)] after the oxygen-plasma treatment
+%needed for sufficient wetting of the solution-processed top
+%cell. We investigated whether this effect could be overcome by
+%using 5 min UV-ozone treatment instead to make the silicon hydrophilic.
+%We found that while the SiOx peak was smaller [see
+%Fig. 1(a)], the tandems still had extraction barriers (see Fig. S1,
+%Supporting Information).
+
+\begin{figure}[htp] 
+	\centering
+	\includegraphics[width=0.8\textwidth]{images/TowardsTandem/structures-bottom-cells}
+	\caption[Sketch of the four different Si bottom cells utilized in the perovskite/Si tandem solar cells]{Sketch of the four different Si bottom cells utilized in the perovskite/Si tandem solar cells.}
+	\label{fig:structures-bottom-cells}
+\end{figure}
+
+
+The processes used for the perovskite top cell were established in the doctoral theses of Alexander Bett \cite{Bett.PhD} and Patricia Schulze \cite{Patricia.PhD}. A $p$-$i$-$n$ configuration was chosen, as in Ref. \cite{Schulze.2020}. However, due to the unavailability of C60 evaporation at that time, \ac{PCBM} was used compared to the perovskite sub-cell used in Ref. \cite{Schulze.2020}. While the perovskite processes were the same for all cells, four different Si bottom cells were tested. (i) A SHJ bottom cell served as a reference, (ii) a TOPCon bottom cell with full-area poly-Si/SiO$_x$ passivating contacts, (iii) a TOPCon bottom cell with structured poly-Si/SiO$_x$ at the front side to reduce the dark-emitter effect (see previous section) and (iv) a TOPCon bottom cell with integrated $p^+$/$n^+$ poly-SiTJ\footnotemark\footnotetext{ITO is still used as interconnection layer, as mentioned above.} (Fig. \ref{fig:structures-bottom-cells}). 
+
+%genauer auf prozessfluss der Bottomzellen eingehen...? ist ja bei einzelzelle beschrieben, darauf verweisen!
+
+
+%\begin{figure}[hpb]
+%	\centering{
+%		\begin{minipage}[b]{0.49\textwidth}
+%			\centering
+%			\subfloat[\textbf{(a)}  \label{fig:B19-eta}] {\includegraphics[width=\textwidth]{images/TowardsTandem/B19-eta}}
+%		\end{minipage}
+%		\hfill
+%		\begin{minipage}[b]{0.49\textwidth}
+%			\centering
+%			\subfloat[\textbf{(b)}  \label{fig:B19-FF}] {\includegraphics[width=\textwidth]{images/TowardsTandem/B19-FF}}
+%		\end{minipage}
+%		\par\bigskip % force a bit of vertical whitespace
+%		\begin{minipage}[b]{0.49\textwidth}
+%			\centering
+%			\subfloat[\textbf{(c)}  \label{fig:B19-Jsc}] {\includegraphics[width=\textwidth]{images/TowardsTandem/B19-Jsc}}
+%		\end{minipage}
+%		\hfill
+%		\begin{minipage}[b]{0.49\textwidth}
+%			\centering
+%			\subfloat[\textbf{(d)}  \label{fig:B19-Voc}] {\includegraphics[width=\textwidth]{images/TowardsTandem/B19-Voc}}
+%		\end{minipage}
+%	}
+%	\caption[Cell parameters of perovskite/Si tandem solar cells with different Si bottom cells.]{Cell parameters of perovskite/Si tandem solar cells with different Si bottom cells. gruppen noch nummerieren, 1: SHJ usw...}
+%	\label{fig:B19}
+%\end{figure}
+
+
+\begin{figure}[htp] 
+	\centering
+	\includegraphics[width=1\textwidth]{images/TJ/B19}
+	\caption[$J-V$ parameters of perovskite/Si tandem solar cells with different Si bottom cells]{$J-V$ parameters of perovskite/Si tandem solar cells with different Si bottom cells.} %gruppen noch nummerieren, 1: SHJ usw...? Nee!
+	\label{fig:B19}
+\end{figure}
+
+
+The solar cell parameters grouped for the different Si bottom cells utilized are depicted in Fig. \ref{fig:B19}. The tandems comprising a TOPCon bottom cell with structured poly-Si yielded very low $V_{oc} \approx 665 ~\textrm{mV}$, indicating a shunt of one of the sub-cells. Although the $V_{oc}$ is in the range of values expected for the Si bottom cell, it is more likely that the Si bottom cell shunted due to misalignment of the etched poly-Si contacts and the openings in the Al$_2$O$_3$/SiO$_x$ peripheral passivation layer prior to TCO deposition. This would mean that only the perovskite cell is active and the Si bottom cell represents a high-resistive back contact for this group. Usually $V_{oc} > 1 ~\textrm{V}$ is expected for the perovskite sub-cell, but very high $R_s$ due to the shunted, non-active Si sub-cell might explain the markedly reduced $V_{oc}$ (see Section \ref{sec:selective-extraction}). %verweis auf nicht selektive kontakte, dann großer Voc verlust, eingeführt in fundamentals...
+
+In contrast, TOPCon bottom cells with full-area contacts enabled working tandem devices with $V_{oc}$ up to $1665 ~\textrm{mV}$ without and $1620 ~\textrm{mV}$ with SiTJ, similar to the highest values for the SHJ reference ($1706 ~\textrm{mV}$). However, strong scatter within one group is apparent, indicating strong process variations.
+$J_{sc}$ also varied markedly, resulting in a $\Delta J_{sc}$ of roughly $6 ~\textrm{mAcm}^{-2}$ within each group. This can (again) be attributed to inconsistencies in perovskite processing, as the significant higher current for group 4 comprising the SiTJ compared to group 3 without the additional Si layer cannot be explained from the Si point-of-view. As a result, $\eta$ of the tandem devices was also affected by process inconsistencies. Nevertheless, using a TOPCon Si bottom cell tandem efficiencies of up to $\eta = 16.2 ~\%$ without and $\eta = 18.0 ~\%$ with SiTJ were achieved. $\eta$ for the most-efficient tandem comprising the SiTJ was even slightly higher than the highest $\eta$ obtained for tandems comprising a SHJ bottom cell ($\eta = 17.6 ~\%$).
+
+Thus, it can be concluded that TOPCon Si bottom cells (featuring a SiTJ) were successfully integrated in a perovskite/Si tandem device, but differences of the Si bottom cells could not be investigated here since the tandem solar cell parameters were dominated by the perovskite sub-cell.
+
+
+\section{Chapter summary}
+
+%2 Seiten
+
+%nochmal checken ivoc bei Sinx interlayer fired only ist von cplasma, rhoc aber von A400! rhoc werte sind aber tatsächlich sehr ähnlich bei beiden ...median jeweils ~450 mohm
+%rhoc kann ja gar nciht angegeben werden, da n only schlechter war als mit sinx in 200138! werte hier also eher obere grenze..., hier ist RT angegeben, rhoc SiTJ wäre dann noch deutlich niedriger, wenn Rückseite abgezogen...muss erwähnt werden in grafik, oder weglassen..
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{images/TJ/summary-TJ-rhoc}
+	\caption[Overview of the most promising SiTJ structures]{Overview of the most promising SiTJ structures developed in this chapter for integration in a perovskite/Si tandem solar cell. Note that not all structures were re-hydrogenated, so i$V_{oc}$ values at 1 sun illumination can only be stated for some of them.}
+	\label{fig:summary-TJ-rhoc}
+\end{figure}
+%iVoc = anstatt approx!
+
+In this chapter a low-resistive $p^+$/$n^+$ SiTJ based on a poly-Si/SiO$_x$ passivating contact was developed. For appropriate processing conditions, the additional heavily boron-doped Si($p^+$) layer, which is expected to ease the formation of a low-resistive contact to the HTL of the top cell, did not significantly increase the resistance of the poly-Si($n^+$)/SiO$_x$ passivating contact (TOPCon).
+The correlation of the charge carrier concentration $N$ and contact resistivity $\rho_{c}$ was shown, and the importance
+of the applied thermal budget and the PECVD process parameters was
+discussed. 
+
+Depending on the applied thermal budget, significant parasitic interdiffusion of dopants was observed, limiting the SiTJ performance by drastically increasing $\rho_c$ or by even overcompensating one dopant species. 
+Therefore, two approaches have been presented to prevent such parasitic interdiffusion and improve the thermal stability of the SiTJ thereby: C-alloying of the poly-Si layers and/or utilizing a diffusion blocking interlayer (DBI) at the SiTJ. The ability to block P and B diffusion was studied in detail for the most promising interlayers, ALD SiN$_x$ and PECVD SiC$_x$. Further, the microstructure of the SiTJ was studied via TEM. 
+
+
+Fig. \ref{fig:summary-TJ-rhoc} summarizes the most promising candidates for integration into a perovskite/Si tandem solar cell.
+Using the FA+RTP process route with two thermal treatments has the benefit of assuring low $\rho_{Si}$ prior to Si($p^+$) deposition. As a result, very low $\rho_{c}$ down to $\approx 10 ~\textrm{m}\upOmega\textrm{cm}^2$ were obtained at $T_{RTP}= 800 ~\textrm{°C}$ and $\rho_c < 100 ~\textrm{m}\upOmega\textrm{cm}^2$ were achieved over a wide range of $T_{RTP}$. 
+This was possible by utilizing C-alloying or DBIs to prevent parasitic dopant interdiffusion at the SiTJ interface. 
+This is a very promising achievement, since it leaves some room for optimization for the combination of poly-Si/SiO$_x$ passivating contacts (TOPCon) and the PERC technology to form a efficient but low-cost, industrial-feasible Si bottom cell for tandem application (TOPerc). 
+%The improved thermal stability of the SiTJ eases its device integration such as into an industrially feasible Si bottom solar cell for tandem application based on PERC with the P-doped emitter replaced by a TOPCon front contact.
+
+Further, by using a wet-chemical HNO$_3$ Si tunneling oxide a SiTJ with good surface passivation (i$V_{oc} = 711 ~\textrm{mV}$) and very low $\rho_c$ down to $\approx 30 ~\textrm{m}\upOmega\textrm{cm}^2$ was achieved with the highly desirable process route comprising only one rapid post-deposition thermal treatment (RTP-only). Good surface passivation and low resistance losses could be transferred from test structures to a Si single-junction solar cell.
+%Satz hier drin lassen, oder raus?
+%Although it was found that very high $T_{RTP}=950 ~\textrm{°C}$ can degrade the passivation quality to some extent, passivation was still on a decent level above 700 mV over the whole $T_{RTP}$-range.
+With the very simple process route of a standard FA (900 °C for 10 min) after both Si($n^+$) and Si($p^+$) deposition (FA-only) mediocre $\rho_c$ was obtained using SiN$_x$ as diffusion blocking interlayer, together with an excellent surface passivation of i$V_{oc} = 738 ~\textrm{mV}$.
+
+Thus, these results represent important steps toward integrating such a passivating
+$p^+$/$n^+$ poly-SiTJ into a industrial-feasible Si bottom solar cell for tandem application based on PERC with the P-doped emitter replaced by a poly-Si($n^+$)/SiO$_x$ (TOPCon) front contact.
+
+

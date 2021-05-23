@@ -1,0 +1,992 @@
+\chapter{Fundamentals}
+\label{chap:fundamentals}
+
+\textit{The first two sections of this chapter are adapted from the textbooks by Würfel \cite{Wuerfel.} and Sze \cite{Sze.2002} and introduce the basics of solar cell operation as well as fundamental transport mechanisms in metal/semiconductor contacts and semiconductor heterojunctions. Further, the state of the art %als adjektiv mit Bindestrichen!!
+of the passivating contacts utilized in this work and sub-cell interconnection in monolithic two-terminal perovskite/silicon tandems is reviewed.}
+%hier eher weglassen...\footnotemark\footnotetext{The reader is referred to the textbooks by Würfel \cite{Wuerfel.} and... and PhD theses...}}
+
+
+%noch zitate verteilen, zb vor formeln! passt eigentlich so..
+
+
+\section{Basic solar cell operation}\label{sec:basics}
+
+
+\begin{figure}[htp]
+	\centering{
+		\begin{minipage}[c]{0.4\textwidth}
+			\centering
+			\subfloat[\textbf{(a)}  \label{fig:excitations-single}] {\includegraphics[width=\textwidth]{images/Fundamentals/excitations-single}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[c]{0.58\textwidth}
+			\centering
+			\subfloat[\textbf{(b)}  \label{fig:spectrum-single}] {\includegraphics[width=\textwidth]{images/Fundamentals/spectrum-single}}
+		\end{minipage}
+		\par\bigskip % force a bit of vertical whitespace
+		\begin{minipage}[c]{0.4\textwidth}
+			\centering
+			\subfloat[\textbf{(c)}  \label{fig:excitations-tandem}] {\includegraphics[width=\textwidth]{images/Fundamentals/excitations-tandem}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[c]{0.58\textwidth}
+			\centering
+			\subfloat[\textbf{(d)}  \label{fig:spectrum-tandem}] {\includegraphics[width=\textwidth]{images/Fundamentals/spectrum-tandem}}
+		\end{minipage}
+	}
+	\caption[Spectral losses in Si single-junction and perovskite/Si tandem solar cells]{Spectral losses in (a),(b) Si single-junction and (c),(d) perovskite/Si tandem solar cells. (a) Schematic representation of three photons with different energies entering a silicon solar cell, representing absorption and subsequent thermalization (blue), efficient absorption without spectral losses (red) and transmission (gray). (b) Spectral irradiance in dependence of the wavelength. Only the red colored part can be used by a silicon single-junction solar cell. 
+	(c) In a tandem solar cell high energy photons (blue) are absorbed efficiently by the perovskite top cell and (d) thermalization losses are reduced thereby. Taken from Ref. \cite{Bett.PhD}.} %Reprinted from Ref. [30], with the permission of AIP Publishing...
+	\label{fig:spectrum}
+\end{figure}
+
+
+The fundamental working mechanism of solar cells can be distinguished into two parts: %Firstly, incident solar energy is absorbed and converted into chemical energy by the generation of electron-hole pairs in a semiconductor. Secondly, this chemical energy is converted into electrical energy by the separation of electrons and holes and their subsequent collection at the external electrodes. %1:1 aus feldmann.phd!
+\begin{itemize}
+	\item Photogeneration of excess charge carriers/electron-hole pairs, i.e., conversion of solar energy into chemical energy.
+	\item Separation and collection of the generated electrons and holes by external electrodes, i.e., conversion of chemical energy into electrical energy.
+\end{itemize}
+
+\paragraph{Generation and recombination}
+
+Photons can be absorbed if their energy $E_{ph}$ is higher than or equal to the semiconductor bandgap $E_g$, which is the difference between the highest energy level of the valance band $E_v$ and the lowest energy level of the conduction band $E_c$. % besser can be als sind absorbed, weil nur gewisse wahrscheinlichkeit vor allem für infrarote photonen, siehe tutsch.phd..
+%Due to the indirect bandgap of the Si absorber and the resulting need of a further (quasi-)particle (phonon) participating in the light absorption, the absorption coefficient (?) of c-Si shows a quadratic increase with the differ-ence between Eph and Ebg [9]. Hence, even though having energy larger than the Si bandgap, a substantial fraction of the infrared photons can pass the absorber without generating an electron ? hole pair, leading to a reduction in Jsc [12,13]. The effective optical path length of the IR light can be en-hanced upon reflection at the cells rear side.
+Each absorbed photon generates one electron-hole pair. The excess energy $E_{ph}-E_g$ is released to the crystal lattice as heat in the so-called thermalization process. 
+A trade-off exists for the ideal bandgap of the absorber. A too low bandgap results in high thermalization losses (blue photon in Fig. \ref{fig:excitations-single}), a too high bandgap increases transmission losses (gray photon in Fig. \ref{fig:excitations-single}). For a single-junction solar cell, the bandgap energy of c-Si ($E_g = 1.12 ~\textrm{eV}$) is close to the optimum \cite{Shockley.1961}, explaining the success of c-Si based photovoltaics. Fig. \ref{fig:spectrum-single} illustrates the global standard spectrum (AM1.5g) %genauer erklären? Nee!
+in gray and the part usable by a silicon single-junction solar cell in red. 
+A so-called tandem solar cell, where two absorbers are stacked on top of each other can effectively reduce thermalization losses by providing a more suitable absorber bandgap for high energy photons in the ultraviolet/blue region of the spectrum (Figs. \ref{fig:excitations-tandem}, \ref{fig:spectrum-tandem}).
+In principle multijunction cells with more than two absorbers are possible, which would further reduce spectral losses, but technological challenges intensify significantly with every junction.
+
+
+The chemical energy of the absorber is the sum of the electrochemical potentials of electrons ($\eta_n$) and holes ($\eta_p$) and can be expressed by the splitting of the \ac{QFL} for electrons ($E_{Fn}$) and holes ($E_{Fp}$) under illumination
+%tutsch.phd:
+%Upon illumination, the concentrations of both electrons and holes are increased compared to the equilibrium state in the dark. Thus, in order to be able to describe the Fermi distributions in the conduction and valence band correctly at the same time, two quasi-Fermi levels emerge, with ?????? and ??????defining the electron and hole distribution, respectively [9].
+\begin{align}\label{eq:iV}
+\eta_n + \eta_p = E_{Fn}- E_{Fp} = q \textrm{i}V = k_B T ~ \textrm{ln}\left(\frac{(p_0 +\Delta p) (n_0 + \Delta n)}{n_i^2}\right).
+\end{align}
+Here, $p_0$ and $n_0$ denote the equilibrium carrier concentrations of holes and electrons, respectively, $\Delta p = \Delta n$ are the excess carrier concentrations and $n_i^2 = p_0 \cdot n_0$ is the intrinsic carrier concentration.
+%bivour.phd: This quasi Fermi level splitting describes how far the excess hole (?p) and electron (?n) density deviates from the equilibrium hole (p0) and electron (n0) density owing to the interplay between carrier generation, recombination and extraction
+The chemical energy can also be characterized with an implied voltage i$V$ and the implied voltage at open circuit conditions (i$V_{oc}$) is the upper limit for the voltage that can be generated by a solar cell. It is therefore often used, also throughout this work, as a figure of merit.
+
+
+%leo:
+%To maximize the chemical energy, the efficient conversion of photons into charge carrier pairs, which is referred to as the external quantum efficiency (EQE) of the solar cell, is thus of primary importance. Counteracting this are reflection losses at the cell´s front side (on metal contacts or due to imper-fect anti-reflection properties) or parasitic absorption within the contact layer stack, which hardly/does not contribute to current generation.
+
+%textrur und ARC von TCO ist hier nicht nötig zu bschreiben! aber parasitäre absorption aSI hier bringen? nee, einfach kurz in SHJ und TOPCon kapiteln, fehlt noch für poly-Si!
+
+
+
+%tutsch.phd:
+%Once being photogenerated, the carriers are immediately exposed to re-combination. Within the bulk of the semiconductor, three fundamental pathways for electron ? hole recombination exist, which will be briefly ex-plained in the following.
+%auger, srh, strahlende direke rekombination..? ja, richtig! :D bulk recombinaton wirklich kurzhalten, wird in ergebnissen überhaupt nicht drauf eingegeangen! besser auf andere verweisen!! auf wen oder was könnte man hier veweisen? bei martin phd schauen, verweist auf tausende arbeiten! s. 5
+
+%bei nogay.phd schauen, wohl besser tau anstatt rate angeben!
+Recombination processes counteract the photogeneration of electron-hole pairs. Three fundamental recombination paths exist within the bulk of the absorber. The intrinsic processes (i) radiative and (ii) Auger recombination and (iii) the extrinsic \ac{SRH} recombination.
+
+Radiative recombination is the reverse process of charge carrier generation and describes the band-to-band recombination via the emission of a photon. 
+%Its recombination rate is given by
+%\begin{equation}
+%	R_{rad} = c_{rad} \left( (p_0 + \Delta n)(n_0 + \Delta n) - n_i^2 \right),
+%\end{equation}
+%with the coefficient for radiative recombination $c_{rad}$. 
+In c-Si as an indirect semiconductor, radiative recombination requires a phonon, making the recombination rate insignificant compared to other recombination paths \cite{Tyagi.1983}. 
+
+%nur falls PL näher erwähnt...leo: However, the signal of the here emitted photons is used in photoluminescence (PL) imaging, since it indirectly quantifies the strength of the residual non-radiative re-combination mechanisms.
+
+
+In Auger recombination the energy is given to another hole or electron, which is excited to a higher energy level within the same energy band. 
+For low injection conditions (small $\Delta n$) the Auger recombination is mainly determined by the equilibrium charge carrier density given by the wafer doping. 
+However, the strong correlation of the Auger recombination rate with the excess carrier density ($\propto (\Delta n)^3$) \cite{Tyagi.1983} makes it the limiting mechanism at high injection. Assuming perfect surface passivation, which is approached with more and more refined passivating contacts, Auger recombination ultimately restricts the efficiency of Si single-junction solar cells. 
+
+
+
+%\begin{align}
+%	R_{Auger} &= c_{Auger,p} \left( (p_0 + \Delta n)^2 (n_0 + \Delta n) - p_0^2 n_0 \right) \notag \\
+%	&+ c_{Auger,n} \left( (n_0 + \Delta n)^2 (p_0 + \Delta n) - n_0^2 p_0 \right),
+%\end{align}
+%where $c_{Auger,p}$ and $c_{Auger,n}$ are the coefficients for the corresponding Auger recombination.
+
+
+SRH recombination describes the annihilation of a electron-hole pair at bulk defects which induce states within the energy bandgap. In this work either high-quality \ac{CZ} or \ac{FZ} monocrystalline Si wafers were used as absorber. Therefore the SRH bulk recombination was of minor importance for the solar cell investigated here compared to Auger and surface recombination.
+
+%surface defect recombination hier dann auch nennen oder nur bulk defekte?
+
+
+
+%leo:
+%A further path for electron ? hole annihilation within the bulk of the wafer is the Auger recombination, which is as well of intrinsic nature and happens via the Auger excitation of a third particle. Here the remaining energy and momentum are transferred to either a further electron (eeh) or hole (ehh) within the conduction or valence band, respectively. The related recombi-nation rate can be given by [16] 
+%??Auger=
+%??Auger,n ((??0+ ???)2 (??0+ ???)???02??0)
+%(2-3)
+%+ ??Auger,p ((??0+ ???)2 (??0+ ???)???02??0),
+%where cAuger,n and cAuger,p are the corresponding Auger coefficients. For low injection levels (small ?n) the Auger recombination is strongly related to the wafer doping. However, the Auger-related minority carrier lifetime shows an inverse square law dependence on ?n and is thus the limiting mecha-nism at high injection. This becomes especially important for cells featuring passivating contacts, since their high surface passivation quality allows operation at high injection / high voltage.
+%Besides these intrinsic channels, imperfections of the crystal lattice (e.g. dislocations or impurity atoms) with related energy levels located within the c-Si bandgap can trigger recombination very efficiently. This happens in a two-step process, where a free carrier is first captured by the defect state and then recombines with a free carrier of opposite polarity. Following the statistical calculations derived by Shockley, Read [17] and Hall [18], the corresponding recombination rate of a single trap level can be parameter-ized by
+%??SRH=
+%??th??t((??0+???)(??0+???)? ??i2)??p?1(??0+???+ ??1)+ ??n?1(??0+???+ ??1)
+%(2-4)
+%with
+%??1=??cexp (??t? ??C??B??) ??1=??Vexp(??V? ??t??B??),
+%the thermal velocity vth, the trap density Nt, the capture cross sections for electrons and holes, ??n and ??p, the energy level of the defect state Et, as well as the effective densities of states (Nc and Nv) and the energy levels of the band edges (EC and EV) for the conduction and valence band, respective-ly. Since in this work either high-quality Czochralski (Cz)-grown or float-zone (FZ) monocrystalline wafers were used, the SRH related lifetime was throughout on a high level. Further, all investigated TCO contact formation processes were performed at comparatively low temperatures (<500°C) and thus the changes in the bulk lifetime are of minor importance for this work.
+
+
+
+
+\paragraph{Selective extraction of charge carriers}\label{sec:selective-extraction}
+
+%leo: Once being photogenerated and provided that a sufficient bulk lifetime is ensured, the charge carrier types need to be spatially separated in order to convert the chemical into electrical energy, which can then be tapped at the cell´s electrodes.
+
+%satz nicht unbedingt nötig, steht ähnlich im zweiten absatz, passt so: The photogenerated charge carriers need to be 
+
+
+Two forces can drive a current flow within a semiconductor: The diffusion current is caused by an inhomogeneous carrier density, i.e., a gradient in the chemical potential $\mu$, e.g., an inhomogeneous carrier density. The drift current is caused by an electric field, i.e., a gradient in the electrical potential $\varphi$. Both forces are summarized by a force due to a gradient in the electrochemical potential $\eta$. %, which, in a semiconductor, can be identified as the \ac{QFL} for electrons ($E_{Fn}$) and holes ($E_{Fp}$), respectively. 
+
+
+%tusch:The degree of how well electrons and holes can follow this net force is given by their conductivity (?k, k = n or p).
+
+The electron ($J_n$) and hole currents ($J_p$) can be expressed as \cite{Wuerfel.} 
+
+%hier in einer dimenson x, sollte man vllt noch erwähnen...unten allgemein gezeigt mit nabla, passt also!
+%\begin{align}\label{eq:currents}
+%	J_n &= +eD_n\frac{d n}{d x} - e\mu_n n \frac{d \varphi}{d x} = \frac{\sigma_n}{e} \frac{dE_{Fn}}{dx} \\
+%	J_p &= -eD_p\frac{d p}{d x} - e\mu_p p \frac{d \varphi}{d x} =  \frac{\sigma_p}{e} \frac{dE_{Fp}}{dx}
+%\end{align}
+\begin{equation}\label{eq:currents}
+	\begin{split}
+		J_n &= +qD_n\nabla n - q\mu_n n \nabla \varphi = \frac{\sigma_n}{q} \nabla E_{Fn} \\
+		J_p &= -qD_p\nabla p - q\mu_p p \nabla \varphi =  \frac{\sigma_p}{q} \nabla E_{Fp}
+	\end{split}
+\end{equation}
+with the electron and hole conductivities $\sigma_n = q \mu_n n$ and $\sigma_p = q \mu_p p$, respectively. $q$ is the elementary charge and $n$ and $p$ are the electron and hole concentrations, respectively. $\mu_n$ and $\mu_p$ denote the respective charge carrier mobility and $D_n$ and $D_p$ the respective diffusion constant.
+
+In order to generate an electrical current in a solar cell, which is the sum of $J_n$ and $J_p$, electron current has to be directed at one electrode and the hole current at the opposing electrode. For that, according to Eq. \ref{eq:currents}, an asymmetry either in the respective conductivities $\sigma_{n,p}$ or the quasi-Fermi level gradients $\nabla E_{Fn,p}$ has to be realized. Since the latter is not possible in solar cells without applying an external voltage \cite{Wuerfel.Cuevas.Wuerfel.2015}, %erklären...in würfel.cuevas.. nachlesen..steht so im paper, kann man hier so lassen!
+hole selective contacts feature very high hole conductivity $\sigma_p$ and very low electron conductivity $\sigma_n$ and vice versa for the electron selective contact. The mobility is very difficult to tailor, thus, in practice, asymmetry in conductivity is usually obtained by an asymmetry in charge carrier concentrations ($p \gg n$ at the hole contact and $p \ll n$ at the electron contact). %leo: This is typically accomplished either via doping, the deposition of materials with very high or low work function (in relation to the Si absorber) and/or the insertion of fixed charges. %doping muss hier auf jeden fall erwähnt werden!!
+It is important to note that these conditions have to be maintained under operation, i.e., $n_0 \gg p_0 + \Delta p$ for the electron contact (low-injection conditions during operation in the contact region \cite{Bivour.PhD}). 
+
+
+Fig. \ref{fig:fundamentals-selective-contacts} illustrates ideal contacts regarding voltage extraction under open circuit conditions. Such contacts exhibit an negligibly small gradient of the contact's majority carrier's quasi-Fermi level.\footnotemark\footnotetext{$\nabla E_{F}$ cannot be zero as no current would flow in that case according to Eq. \ref{eq:currents}.} 
+%have seen that a large gradient of the
+%minority carrier QFL arises near the metal contact which drives minority carriers to
+%the surface where they can recombine and reduce the overall voltage. Therefore, we
+%also have to make sure that a negligible number of electrons/holes is available in the
+%collecting region for the holes/electrons
+Near the external metal contacts a strong gradient $\nabla E_F$ and thus driving force exists for the minority carriers. To avoid strong recombination and thus reduction in voltage, it has to be ensured that a negligible number of electrons/holes is available in the hole/electron collecting region.
+The feature of passivating contacts is that the external contact, where the quasi-Fermi level coincide, is separated from the absorber's surface by a thin layer, ideally acting as a semi-permeable membrane only allowing one carrier species to reach the external contact. In practice higher-bandgap contact materials are used, which reduce the density of recombination-active states at the absorber's surface (chemical surface passivation) and have an appropriate work function and electron affinity to form a barrier in the valence band in the case of the electron contact and a barrier in the conduction band in the case of the hole contact (Fig. \ref{fig:fundamentals-selective-contacts}). In Sections \ref{sec:SHJ-art} and \ref{sec:TOPCon-art} the practical realization of passivating contacts using SHJ or poly-Si/SiO$_x$ technology is described. 
+%minority carrier müssen idealerweise geblockt werden, wird aber real vA durch geringe leitfähigkeit erreicht, richtig? bei TOPCon hilft eben auch SiOx...
+
+
+\begin{figure}[ht]
+	\centering{
+		\begin{minipage}[t]{0.49\textwidth}
+			\centering
+			\subfloat[\textbf{(a)}  \label{fig:fundamentals-selective-contacts}] {\includegraphics[width=\textwidth]{images/Fundamentals/fundamentals-selective-contacts}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[t]{0.49\textwidth}
+			\centering
+			\subfloat[\textbf{(b)} \label{fig:deltaV}] {\includegraphics[width=\textwidth]{images/Fundamentals/fundamentals-selective-contacts-deltaV}}
+		\end{minipage}
+	}
+	\caption[Schematic band diagram of a heterojunction solar cell at open-circuit conditions]{Schematic band diagram of a heterojunction solar cell at open-circuit conditions. (a) shows the ideal case with a negligibly small gradient of the contact's majority carrier's quasi-Fermi level. In (b) electrons at the electron contact face a significant gradient of the quasi-Fermi level, resulting in a voltage loss $\Delta V$. $\varphi$ is the electrical potential of a free electron in vacuum, $\chi$ is the electron affinity, which is also referred to as chemical potential in equilibrium. Redrawn from Ref. \cite{Feldmann.PhD}.}
+	\label{fig:voltage-extraction}
+\end{figure}
+
+
+%dann wohl nicht nötig hier ausführlich auf chemische und feldefekt passivierung einzugehen,wie es leo gemacht hat...
+
+%bivour.phd:
+%For the carrier species for which the contact is intended to be selective, the local
+%conductivity must be sufficiently high during operation to guarantee that a negligible gradient in
+%the QFL is needed to drive the respective current into the external electrodes
+If for an electron contact $n \gg p$ under operation, and thus, $\sigma_n \gg \sigma_p$ cannot be ensured, a strong gradient for the contacts majority carriers arises, as depicted in Fig. \ref{fig:deltaV}. This results in a significant difference $\Delta V$ between external voltage $V_{oc}$ and internal voltage i$V_{oc}$. Such contacts yield non-ohmic resistive losses. In Section \ref{sec:rhoc-different-stacks} it is shown that the slope at zero bias is proportional to the non-linearity of the $J-V$ curve and thus, the contact resistivity $\rho_c$ extracted from fitting at zero bias can (still) be used to characterize such contacts. %aktuell ist der verweis auf 5.11 fig. 5.4 mti rhoc vs. Q, eventuell in rhoc kaptiel 4.4 plot rhoc vs Q factor bringen um das zu zeigen? oder eben doch selectivity kapitel wie ursprünglich geplant, aber methode mit ivoc sunsvoc usw ist nicth zielführend für die arbeit, da nicht verwendet...passt so!
+%In Section \ref{sec:transport-mechanisms} $\rho_c/R_c$ will be defined and transport paths for typical metal/semiconductor contacts and semiconductor heterojunctions  will be introduced..
+
+
+
+%feldmann.phd: 
+%However, we have seen that a large gradient of the
+%minority carrier QFL arises near the metal contact which drives minority carriers to
+%the surface where they can recombine and reduce the overall voltage. Therefore, we
+%also have to make sure that a negligible number of electrons/holes is available in the
+%collecting region for the holes/electrons. This can be ensured by semi-permeable
+%membranes which are transparent to one charge carrier type and block the other one.
+%Such a solar cell structure is depicted in Figure 2.3b) for the open-circuit (OC) state
+%under illumination. Here the n-type absorber is sandwiched between two semipermeable
+%membranes which can also be referred to as carrier-selective contacts. In
+%this case the electron-selective contact (n-contact) is characterized by a much higher
+%conductivity for electrons than for holes (i.e. the minority carrier species of the contact)
+%which is ensured by the large difference in electron and hole concentrations
+%[16]. The latter requires a high net doping and is enhanced if the contact material has
+%a bandgap larger than c-Si (intrinsic carrier density ????
+%??~exp (?????)). In order to effectively
+%block the injection of holes into the n-contact a large energy barrier in the
+%valence band is required which forms due to the larger bandgap (??????). In a similar
+%manner the hole-contact has a high/low conductivity for holes/electrons and creates
+%an energy barrier in the conduction band which is achieved by a lower electron affinity
+%?? in this case (????).
+
+
+
+
+
+
+
+%oberflächenpassivierung muss gegeben sein für passivated contacts...hier kurz anreisen, aber dann verweis auf SHJ und TOPCon kapitel, wie das dort jeweils umgesetzt ist..
+%passivierung von leo: jo einführung bringt für diese arbeit nichts...
+%Originally, passivation means the elimination of recombination-active defect states at the surface. This is often referred to as chemical passivation and happens via the chemical attachment of species to the Si dangling bonds, thereby reducing Dit.
+%In many cases the additional introduction of hydrogen to the interface region further lowers the defect density. Hydro-genated Al2O3 and SiNx are the two dielectrics conventionally applied to passivate the Si absorber in PERC type solar cells at the hole and electron collecting side, respectively. The hereby achieved Dit is reported to be in the range of 1011 eV-1cm-2 [5] for defect states energetically located at the mid-dle of the Si bandgap.
+%Even though a slight posi-tive net charge can also be attributed to SiO2, the passivation layers applied in this work (a-Si:H and SiOx(:H)), are rather characterized by a very effec-tive chemical defect elimination (midgap Dit in the range of 1010 eV-1cm-2 [5]), which enables the very low J0,contact values for these structures.
+
+%WF differenz für asymmetrie in ladungsträgerdichten für passivierung, leo hat hier dann kurz fermi level pinning eingeführt, könnte man auch so machen...ich werde FLP aber wohl bei metal/semiconductor contacts einführen...
+%Another way to induce a strong asymmetry between the concentrations of electrons and holes at the Si surface is the deposition of a contact material with either a high or low chemical potential (work function WF), compared to the Fermi level in the Si absorber. Here it is important to note that the effective work function of the contact material, which defines the band bending in the c-Si, can differ substantially from its bulk (or vacuum) WF. The reason here is the large density of surface states, which ?pin? the Fermi level to a specific energy. The correlation between effective and vacuum WF for a material contacting a c-Si wafer under different pinning strength can be found e.g. in [22]. However, also in the ideal case of no pinning, the asymmetry between electron and hole density gets reduced when an ex-cess carrier density ?n is present during illumination [23]. Hence, the effec-tive WF difference (or correspondingly the fixed charge density) needs to be sufficiently high in order to account for this and to provide selectivity at the working point of the solar cell.
+
+%A well performing selective contact is characterized by allowing a high (low) current density for majority (minority) carriers towards/through it during device operation. Related parameters, which can be extracted experimen-tally from test structures, are the specific contact resistivity for majority carriers (?c) and J0,contact, quantifying minority carrier recombination. Hence, the selectivity of a contact structure can be specified by a figure of merit, which combines both parameters. Doing this, the introduction of the con-tact´s ?upper-limit voltage? [23] or the ?minority carrier selectivity? param-eter [24] was suggested.
+
+%bivour.phd: s.12
+%Unlike for the bulk the ratio of the excess carrier density at the surface (?ns) and Rs is not
+%expressed by a surface lifetime but by the surface recombination velocity (S)
+%The recombination at the interface formed between a dielectric passivation layer and the c-Si
+%surface is studies extensively in literature, e.g. [32], [33], [27]. The recombination at the interface
+%between a semiconductor (a-Si:H) and c-Si is studied in [19], [21], [34].
+
+
+
+%dann diodengleichung einführen...die ist von shockley, odeR?
+\paragraph{$J-V$ characteristic (one-diode equation)}
+
+The $J-V$ characteristic of a solar cell can be derived from a $p$/$n$-homojunction, which is realized in classic homojunction solar cells by introducing dopants of opposite polarity into the c-Si absorber in a limited range of typically several hundred nanometers \cite{Feldmann.PhD}.
+This region is traditionally referred to as the emitter, although its function is to collect charge carriers \cite{Cuevas.2013}.
+ 
+In a $p$/$n$-junction in thermal equilibrium the diffusion current of minority carriers is balanced by the electrostatic built-in potential $\Phi_{bi}$ of the junction. By applying forward bias, the built-in voltage $V_{bi}$ is reduced by the external voltage.
+Hence, the current of a forward-biased $p$/$n$-junction is governed by the diffusion of minority carriers into the quasi-neutral regions, where they recombine with majority carriers. In a solar cell, this represents a parasitic current as it opposes the voltage-independent photo-current $J_{ph}$. 
+The $J-V$ characteristic of a well-working solar cell can be described by the superposition of these two currents, resulting in the well-known one-diode equation including series and parallel resistance
+\begin{align}\label{eq:diode-equation}
+	J = J_0 \left[ \exp \left( \frac{q(V- J(V) R_s)}{n k_B T} \right) -1 \right] -\frac{V- J(V) R_s}{R_p}  - J_{ph}
+\end{align}
+with the Boltzmann constant $k_B$ and the temperature $T$.
+In this expression $J_0$ is the recombination prefactor, also known as reverse saturation current density \cite{Wuerfel.}. %ideality factor einführen oder gleich 1 setzen? gleich 1 gesetzt wie üblich in 1 diodengleichung..
+The series resistance $R_s$ accounts for all voltage drops $J(V)R_s$ across the transport paths of the solar cell and the connections to external contacts. %It includes the ohmic resistance in the bulk caused by the movement of current through the emitter and base of a solar cell, the ohmic contact resistance between the metal contact and the silicon and the ohmic resistance of the top and rear metal contacts. neusel.master
+The parallel resistance $R_p$ represents shunt paths that can occur in real solar cells, for example due to manufacturing defects.
+
+From Eq. \ref{eq:diode-equation} parameters at different working points can be deduced which are used to characterize the solar cell: %Voc, Jsc, FF und eta, dann auf Rs related power loss eingehen...
+
+\begin{itemize}
+	\item The \textbf{open-circuit voltage (\boldmath{$V_{oc}$})} is deduced at $J=0$ and is thus the maximum voltage the solar cell can deliver. As no currents flow in open-circuit conditions, the $R_s$ does not influence the $V_{oc}$ in the ideal case expressed by Eq. \ref{eq:diode-equation}. For negligibly high $R_p$ and constant $J_{ph}$ the $V_{oc}$ is therefore determined by recombination processes and can be used as a figure of merit for the passivation quality. However, non-ohmic resistive losses due to non-ideal carrier extraction as illustrated in Fig. \ref{fig:deltaV} can reduce the $V_{oc}$ markedly.
+	\item The \textbf{short-circuit current density (\boldmath{$J_{sc}$})} is deduced at $V=0$ and is thus the maximum current that the solar cell can	deliver. Ideally, for negligibly high $R_p$ and no recombination ($J_0=0$), $J_{sc} = J_{ph}$. In reality $J_{sc}$ is reduced by the recombination current at zero external voltage, but still highly dependent on photogeneration and is therefore often used as a figure of merit for the optical properties of the solar cell.
+	\item The \textbf{fill factor (\boldmath{$FF$})}, defined as
+	\begin{equation}
+		FF = \frac{J_{MPP}V_{MPP}}{J_{sc}V_{oc}}.
+	\end{equation}
+	The $FF$ is the most sensitive parameters listed here, as it is strongly related to both recombination and transport. Using the SunsVoc method \cite{Sinton.2000}, %cite sinton.2000 wie frank oder erklären=)
+	a \textbf{pseudo fill factor (p\boldmath{$FF$})} can be extracted from an illumination-dependent pseudo $J-V$ curve. The SunsVoc method operates at open-circuit conditions where no currents flow, the p$FF$ is therefore free from resistive losses. For that reason transport-related losses can be quantified by the difference between the p$FF$ and the actual $FF$.
+	\item Finally, the \textbf{power conversion efficiency \boldmath{$\eta$}}, which is determined by the aforementioned parameters via the expression
+	\begin{equation}
+		\eta = \frac{P_{out}}{P_{in}} = \frac{J_{sc}V_{oc}FF}{P_{in}},
+	\end{equation}
+	with the output power at maximum power point $P_{out}$ and the incident power of the light $P_{in}$.\footnotemark\footnotetext{$P_{in}$ is calibrated to $1000 ~\textrm{Wm}^{-2}$ under \ac{STC} and spectrally weighted according to AM1.5g.}
+	
+%leo:	where Pin is usually calibrated to 1000 W/m² spectrally weighted according to AM1.5.
+\end{itemize}
+
+%martin will, dass power loss auch noch vs. Rs geplottet wird. Eventuell in einer Abbildung möglich? so aktuell in (b) geplottet
+\begin{figure}[htp]
+	\centering{
+		\begin{minipage}[b]{0.7\textwidth}
+			\centering
+			\subfloat[\textbf{(a)}  \label{fig:Rs-power-loss}] {\includegraphics[width=\textwidth]{images/Fundamentals/Rs-related-relative-power-loss}}
+		\end{minipage}
+		\par\bigskip % force a bit of vertical whitespace
+		\begin{minipage}[b]{0.72\textwidth}
+			\centering
+			\subfloat[\textbf{(b)} \label{fig:Rs-and-Rp}] {\includegraphics[width=\textwidth]{images/Fundamentals/Rs-and-Rp}}
+		\end{minipage}
+	}
+	\caption[$R_s$- and $R_p$-related power losses]{$R_s$- and $R_p$-related power losses for single-junction and tandem solar cells according to the one-diode equation. Due to the higher $V_{oc}$ and lower $J_{sc}$, a tandem device relaxes the requirements in terms of $R_s$, but increases them in terms of $R_p$.}
+	\label{fig:power-loss}
+\end{figure}
+
+%falls bei blaga.2021 rauskommt, dass das hier komplett quatsch, rausschmeißen
+%falls nicht, auf blaga.2021 verweisen, wie man es richtig macht, aber eben auch aufwendig...
+%boccard.2020 auch hier zitieren? nicht zwingend nötig..
+%verweis auf yoshidomi.2014 dort auch tandem mit one diode equation abgeschätzt...ist drin!
+The one-diode equation can be used for a rule-of-thumb estimate of $R_s$- and $R_p$-related power losses for Si single-junction and perovskite/Si tandem solar cells.\footnotemark\footnotetext{Note that Blaga \textit{et al.} recently developed a more profound equivalent circuit model to investigate shunting in perovskite/Si tandem solar cells through modifying the resistive properties of the recombination junction \cite{Blaga.2021}. The simple approach here, also followed by Yoshidomi \textit{et al.} in Ref. \cite{Yoshidomi.2014}, is still valid for an rough estimate.}
+For that, the Si single-junction solar cell is characterized by a $J_{sc}$ of $\approx 40 ~\textrm{mAcm}^{-2}$ and $J_0 = 1.5 \times 10^{-14} ~\textrm{Acm}^{-2}$, corresponding to $V_{oc}$ values around $740 ~\textrm{mV}$, typical for cells with passivating contacts. For the tandem device a typical $J_{sc} \approx 20 ~\textrm{mAcm}^{-2}$ and an extremely low $J_0 = 10^{-30} ~\textrm{Acm}^{-2}$ was assumed in this context to obtain typical $V_{oc}$ values close to 1700 mV.  
+Fig. \ref{fig:Rs-power-loss} illustrates the $R_s$-related power loss as a function of $J_{sc}$ and $J_0$, according to Eq. \ref{eq:diode-equation}. It can be seen that $R_s$-related power losses are typically roughly five times higher in Si single-junctions as compared to tandem devices. Another rule of thumb states that for a full-area contact a contact resistivity of up to $\approx 100 ~\textrm{m}\upOmega\textrm{cm}^2$ allows for tolerable power losses in the case of a single-junction cell \cite{Meier.1984,Leilaeioun.2019} ($\approx 0.6 ~\%$ power loss according to Fig. \ref{fig:Rs-and-Rp}). This limit relaxes to $\approx 500 ~\textrm{m}\upOmega\textrm{cm}^2$ for a full-area contact in a tandem solar cell. This is of interest for the development of the \ac{SiTJ} in combination with a passivating contact for tandem application in Chapter \ref{chap:TJ}.
+
+
+
+%R_p nochmal prüfen ob sinnvoll abgeschätzt, eventuell raus...bleibt drin!
+Regarding $R_p$, both high $V_{oc}$ and low $J_{sc}$ increase power losses, making tandem solar cells more prone to low $R_p$ as compared to single-junctions. Again, taking a power loss of $\approx 0.6 ~\%$ as a benchmark for tolerable $R_p$ (Fig. \ref{fig:Rs-and-Rp}), $R_p \ge 3 ~\textrm{k}\upOmega\textrm{cm}^2$ must be guaranteed for tandems and $R_p \ge 13 ~\textrm{k}\upOmega\textrm{cm}^2$ for single-junction cells.
+
+%wichtig zu unterscheiden zwischen ganzflächigem kontakt, dann kleienr 100 mOhmcm² nötig, cite schroder meyer und lokalem kontakt, dann deutlich kleiner rhoc nötig! in fundamentals bei Rs diodenmodell ansprechen oder in SHJ kapitel bei Rs verlusten?
+
+
+
+
+
+
+\section{Fundamental contacts and transport mechanisms}\label{sec:transport-mechanisms}
+
+%steht schon ganz am anfang des kapitels...\textit{This section is based on the textbook by Sze \cite{Sze.2002}.} %kapitel 7.1.2 und 7.1.3 aus sze.2002 abgeschrieben..
+
+%field-emission nicht nur für intraband tunneling verwendet!! auch b2bt wird so genannt, also am besten nur einmal bei R_FE erwähnen und dann immer tunnelling, wie sonst auch
+
+%2-terminal, 3-terminal I-V strukturen einführen für kontaktwiderstandsmessung aus sze,schroder? eher nicht, weil 3, 4 terminal sowieso nicht benutzt, obwohl besser..., wenn dann in kapitel 4 diskutieren und argumentieren, dass für unserer messungen (hoffentlich) kein signifikanter vorteil durch mehr terminals, aber deutlich größerer aufwand in herstellung.., passt so!! 
+
+\paragraph{Metal/semiconductor contacts}
+
+\begin{figure}[htp]
+	\centering{
+		\begin{minipage}[b]{0.65\textwidth}
+			\centering
+			\subfloat[\textbf{(a)}  \label{fig:metal-semiconductor-contact-a}] {\includegraphics[width=\textwidth]{images/Fundamentals/metal-semiconductor-contact-a}}
+		\end{minipage}
+		\par\bigskip % force a bit of vertical whitespace
+		\begin{minipage}[b]{0.65\textwidth}
+			\centering
+			\subfloat[\textbf{(b)} \label{fig:metal-semiconductor-contact-b}] {\includegraphics[width=\textwidth]{images/Fundamentals/metal-semiconductor-contact-b}}
+		\end{minipage}
+	}
+	\caption[Metal/semiconductor contact]{(a) Energy band diagram of an isolated metal adjacent to an isolated $n$-type
+		semiconductor under thermal non-equilibrium condition. (b) Energy band diagram
+		of a metal-semiconductor contact in thermal equilibrium. Taken from Ref. \cite{Sze.2002}.}
+	\label{fig:metal-semiconductor-contact}
+\end{figure}
+
+
+Fig. \ref{fig:metal-semiconductor-contact-a} illustrates a metal and an $n$-type semiconductor separated from each other.\footnotemark\footnotetext{The case for a $p$-type semiconductor is analogous.} % besser allgemein: only n-type will be discussed here, p-type is analogous.
+The work function $\Phi_{m,s}$ is defined as the energy
+difference between the Fermi level and the vacuum level and the electron affinity $\chi$ is the energy difference between the conduction band edge and the vacuum
+level in the semiconductor \cite{Sze.2002}. In contact (Fig. \ref{fig:metal-semiconductor-contact-b}) the Fermi levels in the two materials must be equal at thermal equilibrium and the vacuum level must be continuous, which determines the band diagram of the contact.
+
+In the ideal case, the height of the arising barrier $\Phi_B$, is given by the difference between the metal work function and the semiconductor electron affinity. The built-in voltage $V_{bi}$ on the semiconductor side is the difference between the work functions. In the presented case of $\Phi_m > \Phi_s$, $V_{bi}$ repels electrons in the conduction band that try to enter the metal (depletion). For $\Phi_m < \Phi_s$ accumulation of electrons at the contact can be achieved. This is the reason why high work function materials are used as hole selective contacts and low work function materials as electron selective contacts.
+
+%1:1 aus sze die ersten 1.5 sätze...ist ja zitiert, passt dann, oder....
+However, in practical Schottky contacts, the disruption
+of the crystal lattice at the semiconductor surface produces a large number of surface
+energy states located in the bandgap \cite{Sze.2002}. These surface states can act as donors
+or acceptors that pin the metal work function to a material specific surface energy (the charge neutrality level, $E_{CNL}$) which is typically close to the mid-gap level of the semiconductor \cite{Tung.2014,Bivour.PhD}. 
+Hence, this so-called "Fermi-level pinning" 
+limits the ability of the overlying metal workfunction to manipulate the surface potential of the c-Si absorber and is a major obstacle in the fabrication of carrier-selective contacts for Si solar cells by direct metallization \cite{Bastiani.2020}.
+
+
+%If we apply a positive voltage to the metal with respect to the n-type semiconductor, the
+%semiconductor-to-metal barrier height decreases as shown on the left side of Fig. 4b. This
+%is a forward bias. When
+%
+%reverse bias (i.e., a negative voltage is applied to the metal), the barrier has been increased
+%by a voltage VR, as depicted on the left side of Fig. 4c
+
+
+%A Schottky contact refers to a metal-semiconductor contact having a large barrier height
+%(i,e., qB,, or qBp >> kT) and a low doping concentration that is less than the density of
+%states in the conduction band or valence band. The result is a non-ohmic $J-V$ characteristic.
+
+%The current transport in a Schottky barrier is due mainly to majority carrier, in contrast
+%to a p-n junction, where current transport is due mainly to minority carriers. 
+
+
+
+
+
+A satisfactory ohmic contact should not significantly degrade device performance and should pass the required current with a voltage drop that is small compared to the drop across the active region of the device \cite{Sze.2002}.
+A figure of merit for ohmic contacts is the specific contact resistance $R_c$, defined as
+\begin{equation}\label{eq:Rc}%rhoc oder RC einführen, für Rc I anstatt J
+	R_c \equiv \left[\frac{\partial I}{\partial V}\right]^{-1}_{V=0}.
+\end{equation}
+%auch für non-ohmic contacts verwendeT!!
+
+
+For metal-semiconductor contacts with low doping concentrations, the thermionic-emission (TE)
+current 
+\begin{equation}
+	I = I_s\exp\left( \frac{q V}{k_B T} \right) ~~~\textrm{with}~~~ I_s = A^* T^2 \exp\left( \frac{-q \Phi_B}{k_B T} \right)
+\end{equation}
+dominates the current transport. The respective resistance contribution follows from Eq. \ref{eq:Rc}:
+\begin{align}\label{eq:R_TE}
+	R_{TE} = \frac{k_B}{A_cA^* T q} \exp\left(\frac{q \Phi_B}{k_B T}\right),
+\end{align}
+with the contact area $A_c$ and the Richardson constant $A^*$. %richardson constant erklären!
+
+
+
+
+%introduce metal/semiconductor contact, barrier height $\Phi$ and barrier width $w$, 
+%depletion width = barrrier width? hängt von doping aber auch von höhe ab...
+The depletion-layer width $w$ in the semiconductor, also referred to as screening length, which defines the barrier width for a metal/semiconductor contact, can be expressed as \cite{Sze.2002}
+\begin{equation}\label{eq:depletion-width}
+	w = \sqrt{\frac{2 \epsilon_s}{q N_D} \left(V_{bi} - V \right)}.
+\end{equation}
+%epislon usw erklären, Vbi schon eingeführt?
+Thus, for contacts with high doping concentration $N_D$, the barrier width becomes very narrow,
+and intra-band tunneling (also referred to as field-emission, FE) becomes efficient. 
+%oder besser screening length wie in bivour.phd: ist im prinzip das gleiche!
+%One important quantity related to the electric field is the depletion layer width or screening
+%length (Ls) of a junction. Ls describes how far an electric field penetrates into the semiconductor
+%and can be expressed by
+%The first square root corresponds to the Debye length of the respective material. The second
+%one describes the magnitude of the electrical potential difference which has to be screened in the
+%material. Vbi is the built-in potential of a junction which for the classical p/n-junction is defined
+%by electrical potential difference which in turn results from the charges of the ionized doping
+%atoms on either side of the junction. For a metal / semiconductor like junction Vbi is the result of
+%the work function difference between the materials in contact.
+%The tunneling current, as described
+%in the upper inset of Fig. 9, is proportional to the tunneling probability, which is given
+%in Section 3,6 of Chapter 3 ...
+The respective resistance contribution is
+\begin{equation}\label{eq:R_FE}
+	R_{FE} \propto \exp\left(\frac{C \Phi_B}{\sqrt{N}}\right),
+\end{equation}
+with the constant $C$ including the effective mass $m^*$ and the dielectric permittivity of the semiconductor $\epsilon_s$.
+Eq. \ref{eq:R_FE} shows that in the tunneling regime the specific contact resistance depends strongly on $N_D$.
+
+
+\begin{figure}[htp] 
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/Fundamentals/Sze-Rc-vs-N}
+	\caption[$R_c$ as a function of $N_D$]{Theoretical and experimental values of specific contact resistance $R_c$ as a function of $N_D$. The insets show the charge carrier transport via tunneling through (upper) or thermionic emission over the barrier (lower). Taken from Ref. \cite{Sze.2002}, after Refs. \cite{Chang.1971,Yu.1970}.}
+	\label{fig:Sze-Rc-vs-N}
+\end{figure}
+%selbst plotten, so ähnlich wie lohmüller? Nee!
+
+
+
+Fig. \ref{fig:Sze-Rc-vs-N} shows calculated and experimental values of $R_c$ as a function of $N_D$. 
+For $N_D > 10^{19} ~\textrm{cm}^{-3}$, $R_c$ is dominated by tunneling transport and decreases rapidly with increasing doping. For $N_D < 10^{17} ~\textrm{cm}^{-3}$, on the other hand, the current is due to thermionic emission, and $R_c$ is essentially independent of doping \cite{Sze.2002}. 
+%Also shown in Fig. 9 are experimen
+%tal data for platinum silicide-silicon (PtSi-Si) and aluminum-silicon (Al-Si) diodes. They
+%are in close agreement with the calculated values. 
+This shows that a high doping concentration, i.e., a high carrier concentration $N$ in the contact region, or a low barrier height must be ensured to obtain low $R_c$. %These two approaches are used for all practical ohmic contacts. %umformulieren, 1:1 aus sze!
+
+
+
+
+\paragraph{Semiconductor heterojunctions}
+
+%dann könnte man doch gut zu semiconductor/semiconductor contacts überleiten (so gemacht bei basset.phd) und damit dann auch zur SiTJ!! vorher noch TAT einführen, wie basset.phd. dadurch dieses kapitel vllt doch ans ende des chapters...
+
+
+%\begin{figure}[htp] 
+%	\centering
+%	\includegraphics[width=0.7\linewidth]{images/Fundamentals/heterojunction-contacts}
+%	\caption[Fundamental transport mechanisms]{Schematic band diagram indicating fundamental transport mechanisms. a) Thermionic emission, b) intra-band tunneling (field-emission), c) band-to-band tunneling (B2BT) and d) trap-assisted tunneling (TAT).}
+%	\label{fig:heterojunction-contacts}
+%\end{figure}
+
+
+\begin{figure}[htb]
+	\centering{
+		\begin{minipage}[c]{0.58\textwidth}
+			\centering
+			\subfloat[\textbf{(a) }  \label{fig:heterojunction-contacts}] {\includegraphics[width=\textwidth]{images/Fundamentals/heterojunction-contacts}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[c]{0.4\textwidth}
+			\centering
+			\subfloat[\textbf{(b) }  \label{fig:J-V-B2BT-TAT}] {\includegraphics[width=\textwidth]{images/Fundamentals/J-V-B2BT-TAT}}
+		\end{minipage}
+	}
+	\caption[Fundamental transport mechanisms]{(a) Schematic band diagram indicating fundamental transport mechanisms. i) Thermionic emission, ii) intra-band tunneling (field-emission), iii) band-to-band tunneling (B2BT) and iv) trap-assisted tunneling (TAT). (b) Simulated $J-V$ characteristic of a SiTJ depending on the trap density. For a low enough trap density transport is dominated by B2BT, resulting in a NDR region (gray). At high trap densities TAT dominates transport (green). The low-bias ohmic region relevant for tandem application is indicated in yellow.} 
+	\label{fig:transport+Esaki-J-V}
+\end{figure}% b noch ersetzen mit sim daten, einmal reines b2bt mit ndr, einmal sehr viele defekte, dann hoffentlich keine ndr, optimal wäre dann noch eine zwischenschritt.
+
+
+Analogous to metal/semiconductor contacts, potential barriers arise in semiconductor heterojunctions due to differences in work function, electron affinity and bandgap. Fig. \ref{fig:heterojunction-contacts} sketches such heterojunctions and depicts important transport paths. The transport barriers can be overcome by charge carriers via the aforementioned thermionic emission (path i) or intra-band tunneling (path ii). Additionally, band-to-band tunneling (B2BT) can occur (path iii). %basset.phd: electrons (holes) tunnel from CB (VB) to the VB (CB) where they quickly recombine due to the high density of oppositely charged carriers (see Figure 27). 
+This transport path becomes relevant if strong band bending exists such that the valence band edge on one side of the junction is on a higher energy level as the conduction band edge on the other side of the junction, i.e., the bands are crossed \cite{Sze.2002}. 
+This is the case in a steep junction, e.g., in a SiTJ with degenerate doping of opposite polarity on either side and a abrupt transition in between \cite{Esaki.1958}. %cite...esaki zitieren? peibst? %zwei bedingungen für esaki-like TJ einführen, hohe dotierung auf beiden seiten und abrupter übergang, steht ja so drin!
+%braucht man wirklich degenerites dopting für band to band? wohl schon..., wird auch so in diss.schnabel argumentiert...deg. doping erklären??
+A requirement for B2BT is that for charge carriers on one side of the junction empty states at the same energy level are available on the other side of the junction \cite{Sze.2002}. %auch sze2002 hier möglich zu zitieren? 
+When the junction is biased, the energetic alignment of states changes as illustrated in Fig. \ref{fig:B2BT-Esaki} in Appendix \ref{sec:Esaki}. 
+This results in a characteristic region of \ac{NDR} in a $J-V$ curve dominated by B2BT, as first described by Esaki \cite{Esaki.1958} (Fig. \ref{fig:J-V-B2BT-TAT}, gray curve).
+%For ideal B2BT one obtains a $J-V$ curve as illustrated in Fig. \ref{fig:J-V-B2BT-TAT} with the characteristic region of \ac{NDR}, first described by Esaki \cite{Esaki.1958}. 
+%The origin of the NDR region is outlined in Appendix \ref{sec:Esaki}.
+
+
+%hier deutlich machen, dass nich zwingend b2bt nötig, transport kann auch effektiv über TAT stattfinden!!! ist wohl auch der wahrscheinlich transport pfad für unsere SITJ, siehe 200124, Sim christoph wäre natürlich gut hier...
+Defect states present in the bandgap or at the interface of the materials in contact can assist transport in semiconductor heterojunctions via capture and emission processes \cite{Messmer.2018b,Procel.2020} (path iv in Fig. \ref{fig:heterojunction-contacts}). This transport path is referred to as trap-assisted tunneling (TAT).
+%In a SiTJ TAT does not result in a NDR. %ist das so?? ja, laut peibst.2019 nicht!
+Fig. \ref{fig:J-V-B2BT-TAT} shows the influence of the trap density close to the SiTJ interface on the $J-V$ characteristic. 
+With increasing trap density, TAT becomes more and more important. 
+As a result, the NDR region becomes less pronounced and eventually vanishes, when TAT is the dominating transport mechanism (green curve).
+For the application as recombination junction in a two-terminal tandem currents of $\approx 20 ~\textrm{mAcm}^{-2}$ are passed through the SiTJ. For a well-working device this corresponds to the low-bias region of ohmic resistance (indicated in yellow in Fig. \ref{fig:J-V-B2BT-TAT}). Thus, efficient recombination of the majority charge carriers supplied by their associated sub-cells can take place without significant voltage loss.
+
+%bastiani.2020:In the case of a RJ embedded in a tandem solar cell, no
+%voltage bias is applied across the RJ. However, under illumination,
+%the p+ and n+ sides of the RJ encounter a continuous
+%supply of electrons and holes respectively from their associated
+%subcells, which annihilate each other through interband
+%recombination. Also,
+
+
+
+%In the equations (2.4)-(2.6), only direct BTBT has been taken into account. However, in indirect semiconductors such as Si the transition between the conduction band minimum and the valence band maximum has to be assisted by scattering agents like phonons or impurities to conserve momentum. Thereby, the Tt is reduced compared to direct tunneling. If direct tunneling is possible though, the probability for an indirect process is much lower [17].
+
+
+
+%hier Esaki-I-V+excess current hier zeigen und kurz diskutieren
+% zeigen, dass so niderohmsche kontakte p/n strukturen entstehen, was für monolithic tandem wichtig ist, wie in 2.5 erklärt und in chapter 7 weiter untersucht wird!
+%ja, transport sollte hier schon klar sein, in 2.5 dann wie umgesetzt!! außer noch sehr shcöne ergebnisse von christoph, die man dann auch im ergebnisteil zeigen könnte...
+
+
+%The structure and working principle of TJs for the interconnection of tandem cells is equivalent to those of tunnel diodes. They only differ in their applications and operation regime. Tunnel diodes can be used for example as oscillating or fast switching elements in integrated circuits due to their NDR region and high-frequency capability [31]. 
+
+
+
+
+
+%diese grafik nötig? würde eigentlich besser zu transport mechanisms passen...hängt dann auch davon ab, ob noch simulationen mit TAT variation kommen, oder nicht...
+%\begin{figure}[htp] 
+%	\centering
+%	\includegraphics[width=0.85\linewidth]{images/Fundamentals/J-V-Esaki}
+%	\caption[...]{From \cite{Bastiani.2020}. Noch ersetzen bzw Text ergänzen...}
+%	\label{fig:J-V-Esaki}
+%\end{figure}
+
+
+%Several authors have proposed expressions to model such transport mechanisms, which have been implemented in commercial TCAD simulation software such as Silvaco Atlas [21] or Sentaurus [22] (their respective instruction notes propose thorough discussions of these models). Some are based on so called ?local approaches? allowing to express them in terms of variables at the interface [95], [96] which allows easy implementations, while some other models account for the spatial distribution of every variable, but cannot be simply expressed in terms of analytical expressions and are harder to implement in TCAD simulations. For qualitative discussion later on, we will detail two models based on a local approach.
+
+
+%stattdessen kurz ein satz, wie es in Christophs simulationen umgesetzt ist!!
+%wohl einfach auf senataurus user manual verweisen, wie in messmer.2020...
+
+
+
+
+
+%\paragraph{Tunnelling junctions}\label{sec:TJ}
+
+
+
+
+
+
+
+
+
+
+%formel label{eq:depletion-width} einführen aus sze wie michaela ma. seite 20
+
+
+%noch nötig?
+%In the depletion zone that forms between these two regions, charge neutrality has to be ensured according to \cite{Sze.2002}:
+%\begin{align}\label{eq:depletion-width}
+%	N_D x_n = N_A x_p
+%\end{align}
+%Here, $N_D$ is the donor concentration and $x_n$ the extension of the depletion zone in the n-type semiconductor, while $N_A$ is the acceptor concentration and $x_p$ the extension of the depletion zone in the p-type semiconductor.
+
+
+
+
+
+
+
+
+
+
+
+
+\section{SHJ}\label{sec:SHJ-art} %state-of-the-art SHJ hier?
+
+%noch abschnitt zu rhoc Messungen an SHJ aus Paper irgendwo rein?? wäre eigentlich gut, aber wohl nicht...
+%note that undoped aSi is not necessarily intrinsic but this wording is used throughout this thesis anyway, intrinsic meaning undoped..ich lass es einfach so!
+%kurze history...nee!
+As stated by De Wolf \textit{et al.} in a review article \cite{Wolf.2012}: "The key feature
+of the \ac{SHJ} technology is that the metal contacts, which are
+highly recombination active in traditional, diffused-junction
+cells, are electronically separated from the \ac{c-Si} absorber by insertion
+of a wider bandgap layer". This wider bandgap layer is \ac{a-Si:H}, more precise 5-10 nm thin intrinsic a-Si:H provides chemical surface passivation of the c-Si absorber \cite{Dauwe.2002} %and decouples c-Si surface recombination from the abundance of defects in the subsequent layers ,aus hermle.2020
+and 5-15 nm $p$- or $n$-type doped a-Si:H form the carrier-selective contacts. %cite hermle.2020?
+The standard a-Si:H deposition method is \ac{PECVD}. 
+
+Key to the outstanding surface passivation of SHJ solar cells is a cleaned c-Si surface \cite{Angermann.2011} and an abrupt a-Si:H/c-Si interface \cite{Wolf.2007b,Olibet.2010}. For the latter the prevention of epitaxial growth is essential \cite{Fujiwara.2007b,Wang.2006}. It was found that surface passivation properties are best at the transition to epitaxial growth \cite{Fujiwara.2007b,Descoeudres.2010}, presumably because the a-Si:H network is most relaxed in that case and comprises the lowest dangling bond density \cite{Wolf.2007b}. Therefore, careful control of the a-Si:H deposition parameters is necessary. Also multilayer intrinsic a-Si:H films with proper interfacial layer properties have been tested to avoid such epitaxial growth and further improve surface passivation \cite{Fujiwara.2007,Lee.2014b,Zhang.2017,Liu.2016}. This aspect will be addressed in Section \ref{sec:aSi-cSi}.
+
+
+
+%The high bandgap and low mobility of a-Si44,45 make the a-Si electrically opaque,46 which is essential to screen the doped a-Si (TCO and metal) defects from the c-Si surface, hermle.2020
+
+
+
+%A porous and void-rich a Si:H interfacial layer (i1) deposited in pure \ac{SiH4} plasma in combination with a dense a Si:H layer (i2) deposited in highly H2 diluted plasma has been shown to increase the passivation quality of SHJ cells (compared to single intrinsic layers deposited in the transition zone) [9, 10]. However, detrimental effects of the porous a Si:H layer on Rs and the short-circuit current density (Jsc) have been reported by Sai et al. [11] for the hole contact. They investigated the modification of the i1-microstructure by varying deposition parameters like pressure and power density and its influence on the passivation quality [11]. Recently, Wu et al. reported on an increased valence band offset for porous, high band gap a Si:H(i) layers, being especially detrimental for the transport of holes (cite more?) [12]. Moreover, the influence of a hydrogen plasma treatment (HPT) before, after or in between intrinsic a-Si:H deposition was studied by several groups [10, 13?17] (cite?).
+
+
+%leo:The high defect density in the doped a-Si:H layers make them unsuitable to directly passivate the c-Si surface. Here it is noteworthy that their higher defect density not necessari-ly stems from the dopant atoms but is rather due to a shift of the Fermi level up or down from midgap, which can lower the formation energy of native defects [81].
+The doped a-Si:H layer induces band bending in the c-Si absorber close to the surface, which acts like a classic $p$/$n$-junction, thereby accumulating the contact's majority carriers while depleting the contact's minority carriers in this region. The resulting low density of one carrier type effectively reduces recombination via such a so-called "field-effect passivation". Besides supporting in reducing recombination, the induced band bending increases hole (electron) conductivity in the $p$-type ($n$-type) contact region \cite{Wuerfel.} and "guides" the photo-generated excess holes (electrons) in
+the absorber toward the electrode with minimal losses \cite{Hermle.2020}. 
+In addition to helping reduce recombination, the induced band bending increases the conductivity of the holes (electrons) in the $p$-type ($n$-type) contact region \cite{Wuerfel.} and "guides" the photo-generated excess holes (electrons) in the absorber to the electrode with minimal losses \cite{Hermle.2020}.
+The majority carrier transport is determined by the energy barriers at the interface and the "bulk" conductivity of the intrinsic and doped a-Si:H layer stack \cite{Schulze.2010,Allen.2019}.
+
+%The majority carrier current is dominated by a bulk transport through the intrinsic / doped a-Si:H layer stack and thermal transport over the energy barriers at the interface \cite{Schulze.2010,Allen.2019}.
+
+A third layer is needed between metal contacts and the absorber, a \ac{TCO} (most commonly \ac{ITO}), providing sufficient lateral conductivity between fingers of the metal grid and improved light coupling into the absorber \cite{Holman.2012}. For TCO deposition usually magnetron sputtering is used as an established method suitable for mass production \cite{Cruz.2020}. The metal contacts are typically formed via screen-printing of a \ac{Ag} paste, followed by a low-temperature ($\approx 200 ~\textrm{°C}$) curing step. % to effuse organic past
+
+The one-diode equation introduced in Section \ref{sec:basics} is only valid for SHJ, if the contact's characteristics are dominated by the induced (homo)junction \cite{Hermle.2020}. A major challenge of SHJs is the parasitic Schottky-like junction at the TCO/a-Si:H interface due to band misalignment with typical TCO work functions located close to a-Si:H mid-gap \cite{Klein.2010}. This Schottky-like junction has to be screened from the induced (homo)junction, i.e., the a-Si:H thickness has to be higher than the a-Si:H screening length to avoid major $FF$ losses or even reduced $V_{oc}$ \cite{Bivour.PhD}. As mentioned in Section \ref{sec:transport-mechanisms}, a common strategy to ensure a low screening length and to overcome such transport barriers is to apply heavy doping on both sides of the junction to provide a barrier width narrow enough for efficient tunneling. This approach is, however, limited by the rather poor doping efficiency in a-Si:H and optical constraints for the TCO. This challenge will be addressed in Section \ref{sec:TCO-aSi}.  %leo:Though this junction decoupling can usually be accom-plished in state of the art SHJ contacts, the substantial ?c, in particular for the hole contact, is still an issue of a major concern and will be further treated in section 7.3.
+
+Although the contact resistivity $\rho_c$ is one of the major contributors to resistive losses, few groups have reported $\rho_c$ measurements of SHJ prior to the start of this work. Lee \textit{et al.} investigated the contribution of $\rho_{c}$ to the series resistance $R_s$ and fill factor $FF$ of their back-contacted SHJ solar cells \cite{Lee.2014}.
+Gogolin \textit{et al.} determined $\rho_{c}$ of the TCO/a-Si:H/c-Si stack indirectly by measuring all other resistance contributions of their test
+structure separately \cite{Gogolin.2014}. Lachenal \textit{et al.} co-processed resistance
+test structures using the transfer length method (TLM) alongside
+solar cells, highlighting that $\rho_{c}$ represents
+the majority of their solar cell's $R_s$ \cite{Lachenal.2016}. Their approach
+required patterning of the TCO via etching, whereas Leilaeioun, Weigand \textit{et al.} realized their TLM patterns via
+sputtering of TCO and silver contacts through shadow masks \cite{Leilaeioun.2017,Weigand.2018}.
+By varying several parameters such as a-Si:H layer thickness and
+O$_2$ partial pressure during TCO deposition, they investigated the
+effect on $\rho_c$ and correlated the results with $FF$ and $R_s$ of corresponding solar cells. Nogay \textit{et al.} compared their a-Si:H and micro-crystalline $\upmu$c-Si:H stacks
+in a temperature range from $-100$ to $+80 ~\textrm{°C}$ using TLM \cite{Nogay.2016}.
+
+
+
+%The majority carrier current is dominated by a bulk transport through the intrinsic / doped a-Si:H layer stack and thermal transport over the energy barriers at the interface [2,82].
+
+
+%Another requirement is an annealing step of the final device, for e.g., curing/sintering of the metallization \cite{Schube.2018} and recovery of surface passivation after sputter damage \cite{Demaurex.2012}.
+%dieser satz steht schon in chap. SHJ
+
+%parasitic absorption noch als drawback von SHJ ansprechen... 
+%direkte bandlücke bei 3.4 eV von c-Si nicht vergessen!!
+
+%In contrast to c-Si a-Si:H is a direct semiconductor, resulting in a markedly higher absorption coefficient in the blue/UV part of the light spectrum \cite{.}. 
+As a direct semiconductor, a-Si:H has a high absorption coefficient in the visible wavelength range, thus, even ultrathin ($5-10 ~\textrm{nm}$) layers reduce the $J_{sc}$ of SHJ cells due to parasitic absorption \cite{Holman.2012}. In state-of-the-art SHJ cells, aside lowering the physical thickness of the a-Si:H stack, this so-called blue response is improved by reducing the absorption coefficient via a-Si:H alloying \cite{Mueller.2008,Seif.2014,Zhang.2014c,Mazzarella.2015} or by growth of partly crystalline Si films \cite{Mazzarella.2015,Haschke.2019b}. But these approaches can have drawbacks like impaired (vertical) transport or reduced surface passivation.
+
+
+%Engineering amorphous silicon based heterojunction (SHJ) solar cells towards highly efficient and economic devices is governed by the pronounced trade-off between the optical and electrical properties of the nanometer thin amorphous silicon and transparent conductive oxide (TCO) films and their interfaces. Main limitations are the rather low short-circuit current density (Jsc) due to parasitic absorption of the amorphous silicon films and the transparent conductive oxide (TCO) [1] and significant resistive losses originating from high contact resistivities (?c) in the stack of TCO/a-Si:H(n/p)/a-Si:H(i)/c-Si [2, 3]. ?c at the hole and electron contact are the main contributors to the series resistance (Rs) of SHJ cells [4, 5]. Resistive losses arise due to transport barriers at the critical junctions in the SHJ stack: The a-Si:H/c-Si and the TCO/a-Si:H junction [3]. The transport across these barriers takes place either via thermionic emission, if the barrier height is low enough, or via direct tunnelling respectively trap-assisted tunnelling (TAT) [6?8].
+
+
+%Especially on the TCO side, optical properties have to be considered while optimizing transport. However, electrical and optical properties are closely linked. 
+
+
+The infrared response of SHJ cells is governed by the conductivity-transparency trade-off of the TCO. A high carrier concentration $N_{TCO}$ leads to a higher lateral conductivity \cite{Kirner.2015} and a lower contact resistivity \cite{Leilaeioun.2019,Procel.2018} while reducing the transparency. Thus, high transparency has to be balanced with high conductivity, e.g., via tuning the TCO \acp{O2} content \cite{Lewis.2000}. One way to relax the constraints on TCO optimization are high-mobility TCOs with $\mu_{n,TCO} > 100 ~\textrm{cm}^2\textrm{V}^{-1}\textrm{s}^{-1}$ allowing the reduction of the charge carrier concentration $N_{TCO}$ for higher transparency while maintaining high lateral conductivity \cite{Koida.2007}. Under operation lateral transport can be assisted or even dominated by excess charge carriers in the absorber, depending on the device design (front vs. rear emitter) \cite{Bivour.2014,Cruz.2019,Haschke.2020} and the actual absorber conductivity at \ac{MPP} conditions \cite{Hermle.2020}. Another option is to utilize layer stacks to decouple the required properties at the interface from the bulk layer \cite{Bivour.PhD,Barraud.2013,Leilaeioun.2019}. Such an approach will be presented in Section \ref{sec:TCO-aSi}.
+
+
+
+
+
+%leo:The resulting FF loss together with the non-ideal blue response (Jsc loss), as described in the previous chapter, are currently the main limitations for the conversion efficiency of modern SHJ solar cells.
+
+
+%aus bivour.phd intro
+%To date the formation of the hole and electron selective contacts in SHJ cells is mainly realized
+%by amorphous silicon (a-Si:H). This material has already proven to be a very promising candidate
+%as demonstrated by the very high efficiencies reached by various companies and research
+%institutes [3]. For the champion cells from Panasonic and Kaneka outstanding efficiencies of
+%24.7 \% [4] and 24.2 \% [5] for large-area devices on Cz wafers using screen printing and Cu
+%plating have been reported, respectively. Especially for open-circuit conditions the junction
+%recombination can be very efficiently suppressed by these a-Si:H / c-Si SHJs so that device
+%recombination is mainly due to intrinsic recombination of the high-quality crystalline silicon
+%absorber. This allows for very high open-circuit voltages (Voc) of 750 mV [4] which are only about
+%10 mV below the upper limit that is determined by the high-quality crystalline silicon absorber
+%[6]. This clearly demonstrates that a-Si:H / c-Si SHJ cells can show a nearly ideal device
+%performance for the operation at open-circuit conditions. However, in terms of solar cell
+%efficiency the losses at maximum power point are decisive. Consequently, besides an
+%improved light management (higher Jsc), a further reduction and understanding of the losses at
+%maximum power point conditions (higher fill factors) is essential to improve the device
+%performance even further and to evaluate the potential of alternative contact materials such as
+%metal oxides for future device structures.
+
+
+
+%leo:
+%Being a research subject already several decades before that, the HIT (het-erojunction with an intrinsic thin layer) [80] concept introduced by Sanyo Corp. finally paved the way for investigating the a-Si / c-Si heterojunction for commercial solar cell applications. In brief, the working principle of a typical SHJ cell is based on the following: A Si absorber (c-Si in this work) is sandwiched between two ultrathin (5-10 nm) intrinsic (i) a-Si-H layers, typi-cally deposited via plasma-enhanced chemical vapor deposition (PECVD), which main feature is the enabling of a very low Dit at the c-Si surface. Sen-sitive prerequisites for this are a proper cleaning of the wafer, a sharp a-Si:H / c-Si interface suppressing epitaxial growth [81], a low recombination active defect density in the a-Si:H (i) layer and the effective incorporation of hydrogen. A second (PECVD) a-Si:H thin-film (~10 nm), which is either n- or p-type doped, is deposited on top to provide the required asymmetry for the formation of an electron and hole selective contact, respectively. This works by the induction of a band bending (?field-effect?) into the c-Si sur-face region, hereby taking the doping outside of the c-Si absorber in com-parison to a conventional homojunction cell. The high defect density in the doped a-Si:H layers make them unsuitable to directly passivate the c-Si surface. Here it is noteworthy that their higher defect density not necessari-ly stems from the dopant atoms but is rather due to a shift of the Fermi level up or down from midgap, which can lower the formation energy of native defects [81]. In total, the selectivity of a-Si:H / c-Si contacts is given by the very low Dit, the carrier population in the c-Si contact region con-trolled by the a-Si:H doping type and strength, together with the offsets in the conduction and valence bands caused by the larger a-Si:H bandgap. 
+
+
+\section{Poly-Si/SiO$_x$ passivating contacts}\label{sec:TOPCon-art}
+%bisher keine parasitäre absorption erwähnt, sollte noch rein wgen FCa! FCA von poly-Si wird dann in 2.5 angesprochen im vergleich zu TCO, das passt!
+
+
+Poly-Si/SiO$_x$ %passivated %passt passiviert für transistor?
+contacts were originally developed for bipolar transistors \cite{Post.1992} and transferred to solar cells already in the 1980s \cite{Yablonovitch.1985,Green.1983}. 
+In 2013 colleagues of the author revived this technology and called their approach tunnel oxide passivating contacts (TOPCon) \cite{Feldmann.2014}. Only shortly after a very similar approach called poly-Si on oxide (POLO) was presented \cite{Romer.2014}. Since the name TOPCon is more commonly used in the PV community, the terms "poly-Si/SiO$_x$ passivating contact" and "TOPCon" are used synonymously in this thesis.
+
+In today's solar cells such contacts comprise a thin ($1.1-1.2 ~\textrm{nm}$ in this work) SiO$_x$ between a heavily-doped poly-Si layer and the c-Si absorber. A variety of SiO$_x$ have been applied in literature with different growth methods like wet-chemical (\ac{HNO3}, (UV-)ozone), thermal or plasma oxidation and thicknesses ranging from $\approx 1-3 ~\textrm{nm}$ \cite{Hermle.2020}. 
+The purpose of this interfacial oxide is the saturation of dangling bonds at the c-Si surface for a low interface state density (chemical passivation). Recombination is further suppressed by the large band offsets at the SiO$_x$/Si interface as they drastically reduce the minority charge carrier tunneling probability \cite{Steinkemper.2015}.
+Also for the a-Si:H/poly-Si deposition different techniques have been successfully tested with PECVD and low-pressure chemical vapor deposition (LPCVD) most commonly used. %cite... 
+Carbon or oxygen alloying of the poly-Si can be used to tailor properties like the bandgap, or the crystallization and dopant diffusion behavior. 
+Carbon alloying is also used to avoid commonly reported partial delamination of the poly-Si layer caused by rapidly effused hydrogen upon thermal treatments or during deposition, so called blistering (e.g., in Ref. \cite{Ingenito.2018}). %Beyer.2000 hat FRank in phd zitiert für stärkere C-H bindung als Si-H, also als grund warum C gegen blistern hilft...
+
+
+The post-deposition high temperature annealing process ($700-1050 ~\textrm{°C}$ \cite{Hermle.2020}) provides (i) poly-crystallization of the
+heavily-doped a-Si:H layer, (ii) a shallow diffusion tail of dopants in the absorber and (iii) modification of the SiO$_x$/Si interface (structural reorganization of the atomic bonds at the SiO$_x$/Si interface, formation of pinholes). The work function of the doped poly-Si, together with the shallow in-diffusion induce band bending at the c-Si surface to form the charge carrier selective contact. In addition to tunneling through the oxide \cite{Feldmann.2018}, pinholes render an important transport path \cite{Peibst.2016} without necessarily compromising the surface passivation. 
+On one hand the diffusion tail can assist in surface passivation as it reduces the minority charge carrier density in this region. % and thus recombination. %boosts surface passivation by starving the Shockley?Read?Hall recombination centres of minority carriers 
+On the other hand, it increases the Auger recombination rate significantly. Hence, the dopant in-diffusion has to be controlled carefully. 
+After the high-temperature step hydrogen %prefarably atmoc hydrogen, laut hermle.2020, why..?
+is re-introduced to the SiO$_x$/Si interface via an hydrogenation step (e.g., \ac{RPHP} \cite{Lindekugel.2008} or the deposition of a hydrogen rich layer and a subsequent thermal treatment \cite{Nemeth.2016}) to further boost the chemical passivation. 
+
+Recently, so-called fired-passivating contacts have been proposed \cite{Ingenito.2018}, replacing the usually 5-15 min annealing with a rapid thermal "firing" process. This process comprises fast temperature ramps ($\approx 50 ~\textrm{K/s}$) and short peak times of only a few seconds and are commonly used in industry for, e.g., contact formation in \ac{PERC}. Since noteworthy diffusion of dopants through the oxide into the absorber is not possible with such short processes \cite{Feldmann.2019}, the induced band bending is solely due to the work function difference of the doped layer and the c-Si absorber. These contacts are therefore particularly reliant on pinholes for low contact resistivity and a low-defective SiO$_x$/Si interface (provided by the hydrogenation step) for low recombination \cite{Ingenito.2018}.
+A similar approach is followed in Chapters \ref{chap:Towards-Tandem} and \ref{chap:TJ} for the development of the poly-SiTJ in combination with a passivating contact.
+
+
+
+%parasitäre absorption hier noch kurz ansprechen, wie für SHJ:
+%tutsch.phd:
+%The contact technolo-gies focused on in this work further comprise either amorphous (a-Si:H) or poly-crystalline (poly-Si) Si thin films, which both show substantial absorp-tion within the relevant spectrum. Compared to poly-Si, which optical properties are in most cases very similar to c-Si, a-Si:H possesses a larger Ebg of ~1.7 eV. However, due to its nature as a direct semiconductor material, strong absorption is caused even by ultra-thin layers, significantly limiting the blue response of the cells. In [10] the parasitic absorption of 15 nm thick layers of doped poly-Si is estimated by a loss in short-circuit current density Jsc of 0.75 mA/cm². For SHJ cells the corresponding Jsc loss as a func-tion of front side a-Si:H thickness was reported to amount in first order to 0.1 and 0.16 mA/cm² per nanometer for intrinsic and doped films, respec-tively [11]. Hence poly-Si can have slight advantage when contacts of the same thickness are compared. However, for both contact technologies, the minimization of the SiTF thickness is crucial and typically results in a thickness in the range of 10 nm for high efficiency cells.
+
+
+%poly wie cSi, also indirekt, bessere blue response im vergleich zu SHJ, dafür FCA für hohe dotierung! also auch hier: schichtdicke so dünn wie möglich!
+
+
+
+
+
+%diffusion durch SiOx passiert sowieso nicht mit RTP unter 1000 °C, siehe Feldmann.2019, fired-only contact ist daher von WF differenz bzw. band bending abhängig. mit C tendenziell mehr defekte, weniger kristallin, lower doping efficiency, das reduziert band bending, verschlechter rhoc und tau, cite Ingenito.2018
+
+
+
+%aus ingenito.2018:
+%Charge-carrier selectivity in traditional poly-Si/SiOx junctions
+%relies on a large amount of active dopants in the poly-Si, a shallow
+%doped region into the wafer obtained by the diffusion of dopants
+%from the poly-Si19?30 (as in Fig. 2a) and possibly on the formation
+%of nanoholes in the tunnel oxide13,31?35. These features are obtained
+%via a post-deposition annealing at temperatures of 800?1,000 °C
+%for 5?15 min. Moreover, most of the traditional structures benefit
+%from a hydrogenation step resulting in a reduction of the electronic
+%defect density at the wafer/SiOx interface or in the layer stack42?44.
+%The shallow doped region (or buried junction, typically with a surface
+%concentration of ~1019 cm?3) promotes tunnelling through the
+%SiOx due to a more preferable band-edge alignment between the
+%wafer (for example, valence band for a hole-selective contact) and
+%the doped poly-Si layer45 (blue dashed lines in Fig. 2c). Moreover,
+%it boosts surface passivation by starving the Shockley?Read?Hall
+%recombination centres of minority carriers (for example, electrons
+%for a hole-selective contact) without excessively increasing Auger
+%recombination45. In contrast to these common procedures, our FPC
+%is realized with a thermal treatment that is not sufficient to form a
+%buried junction into the wafer (as sketched in Fig. 2b). Therefore,
+%charge-carrier selectivity relies on a low density of defects (Dit) at
+%the c-Si/SiOx interface (that is, chemical passivation), and on an
+%accumulation region at the wafer surface adjacent to the SiOx. The
+%tunnel SiOx plays a crucial role in satisfying the first requirement as
+%it prevents the formation of interfacial defects due to epitaxial regrowth
+%of the a-SiCx on the c-Si substrate occurring during firing46.
+
+
+
+
+
+
+\section{Cell interconnection in monolithic perovskite-silicon tandem solar cells}\label{sec:tandems}
+
+%based on bastiani.2020, yan.2021, jost.2020,...li.2020
+%was muss überhaupt noch eingeführt werden?
+% wie monolithische zelle genau aussieht und was interlayer genau macht! sollte auch erwähnt werden, dass metal halide perovskites verwendent werden... beispiele aus literatur kurz erwähnen, dann verweis auf motivation in kapitel TJ?
+%funktionsweise TJ wird bei transport mechanisms erklärt, eventuell ausbauen mit simulationen...
+
+% struktur einfürhen, kurz erklären, was interlayer machen muss...
+% dann verschiedene möglichkeiten nennen, tunneldioden aus III-V bekannt, TCOs meist verwendet, möglich auch sehr dünne metal schicht für TAT recombination, wird in organic pv verwendet...
+
+%\textit{This section is partly based on the recent review article by Bastiani \textit{et al.} \cite{Bastiani.2020}.} %kann eigentlich weg, ist ja trotzdem immer zitiert..
+%eventuell teile aus intro übernehmen (ausgegraut)
+
+%bastiani.2021: Specifically, the monolithic, two-terminal tandem solar cell implementation promises a simple, yet high-performance technology with high market-relevance. Metal-
+
+In a monolithic two-terminal perovskite/Si tandem the wider-bandgap perovskite cell is fabricated on top of the Si bottom cell and both cells are connected in series.
+Consequently, by Kirchhoff's law, the tandem voltage is the sum of the voltages generated in each sub-cell, but the tandem current is limited to that of the sub-cell with the lower generated current \cite{Bastiani.2020}. Thus, in the monolithic configuration current-matching of each sub-cell via adapting optical properties is required under \ac{MPP} conditions for optimal performance. %diesen satz drinlassen? wenn ja, wie wird das gemacht? optik wird angepasst..?
+
+
+As top cell absorber metal-halide perovskites are used %(ein zwei beispiel zusammensetzungen)
+due to a variety of excellent properties such as a tunable bandgap, a sharp and high onset of their absorption coefficient, a low Urbach energy, a long carrier diffusion length, and low non-radiative recombination rates of charge carriers \cite{Bastiani.2020}.
+%and the ability to tailor the bandgap with the ratio of bromid iodid... 
+For details on perovskite solar cells it is referred to the recent doctoral theses of Alexander Bett \cite{Bett.PhD} and Patricia Schulze \cite{Patricia.PhD}, colleagues of the author at Fraunhofer ISE. 
+
+
+
+%\begin{figure}[htp] 
+%	\centering
+%	\includegraphics[width=0.7\linewidth]{images/Fundamentals/2T-tandem}
+%	\caption[...]{Sketch of a monolithic, two-terminal perovskite/Si tandem solar cell.}
+%	\label{fig:2T-tandem}
+%\end{figure}
+
+
+%verweisen auf Eupvsec.2021 messmer, dort nochmal mehrere varianten diskutiert... with focus on PERC like bottom cells.
+\begin{figure}[hpt]
+	\centering{
+		\begin{minipage}[b]{0.25\textwidth}
+			\centering
+			\subfloat[\textbf{(a)}  \label{fig:ohne-interlayer}] {\includegraphics[width=\textwidth]{images/Fundamentals/ohne-interlayer}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.25\textwidth}
+			\centering
+			\subfloat[\textbf{(b)}  \label{fig:TCO}] {\includegraphics[width=\textwidth]{images/Fundamentals/TCO}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.25\textwidth}
+			\centering
+			\subfloat[\textbf{(c)}  \label{fig:SiTJ}] {\includegraphics[width=\textwidth]{images/Fundamentals/SiTJ}}
+		\end{minipage}
+	}
+	\caption[Two-terminal perovskite/Si tandem solar cells with different recombination junctions]{Two-terminal perovskite/Si tandem solar cells with different recombination junctions highlighted in red. (a) No ICL, recombination junction at the perovskite-HTL/Si-ETL interface, (b) recombination junction at the perovskite-HTL/ICL interface (as for, e.g., a TCO ICL), (c) recombination junction at the ICL/Si-ETL interface (as for, e.g., a Si($p^+$) ICL).} %zwei terminals andeuten? dann kann fig. 2T-tandem weg!
+	\label{fig:3-interconnections}
+\end{figure}
+
+
+%In a monolithic tandem, aside the two subcells, the
+%properties of its RJ are an additional factor that strongly
+%determines the overall tandem performance since it may
+%simultaneously affect its short-circuit current density (JSC), fill
+%factor (FF) and open-circuit voltage (VOC) \cite{Bastiani.2020}.
+
+The performance of a monolithic tandem is, obviously, determined by the two sub-cells, but also crucially influenced by the properties of its recombination junction.
+The purpose of the recombination junction between both sub-cells, as depicted in Fig. \ref{fig:3-interconnections},\footnotemark\footnotetext{The arrangement of charge carrier selective contacts shown in Fig. \ref{fig:3-interconnections} is arbitrary but was chosen as in commonly used tandem devices since the $p$-$i$-$n$ configuration of the perovskite top cell with the \ac{ETL} at the top is advantageous over the $n$-$i$-$p$ configuration. This is because, to date, only a few highly-transparent \acp{HTL} have been developed for perovskite solar cells \cite{Bastiani.2020,Raiford.2019}.}
+%yan.2021 The performance of n-i-p perovskite/c-Si structures are limited by the excessive parasitic absorption of light in the hole transport layer (HTL), such as Spiro-OMeTAD [7-9].
+is to allow efficient recombination of the different majority carriers from both cells without inducing minority-carrier recombination. 
+%yan: Photo-generated carriers from one subcell and carriers with opposite charge from the other subcell
+%are driven into the ICLs where they recombine [31].
+Further, its optical properties have to allow efficient light coupling into the Si bottom cell with minimum reflection losses and parasitic absorption in the relevant near-infrared part of the spectrum. %verweis auf spektrum in 2.1?
+%bastiani: Ideally, the RJ should have a high near-infrared transparency
+%in the spectrum region where the bottom cell absorbs and
+%high reflectivity in the blue spectra where the top cell works.
+%bastiani: In general, a tandem-RJ
+%should feature all the typical characteristics associated with a
+%good contact: minimal minority-carrier recombination with low
+%resistive losses.52
+Three cases can be distinguished, depending on the position of the recombination junction, i.e., where the recombination of majority carriers from both sub-cells occurs (Fig. \ref{fig:3-interconnections}): (a) Without additional \ac{ICL} at the Si-ETL/perovskite-HTL interface, (b) on the perovskite side, i.e., at the perovskite-HTL/ICL interface or (c) on the silicon side, i.e., at the Si-ETL/ICL interface.
+
+
+%vorher Esaki diode einführen also homojunction, also gleiches material, nur anders dotiert...
+%Experimentally, in perovskite-based tandem solar cells, the
+%RJ is usually not an ideal Esaki-type tunneling diode. Indeed,
+%the RJ is often a heterojunction (or hybrid junction) rather than
+%a homojunction, where we classify heterojunctions as consisting
+%of two semiconductors with different bandgaps, and hybrid
+%junctions as consisting of two different materials classes, such
+%as organic and inorganic semiconductors and metal oxides.
+
+
+
+%Assuming a poly-Si/SiO$_x$ selective contact for the Si bottom cell, Fig. \ref{fig:3-interconnections} shows three possible ways to connect top and bottom cell of a perovskite-Si tandem: (a) direct interconnection without any additional layer, (b) interconnection using a TCO and (c) interconnection using a SiTJ.
+
+
+
+
+%\begin{figure}[htp] 
+%	\centering
+%	\includegraphics[width=0.85\linewidth]{images/TJ/table-interconnections}
+%	\caption[...]{gesamt rhoc konnte nicht bewertet werden, daten aus literatur...höhere reflexion auf plan zeigen, simple sim mit verschiedenen n stacks..., absorption auch schon hier mit Zell-Sim Christoph, eventuell ...}
+%	\label{fig:table-interconnections}
+%\end{figure}
+
+
+%1. möglichkeit, direkter kontakt:
+
+While direct interconnection of the top and bottom cell without any additional layer is highly desirable, its realization is very challenging. The selective contacts not only have to selectively collect charge carriers from their sub-cell, they also have to ensure efficient majority-carrier recombination at their shared interface. 
+In general direct connection of the perovskite-HTL and the Si-ETL (or \textit{vice versa}) leads to non-ohmic, diode-like $J-V$ characteristics, i.e., a Schottky contact, which results in non-negligible voltage losses for the tandem device \cite{Zheng.2018}. %mehr zitate?
+%J.H. Zheng, H. Mehrvarz, F.J Ma, C.F.J. Lau, M.A. Green, S.J. Huang, A.W.Y. Ho-Baillie,
+%21.8% Efficient monolithic perovskite/homojunction-silicon tandem solar cell on 16 cm2,
+%ACS Energy Lett. 3 (2018) 2299-2300.
+%[63] J.H. Zheng, H. Mehrvarz, C. Liao, J.M. Bing, X. Cui, Y. Li, V.R. Goncales, C.F.J. Lau, D.S.
+%Lee, Y. Li, M. Zhang, J. Kim, Y. Cho, L.G. Caro, S. Tang, C. Chen, S.J. Huang, A.W.Y.H.
+%Baillie, Large-area 23%-efficient monolithic perovskite/homojunction-silicon tandem solar
+%cell with enhanced UV stability using down-shifting material, ACS Energy Lett. 4 (2019)
+%2623-2631.
+%weitere zitate der gruppe aus yan.2021. obwohl kontakt nicht super, eigenet er isch halt gut für up-scaling, weil keien laterale leitfähigkeit...
+An exception was presented by Sheng \textit{et al.} who used TiO$_2$ as the perovskite-ETL directly on a \ac{B}-doped c-Si emitter. They assigned the low-resistive, ohmic behaviour of this contact to a high density of localized mid-gap states as recombination center for efficient transport \cite{Shen.2018}.
+
+%2. möglichkeit: zwischenschicht um TAT zu erhöhen! metall oder tco
+In practice, the strategy usually followed is to increase the recombination rate by intentionally increasing the defect state density at the interface between the two sub-cells. This can be done by inserting a ultrathin metal, as in organic PV \cite{Maennig.2004}, or a \ac{TCO} layer.
+Energetically, this scenario resembles \ac{SRH} recombination, but (ideally) all carriers involved are majority carriers collected from the respective
+sub-cells rather than one minority and one majority carrier as in the classic SRH case \cite{Bastiani.2020}.
+TCOs usually provide a low contact resistance with most perovskite
+charge transport layers and are therefore widely used \cite{Albrecht.2016,Bush.2017,Hoye.2018}.
+The heavily doped TCO acts as the $n^+$-region and the perovskite HTL as the $p$-type region of the recombination junction (Fig. \ref{fig:TCO}).  
+Excellent results have been obtained, e.g., with ITO/NiO$_x$ \cite{Bush.2017} and ITO/\ac{PTAA} \cite{Schulze.2020} recombination junctions.
+%dickenabhängig?, Sim Christoph bzw. exp. Daten von Özde? Paper Christoph zitieren...
+%n index matching wird getailored zb HZB mit nc-SiO:H interlayer...
+Main limitations of this approach are optical losses due to \ac{FCA} in the infrared region of the spectrum \cite{Holman.2012} and poor
+refractive index matching with adjacent layers causing significant
+reflection losses at both interfaces \cite{Grant.2016}. %schreiben dass FCA mit dicke addressiert werden kann, reflection aber vor allem von den interfaces abhängt?
+Generally, the minimum reflection for a given wavelength is achieved when the optical thickness of the layer is a quarter of the incident wavelength.
+%yan.2021: that an interlayer with a
+%refractive index n=2.8 and a thickness of 90 nm would be beneficial to obtain a maximum Jsc of
+%18.6 mA/cm2 for tandems with device configurations (B) and (C) [40]. Moreover, Mazzarella et al.
+%obtained similar simulation results [41]. The refractive index of ICLs is approximately equal to the
+%geometric mean of perovskite and c-Si, and a minimum of reflection is achieved when the optical
+%thickness is approximately a quarter of the wavelength range impinging on the bottom cell.
+%
+For low reflection in a perovskite/Si tandem the refractive index of the interconnection layer should be in between the refractive indices of the perovskite ($n_{Pero} \approx 2.5$ at $\lambda = 700 ~\textrm{nm}$ \cite{Werner.2018}) and Si absorber ($n_{c-Si} \approx 3.8$ at $\lambda = 700 ~\textrm{nm}$). %having a RJ with its refractive index in between those of the perovskite and silicon cells aids in effective light coupling into the tandem.35,36 
+However, TCOs such as the mostly used \ac{ITO} have a refractive index of around $2.0$ at $\lambda = 700 ~\textrm{nm}$ \cite{Tutsch.PhD}. 
+Further, the typically high lateral conductivity of TCOs %($R_{sheet}$ around 100 Ohm/sq) %cite?
+is undesirable as it efficiently connects possible parasitic shunts paths  \cite{Buehlmann.2007,Despeisse.2010,Blaga.2021} due to, e.g., pinholes in the perovskite absorber. %48,49 aus bastiani
+This problem is of particular importance when transferring laboratory-scale tandems to industrial production, as it will be more pronounced for large-area devices and on textured surfaces.
+ 
+
+%3. möglichkeit, in situ Si homo TJ bzw RJ...
+%3 möglichkeit für interconnction sind esaki-type TJ, wie in 2.2 eingeführt. .
+
+An alternative to TCOs are Si-based tunneling junctions (SiTJs, Fig. \ref{fig:SiTJ}), as first demonstrated in a perovskite/Si tandem cell by Mailoa \textit{et al.} \cite{Mailoa.2015}.
+%which have the benefit of better refractive index matching and thus reduce reflection losses \cite{Grant.2016}. Additionally, they have the potential to be directly integrated in the processing of the bottom cell's passivating contact \cite{Luderer.2019,Sahli.2017,Sahli.2018b,Peibst.2019,Puaud.2021}. %eigenes Paper hier zitieren? .28?30 aus bastiani
+These Si($p^+$)/Si($n^+$) stacks are heavily doped and can thus resemble ideal Esaki-type tunneling junctions (Section \ref{sec:transport-mechanisms}). %/tunnel diodes....verweis auf transport mechanisms?
+Such Esaki-type tunneling junctions are known from III-V multijunction devices (e.g., in Ref. \cite{Cariou.2018}), as III-V materials can be doped degenerately and atomically sharp transitions are possible with epitaxial growth.
+For c-Si based tandem cell applications, efficient SiTJs were realized using a proximity rapid thermal diffusion process \cite{Yang.2012,Wang.2002}.
+Nanocrystalline SiTJs were applied in a-Si:H-based thin-film tandems \cite{Hegedus.1995} or in back-contacted SHJ cells that featured a tunneling-junction-based ETL \cite{Tomasi.2017}. %which stacked a wider-bandgap a-Si:H cell onto a nanocrystalline-Si bottom cell \cite{Hegedus.1995}.
+Sahli \textit{et al.} adapted such nanocrystalline-SiTJs deposited at low temperature to form a $p^+$/$n^+$ recombination junction on a SHJ bottom cell \cite{Sahli.2017} and were also able to demonstrate this approach
+on a textured surface \cite{Sahli.2018b}. 
+Peibst \textit{et al.} proposed a \ac{PERC} with a poly-Si($n^+$)/SiO$_x$ passivating
+contact as a front emitter of the Si bottom cell, forming a $p^+$/$n^+$ poly-SiTJ
+with a poly-Si($p^+$) layer on top \cite{Peibst.2019}. %hier auf literatur zu PERC verweisen? besser in kapitel 6!
+%A similar approach is followed in Chapters \ref{chap:Towards-Tandem} and \ref{chap:TJ} for the development of the poly-SiTJ in combination with a passivating contact.
+
+%ist ja schon in transport mechanisms beschrieben...In practice, the transport in such heavily doped nano- or poly-crystalline SiTJs might not solely rely on B2BT, but might be assisted by TAT via states in the band gap %verweis auf sim...?
+
+
+
+%Notably, such doped Si-based layers can be
+%optically tuned towards lower refractive indices by depositing
+%e.g. SiOx-based films;
+
+An advantage of the SiTJ over TCO interconnection might be the generally lower lateral conductivity \cite{Sahli.2017}.
+%Typical $R_{sheet}$ values of poly-Si are higher by a factor of 5-10 over even higher. 
+Especially small-grain Si films show low lateral conductivity, which is beneficial in tandems with shunt paths in the top cell \cite{Blaga.2021}. However, for larger-grain, heavily-doped Si thin films the sheet resistance ($R_{sheet}$) can approach that of TCOs. %cite....
+
+Colleagues of the author compared the interconnection via a TCO to that with a SiTJ for different Si bottom cells using numerical device simulations \cite{Messmer.2020c}. 
+Parasitic absorption (FCA) was found to be similar or even more pronounced in poly-Si as compared to the TCO \cite{Messmer.2020c}.
+However, refractive index matching to the bottom cell is obviously very good in the case of a SiTJ. As a result, on planar surface a higher total $J_{sc}$ was obtained in the simulations using the SiTJ instead of the TCO. The slightly lower losses due to FCA in the case of an TCO ($+ 0.1 ~\textrm{mAcm}^{-2}$) were overcompensated by higher reflective losses ($- 0.4 ~\textrm{mAcm}^{-2}$). %ist nicht im paper, hier zeigen? erstmal christohp danach fragen... wie sonst zitieren? zur not absolut jsc values aus paper zitieren, dort auch planar gezeigt, TJ dort 0.1-0.2 mA/cm² besser als TCO...nicht mega viel... :D grafik ist jetzt da...P:\200\groupdrives\210_HES\20_Teams\Selektive_Kontakte\PersoenlicheOrdner\Luderer_Christoph\ISE Arbeiten\20200617a-Optics-planar-Bottomcells.png
+%graph mit jsc losses von Christoph hier zeigen...? nee...
+In the case of a textured bottom cell surface reflective losses of the TCO are less severe and cancel out higher FCA losses for the SiTJ so that very similar $J_{sc}$ values are obtained for both configurations \cite{Messmer.2020c}.
+
+
+
+
+
+%in section 7.1 tco and SiTj are briefly compared...nicht mehr! :D
+
+As a rather new technology, perovskite/Si tandems are evolving quickly and it has yet to be decided which configuration is most suitable for industrial mass production.
+Devices are getting more and more refined and commonly used TCOs for interconnection can still be optimized regarding thickness or oxygen content, strongly influencing its opto-electrical performance.
+%Recently, efforts towards fully textured tandems for higher overall $J_{sc}$ increased, which would reduce TCO related reflection losses. Nevertheless, bottom cells with planar front side are still widely used since perovskite processing on textured surfaces is challenging. %..cite.???
+%As an alternative on polished surface, Köhnen \textit{et al.} utilized a oxygen-alloyed nanocrystalline SiO$_x$:H as selective contact for the Si bottom cell for better refractive index matching to the TCO interconnection layer \cite{Kohnen.2019}. %köhnen.2019 3, 1995%ursprünglich von mazalrella entwickelt! 2019. 9 1803211 wirklich matching zur TCO schicht??
+Also costs can only be roughly estimated so far. Because the SiTJ can be integrated into processing of the bottom cell's selective contact without requiring additional equipment, Messmer \textit{et al.} calculated a slightly lower all-in cell cost when a SiTJ is used instead of TCO for the TOPerc (see Chapter \ref{chap:Towards-Tandem}) bottom cell design \cite{Messmer.2020c}. 
+
+%für TOPerc, über SHJ ist es andersherum!
+%due to the additional process step and relative higher specific
+%equipment CAPEX for ITO deposition by a PVD (physical vapor
+%deposition) tool as compared with SiT concept that uses a PECVD tool
+%for the silicon tunnel junction or TOPCon layer formation. However,
+%there is one exception, namely, the SiT-SHJ, where the silicon tunneling
+%junction is formed by ?c-Si leading to costs that are slightly higher
+%than for ReCO-SHJ. This is a direct result of the ReCO interconnection
+%needing one production step (PECVD a-Si layer) less as compared
+%with the process flow of the SiT interconnection that reduces the
+%overall all-in cell production cost of the bottom cell.
+Thus, at this point, the question of the best cell interconnection cannot be definitively answered.
+
+%Finally, it must be mentioned that optical losses and Rsheet depend on the actual TCO or poly-Si thickness used for the interconnection layer. 
+%In TCOs the charge carrier density and thus FCA can be tailored via the oxygen content, as discussed in Chapter \ref{chap:SHJ}.
+
+%allgemein sagen, dass beide materialen eine sehr breite palette an rsheets usw aufweisen können dependent on process paramters/properties like oxygen content, crystalline fraction/crystal size, thickness
+
+
+
+
+
+%dieser Satz sollte wo rein.., wohl doch eher nicht...
+%The additional Si(p$^+$) layer is expected to ease the formation of an ohmic contact to the HTL of the top cell. 
+
+
+
+
+
+
+
+
+
+
+

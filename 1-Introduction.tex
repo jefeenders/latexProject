@@ -1,0 +1,259 @@
+\chapter{Introduction}
+\label{chap:introduction}
+
+\section{Motivation}\label{sec:motivation}
+
+%Was zu eisbären und warum noch höhere Effizienzen nötig sind...
+%aus de wolf.2012:
+%Photovoltaic (PV) devices convert sunlight directly into
+%electricity. With the sun providing the Earth with more
+%than 10,000 times the energy humans currently consume,
+%PV has the potential to be a large and environmentally benign
+%energy source [1]. For a long time it remained expensive
+%compared to traditional grid electricity. However, solar
+%electricity can now compete with grid electricity at a price
+%of 0.10?0.20 C=kWh. This is explained by the steady cost
+%reduction of PV technology, mainly driven by increases in
+%* Corresponding author: Stefaan De Wolf,
+%E-mail: stefaan.dewolf@epfl.ch.
+%Received: December 21, 2011. Accepted: January 3, 2012.
+%manufacturing scale but also by important advances in technology
+%[2, 3].
+
+%eventuell auch bei bastiani.2021 oder anderen review papern schauen...wie zb yan.2021
+%bastiani: Specifically, the monolithic, two-terminal tandem solar cell implementation promises a simple, yet high-performance technology with high market-relevance. 
+
+%Centuries after first conclusive evidence on the anthropogenen climate change, a vast majority of mankind finally seems to take the problem seriously. For the transition from a fossil fuel based to a sustainable society/economy/energy supply.. die nutzung of solar energy via PV plays a key role. 
+
+
+An accelerated transition from fossil fuels to sustainable energy sources is needed to limit global warming to the critical 2 °C threshold, as envisioned by the Paris Agreement.
+Thanks to impressive cost reductions in the past \cite{Kavlak.2018}, \acp{PV} technologies can play a key role in this. Cost-optimal climate change mitigation scenarios
+include \ac{PV} as the major source of electricity with a market share of $30-50 ~\%$ \cite{Creutzig.2017}.
+However, for this scenario to occur, PV must be competitive with fossil-based technologies in terms of \ac{LCOE}, and the current trend of cost reduction must continue \cite{Zafoschnig.2020}.
+The larger part of overall system costs scales with module area \cite{Zafoschnig.2020}. This makes increasing power conversion efficiency $\eta$ not only attractive in therms of effective land use, but also a strong lever for lower LCOE.
+
+
+
+%Creutzig.2017: To achieve the 2 °C goal of the Paris Agreement, fossil fuels
+%need to be phased out and replaced by low-carbon sources
+%of energy. This requires the nearly complete decarbonization
+%of the power sector by 2050, and an accelerated shift towards
+%electricity as a final energy carrier1
+%
+%
+%allen.2019: Since it is widely recognized that the
+%ongoing success of the c-Si PV industry is predicated on the sustained
+%increase in cell and module efficiency coupled with a continuing
+%decline in production costs6,7, simple, innovative solar cell
+%designs that exceed these empirical limits are vital for the continued
+%advancement of c-Si PV.
+
+Crystalline \ac{Si} wafer-based solar cell technologies account for over 90 \% of the \ac{PV} market \cite{Jaeger-Waldau.2019}. And in that, the largest market share for many years belonged to the Al-BSF technology utilizing a fairly simple \ac{Al} \ac{BSF} as rear contact. 
+The simplicity of this technology, basis of its success, comes at the cost of some fundamental $\eta$ limitations such as high minority carrier recombination at the full-area unpassivated metal/semiconductor contact. The $\eta$ limit of the Al-BSF is around 20 \% \cite{Hermle.2020, Allen.2019} (Fig. \ref{fig:Cell-technologies}). Over the course of this work (2017-2021), the largest market share went to the \ac{PERC} technology, which is expected to dominate the market in the coming years \cite{ITRPV.2020}. It features a dielectric surface passivation layer stack at the rear side. Contacts are formed by opening the dielectric locally. It still suffers from high recombination at the local rear contacts, but reduces the global minority carrier recombination by reducing the metallized area fraction. This improvement in surface passivation, despite an increase in the cell's series resistance $R_s$, due to the smaller contact area \cite{Allen.2019}, results in a predicted $\eta$ potential of around 24 \% \cite{Hermle.2020}. As a next step, passivating contact schemes have been introduced to combine carrier-selective contact regions and surface passivation. In doing so, they enable using full-area contacts again, potentially reducing the fabrication complexity thereby. 
+
+\begin{figure}[ht] 
+	\centering
+	\includegraphics[width=0.6\linewidth]{images/Introduction/Cell-technologies}
+	\caption[Potential further technological development in Si PV]{Potential further technological development in Si PV based
+		on historical efficiency increases ($0.5-0.6~\%_{abs}$) and the technologies currently being
+		investigated in research. Taken from Ref. \cite{Hermle.2020}.}
+	\label{fig:Cell-technologies}
+\end{figure}
+
+
+
+%hier unterschieden zwischen high and low-T passivating contacts? jeweils ein bild dazu, SHJ sketch und TOperc bottom zelle mit pero topzelle angedeutet, mit TJ!
+The two main representatives of passivating contacts are \ac{SHJ} and \ac{poly-Si}/\ac{SiOx}-based contacts. SHJ solar cells hold the current world-record efficiency for Si single-junction solar cells with 26.7 \% \cite{Yoshikawa.2017}. This success is based on their outstanding open-circuit voltage ($V_{oc}$) enabled by excellent passivation of
+the  \ac{c-Si} surface by a thin intrinsic \ac{a-Si:H} layer \cite{Tanaka.1992}. In contrast, the short-circuit
+current density ($J_{sc}$) is limited by parasitic absorption
+in the \ac{a-Si:H} and \ac{TCO} thin films at the front \cite{Holman.2012}. Furthermore, significant
+resistive losses arise in
+the stack of \ac{TCO}/a-Si:H(n/p)/a-Si:H(i) \cite{Lachenal.2016}. To improve the overall cell performance, the origin
+of these transport losses has to be understood and measures
+have to be taken to overcome this problem. Moreover, detailed
+knowledge of the thermal budget applicable to the SHJ is of major importance for a holistic optimization of the cell process
+with respect to costs and performance. It is vital to understand
+the limitations imposed on subsequent cell processing such as
+TCO, metallization, and module integration \cite{Schube.2018, DeRose.2017}.
+
+
+%To date the formation of the hole and electron selective contacts in SHJ cells is mainly realized
+%by amorphous silicon (a-Si:H). This material has already proven to be a very promising candidate
+%as demonstrated by the very high efficiencies reached by various companies and research
+%institutes [3]. For the champion cells from Panasonic and Kaneka outstanding efficiencies of
+%24.7 \% [4] and 24.2 \% [5] for large-area devices on Cz wafers using screen printing and Cu
+%plating have been reported, respectively. Especially for open-circuit conditions the junction
+%recombination can be very efficiently suppressed by these a-Si:H / c-Si SHJs so that device
+%recombination is mainly due to intrinsic recombination of the high-quality crystalline silicon
+%absorber. This allows for very high open-circuit voltages (Voc) of 750 mV [4] which are only about
+%10 mV below the upper limit that is determined by the high-quality crystalline silicon absorber
+%[6]. This clearly demonstrates that a-Si:H / c-Si SHJ cells can show a nearly ideal device
+%performance for the operation at open-circuit conditions. However, in terms of solar cell
+%efficiency the losses at maximum power point are decisive. Consequently, besides an
+%improved light management (higher Jsc), a further reduction and understanding of the losses at
+%maximum power point conditions (higher fill factors) is essential to improve the device
+%performance even further and to evaluate the potential of alternative contact materials such as
+%metal oxides for future device structures.
+
+
+%noch was zu TOPCon...
+In poly-Si/SiO$_x$-based passivating contacts low saturation
+current density ($J_0$) values in the vicinity of $1 ~\textrm{fAcm}^{-2}$ and low contact resistivity ($\rho_c$) values in the order of $1 ~\textrm{m}\upOmega\textrm{cm}^2$ \cite{Hermle.2020} are provided by a passivating SiO$_x$ layer sandwiched between a heavily-doped poly-Si contact layer and the c-Si absorber typically featuring a slight in-diffusion of dopant atoms from the poly-Si at its surface.
+Furthermore, its high-temperature processes enable
+integration to already existing production lines, making it advantageous for industrial application over low-temperature ($<200 ~\textrm{°C}$) SHJ technology.  
+
+
+%hier kürzen, da überschneidung mit motivation in TOPerc Kapitel!!
+With reported efficiencies above 26 \% for both technologies on lab-scale devices \cite{Yoshikawa.2017, Yoshikawa.2017b, Haase.2018, Richter.2021} and not less impressive efficiencies already on industrial scale of 24.6 \% \cite {Chen.2020} and 25.2 \% \cite{Bhambhani.2021}, Si single-junction solar cells are very close to their theoretical limit %given by Auger recombination
+of 29.4 \% \cite{Richter.2013}, and even closer to their estimated practical limit ($\approx$26 \% in production \cite{Hermle.2020}). For that reason, the focus of the PV community is shifting to multijunction devices, with tandem solar cells being the logical successors of the single-junction technology. The goal is to reduce thermalization losses by forming a
+tandem device consisting of a narrow-bandgap bottom cell and a top
+cell exhibiting a wider bandgap \cite{Sahli.2017}.
+In a monolithically integrated
+two-terminal tandem configuration, both sub-cells are connected
+in series and carriers from one sub-cell recombine with carriers
+of opposite charge from the other sub-cell. 
+For future highly efficient and cost-effective
+tandem applications, the combination of a perovskite top and
+a c-Si bottom cell is especially attractive \cite{Green.2013, Peibst.2019}. 
+For low \ac{LCOE}, an upgrade of the mainstream Si solar cell structure, i.e., the \ac{PERC} technology \cite{ITRPV.2020}, is highly desirable \cite{Peibst.2019}.
+% für den größt möglichen hebel an lcoe...mainstream/cheap strukturen nutzen...
+An attractive approach, that will be investigated in this thesis, %martin würde "investigated in this thesisrauslassen..
+is to replace the heavily-doped and locally contacted phosphorus emitter with a full-area passivating contact in combination with a full-area TCO or a \ac{SiTJ} as interconnection layer.
+
+
+%bleifreie pero-absorber müssen eventuell höher annealed werden als 200 °C, dann könnte NiVOx HTL sinn machen und TOPCon/TOPerc nötig anstatt SHJ
+%TOPerc günstig, mit NIOx
+
+
+\section{Objectives}\label{sec:objective}
+
+%Stefan: vorher in motivation simples strukturbild von SHJ und TJ zeigen zur einführung. 
+
+%mit C anfangen, stichwort ist understanding and quantifaction of transport losses...
+%dann A, fundamental correlation between rhoc und tau, eher pysikalische teil..
+%B ist technologischer part, wie kann man es umsetzen...gezeigt anhand TJ...
+
+%main, obvious goal der verbesserten zelleffizienzen schon in motivation klar machen oder sonst hier nochmal ganz am anfang schreiben, dann nicht mehr hervorheben durch stichpunkte oder markierung...
+
+
+\begin{figure}[htp]
+	\centering{
+		\begin{minipage}[b]{0.7\textwidth}
+			\centering
+			\subfloat[\textbf{(a) SHJ}  \label{fig:banddiagram-p-MPP-intro}] {\includegraphics[width=\textwidth]{images/Introduction/banddiagramm-p-MPP-intro}}
+		\end{minipage}
+		\par\bigskip % force a bit of vertical whitespace
+		\begin{minipage}[b]{0.7\textwidth}
+			\centering
+			\subfloat[\textbf{(b) SiTJ} \label{fig:band-diagram-TJ}] {\includegraphics[width=\textwidth]{images/Introduction/band-diagram-TJ}}
+		\end{minipage}
+	}
+	\caption[Simulated band diagrams of the two different thin film heterojunction stacks investigated in this thesis]{Simulated band diagrams of the two different thin film heterojunction stacks investigated in this thesis. (a) Band diagram of the SHJ hole contact at maximum power point. Important transport mechanisms are indicated (adapted from \cite{Messmer.2020}). (b) Band diagram of a $p^+$/$n^+$ SiTJ as interconnection of a perovskite and a Si sub-cell.}
+	\label{fig:band-diagramms}
+\end{figure}
+
+
+The objective of this thesis is to gain better understanding of carrier transport in two different thin film heterojunction stacks. Namely, the TCO/a-Si:H/c-Si contact stack for selective carrier extraction in SHJ solar cells and the poly-Si($p^+$)/poly-Si($n^+$) stack forming the tunneling junction acting as sub-cell interconnection in monolithic perovskite/Si tandems. %and at the saem time at the passivating front contact of the bottom cell.
+Whereas the former is already studied intensively and has proven to be a competitive cell design, the latter has come more and more into the research community's focus in the course of this thesis. %satz eher raus?
+Fig. \ref{fig:band-diagramms} depicts simulated band diagrams for both systems at \ac{MPP}. 
+ 
+For this an in-depth analysis of resistive losses related to a multilayer stack is necessary, which requires to establish a simple but useful approach to quantify transport losses. %(Q-factor, I-V(T)), is rhoc from fitting I-V around 0 V useful? Yes, meaningful trends could be extracted!
+The key point is to define a reliable test structure % to screen process parameter variations and quantify their influence on selective charge carrier extraction.
+that enables meaningful and fast parameter screening.
+It might be necessary to subdivide the stack into single layers to work out their respective contributions, while the goal is still to optimize the stack as a whole. 
+%Sensitivity analysis to quantify and understand the role of each  layer / interface on the transport losses for the two contact systems investigated.  --> Define test structures that enable meaningful and fast parameter screening .  
+
+
+%The standard baseline processes were already on a decent level with champion cell parameters depicted in table \ref{tab:SHJ-baseline-best-cell}. %besser average values wählen, Rs mit 1 ohmcm2...Rs aus pFF-FF wäre deutlich höher...
+
+%tabelle nicht hier zeigen sondern in kapitel SHJ state of the art in chapter 2, unterkapitel zu \label{sec:selective-extraction}?
+%probleme von SHJ schon in motivation nennen, wie bereits geschehen..
+%oder tabelle gar nicht zeigen, da wohl sowieso nicht direkt darauf bezug genommen wird, auch schwierig, da messungen mit kleiner sonne (hier, richtig?) und loana ()sonst) nicht zu vergleich, loana misst höheren strom!!!
+%\begin{table}[htp]
+%	\centering
+%	\renewcommand{\arraystretch}{1.3}
+%	\begin{tabular}{|c|c|c|c|c|c|c|}
+%		\hline $\eta$  & $V_{oc}$  & $J_{sc}$   & p$FF$   & $FF$   & $R_{s}$   & Area  \\ 
+%		\hline (\%) & (mV) & (mAcm$^{-2}$) & (\%) & (\%) & ($\Omega$cm$^{2}$) & (cm$^{2}$) \\ \hline
+%		\hline 21.4 & 728.5 & 35.7 & 85.2 & 82.0 & 0.7? & 4 \\ 
+%		\hline 
+%	\end{tabular} 
+%	\caption[Champion Cell Parameters TMO75/85/92]{Best cell parameters of the SHJ baseline at Fraunhofer ISE at the beginning of this thesis.}
+%	\label{tab:SHJ-baseline-best-cell}
+%\end{table}
+%As in general for SHJ also for our baseline the most room for improvement is the rather low $J_{sc}$ (mainly caused by simplistic grid design...) and the high resistive losses (pronounced gap between p$FF$ and $FF$, $R_s$). 
+At Fraunhofer ISE a baseline for SHJ solar cells was established by co-workers of the author before and during the course of this thesis. As in general for SHJ also for our baseline the cell efficiency could be improved if the high transport losses, manifested in a pronounced gap between pseudo fill factor p$FF$ and fill factor $FF$ of more than $3 ~\%_{abs}$ and a series resistance $R_s$ close to $1 ~\upOmega\textrm{cm}^2$, were reduced. 
+Proceeding from that, as a first step, the goal is to deepen the understanding of transport within the heterojunction stack. For example, what are the layer requirements at the several interfaces of this multilayer system? 
+Second, find and investigate different approaches to improve transport and transfer the lessons learned to SHJ solar cells.
+A question that arises during optimization of SHJ contacts: Is there a fundamental link between passivation and transport in SHJ cells? Or put another way: Can the contact resistance in SHJ cells be decreased while maintaining their excellent surface passivation?
+
+
+
+	
+%\begin{itemize}[label=\textbullet]
+%		\item As a first step, the goal is to obtain general trends to deepen the understanding of transport within the heterojunction stack. For example, what are the layer requirements at the several interfaces of this multilayer system? 
+%		\item Second, find and investigate different approaches to improve transport and in quantifying resistive losses on test structures, predict transport losses on cell level. 
+%		\item And finally, test most promising contacts on cell level to improve SHJ cell efficiencies. %(Tradeoff passivierung vs. rhoc hervorheben...)
+%		A question that arises during optimization of SHJ contacts: Is there a fundamental link between passivation and transport in SHJ cells? Or put another way: Can $\rho_c$ be decreased in SHJ cells while maintaining their excellent surface passivation?
+%\end{itemize}
+	
+
+%status quo TJ: viel know how bzgl TOPCon, poly-Si, aber bisher keine TJ am ISE, prozess route musste erstellt werden...
+
+In the case of the poly-Si based contacts the author could rely on a lot of know-how in the author's research group with the \ac{TOPCon} technology developed by colleagues within this group. However, prior to this thesis poly-Si contacts were not utilized to form a low-resistive $p^+$/$n^+$ \ac{SiTJ}. The goal is to combine the already existing poly-Si/SiO$_x$ passivating contact (TOPCon) with a \ac{SiTJ} and to integrate it into the mainstream PERC technology for an industrially feasible tandem application.
+%This is an importation step towards updating the mainstream PERC technology towards PERC-like bottom cells for perovskite/Si tandem solar cells
+Therefore, first, the compatibility of the TOPCon process with a post-deposition \ac{RTP} required for a SiTJ and the PERC rear side contact formation has to be investigated.
+Second, the fabrication of a passivating, low-resistive tunneling junction based on a poly-Si/SiO$_x$ carrier-selective contact. This is realized by depositing an additional a-Si:H layer with opposite doping and subsequent (partial) crystallization with a post-deposition thermal treatment for dopant activation. 
+Questions that arise are: How should the thin film deposition and the post-deposition thermal treatment be designed in order to enable low $\rho_c$ without impairing high level of passivation? And further, can the process flow be optimized by altering processes to serve multiple purposes?
+
+
+%To integrate a \ac{SiTJ} into already existing poly-Si passivated contacts an additional a-Si:H layer with opposite doping has to be deposited and (partially) crystallized with a post-deposition thermal treatment to activate dopants. Therefore the main tasks are:%(folgenden drei Punkte in einem zusammenfassen...)
+
+%\begin{itemize}[label=\textbullet]
+%		\item Investigate the compatibility of the TOPCon process with a rapid thermal post-deposition treatment/process required for a SiTJ and the PERC rear side contact formation.
+%		\item Fabrication of a passivated, low-resistive tunnelling junction based on a poly-Si carrier-selective contact via depositing an additional a-Si:H layer with opposite doping  (partially) crystallized with a post-deposition thermal treatment to activate dopants.
+%		\item How should the \ac{a-Si} deposition and the post-deposition thermal treatment be designed in order to enable low $\rho_c$ without impairing high level of passivation. Further, can the process flow be optimized/slimmed down by altering processes to serve several purposes?
+%\end{itemize}
+	
+
+
+%1diodengleich, Rs auswirkung für beide zellstrukturen hier zeigen? Auswirkung Rp? oder in Fundamentals teil? oder in Motivation 6.1 bzw neues Kapitel mit TOPerc? letzteres eher nicht...
+%zusätzlich amg1.5 spektrum um zu zeigen, welche schichten wo absorbieren? eher in fundamentls bei tandem einführung...
+
+
+%davor bullet points weg, alles in fließtext, aber eventuell schon punkte fett hervorheben...
+%Martin B findet aufteilung in SHJ physikalisch und SITJ technologisch nicht gut/gerechtfertigt!
+The main objectives of this thesis can be summarized as follows: %kapitel 5.2 kommt bisher zu kurz!
+\begin{itemize}%[label=\Alph*]
+	\item[\textbf{A}] Quantify and gain understanding of transport losses by utilizing designated test structures. %das ist in 5.1 auf jeden fall und zieht sich durch kapitel 6 und 7...
+	\item[\textbf{B}] Optimize transport in SHJ cells and investigate its link to surface passivation. %das wird halt nur in 5.3 thematisiert, in 5.1 und 5.2 geht es gar nicht darum!! 
+	%\item[\textbf{B}] Answer the physical question: Is there a fundamental link between passivation and transport in SHJ cells? Investigate the link between passivation and transport in SHJ cells.
+	\item[\textbf{C}] Design a process sequence to realize a low-resistive poly-SiTJ compatible with the PERC technology as sub-cell interconnection for perovskite/Si tandem solar cells. %industrial feasible hervorheben, perc hervorheben, passivated contact hervorheben?
+	%\item[\textbf{C}] Answer the technological question of how the process sequence should be designed to realize a poly-SiTJ.
+\end{itemize}
+%wenn so hervorgehoben, dann muss natürlich frage B auch beantwortet werden!! man könnte schreiben, dass auf jeden fall starke korrelation, siehe rhoc vs. tau, und natürlich auch gewisse fundamental links (low defective interface nötig für passivierung, nimmt aber einen wichtigen transport weg). daher muss transport pfad so tailored werden, dass low-defective interface okay. scheint to some extent possible for SHJ, siehe eta results with HPT variation... 
+
+
+\section{Outline}\label{sec:outline}
+
+In \textbf{Chapter \ref{chap:fundamentals}} the basic operation of solar cells comprising charge carrier selective passivating contacts is explained. The classic metal/semiconductor contact and important transport mechanisms, as well as the fundamentals of Si-based passivating contacts are introduced. Further, the principle of monolithic, two-terminal tandem solar cells is reviewed with focus on the low-resistive and transparent cell interconnection.
+
+\textbf{Chapter \ref{chap:metrology}} gives an overview of the most important characterization methods used in this thesis. 
+
+%Of major importance for the characterization of passivating contacts is the determination of the effective/minority carrier lifetime, respectively the implied $V_{oc}$, and the contact resistivity $\rho_{c}$.
+%
+%The focus is on the contact resistivity measurements which are used for evaluation of the contact's selective extraction of charge carriers, i.e., its carrier-selectivity. %ist der fokus wirklich darauf?! nicht wirklich, hier besser umformulieren!
+
+The technological realization of passivating contacts in this work is described in \textbf{Chapter \ref{chap:technology}}. The deposition of a-Si:H via \ac{PECVD} is briefly explained as well as the post-deposition thermal treatments used.
+
+
+\textbf{Chapter \ref{chap:SHJ}} presents the results regarding carrier-selective transport in SHJ contacts. First, critical junctions in the thin film stack are identified by quantification of resistive losses and the transport mechanism is studied using temperature
+dependent current-voltage ($J-V$) measurement, supported by numerical device simulations. Second, requirements on the thin films at the critical a-Si:H/c-Si and TCO/a-Si:H interfaces are investigated and approaches presented to reduce resistive losses and improve the SHJ cell efficiency.
+
+In \textbf{Chapter \ref{chap:Towards-Tandem}} the development of a promising concept combining the PERC and TOPCon technology in an industrial-feasible Si bottom cell for perovskite/Si tandem application is presented.
+
+In the third results part in \textbf{Chapter \ref{chap:TJ}} a poly-Si-based passivating, low-resistive tunneling junction is developed. The influence of the post-deposition thermal budget on crystallization, dopant diffusion and its implication on transport is investigated. Finally, the SiTJ is included in Si single-junction and perovskite/Si tandem cells to evaluate its performance on cell level.
+
+\textbf{Chapter \ref{chap:summary}} summarizes the main findings of this thesis, discusses related on-going work and gives an outlook for future tasks.
+
+\clearpage

@@ -1,0 +1,362 @@
+\chapter{Development Towards an Industrial-Feasible Silicon Bottom Cell Featuring Poly-Si/SiO$_x$ Passivating Contacts}
+\label{chap:Towards-Tandem}
+\chaptermark{Development Towards an Industrial-Feasible Silicon Bottom Cell}
+%haupt issues: C-alloying für n only hier ansprechen? und pFF ausführlicher diskutieren! sonst passt es soweit...
+%RTP-only mit TO gezeigt hier geht bis auf 450 runter, in kap. 7 dann aber TJ mit 200 und 450 mit SiNx dbi, dieser prozess schwankt also eindeutig, hier doch 190156 n-only mit plotten und dann direkt ansprechen, was die range ist in den prozessen?? es gibt halt keinerlei erklärung!!
+
+\textit{In this short chapter\footnotemark\footnotetext{This chapter is partly adapted from the author's publication \cite{Luderer.2021d}. In this publication, the author conducted the experiments, interpreted the results, and wrote the manuscript.} a so-called "TOPerc" Si bottom solar cell for perovskite/Si tandems is developed. It features the well-established \ac{PERC}\footnotemark\footnotetext{For more details on PERC it is referred to, e.g., Refs. \cite{Wang.PhD,Blakers.2019,Zhang.2021}.} rear side and a poly-Si/SiO$_x$ passivating contact (TOPCon) at the front side. For that, the compatibility of TOPCon with the PERC process route is investigated. First results of the TOPerc solar cell, showing the potential of the cell concept through high $V_{oc}$ and low $R_s$, are presented.}
+
+%wie frank schreiben!: 
+%This chapter is partly adapted from the author?s publications [155-158]. The results
+%of Sec. 6.3.2 were obtained in collaboration with Diplom student M. Simon who
+%assisted the author with processing and characterization. The results of Sec. 6.3.3
+%and Sec. 6.4.3 were obtained in collaboration with R. Müller, who assisted the author
+%with his experience in ion implantation. The results of Sec. 6.3.4 and
+%Sec. 6.4.4 were obtained in collaboration with A. Moldovan, who studied the
+%chemical properties of the thin SiOx layers in more detail.
+
+
+%sim christoph eupvsec abstract 2021: PERC Rückseite mit 10 cm/s in passiviertem bereich, 400 fA/cm² in kontaktiertem bereich, pitch sind 800 µm...
+
+
+\section{Motivation}%\label{sec:TOPerc}
+
+%Martin 20.01.: diesen Teil als eigenes Kapitel vor TJ kapitel, mit motivation verschiedene Bottomzellen aus Christophs paper, motivation toperc, dadurch TJ auf poly-Si basis, nicht SHJ
+% chargen 190182 und 200258, zusätzlich (vorher) 190121, fired only für nTOPCon hier schon ansprechen?? in 190121 war rhoc für fired only auch schlecht, also für TO zu  unbeständig, mit hno3 sehr gut... wird dann kurzes kapitel mit ~ 10 Seiten... TOPCon zellen und tandems dann nicht extra sondern ans Ende von TJ kapitel...
+
+
+
+%in messmer.2020c.. 4 mögliche Si bottomzellen vorgestellt
+%
+%fig zu den 4 möglichen bottomzellen in messmer.2020c (topcon2 und toperc in dieser arbeit angeschaut!)
+
+
+
+%(muss fired-only für topcon ohne TJ mit Frank/Jana abgestimmt werden wegen verwertbartkeit?)
+
+
+%einleitung diffusion paper...
+With the recent world-record efficiency of $29.5 ~\%$ for a perovskite/silicon tandem \cite{NREL.2021} exceeding the theoretical efficiency limit of $29.4 ~\%$ for a Si single-junction \cite{Richter.2013}, tandem solar cells are getting more and more attention from the PV community. The combination of a perovskite cell on top of a \ac{c-Si} bottom cell is thereby especially attractive, as it promises high efficiency at affordable costs \cite{Green.2013,Sofia.2019,Messmer.2020c}. %ausfürhlicher? vorteile von Si und pero nochmal deutlicher ansprechen...nee, nicht nötig!
+For straightforward module and system integration, the monolithic two-terminal tandem configuration is preferred. %cite? wohl eher nicht, nichts gefunden... 
+%bastiani.2020: main
+%advantages associated with the 2-T architecture are lower parasitic
+%absorption losses (as there are fewer contacts), leaner
+%processing, the overall device robustness, easier wiring on the
+%module level and lower balance of systems cost.15,16
+%yan.2021: Thanks to the reduced material usage and simple integration in a PV system, 2T tandems have a great practical potential to reduce LCOE [1].
+Such a configuration requires low-ohmic and transparent interconnection of both sub-cells. 
+
+
+
+%vergleich TCO SiTJ ist hier nicht wichtig, dass dann in fundamentals oder TJ kapitel...
+%Transparent conductive oxides (TCOs) are widely used to serve that purpose \cite{Albrecht.2016,Bush.2017,Hoye.2018}. An alternative are Si-based tunneling junctions (SiTJ), as first demonstrated in a perovskite/Si tandem cell by Mailoa \textit{et al.} \cite{Mailoa.2015}, which have the benefit of better refractive index matching between and thus reduce reflection losses \cite{Grant.2016}. Additionally, they have the potential to be directly integrated in the processing of the bottom cell's passivating contact \cite{Luderer.2019,Sahli.2017,Sahli.2018b,Peibst.2019,Puaud.2021}. 
+
+Looking at recent milestones in perovskite/Si tandem development, like the fully textured tandem presented by Sahli \textit{et al.} \cite{Sahli.2018b} or the (at that time) world-record setting device by Al-Ashouri \textit{et al.} \cite{Al-Ashouri.2020}, it is apparent that SHJ-based bottom cells are most commonly used for high-efficiency lab-scale tandems.\footnotemark\footnotetext{Unfortunately for the current world-record perovskite/Si tandem solar cell no details about the utilized Si bottom cell or any process details in general have been published.}  %stimmt das?
+Reasons for that are the outstandingly high $V_{oc}$ of SHJ and suitable optics as a bottom cell, as for a-Si:H the poor blue response is irrelevant in a tandem and the \ac{FCA} in the relevant infrared region is negligible.
+However, as stated by Messmer \textit{et al.}, "it is an open issue of how to transfer these
+research results to industrial mass production, which is driven by cost reduction and
+resource efficiency and includes challenges like up-scaling and long-term stability" \cite{Messmer.2020c}. Sofia \textit{et al.} even pointed out a "clear mismatch between commercial viability and current research efforts" and motivated the pursuit of low-cost
+Si bottom cells in perovskite/Si tandems as they enable greater reductions in \ac{LCOE} compared to higher-efficiency but also higher-cost Si bottom cells \cite{Sofia.2019}.
+
+%nogay.2019: Second, highquality
+%wafers are required to achieve high efficiencies as the
+%processing temperature of SHJs is too low to trigger any wafer
+%improvement process (impurity gettering or deactivation of
+%thermal donors). In fact, the vast majority of manufactured c-Si
+%cells (>90%) relies on high-temperature fabrication processes,
+%enabling at the same time junction/contact formation as well
+%as bulk-material improvement and hence the use of lowerquality/
+%less-expensive p-type wafers.
+
+%bleifreie pero-absorber müssen eventuell höher annealed werden als 200 °C, dann könnte NiVOx HTL sinn machen und TOPCon/TOPerc nötig anstatt SHJ
+%TOPerc günstig, mit NIOx
+
+ 
+%Aside SHJ Messmer et al. featured three alternative Si bottom cell designs, potentially more suited to current solar cell mass production...namely, P(E)RC, TOPerc and TOPCon$^2$.
+
+Compared to SHJ-based bottom cells, poly-Si-based passivating contacts have the benefit of higher thermal stability, making them compatible with the mainstream Si solar cell structure, i.e., the PERC technology \cite{ITRPV.2020}. Further, a temperature stable bottom cell might be preferable for future application, as lead-free perovskite absorbers are supposed to need annealing temperatures exceeding the thermal stability of SHJ bottom cells \cite{Yang.2020}. % mehr zitieren? Mail von Özde checken, aber reicht wohl so...
+%nogay.2019 mit hybrid aus TOPCon + nc-Si TJ erwähnen,zitieren...
+
+To profit from the industrial viability of $p$-type PERC cells and the good optical
+and electrical properties of the established PERC rear side \cite{Messmer.2020c}, an integration of this cell design is highly desirable \cite{Peibst.2019}. For the simplest approach, an unpassivated phosphorus diffused $n^{++}$ emitter could be contacted directly on full-area, but this would result in high recombination losses at the unpassivated surface. Another approach is the local opening of the dielectric front side passivation layer to balance recombination in the contacted (unpassivated) emitter region and low-resistive cell interconnection \cite{Wu.2017} (Fig. \ref{fig:PERC}). An option, not limited by such geometrical constraints is the use of a full-area passivating contact as replacement for the $n^{++}$ emitter in combination with a full-area TCO or a Si thin film for electrical and optical top and bottom cell interconnection.
+A particularly attractive approach is a tunnel oxide based passivating front contact combined with the well-established rear side of the PERC technology ("TOPerc") \cite{Peibst.2019,Messmer.2020c}. 
+Similar to the approach of using TOPCon-based rear contacts \cite{Feldmann.2020,Richter.2021} this can be seen as another option to lower recombination losses of silicon based solar cells by passivating contacts.
+Either a TCO ("ReCo-TOPerc", Fig. \ref{fig:ITO}) or a TCO-free $p^+$/$n^+$ poly-SiTJ \cite{Peibst.2019,Luderer.2019} ("SiTJ-TOPerc", Fig. \ref{fig:TJ}) could serve as interconnection layer between both sub-cells, enabling efficient transport of the sub-cells' majority carriers.
+% Both hold the promise of good compatibility with the PERC process. 
+%messmer.2020c: aber race noch offen, großes potential auch bei toperc und potentiell günstiger,
+%Replacing the phosphorus emitter and related process steps yields slightly lower costs compared with Pero-P[E]RC (47 ?ct/piece).
+According to simulations perovskite/Si tandems utilizing TOPerc bottom cells promise high efficiencies comparable with SHJ %(or TOPCon$^2$) 
+tandems at slightly lower all-in cell costs \cite{Messmer.2020c}.
+
+In this chapter first ReCo-TOPerc solar cell results showing high $V_{oc}$ and low $R_s$ will be presented. A $p^+$/$n^+$ poly-SiTJ compatible with the PERC technology, enabling low $\rho_c$ and high i$V_{oc}$ at the same time will be developed and investigated thoroughly in the next chapter.
+
+%In this work, the compatibility of a TOPCon front side with the PERC technology is investigated to establish a possible process route depicted in Fig. 1b. 
+
+%TOPerc günstig, mit NIOx
+
+
+%anstatt ReCO und SITJ müsste eigentlich SiTJ-TOPerc stehen, passt aber nicht in eine Zeile...
+%SiNx in lila auf VS! colour code updaten, anstatt Al metal, da auf VS ja Ag anstatt Al
+\begin{figure}[htp]
+	\centering{
+		\begin{minipage}[b]{0.25\textwidth}
+			\centering
+			\subfloat[\textbf{(a) PERC}  \label{fig:PERC}] {\includegraphics[width=\textwidth]{images/TowardsTandem/PERC}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.25\textwidth}
+			\centering
+			\subfloat[\textbf{(b) ReCo}  \label{fig:ITO}] {\includegraphics[width=\textwidth]{images/TowardsTandem/ITO}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.25\textwidth}
+			\centering
+			\subfloat[\textbf{(c) SiTJ}  \label{fig:TJ}] {\includegraphics[width=\textwidth]{images/TowardsTandem/TJ}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.19\textwidth}
+			\centering
+			\subfloat[ \label{fig:TOPerc-colour-code}] {\includegraphics[width=\textwidth]{images/TowardsTandem/TOPerc-colour-code}}
+		\end{minipage}
+	}
+	\caption[Possible contact and interconnection schemes for a PERC-like Si bottom cell]{Possible contact and interconnection schemes for a PERC-like Si bottom cell. (a) Sketch of a PERC bottom cell conntected to the perovskite top cell via a TCO. (b) Proposed structure of a Si bottom cell featuring a TOPCon front as replacement for the $n^{++}$-diffused emitter (TOPerc) with TCO interconnection layer or (c) a poly-SiTJ omitting the TCO.} 
+	\label{fig:structures-TOPerc}
+\end{figure}
+
+
+
+\section{Compatibility of TOPCon and PERC}\label{sec:n-only-RTP}
+
+%nochmal gegen chekcen mit conference paper!
+%erwähnen, dass oxidqulität nach FA verbessert, das fällt dann weg für RTP-only und ist ein weiterer grund, warum passi qualität schlecht direkt nach RTP
+
+
+%\paragraph{symm. TOPCon samples}
+
+%fired only braucht auf jeden fall rehydrogenisierung! dann auch über 700 mV möglich, aber rhoc schlecht ~1 OHmcm$^2$ in 190121 und 200138. (gut in 190156...) ausfürhlich qsspc fired-only mit TO zeigen, obwohl dann rhoc schlecht?
+%daher TO mit hno3 oxid ersetzen, niedrige widerstände ab 850 °C (im gegensatz zu angelika, die schon bei 800 °C sehr niedrige rhoc hatte) und gute passivierung nach RPHP ~720 mV.. in 200138.
+
+
+%wurde zT von Angelika schon abgedeckt in masterarbeit!! mit Martin hermle klären...
+%kapitel passivierung aus TJ chapter dann auch hier bringen, TJ sollte ja keinen einfluss haben..., passivierung nur hier, nicht in kapitel 7!
+
+
+
+%voher schon prozessrouten mit/ohne FA einführen! ja, in technology..
+For the TOPerc concept the compatibility of poly-Si/SiO$_x$ passivating contacts (TOPCon) with the PERC process route, and in particular with the fast thermal process\footnotemark\footnotetext{This process is often referred to as "firing". In this thesis the term rapid thermal process (RTP) is used.} necessary for the PERC rear contact formation, has to be tested first. Therefore, symmetrical planar poly-Si($n^+$)/SiO$_x$ test structures (as in Fig. \ref{fig:reference}, without the metal contacts) were utilized and exposed to an \ac{RTP}. Some of the samples received the furnace anneal (FA) prior to the RTP (FA+RTP) to form the contact to the absorber. For other samples this FA was omitted and the activation of the poly-Si($n^+$) and the contact formation to the absorber was realized solely during the RTP, mimicking the firing step of the Al back-surface-field (BSF) alloying (RTP-only, see routes in Fig. \ref{fig:TJ-ReCo-routes}). In Fig. \ref{fig:QSSPC-overview} the i$V_{oc}$ at 1 sun illumination of these samples is depicted as a figure of merit for the passivation quality in dependence of the set RTP peak temperature $T_{RTP}$. After FA and prior to RTP the i$V_{oc}$ was around $720-730 ~\textrm{mV}$, depending on the doping level within poly-Si($n^+$) (dark gray area). After RTP in the industrial belt furnace FFO the i$V_{oc}$ was reduced slightly with increasing $T_{RTP}$. At $T_{RTP} = 750 ~\textrm{°C}$ and $T_{RTP} = 900 ~\textrm{°C}$ the i$V_{oc}$ was 724 and 714 mV, respectively. Common $T_{RTP}$ for PERC solar cells are well within this range. Thus, the poly-Si($n^+$)/SiO$_x$ passivating contact provided good surface passivation after RTP without the need of an additional hydrogenation step. Such a hydrogenation step (here RPHP for 30 min at 400 °C) improved the i$V_{oc}$ of the FA+RTP route samples above 730 mV, slightly below standard TOPCon samples after hydrogenation without the RTP after the FA (hatched light gray area).
+After RTP at $T_{RTP} = 1000 ~\textrm{°C}$, the upper limit of $T_{RTP}$ in the FFO, the i$V_{oc}$ dropped to $\approx 680 ~\textrm{mV}$. 
+%This behaviour could either be due to excessive diffusion or %bruhat.2020
+%jana sieht mit alOx/SiNx stacks blistern für zu hohe wafer temps ab 800 bzw 900 !C, capping layer blistern, nicht poly-Si! topcon jour fixe 18.05.21, 210065TOP, siehe auch hollemann beitrag sipv21!
+This behavior could be due to contamination of the poly-Si layer upon RTP in the belt furnace \cite{Bruhat.2019} and more pronounced in-diffusion of metal impurities at elevated temperatures. %aus bruhat.2019, war erklärung für schlechtere iVoc mit höherer Temp.
+%diffusion abschätzen für metalle! 1000 vs 800 °C! hier aber erschwerend, dass reale temp nicht bekannt!!
+
+%offensichtlich mehr defekte nach RTP bei höheren temperaturen, die nicht so leicht zu passivieruen sind. Eventuell nicht nur oberfläche sondern auch oberlfächen nahe regionen im c-Si betroffen?...
+
+%noch lebensdauerkurven as dep, nach FA, anch RTP, nach RPHP zeigen?
+
+
+\begin{figure}[htp] 
+	\centering
+	\includegraphics[width=0.99\textwidth]{images/TowardsTandem/iVoc-vs-set-temps}
+	\caption[i$V_{oc}$ in dependence of $T_{RTP}$ for poly-Si($n^+$)/SiO$_x$ passivating contacts]{i$V_{oc}$ at 1 sun illumination as figure of merit for the passivation quality of poly-Si($n^+$)/SiO$_x$ passivating contacts in dependence of $T_{RTP}$. For the process route without FA (RTP-only) a hydrogenation step (RPHP) is mandatory for good surface passivation. For the process route with FA (FA+RTP) the hydrogenation step can be omitted at the cost of $\approx 10-20 ~\textrm{mV}$ in i$V_{oc}$. The different colored areas represent references without RTP, namely, as-deposited a-Si:H/SiO$_x$ (green), poly-Si/SiO$_x$ after FA (dark gray) and poly-Si/SiO$_x$ structures after FA and hydrogenation (hatched light gray).}
+	\label{fig:QSSPC-overview}
+\end{figure}%martin hermle hätte lieber Jo als iVocs..., iVoc ausschreiben oder iVoc at 1 sun illumination auf y-achse! farben hier und in rhoc graph anpassen, jeweils gleiche farbe für verschiedenen routen? hier vllt nciht nötig, aber in paper und vortrag...
+%wie leo areas im graphen beschriften (leo in improved passivation...)
+
+
+
+Similar poly-Si($n^+$)/SiO$_x$ samples after FA were exposed to an RTP in the SHS10 (light gray symbols). 
+Note that direct comparison of the RTP in SHS10 and FFO is difficult since for the same set temperature a higher sample temperature is expected for the SHS10 compared to the FFO (Section \ref{sec:thermal-treatments}). %dieser effekt irgendwie stärker in inerter atmosphäre? aufjeden fall muss auf unterschied FFO und SHS10 hier nochmal eingegangen werden, temps sind nicht 1:1 zu vergleichen!! allgemein lit zitieren mit solchen effekten...%warum lifetime nach RTP schlechter als nach FFO?? erwähnen dass direkt nach RTP lifetime schlecht, min anenaling ohne H2 nötig, für FFO ist das aber wohl nicht nötig, schicht verspannt nicht so, legt nahe, das rampen im FFO nicht so steil wie in RTP...nominell aber jeweils 50K/s...atmosphäre anders, einmal N2 gespült (inert), einmal Luft...frank fragen bezüglich mögliche schädigung in inerter atmosphäre...frank sagt unterschiede durch verschiedene kontaminationen...
+The i$V_{oc}$ directly after RTP was rather poor (i$V_{oc} \le 670 ~\textrm{mV}$). Presumably, the fast temperature ramps of the RTP induced stress within
+the layer stack due to different thermal expansion coefficients of poly-Si, SiO$_x$ and c-Si \cite{Tada.2000}. This increased the defect density at the SiO$_x$/c-Si interface, %cite hollemann sipv 21
+which in turn reduced the passivation quality. Whereas lower-doped structures were
+completely depassivated after RTP (i$V_{oc} < 600 ~\textrm{mV}$, $\delta = \textrm{low}$), the very high net doping concentration
+in poly-Si($n^+$) with higher phosphorus doping preserved
+some level of surface passivation (i$V_{oc} \approx 670 ~\textrm{mV}$, $\delta = \textrm{high}$) due to (field-effect)
+screening of minority charge carriers. 
+The i$V_{oc}$ markedly increased up to $\approx 715 ~\textrm{mV}$ after hotplate annealing at $425 ~\textrm{°C}$ for $30 ~\textrm{min}$ in ambient air (Appendix \ref{sec:SI}, Fig. \ref{fig:QSSPC-TJ-Hotplate-effect}). This improvement without any hydrogen source %laut jana, siehe vortrag sipv21, könte auch h aus ambient air in probe gehen...dort auch viele zitate zu verschiedenen hydrogenisierungen, eventuell noch zitate übernehmen, zB unten bei ALOx oder Nitrid..
+to saturate dangling bonds at the interface supports the assumption of stress induced defects during RTP. Using the standard hydrogenation step (RPHP), the i$V_{oc}$ of SHS10 samples was on the same level as for FFO samples (open light gray symbols). 
+
+
+
+%passivierung von fired-only muss noch angesprochen werden...200138 bzw PO9 ergebnisse...warum ist passivierung für fired-only nicht so gut wie nach FA? angelika master lesen... keine eindiffusion mit feuern, dadurch weniger field-effekt passivierung? im gegenzug mehr auger rekombination mit FA, aber die ist für optimierten FA wohl auch im Griff...
+RTP-only structures showed poor passivation directly after RTP (i$V_{oc} \le 625 ~\textrm{mV}$), which was further decreased with increasing $T_{RTP}$ (green closed symbols). Dopant diffusion through the thermally grown SiO$_x$ into the c-Si wafer is inefficient with the thermal budget applied here \cite{Feldmann.2019}. 
+This results in a less pronounced diffusion tail and less "relaxation of the SiO$_x$/c-Si interface" which is detrimental regarding both minority carrier recombination and majority carrier transport.
+RTP-only structures are therefore even more reliant on a low interface state density, which is, apparently, not the case directly after RTP. 
+RTP-only is made possible, however, with a hydrogenation step. After RPHP an i$V_{oc}$ of up to  $\approx 730 ~\textrm{mV}$ was obtained (open green and yellow symbols), similar compared to route FA+RTP. %ffo proben hiern icht so gut, temp zu niedrig! vor allem deutlich bei 750 °C set!!
+It is worth mentioning that this hydrogenation might also be possible via the TCO deposition if a hydrogenated TCO is used, as shown by Tutsch \textit{et al.} \cite{Tutsch.2020b}.
+
+
+
+
+Not only low recombination but also a low resistivity for
+the majority carrier transport has to be guaranteed in a passivating contact \cite{Hermle.2020}. For the FA+RTP process route this is ensured by the FA. $\rho_{c}$ was low ($< 10 ~\textrm{m}\upOmega\textrm{cm}^2$) and independent of $T_{RTP}$ for the process route including the FA (not shown).
+%erwähnen, dass hier immer hf-dip vor metallisierung? sollte eigentlich auch so klar sein...
+For the RTP-only approach, without the FA, low-ohmic contact formation to the wafer is, however, challenging. In Fig. \ref{fig:rhoc-vs-temp} $\rho_c$ extracted from symmetric poly-Si($n^+$)/SiO$_x$/c-Si RTP-only structures is depicted in dependence of $T_{RTP}$. At lower $T_{RTP}$ the thermal budget was neither sufficient to provide enough activation of dopants within the poly-Si($n^+$) and in-diffusion of dopants into the c-Si wafer nor to generate a sufficient pinhole density in the oxide to allow efficient current transport. The $J-V$ characteristic resembled the one of back-to-back connected diodes \cite{Elhadidy.2012}, thus, the poly-Si/SiO$_x$ contact on both sides of the structure represented a Schottky contact with diode-like behavior (Appendix \ref{sec:SI}, Fig. \ref{fig:I-V-n-only-Schottky}). Consequently, $\rho_c$ was very high ($\rho_c > 10^3 ~\textrm{m}\upOmega\textrm{cm}^2$). With increasing $T_{RTP}$ $\rho_c$ decreased but was still high at highest $T_{RTP} = 950 ~\textrm{°C}$ ($\rho_c \approx 450 ~\textrm{m}\upOmega\textrm{cm}^2$), using SiO$_x$ thermally grown at $600 ~\textrm{°C}$ for $10 ~\textrm{min}$. 
+
+To ease contact formation, a wet-chemically grown (HNO$_3$) oxide was used instead for the RTP-only route.
+The HNO$_3$ oxide was slightly thinner (1.1 compared to 1.2 nm) and is more permeable for dopants because of lower molar fraction of stoichiometric SiO$_2$ (Si$^{4+}$) compared to thermally grown SiO$_x$, as measured via \ac{XPS} by Polzin \textit{et al.} \cite{Polzin.2020}.\footnotemark\footnotetext{Different Si tunneling oxide for application in a passivating contact are currently investigated in the doctoral thesis of Jana Polzin, a colleague of the author.}
+The sub-stoichiometry also eases oxide break-up upon thermal treatment \cite{Moldovan.2015}, resulting in a higher pinhole density. For these reasons, a low-resistive contact to the wafer was ensured due to efficient transport via pinholes \cite{Peibst.2016} and possibly an increased tunneling probability resulting from enhanced dopant diffusion \cite{Steinkemper.2015} across the HNO$_3$ oxide compared to the thermal oxide. %wirklich mit diffusion schreiben?
+%aus \cite{Polzin.2020}:
+%other publications
+%dealing with phosphorus diffusion stated that the amount of dopants
+%diffusing from doped poly-Si through the interfacial oxide into the
+%c-Si base is correlated to oxide preparation and in particular to the oxide
+%thickness when annealing conditions were kept constant \cite{Romer.2014,Kale.2018} [45,51,52]. In
+%this publication, however, we find that the amount of phosphorus atoms
+%diffusing through TO1 and TO2 are significantly different even though
+%their thicknesses of 1.2 and 1.3 nm are rather similar. This can be
+%ascribed to the varying molar fraction of SiO2 (Si4+) in the interfacial
+%oxide. In view of the finding in literature and those presented herein, it
+%can therefore be said that both thicker and more stoichiometric oxides
+%are more effective diffusion barriers and thereby enhance TOPCon?s
+%thermal stability. our data suggests that the stoichiometry ?
+%namely the SiO2 (Si4+) molar fraction ? does play a more decisive role.
+%Further indications can be found in Ref. [21] where similar boron
+%diffusion profiles were obtained for thermally and plasma grown oxides
+%although their oxide thickness differed markedly.
+As a result, very low $\rho_c$ down to $\approx 1~\textrm{m}\upOmega\textrm{cm}^2$ were achieved. 
+One might expect poor passivation quality with pronounced pinhole formation, but the i$V_{oc}$ after RPHP was above $720 ~\textrm{mV}$ for samples with such low $\rho_{c}$.
+%The i$V_{oc}$ after RPHP was 731 mV for that sample. 
+%Martin B. hätte hier gerne noch iVoc werte dazu geplottet, mal schauen, sieht eher blöd aus...iVoc vs. rhoc wird auch blöd aussehen, das ivoc kaum verändert..
+The temperature range between 800 and $850 ~\textrm{°C}$ seemed critical as $\rho_c$ decreased from $\approx 500 ~\textrm{m}\upOmega\textrm{cm}^2$ at $800 ~\textrm{°C}$ to $\approx 5 ~\textrm{m}\upOmega\textrm{cm}^2$ at $850 ~\textrm{°C}$ for $t_{RTP} = 5 ~\textrm{s}$ each. This sets the lower boundary for $T_{RTP}$ in the RTP-only route to $\approx 850 ~\textrm{°C}$, as indicated by the dotted vertical line in Fig. \ref{fig:QSSPC-overview}. 
+
+%gleiche rhoc scale wäre vielleicht gut!
+%in a noch rhoc  nach FA+RTP einzeichnen? 
+\begin{figure}[ht]
+	\centering{
+		\begin{minipage}[t]{0.64\textwidth}
+			\centering
+			\subfloat[\textbf{(a) RTP-only} \label{fig:rhoc-vs-temp}] {\includegraphics[width=\textwidth]{images/TowardsTandem/rhoc-vs-temp}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[t]{0.34\textwidth}
+			\centering
+			\subfloat[\textbf{(b) FA+RTP}  \label{fig:rhoc-HF}] {\includegraphics[width=\textwidth]{images/TowardsTandem/ITO-rhoc-HF-dip}}
+		\end{minipage}	
+	}
+	\caption[$\rho_c$ of poly-Si($n^+$)/SiO$_x$ passivating contacts]{Contact resistivity $\rho_c$ of poly-Si(n$^+$)/SiO$_x$ passivating contacts. (a) $\rho_c$ of RTP-only structures in dependence of $T_{RTP}$ for two different Si tunnel oxides. (b) $\rho_c$ of the TCO/poly-Si/c-Si stack with and without HF-dip after RTP and prior to TCO deposition.}
+	\label{fig:rhoc-ReCo-RTP-only}
+\end{figure}
+
+
+%bei Ingenito.2018 wurde aber optimum mit etwas C erreicht, ohne C blistern. C war aber nur 2.5 atom-\%, also sehr klein. Bei uns blistern mit cPLASMA kein Problem, auch ohne C, bei AK400 starkers blistern ohne C auf HNO3, auf TO eher kein problem..
+%note that fired only not possible with increased $\gamma$ because of poor crystallisation (ist laut SE gleich wie nach FA!) and diffusion, pinhole formation durch C beeinflusst? eigentlich nicht, oder?...vielleicht doch, siehe Nogay.2016b, SiO wird durch C zersetzt, scheint bei uns aber wohl eher nicht aufzutreten...
+%diffusion durch SiOx passiert sowieso nicht mit RTP unter 1000 °C, siehe Feldmann.2019, fired-only contact ist daher von WF differenz bzw. band bending abhängig. mit C tendenziell mehr defekte, weniger kristallin, lower doping efficiency, das reduziert band bending, verschlechter rhoc und tau, cite Ingenito.2018
+Ingenito \textit{et al.} had to introduce small amounts of carbon (C, $\approx 2.5 ~\textrm{at}\%$) to their Si layer to avoid delamination upon RTP, so-called blistering \cite{Ingenito.2018}. Note that this was not necessary for the poly-Si($n^+$) used here. However, to briefly address the influence of C-alloying symmetric poly-SiC$_x$($n^+$)/SiO$_x$/c-Si structures (as in Fig. \ref{fig:reference}) with a C content of $\approx 15 ~\textrm{at}\%$ \cite{Kuenle.PhD} ($\gamma=1$) were investigated. 
+A markedly lower crystalline fraction was obtained for C-alloyed layers by fitting SE data with a model assuming a mixture of poly-Si, a-Si:H and voids (Appendix \ref{sec:SI}, Fig. \ref{fig:crystalline-n}). %Raman erwähnen?
+%One obvious reason is the suppressed crystallization and the resulting high proportion of amorphous phase, as it is indicated by the low relative crystallinity of less than 35 \% for all temperature treatments of n+ poly-SiCx with ? = 1 in Figure Figure 5.8a.
+It is well known that C-alloying hampers the crystallization of Si layers during high temperature treatments \cite{Ingenito.2018}. The doping efficiency is thus markedly decreased in poly-SiC$_x$ with increasing C content. On one hand, this effect is beneficial with respect to optics, as lower \ac{FCA} was observed with increased C content (Appendix \ref{sec:SI}, Fig. \ref{fig:UV-vis-FCA-carbon}). On the other hand, contact formation is complicated by the lower charge carrier density, as can be seen in Fig. \ref{fig:rhoc-vs-temp}. Using the thermally grown Si oxide $\rho_c$ was above $10^3 ~\textrm{m}\upOmega\textrm{cm}^2$ for C-alloyed poly-SiC$_x$($n^+$) even at highest $T_{RTP}$. With the wet-chemical HNO$_3$ Si tunnel oxide very low $\rho_c < 10 ~\textrm{m}\upOmega\textrm{cm}^2$ could be reached. The thermal budget necessary for that, however, was higher as compared to structures without C. %This will become an issue when the goal is to form a p$^+$/n$^+$ poly-SiTJ with a single fast thermal treatment, as will be discussed in Section \ref{sec:carbon}.
+
+Thus, these results show that the balance between transport and passivation depends not only on the thermal budget (required for the PERC back contact), but can also be adjusted by the choice of interfacial oxide, poly-Si C content, and hydrogenation approach.
+
+
+The symmetric test structures corresponding to Fig. 3a received an \ac{HF} treatment prior to the metallization to etch the SiO$_x$ grown during RTP. However, TOPerc precursors comprise the full-area Al rear side after RTP, which would be damaged in HF. To account for that, it was tested, whether good front side contact formation is possible in the case that the HF treatment after RTP is omitted. $\rho_{c}$ values of TCO/poly-Si($n^+$)/SiO$_x$ (ReCo, Fig. \ref{fig:ReCo}) test structures with and without HF-dip after RTP and prior to ITO deposition are shown in Fig. \ref{fig:rhoc-HF}. 
+Without HF-dip $\rho_c$ of the TCO/poly-Si/SiO$_x$/c-Si stack was about two orders of magnitude higher, confirming the growth of highly resistive silicon oxide at the poly-Si surface during RTP. This reveals the necessity of an oxide removal step for TOPerc precursors after RTP and prior to TCO deposition (respectively perovskite processing in the case of SiTJ-TOPerc).
+
+%Similar results were obtained in the master's thesis of Angelika Harter, a former colleague in the author's research group.
+
+%ergebnisse aus 190121 hier eher nicht zeigen, dann direkt anhand Zellprekusoren diskutieren...wie in Abstract SiPV21
+%keine unterschiede zwischen n und p gesehen...
+
+
+\section{TOPerc precursors and solar cells}
+
+
+\paragraph{Experimental details}
+
+TOPerc Si bottom cells as depicted in Fig. \ref{fig:ITO} were fabricated on M2-sized $1.6 ~\upOmega\textrm{cm}$ $p$-type CZ Si wafers. The passivating front side contact comprised a thermally grown tunnel oxide layer and $50 ~\textrm{nm}$ phosphorus-doped Si deposited via \ac{PECVD}. The wafers were then exposed to a furnace anneal (FA) to "activate" the poly-Si($n^+$)/SiO$_x$/c-Si (TOPCon) contact. The rear side was passivated with an Al$_2$O$_3$/SiN$_x$ stack and metallized via \ac{LCO}, \ac{Al} screen-printing and an RTP, as in standard PERC.
+The front side metallization was realized after an inline single-sided \ac{HF} treatment with sputtered indium tin oxide (ITO) and a low-temperature screen-printed \ac{Ag} grid to test the potential of these Si bottom solar cells.
+
+
+
+\paragraph{Cell and precursor results}
+
+
+
+%thermisches budget lässt sich eingrenzen, für RS sind wohl min 780 °C set nötig, siehe 200258, für hno3 zwischen 850 und 900 °C, passt also durchaus zusammen. mit FA und TO über 900 °C wohl auch irgendwann nicht mehr optimal...
+
+\begin{figure}[]
+	\centering{
+		\begin{minipage}[b]{0.25\textwidth}
+			\centering
+			\subfloat[\textbf{(a)}  \label{fig:structure-n++}] {\includegraphics[width=\textwidth]{images/TowardsTandem/structure-n++}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.25\textwidth}
+			\centering
+			\subfloat[\textbf{(b)}  \label{fig:structure-ohne-LCO}] {\includegraphics[width=\textwidth]{images/TowardsTandem/structure-ohne-LCO}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.26\textwidth}
+			\centering
+			\subfloat[\textbf{(c)}  \label{fig:structure-mit-LCO}] {\includegraphics[width=\textwidth]{images/TowardsTandem/structure-mit-LCO}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.19\textwidth}
+			\centering
+			\subfloat[ \label{fig:TOPerc-colour-code2}] {\includegraphics[width=\textwidth]{images/TowardsTandem/TOPerc-colour-code2}}
+		\end{minipage}
+	}
+	\caption[Comparison of the passivation quality for PERC and TOPerc precursors]{Comparison of the i$V_{oc}$ at 1 sun illumination for (a) a PERC precursor comprising a heavily-doped diffused emitter and TOPerc precursors (b) without and (c) with LCO and rear side metallization.}
+	\label{fig:structures-iVoc}
+\end{figure} 
+
+Fig. \ref{fig:structures-iVoc} depicts i$V_{oc}$ values at 1 sun illumination of TOPerc cell precursors and an unpassivated heavily-doped phosphorus emitter as a reference \cite{Feifel.2019}. Without LCO, very high i$V_{oc}$ values of $\approx 723 ~\textrm{mV}$ on average after RTP have been achieved, showcasing again the high stability of the poly-Si($n^+$) against a high-temperature RTP and its advantage over the diffused emitter (i$V_{oc} \approx 650 ~\textrm{mV}$) regarding passivation quality. It is important to note that the poly-Si($n^+$) process was optimized by colleagues of the author in such a way that these results were obtained without the need of an additional hydrogenation step after RTP. The i$V_{oc}$ of TOPerc cell precursors was slightly higher compared to symmetrical poly-Si/SiO$_x$ structures due to the superior passivation of the dielectric Al$_2$O$_3$/SiN$_x$ stack. 
+
+In addition, the poly-Si/SiO$_x$ front side passivation might have been improved in TOPerc cell precursors by hydrogen diffusion from the Al$_2$O$_3$/SiN$_x$ rear side through the wafer to the SiO$_x$/c-Si interface \cite{Nemeth.2017}. 
+Symmetrical Al$_2$O$_3$/SiN$_x$ reference structures showed excellent surface passivation after RTP allowing for i$V_{oc} \approx 738 ~\textrm{mV}$ (not shown). %entspricht median im PL bild von A182300 (eigentlich 738.8), mean value ist 735.8 mV...
+%Lehmann \textit{et al.} showed that up to one third of dangling bonds at the front side c-Si surface could be saturated with hydrogen from SiN$_x$:H at the rear side during an RTP \cite{Lehmann.was genau...}. %lehman gezeigt auf Silicon forest 2020, wie zitieren?? zur not satz streichen! 800 °C, 3s verwendet?
+
+With standard PERC rear side metallization of LCO followed by Al screen-printing and RTP a high i$V_{oc}$ of $\approx 694 ~\textrm{mV}$ was obtained, independently of the set RTP peak temperature $T_{RTP}$ within the range of 780 to $860 ~\textrm{°C}$. For an RTP at $T_{RTP} = 740 ~\textrm{°C}$ the i$V_{oc}$ was drastically reduced by $40-60 ~\textrm{mV}$. %effekt mit txt vorderseite!
+One reason might be that the temperature was too low to form an efficient Al-BSF at the rear side.
+%Therefore, with currently available Al pastes for screen-printing, $T_{RTP} = 780 ~\textrm{°C}$ is marked in Fig. \ref{fig:QSSPC-overview} as minimum set temperature for the TOPerc approach.
+A comparison of structures with and without LCO indicates that the passivation quality was limited by the local Al-BSF contacts at the rear side and optimizing the LCO pitch, the Al paste or the RTP conditions could improve the i$V_{oc}$ even further. 
+
+\begin{table}[]
+	\centering
+	\renewcommand{\arraystretch}{1.0}
+	\begin{tabular}{|c|c|c|c|c|c|c|}
+		\toprule \boldmath{$\eta$}  & \boldmath{$V_{oc}$}  & \boldmath{$J_{sc}$}   & \textbf{p}\boldmath$FF$   & \boldmath{$FF$}   & \boldmath{$R_{s}$}   & \textbf{Area}  \\ 
+		(\%) & (mV) & (mAcm$^{-2}$) & (\%) & (\%) & ($\upOmega$cm$^{2}$) & (cm$^{2}$) \\ 
+		\midrule 17.7 & 691 & 32.6 & 81.7 & 78.6 & 0.7 & 244 \\ 
+		\bottomrule
+	\end{tabular} 
+	\caption[Champion Cell Parameters 190182]{Solar cell parameter of the best TOPerc bottom cell.}
+	\label{tab:TOPerc}
+\end{table}
+
+Tab. \ref{tab:TOPerc} displays the solar cell parameters of the best TOPerc bottom cell to date. The measurements have been performed under \ac{STC} %AM1.5g, 25 °C
+without using any filter to mimic the spectrum relevant for the bottom cell in the final tandem configuration. A high $V_{oc}$ of 691 mV and a low $R_s$ of $0.7 ~\upOmega\textrm{cm}^2$ show the potential of the proposed cell structure. The power conversion efficiency is mainly limited by the low $J_{sc}$ due to the planar surfaces of the bottom cell. 
+%The prevention of shunt paths caused by manufacturing issues limiting the p$FF$ is the focus of ongoing work. 
+ 
+
+
+
+
+%Rp von 1 kohmcm² erwähnen und verweis auf deutliche power losses in fig. Rp-power-loss in diesem bereich??
+
+%lock-in thermography legt probleme beim handling nahe bzw kontaminierte flächen, wahrscheinlch beim Al siebdruck
+%anderer grund ist umgriff vom aSi, besser mit anderen boten, irgendwas zitieren zum umgriff aSi in iTOPCon zellen?
+%pFF muss hier ausführicher diskutiert werden...
+
+
+%\begin{figure}[htp] 
+%	\centering
+%	\includegraphics[width=0.55\linewidth]{images/TowardsTandem/iVoc-ohne-LCO}
+%	\includegraphics[width=0.55\linewidth]{images/TowardsTandem/iVoc-mit-LCO}
+%	\caption[CV Messung an einer LSMO-Dünnschicht]{ohne/mit LCO...Lebensdauerkurven plotten?...}
+%	\label{fig:PL-mit-ohne-LCO}
+%\end{figure}
+
+\begin{figure}[hpt] 
+	\centering
+	\includegraphics[width=0.9\linewidth]{images/TowardsTandem/PL-txt-AlOx}
+	\caption[Benefit of Al$_2$O$_3$ capping during RTP]{With a textured front surface, in contrast to planar front sides, the passivation quality directly after RTP is limited to i$V_{oc} \approx630-650 ~\textrm{mV}$ (top). With an ALD Al$_2$O$_3$ capping at the textured front side during RTP (yellow layer in the bottom left sketch), the passivation quality directly after RTP was markedly improved (i$V_{oc} \approx 685 ~\textrm{mV}$).}
+	\label{fig:PL-txt-AlOx}
+\end{figure}
+
+For improved optics and thus higher $J_{sc}$ in the tandem configuration, precursors with textured front surfaces were also investigated (Fig. \ref{fig:PL-txt-AlOx}). Without any hydrogenation step after RTP the passivation quality was mediocre, allowing for i$V_{oc}$ in the range $630-650 ~\textrm{mV}$, as measured with \ac{QSSPL} \cite{Giesecke.2012}. %so zitiert in feldmann.phd
+One option to reduce recombination would be a post-RTP hydrogenation step. Here, another approach was tested. The poly-Si front side was capped with $20 ~\textrm{nm}$ thick ALD Al$_2$O$_3$ before RTP. A clear benefit of the hydrogen-rich Al$_2$O$_3$ capping can be seen in Fig. \ref{fig:PL-txt-AlOx}, allowing homogeneous passivation with i$V_{oc} \approx 685 ~\textrm{mV}$ directly after RTP, close to the level reached for planar surfaces without Al$_2$O$_3$ capping (Fig. \ref{fig:structure-mit-LCO}). Presumably, hydrogen diffused from Al$_2$O$_3$ through the poly-Si to the SiO$_x$/c-Si interface and effectively lowered the interface state density, which consequently reduced recombination at that interface \cite{Nemeth.2016}. Similarly, Bruhat \textit{et al.} reported a beneficial effect on i$V_{oc}$ after RTP for poly-Si capped with a stack of AlO$_x$ and hydrogenated SiN$_x$:H \cite{Bruhat.2019,Bruhat.2020}. Lehmann \textit{et al.} used SiN$_x$:H as a sacrificial layer for hydrogenation and correlated the i$V_{oc}$ with the deuterium\footnotemark\footnotetext{Deuterium was introduced instead of hydrogen for higher detection capability in the SIMS analysis.} content at the SiO$_x$/c-Si interface \cite{Lehmann.2019}. %in Kang.2020 Jo nicht proportional zu H peak area in SIMS...degradation during RTP vermutet durch beleuchtung, aber nicht genau erklärt...
+Fig. \ref{fig:PL-txt-AlOx} shows that further optimization is needed with respect to the passivation quality of textured front surfaces after RTP, but a hydrogen-rich capping layer could be a promising means to achieve this. The Al$_2$O$_3$ layer could in principle be removed by the single-sided HF treatment after RTP and before TCO deposition, which is necessary anyway to achieve a low $\rho_c$ (Fig. \ref{fig:rhoc-HF}). %kann es wirklich so gut entfernt werden?
+%auch SiOx capping erwähnen? eher nicht, da ja auch kein großer effekt zu erwarten, oder? wieviel H2 ist im SiOx im vergleich zu AlOx?

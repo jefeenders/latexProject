@@ -1,0 +1,1303 @@
+\chapter{Transport in Silicon Heterojunction Solar Cells}
+\label{chap:SHJ}
+
+%wie frank schreiben!: 
+%This chapter is partly adapted from the author?s publications [155-158]. The results
+%of Sec. 6.3.2 were obtained in collaboration with Diplom student M. Simon who
+%assisted the author with processing and characterization. The results of Sec. 6.3.3
+%and Sec. 6.4.3 were obtained in collaboration with R. Müller, who assisted the author
+%with his experience in ion implantation. The results of Sec. 6.3.4 and
+%Sec. 6.4.4 were obtained in collaboration with A. Moldovan, who studied the
+%chemical properties of the thin SiOx layers in more detail.
+
+
+
+
+\textit{In this chapter\footnotemark\footnotetext{This chapter is partly adapted from the author's publications \cite{Luderer.2020} (Section \ref{sec:critical junctions}) and \cite{Luderer.2021c} (Section \ref{sec:aSi-cSi}), in which the author conducted the experiments, interpreted the results, and wrote the manuscript. Section \ref{sec:TCO-aSi} is partly adapted from the joint publication together with Leonard Tutsch \cite{Luderer.2021}, in which the author was responsible for the $\rho_c$ measurements, the a-Si:H doping variation, and wrote the manuscript. Numerical device simulations using Sentaurus TCAD were performed by Christoph Messmer, another doctoral candidate at Fraunhofer ISE. %These simulations were calibrated on $\rho_c$ values from different test structures obtained by the author and shown in section \ref{sec:critical junctions}.%genauer beschreiben, wie sim angepasst wurde?
+} transport in the TCO/a-Si:H/c-Si heterojunction is studied and optimized for an improved $\eta$ of SHJ cells. For this, in the first section contact resistivity test structures are used for a systematic quantification of the transport losses of the electron  and hole contact of the Fraunhofer ISE SHJ baseline. %Extracted $\rho_c$ values of different heterojunction stacks serve as calibration for and electrical simulations.%besser simulation supported experimental results...
+It is identified that the intrinsic a-Si:H and the \ac{TCO} layer are the cause of higher transport losses of the hole contact and that these layers are also responsible for a limited thermal
+stability. Furthermore, temperature-dependent $J-V$ measurements
+reveal the non-ohmic nature of the transport losses in case that
+intrinsic a-Si:H and \ac{TCO} are part of the
+heterojunction.}
+
+\textit{In the second section the position of the Fermi level on either side of the TCO/a-Si:H junction is modified by a systematic doping variation of the a-Si:H and the TCO. The charge carrier concentration is identified to be the main driver for low contact resistance.
+Further, it is shown that a stack of a low oxygen ITO interlayer and an oxygen rich ITO "bulk" layer is not only an effective means to combine efficient transport and low TCO absorption but also to improve the thermal stability of the a-Si:H/TCO/metal contact resistivity $\rho_c$.}
+
+%To improve silicon heterojunction solar cells even further, minimizing transport losses within the charge carrier selective junctions and layers is mandatory. 
+
+\textit{In the third section transport losses caused by the intrinsic a-Si:H are addressed. The microstructure of different multilayer intrinsic a-Si:H films is modified and its influence on contact resistance and passivation quality is investigated thoroughly. It is shown that a pronounced trade-off between passivation and transport exists, governed by the a-Si:H properties close to the c-Si surface. The fact that the same trend is observed for hole and electron contact suggests that the transport barrier formed by the interfacial a-Si:H layer is caused by higher resistivity or worse surface coverage of the void-rich interfacial layer and not by asymmetric hole or electron barriers (band offsets, tunnel efficiencies, ...).}
+		
+
+%focus on the influence of different layers and subsequent annealing steps. 
+
+
+
+%dominated by thermally activated transport. Experimental findings are supported by numerical device simulations described in [13].
+
+
+
+\begin{figure}[htp] 
+	\centering
+	\includegraphics[width=0.99\linewidth]{images/SHJ/sketch-losses}
+	\caption[Resistive losses in a SHJ solar cell]{Sketch of the current path in a SHJ solar cell from excess charge carrier generation to the external circuit. The different resistance contributions are indicated. For simplicity, the surface texture is omitted here. Redrawn for SHJ from Ref. \cite{Basset.PhD}.}
+	\label{fig:sketch-losses}
+\end{figure}
+
+Fig. \ref{fig:sketch-losses} shows resistive losses along the current path from excess charge generation in the c-Si absorber to the external circuit. The different contributions to a SHJ solar cell's series resistance $R_s$ are:
+\begin{itemize}
+	\item $R_{s, bulk}$ governed by the wafer's resistivity under operation
+	\item $R_{s, h-contact}$ governed by $\rho_{c, h-contact}$
+	\item $R_{s, e-contact}$ governed by $\rho_{c, e-contact}$
+	\item $R_{s, lateral}$ governed by $R_{sheet}$ in the TCO and the absorber and its coupling via $\rho_{c,TCO/a-Si:H/c-Si}$
+	\item $R_{s, metal/TCO}$ governed by $\rho_{c, metal/TCO}$
+	\item $R_{s, grid}$ governed by the metal resistivity within the fingers and busbars
+\end{itemize}
+In the following, the focus is on the vertical transport, thus $R_{s, h-contact}$ and $R_{s, e-contact}$, as these are the main contributors to the $R_s$ of SHJ solar cells \cite{Lachenal.2016,Basset.2018}. $R_{s, lateral}$ is linked to the vertical transport since the distribution of lateral current flow between TCO and the absorber is dependent on the cell design (front vs. rear emitter) and determined by the respective $\rho_c$ \cite{Bivour.2014,Cruz.2019,Haschke.2020}. However, this aspect will not be discussed in detail here. Metal-related resistive losses, i.e., $R_{s, metal/TCO}$ and $R_{s, grid}$ are out of the scope of this thesis. 
+
+%wichtig zu unterscheiden zwischen ganzflächigem kontakt, dann kleienr 100 mOhmcm² nötig, cite schroder meyer und lokalem kontakt, dann deutlich kleiner rhoc nötig! in fundamentals bei Rs diodenmodell ansprechen oder in SHJ kapitel bei Rs verlusten? nicht zwingend nötig, passt so!
+
+
+%eventuell nötig section mark auch schon vor section einzufügen...
+%\sectionmark{Transport losses at the TCO/a-Si:H/c-Si heterojunction}
+\section{Transport losses at the TCO/a-Si:H/c-Si heterojunction: Influence of different	layers and annealing}\label{sec:critical junctions}
+\sectionmark{Transport losses at the TCO/a-Si:H/c-Si heterojunction}
+
+%Paper rhoc aSi ~10 Seiten
+
+\subsection{Contact resistivity of different SHJ stacks}\label{sec:rhoc-different-stacks}
+
+
+
+\begin{figure}[htp]
+	\centering{
+		\begin{minipage}[b]{0.6\textwidth}
+			\centering
+			\subfloat[\textbf{(a)}  \label{fig:pcontact}] {\includegraphics[width=\textwidth]{images/SHJ/pcontact}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.28\textwidth}
+			\centering
+			\subfloat[\textbf{(b)}  \label{fig:stack-structures-p}] {\includegraphics[width=\textwidth]{images/SHJ/stack-structures-p}}
+		\end{minipage}
+		\par\bigskip % force a bit of vertical whitespace
+		\begin{minipage}[b]{0.6\textwidth}
+			\centering
+			\subfloat[\textbf{(c)}  \label{fig:ncontact}] {\includegraphics[width=\textwidth]{images/SHJ/ncontact}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.28\textwidth}
+			\centering
+			\subfloat[\textbf{(d)}  \label{fig:stack-structures-n}] {\includegraphics[width=\textwidth]{images/SHJ/stack-structures-n}}
+		\end{minipage}
+	}
+	\caption[$\rho_c$ of different electron and hole contact heterojunction stacks]{Contact resistivity $\rho_c$ of different (a) electron and (c) hole contact heterojunction stacks. (b)/(d) Sketch of the different resistance test structures used for the electron/hole contact. The rear contact of all groups comprised the front side stack of group 1 and full-area metallization.}
+	\label{fig:overview-rhoc-SHJ}
+\end{figure}
+
+
+Four test structures with different heterojunction stacks
+were fabricated for both the hole and electron contact (Figs. \ref{fig:stack-structures-p} and \ref{fig:stack-structures-n}). Symmetrical
+samples with only doped a-Si:H($p$/$n$) and metal at the front (and
+rear) side served as reference (group 1). For the other groups,
+either a layer of \ac{ITO} ($1.6 ~\%$ O$_2$, group 2) or a-Si:H($i$) (group 3), or both
+layers (group 4) were added to the sample structure at the front.
+Between groups 1 and 2 the influence of the ITO and between
+groups 1 and 3 the influence of the a-Si:H($i$) layer can be seen
+for the electron and hole contact. For simplicity, negligible influence from the metal/a-Si:H or metal/ITO contact was assumed.
+$\rho_{c, \textrm{metal/ITO}}$ values below $5 ~\textrm{m}\upOmega\textrm{cm}^2$ are commonly reported
+in literature (e.g., in Refs. \cite{Schube.2018, Geissbuhler.2014, Barraud.2013}). However, the metal/a-Si:H
+contact resistivity can vary in a wide range depending on the
+metal work function and the a-Si:H doping level \cite{Kanicki.1988}, as well as chemical modifications at the interface (e.g., native oxides). Nevertheless,
+for our (heavily) doped a-Si:H layers, results of group 1 show
+that low-ohmic metal/a-Si:H contacts were formed (Figs. \ref{fig:overview-rhoc-SHJ} and \ref{fig:JV-fitting-ranges}). Therefore, resistivity values for the metal/a-Si:H or
+metal/ITO contact were expected to be at least about one order of
+magnitude lower than the ITO/a-Si:H or the a-Si:H/c-Si contact
+resistivity and the assumption of negligible influence from the
+metal/a-Si:H or metal/ITO contact seemed reasonable for the
+purpose of this study. 
+Total resistance values $R_t$ measured at 25 °C, including front and rear contact as well as bulk wafer resistance, were extracted by linear regression around zero bias voltage (Fig. \ref{fig:JV-fitting-ranges}).
+In order to extract the value
+for the front-side contact resistivity $\rho_c$, which is shown in
+Fig. \ref{fig:overview-rhoc-SHJ}, contributions from the c-Si bulk and the rear-side contact calculated
+from the group 1 reference for each annealing temperature
+were subtracted (Section \ref{sec:rhoc-measurements}). 
+
+
+Different colors in Figs. \ref{fig:pcontact} and \ref{fig:ncontact} represent
+different cumulative thermal treatments of 10 minutes each. The
+contact resistances of the corresponding structures determined
+by simulation are depicted by gray stars. For more details on the simulation it is referred to Ref. \cite{Messmer.2020}. %genauer beschreiben, wie sim angepasst wurde? verweis reicht hier..
+Both doped a-Si:H reference structures
+(nNn and pPp) represented low-ohmic contacts with $\rho_c$ values of
+$\approx 0.1-7 ~\textrm{m}\upOmega\textrm{cm}^2$ for the electron contact and $\approx ~1-20 ~\textrm{m}\upOmega\textrm{cm}^2$
+for the hole contact for different annealing temperatures, respectively.
+As mentioned in section \ref{sec:rhoc-measurements}, these low $\rho_c$ values are prone
+to errors, since the total resistance $R_t$ was dominated by the
+wafer's resistance $R_{base}$ in that case. 
+
+%Nonetheless, our method is well suited for higher $\rho_c$ above 20 m$\upOmega$cm$^2$. 
+
+For a properly working
+device, an intrinsic a-Si:H layer is necessary for passivation of the c-Si surface \cite{Dauwe.2002}, and therefore, high $V_{oc}$ and p$FF$. Additionally,
+for lateral transport and light coupling, a TCO (here, ITO) is
+needed \cite{Holman.2012}. Another requirement is an annealing step of the
+final device, e.g., curing/sintering of the metallization \cite{Schube.2018}
+and recovery of surface passivation after sputter damage \cite{Demaurex.2012}.
+However, these beneficial properties come at the cost of higher
+vertical transport losses. A significant increase in $\rho_c$ was observed
+for the hole contact, if an intrinsic a-Si:H ($\approx +150 ~\textrm{m}\upOmega\textrm{cm}^2$)
+or ITO ($\approx +80 ~\textrm{m}\upOmega\textrm{cm}^2$) layer was present, and annealing above
+180 °C was detrimental. For the electron contact, $\rho_c$ increased only
+slightly with the additional a-Si:H($i$) ($\approx +10 ~\textrm{m}\upOmega\textrm{cm}^2$). The
+increase in $\rho_c$ because of the ITO layer was more pronounced ($\approx +20 ~\textrm{m}\upOmega\textrm{cm}^2$), especially with annealing at temperatures above
+180 °C ($\approx +80 ~\textrm{m}\upOmega\textrm{cm}^2$). For the device relevant stack (group
+4), the minimum $\rho_c$ value of $28 ~\textrm{m}\upOmega\textrm{cm}^2$ for the electron contact
+was significantly (about seven times) smaller than the minimum
+value for the hole contact ($\rho_c = 204 ~\textrm{m}\upOmega\textrm{cm}^2$). This finding
+is in line with results from several other groups investigating
+SHJ contacts (e.g., Refs. \cite{Lachenal.2016, Gogolin.2014, Nogay.2016}). 
+
+Simulated and experimental
+data matched each other well, as the same trends and similar
+absolute values were obtained. 
+Some deviations were found for the electron contact structures with a-Si:H($i$), since the simulation for group 1 and 3 of the electron contact gave essentially the same resistance, i.e., regardless of whether the intrinsic a-Si:H layer was included or not. %erklärung hier oder später...
+
+The presence of either intrinsic a-Si:H or the ITO layer not
+only increased the resistance, but also lowered the thermal stability
+of the heterojunction stack (Fig. \ref{fig:overview-rhoc-SHJ}). $\rho_c$ of the hole contact pPp
+reference structure was slightly decreasing with annealing, probably
+because of the activation of additional dopants with thermal
+treatment. It saturated at $\rho_c \approx 1-5 ~\textrm{m}\upOmega\textrm{cm}^2$ and was constant up
+to 400 °C (not shown).
+Such high temperature stability was
+also observed for the nNn contact. For the other groups, first a
+decrease in resistance was observed with annealing up to 180 °C,
+followed by increasing resistance with further annealing. This
+effect was more pronounced for the hole contact but also seen
+for the electron contact. For the electron contact, the optimum
+annealing temperature was found to be 160 °C. From these results,
+it is evident that commonly used curing temperatures of $\approx 200 ~\textrm{°C}$ for screen-print contacted solar cells might also be sub-optimal
+regarding $\rho_c$ for similarly processed SHJ.
+It is often assumed that the thermal degradation of SHJ only leads to a loss of surface passivation and thus of $V_{oc}$ and p$FF$ because hydrogen effuses \cite{Wolf.2007}.
+However, it was shown here that the degradation of the contact resistance already starts at 180 (200)°C for the electron (hole) contact, which further limits the thermal stability of the device. The thermal stability of the TCO/a-Si:H junction is discussed in Section \ref{sec:discussion-TCO-aSi-annealing}. 
+
+
+%\begin{figure}[htp] 
+%	\centering
+%	\includegraphics[width=0.55\linewidth]{images/SHJ/JV-fitting-ranges}
+%	\includegraphics[width=0.55\linewidth]{images/SHJ/barplot-fitting-ranges}
+%	\caption[CV Messung an einer LSMO-Dünnschicht]{(a) $J-V$ characteristics of the four different hole contact structures measured at 25 °C. (b) Bar plot of extracted $\rho_{c}$ values (after subtraction of bulk
+%		and rear contributions) for group 4: ITO/piPp at the seven different current density/voltage ranges used for linear regression (depicted in black,
+%		respectively, white for blue data in (a).}
+%	\label{fig:JV-fitting-ranges}
+%\end{figure}
+
+\begin{figure}[htp]
+	\centering{
+		\begin{minipage}[b]{0.6\textwidth}
+			\centering
+			\subfloat[\textbf{(a)}  \label{fig:JV-fitting-ranges}] {\includegraphics[width=\textwidth]{images/SHJ/JV-fitting-ranges}}
+		\end{minipage}
+		\par\bigskip % force a bit of vertical whitespace
+		\begin{minipage}[b]{0.6\textwidth}
+			\centering
+			\subfloat[\textbf{(b)}  \label{fig:barplot-fitting-ranges}] {\includegraphics[width=\textwidth]{images/SHJ/barplot-fitting-ranges}}
+		\end{minipage}
+	}
+	\caption[ $J-V$ characteristics of different hole contact structures]{(a) $J-V$ characteristics of the four different hole contact structures measured at $25 ~\textrm{°C}$. (b) Bar plot of extracted $\rho_{c}$ values (after subtraction of bulk	and rear contributions) for group 4: ITO/piPp at the seven different current density/voltage ranges used for linear regression (depicted in black, respectively, white for blue data in (a)).}
+	\label{fig:fitting-ranges}
+\end{figure}
+
+
+
+\begin{figure}[htp] 
+	\centering
+	\includegraphics[width=0.6\linewidth]{images/SHJ/Q(Tann)-groups}
+	\caption[$J-V$ quality factor for different SHJ stacks]{$J-V$ quality factor for different SHJ hole contact stacks. Group pPp showed ideal ohmic behavior ($Q \approx 1$). Stacks including ITO and a-Si:H($i$) deviated from this ideal behavior ($Q < 1$). In the device relevant stack the a-Si:H($i$) dominated the $J-V$ characteristic.}
+	\label{fig:Q(Tann)}
+\end{figure}
+
+
+The increase in resistance with additional layers for the hole
+contact was linked to a transition from a linear (ohmic) to a diode-like
+$J-V$ characteristic, as shown in Fig. \ref{fig:JV-fitting-ranges}.
+One possibility
+to quantify non-linear $J-V$ curves is to extract $\rho_c$ at different
+voltage ranges corresponding to different current density ranges.
+In the bar plot of Fig. \ref{fig:barplot-fitting-ranges}, $\rho_c$ values for the device relevant
+structure, ITO/piPp, at seven different regions of the $J-V$ curve
+are compared. Diode-like behaviour can be clearly seen, as the
+difference in $\rho_c$ extracted at negative bias versus positive bias
+increased significantly with increasing current density. The
+difference in $\rho_c$ between both polarities at $\pm 40 ~\textrm{mAcm}^{-2}$, a
+value slightly above the current density at maximum-power
+point ($J_{MPP}$) of corresponding solar cells, was 17 m$\upOmega$cm$^2$ and
+amounted to 351 m$\upOmega$cm$^2$ at $\pm 750$ mAcm$^{-2}$. As a side note, since
+$\rho_c$ at 40 mAcm$^{-2}$ differed only marginally from $\rho_c$ taken at zero
+bias, the assumption of a constant $\rho_c$ might be a reasonable
+approximation for many cell simulations. 
+
+By defining the quality factor 
+\begin{align}
+	Q_{200 ~\textrm{mAcm}^{-2}} \equiv \frac{R_{t, +200 ~\textrm{mAcm}^{-2}}}{R_{t, -200 ~\textrm{mAcm}^{-2}}}
+\end{align}
+a figure of merit for the linearity of dark $J-V$ curves can be determined. $Q=1$ for an ideal ohmic behavior and deviates more and more from unity and approaches zero for diodes. Plotting $\rho_c$ against $Q$ in Fig. \ref{fig:Q(Tann)} reveals that 
+\begin{enumerate}[label=\textbf{\roman*}]
+	\item structure pPp showed ideal ohmic behavior ($Q \approx 1.0$).
+	\item introducing ITO lead to slight deviation from this ideal behavior ($Q \approx 0.9$).
+	\item introducing a-Si:H($i$) lead to stronger deviation from linearity.
+	\item in the device relevant stack comprising both a-Si:H($i$) and ITO the a-Si:H($i$) dominated the $J-V$ characteristic.
+\end{enumerate}
+%(i) structure pPp showed ideal ohmic behavior ($Q \approx 1.0$), (ii) introducing ITO lead to slight deviation from this ideal behavior ($Q \approx 0.9$), (iii) introducing a-Si:H($i$) lead to stronger deviation from linearity and (iv) in the device relevant stack comprising both a-Si:H($i$) and ITO the a-Si:H($i$) dominated the $J-V$ characteristic. 
+The latter can be deduced from the observation that $Q$ did not change for groups containing a-Si:H($i$) whether or not ITO was included (group 3 vs. group 4, red vs. yellow in Fig. \ref{fig:Q(Tann)}). This can be understood as transport barriers of different height introduced by the a-Si:H($i$) and the ITO, as will be shown with temperature-dependent $J-V$ measurements in section \ref{sec:I-V(T)}. 
+%In such a case, the $J-V$ characteristic is dominated by stronger diode \cite{Osvald.2015} (hier aber keine back to back diodes, oder?)
+It is, however, worth mentioning that this result can be concluded even without performing temperature-dependent measurements by simply analyzing the dark $J-V$ characteristics at fixed measuring temperature $T_{meas}$.
+
+
+%Contacts displaying non-linear $J-V$ characteristics can be also analyzed on the basis of their temperature dependence, as will be shown in section \ref{sec:I-V(T)}.
+
+For electron contact, no clear trend was observed with respect to the different groups due to lower $\rho_c$ values and generally more linear curves (not shown). Lower $\rho_c$ values are more prone to scattering, as mentioned above.
+Nevertheless, the trend of increasing $Q$ value with increasing $\rho_c$ was observed.
+
+
+
+
+
+
+
+\subsection{Temperature-dependent measurements: Resistance test structures and solar cells}\label{sec:I-V(T)}
+
+
+%\begin{figure}[htp]
+%	\centering{
+%		\begin{minipage}[b]{0.49\textwidth}
+%			\centering
+%			\subfloat[\textbf{(a)}  \label{fig:n(T)}] {\includegraphics[width=\textwidth]{images/SHJ/n(T)}}
+%		\end{minipage}
+%		\hfill
+%		\begin{minipage}[b]{0.49\textwidth}
+%			\centering
+%			\subfloat[\textbf{(b)}  \label{fig:p(T)}] {\includegraphics[width=\textwidth]{images/SHJ/p(T)}}
+%		\end{minipage}
+%		\par\bigskip % force a bit of vertical whitespace
+%		\begin{minipage}[b]{0.49\textwidth}
+%			\centering
+%			\subfloat[\textbf{(c)}  \label{fig:FF-and-pFF(T)}] {\includegraphics[width=\textwidth]{images/SHJ/FF-and-pFF}}
+%		\end{minipage}
+%		\hfill
+%		\begin{minipage}[b]{0.49\textwidth}
+%			\centering
+%			\subfloat[\textbf{(d)}  \label{fig:pFF-FF(T)}] {\includegraphics[width=\textwidth]{images/SHJ/pFF-FF}}
+%		\end{minipage}
+%	}
+%	\caption[Temperature dependent total resistance of the electron and hole contact test structures annealed at 180 °C.]{Temperature dependent total resistance of the (a) electron and (b) hole contact test structures annealed at 180 °C. (c) $FF$ and p$FF$ of corresponding solar cells for different thermal treatments and (d) transport related losses quantified by p$FF-FF$.}
+%	\label{fig:I-V(T)-SHJ}
+%\end{figure}
+
+
+\begin{figure}[htp]
+	\centering{
+		\begin{minipage}[b]{0.6\textwidth}
+			\centering
+			\subfloat[\textbf{(a) electron contact}  \label{fig:n(T)}] {\includegraphics[width=\textwidth]{images/SHJ/n(T)}}
+		\end{minipage}
+		\par\bigskip % force a bit of vertical whitespace
+		\begin{minipage}[b]{0.6\textwidth}
+			\centering
+			\subfloat[\textbf{(b) hole contact}  \label{fig:p(T)}] {\includegraphics[width=\textwidth]{images/SHJ/p(T)}}
+		\end{minipage}
+	}
+	\caption[Temperature-dependent total resistance of the electron and hole contact test structures]{Temperature-dependent total resistance $R_t$ of (a) the electron and (b) the hole contact test structures annealed at 180 °C.}
+	\label{fig:R(T)}
+\end{figure}
+
+
+
+
+Temperature-dependent measurements of the total resistance
+$R_t$ (including wafer and rear contact) for both the electron
+and hole contact after 180 °C annealing are shown in Figs. \ref{fig:n(T)} and \ref{fig:p(T)}.
+The results reveal that the low-ohmic $R_t$ of the pPp and nNn
+references was already dominated by the c-Si bulk resistance $R_{base}$. The wafer's spreading resistance was increasing with increasing $T_{meas}$,
+since the charge carrier mobility in the substrate was decreasing
+with $T_{meas}$ \cite{Feldmann.2018}. This behavior was observed experimentally and
+in the simulation. In the experimental data of the pPp structure,
+this positive temperature coefficient was less distinct.
+Adding ITO or an intrinsic a-Si:H layer to the reference
+structures not only increased the value of $R_t$ but also changed
+its temperature dependence. The increasing wafer resistance is overcompensated
+by a thermally activated transport path, resulting
+in a net reduction of $R_t$ with increasing $T_{meas}$ for these structures.
+This can be readily explained. Because of higher thermal energy at higher $T_{meas}$, charge
+carriers can either overcome the transport barrier completely via
+thermionic emission %unwahrscheinlich wenn man auswertung macht wie feldmann.nogay.2018
+or are excited to an energy level at which the barrier width is narrow enough that tunneling becomes efficient
+\cite{Schroder.1984,Bivour.2013,Nogay.2016}.
+%Since the transport barrier is higher for the hole contact compared with the electron contact, as will be discussed in section \ref{sec:discussion-transport-SHJ}, the reduction of $R_t$ with increasing $T_{meas}$ is even more pronounced for the hole contact.
+%anstatt prozentuale abnahme besser arrhenius zeigen...
+%For the device relevant hole contact stack at $T_{meas} = 68$ °C, $R_t$ was reduced by $\approx 160$ ($\approx 67$ \%) to $\approx 80$ m$\upOmega$cm$^2$ compared with that at room temperature. For the electron contact, which was already low-resistive at room temperature, the reduction was only $\approx 12$ m$\upOmega$cm$^2$ ($\approx 24$ \%) in the same temperature range. In general, it was observed that structures with high $\rho_c$ showed the strongest $R_t$ reduction with increasing $T_{meas}$. 
+The reduction in $R_t$ was accompanied with a transition of
+the $J-V$ characteristic from diode-like to ohmic behaviour. 
+
+%activation energy can be extracted...
+With the Arrhenius plots in Fig. \ref{fig:Arrhenius} transport barrier heights $\Phi_B$ for the hole contacts were estimated. $\Phi_B$ was $\approx 253 ~\textrm{mV}$ for group 3 "piPp" and $\approx 171 ~\textrm{mV}$ for group 2 "ITO/pPp". Hence, the thermally overcome transport barrier introduced by the intrinsic layer was higher than the barrier introduced by the ITO. The combination of both in group 4 "ITO/piPp" resulted in $\Phi_B \approx 243 ~\textrm{mV}$, similar to the structure without ITO. Therefore, thermally activated transport at the hole contact is dominated by a-Si:H($i$) for our SHJ. 
+% Rbase(T) wurde abgezogen...
+
+\begin{figure}[htp] 
+	\centering
+	\includegraphics[width=0.65\textwidth]{images/SHJ/arrhenius_p_thesis}
+	\caption[Arrhenius plot for different hole contact stacks]{Arrhenius plot for different hole contact stacks. a-Si:H($i$) induced a larger transport barrier (higher activation energy) as compared to ITO. Group pPp showed no thermally activated transport, thus, no activation energy could be extracted. These results correlate well with the quality factor in Fig. \ref{fig:Q(Tann)}.}
+	\label{fig:Arrhenius}
+\end{figure} 
+
+
+Since for the electron contacts $R_t$ was dominated by the
+wafer's resistivity $R_{base}$, $R_t - R_{base}$ was very small and prone to errors, as mentioned above. This interfered with the Arrhenius analysis. As a result, the scatter of $\Phi_B$ values for the electron contact was very strong. $\Phi_B$ values in the range $60-280 ~\textrm{mV}$ were obtained and no significant differences between the individual groups could be resolved (not shown). More measurements at lower $T_{meas}$, where $R_t$ is dominated by $\rho_c$ would be necessary for a more meaningful determination of $\Phi_B$ for the electron contact, but were not possible with the used $J-V$ setup. 
+%For the electron contacts $\Phi_B$ values in the range $60-280 ~\textrm{meV}$ were obtained\footnotemark\footnotetext{$\Phi_B$ was 151, 165 and 199 meV for groups 2, 3 and 4, respectively. For group 3 niNn the slope in the Arrhenius plot was fitted only in the temperature range 15 to 40 °C.} (not shown), but again, these values are more prone to errors compared to the hole contact.
+
+
+According to Eq. \ref{eq:R_TE} barrier heights in the range of $\Phi_B = 150-250 ~\textrm{mV}$ lead to $R_{TE}$ values between $\approx 3 \times 10^{-3}$ and $1 \times 10^{-1} ~\textrm{m}\upOmega\textrm{cm}^2$ at room temperature. This is several orders of magnitude lower than the $R_t$ values shown in Figs. \ref{fig:n(T)} and \ref{fig:p(T)}. This clearly shows that transport via thermionic emission is only one of the transport paths at play. To investigate the temperature dependence of the transport paths other than thermal emission, the residual resistance $\ln ((R_t - R_{base})/R_{TE})$ %$\ln ((R_t - R_{base}) $\times$ R_{TE}^{-1})$
+%\begin{align*}
+%	\ln \left( \frac{R_t - R_{base}}{R_{TE}} \right)
+%\end{align*}
+was plotted against $T_{meas}$ (not shown). It was found to be temperature-independent, which might indicate tunneling transport, as tunneling adds a temperature-independent factor to $R_t$ \cite{Feldmann.2018,Green.1974}.
+
+%absatz raus oder mit daten von Christoph zeigen...
+%Considering that barriers in the same range as for the h-contact were extracted for the e-contact, hence similar $R_{TE}$, and the by a factor of roughly 8 lower $\rho_c$ for the electron contact might indicate that thermionic emission is more prominent in the electron transport compared to the hole transport. This could be explained with the lower conduction band offset for electrons compared to the valence band offset for holes.%laut sim Christoph ist tunnelstrom 50 % des Gesamtstroms bei h-contact und 33 % bei e-contact.
+
+
+Again,
+experimental and simulated data correlated very well, except for
+group 3 of the electron contact (Fig. \ref{fig:n(T)}). As already mentioned, the small
+transport barrier for the electron contact because of a-Si:H($i$),
+which was observed experimentally, was not reproduced by the
+simulation. For group 3 of the electron contact, $R_t$ was
+slightly increasing again in the temperature range of $T_{meas} =
+50-68~\textrm{°C}$.
+
+$R_t$ coincided with the calculated wafer's resistance $R_{base}$ within experimental error (not shown) and was in good agreement with the simulated data in this temperature range.
+This shows that at $T_{meas} = 50 ~\textrm{°C}$ the charge carriers could overcome the transport barrier very efficiently and further temperature increase lead to higher resistivity governed by the wafer's temperature dependence. For electron contact structures including ITO and the hole contact structures this turning point is most likely shifted to higher temperatures out of the range of temperatures investigated here. 
+
+\begin{figure}[htp]
+	\centering{
+		\begin{minipage}[b]{0.65\textwidth}
+			\centering
+			\subfloat[\textbf{(a)}  \label{fig:FF-and-pFF(T)}] {\includegraphics[width=\textwidth]{images/SHJ/FF-and-pFF}}
+		\end{minipage}
+		\par\bigskip % force a bit of vertical whitespace
+		\begin{minipage}[b]{0.65\textwidth}
+			\centering
+			\subfloat[\textbf{(b)}  \label{fig:pFF-FF(T)}] {\includegraphics[width=\textwidth]{images/SHJ/pFF-FF}}
+		\end{minipage}
+	}
+	\caption[Temperature-dependent transport-related losses]{Temperature-dependent (a) $FF$ and p$FF$ and (b) transport-related losses quantified by p$FF-FF$ of corresponding solar cells for different thermal treatments.}
+	\label{fig:I-V(T)-SHJ}
+\end{figure}
+
+
+Corresponding solar cells benefited from the improved transport
+with increasing $T_{meas}$. This can be seen in the reduction of
+transport-related losses, quantified by the difference between the
+p$FF$ and $FF$ in Figs. \ref{fig:FF-and-pFF(T)} and \ref{fig:pFF-FF(T)}. The different colors correspond
+to different subsequent hotplate annealing steps after curing of
+the screen-printed metal paste at 200 °C (blue data). The decrease
+in p$FF$ for all cells was caused by the increase in device
+recombination with increasing $T_{meas}$ \cite{Green.2003}. For cells exposed to temperatures
+of 200 °C (blue data) the $FF$ followed the reduction of
+the p$FF$, with a higher gap (p$FF-FF$) at lower temperatures.
+Cells (over)annealed at 230 °C showed a constant $FF$ in
+the investigated temperature range. The gain in $FF$ because of
+an improved $R_t$ and $\rho_c$ with increasing $T_{meas}$ was superimposed
+by the reduction of p$FF$. Annealing above 230 °C resulted in very high $R_t$ and $\rho_c$, which caused huge transport losses for the SHJ cells under study. Since these poor contacts (red data) benefit the most
+from increasing $T_{meas}$, the absolute $FF$ was lower, but increasing
+with $T_{meas}$, as thermally activated transport overcompensated
+the reduction of p$FF$. 
+These results indicate that the thermally activated transport is one reason for the better temperature coefficient of SHJ solar cells compared to other cell technologies \cite{Hermle.2020}.
+
+Quantitative comparison of the decreased p$FF-FF$
+for the cells annealed at 200 °C with $R_t$ data of test structures might not be valid,
+since for the test structures, as for all common contact resistivity
+measurement methods, a high-low junction is probed, whereas
+solar cells obviously include a $p$-$n$ junction. Further, reduction in $\rho_c$ might not only reduce vertical but also lateral transport losses on cell level, as lower $\rho_c$ leads to a more efficient distribution of lateral transport between TCO and the absorber \cite{Haschke.2020}. %wenn hier erwähnt, dann eigentlich nicht nochmal in 5.2 schreiben!
+The
+p$FF-FF$ reduction of $\approx 1.5 ~\%$ between $T_{meas} = 68 ~\textrm{°C}$ and room
+temperature corresponds roughly to a decrease in resistance
+of $\approx 300 ~\textrm{m}\upOmega\textrm{cm}^2$ \cite{Pysch.2007}, whereas the combined reduction of $R_t$
+for both device relevant stacks was $\approx 200 ~\textrm{m}\upOmega\textrm{cm}^2$. The stronger
+resistance reduction of the solar cells compared with the test
+structures could, among other factors, be explained by the higher thermal budget of
+the cells. Nevertheless, there was very good qualitative agreement between SHJ solar cells and the test structures used.
+
+
+
+
+
+%\subsection{Discussion: Hole versus electron contact, TCO and annealing}\label{sec:discussion-transport-SHJ}
+
+
+
+
+
+%The transport across the a-Si:H/c-Si interface will be discussed in more detail in Section \ref{sec:aSi-cSi}.
+
+
+
+%The transport across the TCO/c-Si interface will be discussed in more detail in Section \ref{sec:TCO-aSi}.
+
+
+
+\section{Influence of TCO and a-Si:H doping on SHJ contact resistivity}\label{sec:TCO-aSi}
+
+%Paper Doping variation+interlayer ~8-10 Seiten
+
+%Bruhat.2017 sieht degradation von AZO Rsheet durch annealing an luft bei 250 °C, auch niedrigere temps?
+
+In the previous section, it was shown that resistive losses in silicon heterojunction (SHJ) solar cells are partly linked to transport barriers at the $\textrm{a-Si:H/c-Si}$ and $\textrm{TCO/a-Si:H}$ interfaces. Increasing doping is a straightforward, classical method to lower $\rho_c$ in metal/semiconductor contacts. In the SHJ stack the situation can be more complex, especially for the hole contact. 
+%In this section the focus is on vertical transport losses at the TCO/a-Si:H heterojunction. The transport across the a-Si:H/c-Si interface will be discussed in more detail in Section \ref{sec:aSi-cSi}.%a-Si doping ist aber eigentlich für beide junctions...
+After a short discussion of the TCO/a-Si:H contact based on numerical device simulations\footnotemark\footnotetext{The numerical device simulations were performed by Christoph Messmer, another doctoral candidate at Fraunhofer ISE. The simulations help to interpret the author's experimental work and to bring it into a general perspective. The comparison between experiment and simulation was also very useful to calibrate the simulation models.}, 
+optimum a-Si:H doping for both electron and hole contact of our SHJ are investigated. 
+For a-Si:H this is achieved by using a sufficient but not too high doping gas concentration during deposition. 
+Then, the TCO/a-Si:H contact resistance is examined over a wide range of TCO resistivities (i.e., O$_2$ contents) for the a-Si:H($n$) electron contact and a-Si:H($p$) hole contact. ITO, the most commonly used TCO is compared with \ac{AZO}, a potential candidate for SHJ cells with an indium-free TCO. Finally, the beneficial effect of an ITO stack on $\rho_c$ and on solar cell performance is presented.
+
+
+%For ITO and \ac{AZO} no or only a very low \ac{O2} gas concentration during deposition is needed.
+
+
+\subsection{Simulation of the TCO/a-Si:H contact}\label{sec:discussion-sim-TCO/a-Si}
+
+%The reason for significantly lower $\rho_c$ at the electron contact compared to the hole contact, observed in section \ref{sec:rhoc-different-stacks} (and also e.g. in \cite{Luderer.2020,Lachenal.2016,Nogay.2016,Gogolin.2014}) is twofold. The transport barrier at the a-Si(i)/c-Si interface is lower for electrons \cite{Schulze.2011} and the TCO/a-Si:H(n) junction is isotype, making the contact engineering somewhat easier. Additionally, higher doping efficiency compared to a-Si(p) \cite{Spear.1975} eases contact formation.
+
+%temperature dependence erst nach ergebnissen TCO O2 ansprechen, oder schon in 5.1? kann man ja nicht mit sim erklären...
+%In order to understand the different behavior of $\rho_c$ and its temperature dependence of the electron and hole contacts in Figs. \ref{fig:overview-rhoc-SHJ} and \ref{fig:I-V(T)-SHJ}, one has to consider the relevant transport paths for both contacts, depicted in the simulated band diagrams at \ac{MPP} of Figs. \ref{fig:banddiagram-p-MPP} and \ref{fig:banddiagram-n-MPP}.
+
+
+
+%in maps noch punkte für die simulierten daten einsetzen, rest ist interpolation! in caption erwähnen?
+\begin{figure}[htp]
+	\centering{
+		\begin{minipage}[b]{0.6\textwidth}
+			\centering
+			\subfloat[\textbf{(a)}  \label{fig:banddiagram-n-MPP}] {\includegraphics[width=\textwidth]{images/SHJ/banddiagramm-n-MPP}}
+		\end{minipage}
+		\par\bigskip % force a bit of vertical whitespace
+		\begin{minipage}[b]{0.7\textwidth}
+			\centering
+			\subfloat[\textbf{(b)}  \label{fig:Sim-Rs-doping-n}] {\includegraphics[width=\textwidth]{images/SHJ/Sim-Rs-doping-variation-n}}
+		\end{minipage}
+	}
+	\caption[Simulated band diagram and $R_s$ for the SHJ electron contact]{(a) Band diagram of the SHJ electron contact at maximum power point. Important transport mechanisms are indicated (adapted from Ref. \cite{Messmer.2020}). (b) Simulated $R_s$ for SHJ solar cells as a function of doping in a-Si:H($n$) and TCO at the electron contact. The map was created via extrapolation between simulated data points (black).}
+	\label{fig:SIM-e-contact}
+\end{figure}
+
+%e-contact version
+Fig. \ref{fig:banddiagram-n-MPP} illustrates a simulated band diagram at \ac{MPP} of the SHJ electron contact. 
+As seen in the previous section, total resistance is typically governed by the series connection of (i) the a-Si:H/c-Si and (ii) the TCO/a-Si:H contact resistance, as indicated in Fig. \ref{fig:banddiagram-n-MPP}. %Martin: kann man den einfluss des aSi bulk einfach quantifizieren aus simulationen?
+In this section, the focus is on the TCO/a-Si:H junction. The transport across the a-Si:H/c-Si junction will be discussed in Section \ref{sec:discussion-aSi-cSi}.
+Assuming a metal-like TCO, the TCO/a-Si:H($n$) electron contact is similar to the case of a metal/$n$-doped semiconductor contact. %Martin:but with the difference that the metal provides an abundance of recombination center directly at the interface???
+%Martin:In the case of efficient electron-hole recombination (anstatt in this sense)...
+In this sense, the TCO/a-Si:H($n$) contact can be described as a Schottky contact with $\rho_c$ determined by the barrier height ($\Phi_B$) and the barrier width $w$ \cite{Sze.2002,Jackson.1986}, as introduced in Section \ref{sec:transport-mechanisms}. A low barrier height improves transport via thermionic emission whereas a narrow barrier makes transport via tunneling efficient \cite{Sze.2002,Schroder.1984}. The barrier height $\Phi_B$ is determined by the work functions and electron affinities of the adjacent materials. The barrier width is the depletion zone width which depends on the charge carrier concentrations $N_{TCO}$ and $N_{a-Si:H(n)}$ and the charge of the defects on either side of the junction (Eq. \ref{eq:depletion-width}). 
+Since the charge carrier concentration $N_{a-Si:H(n)}$ is several orders of magnitude lower compared to $N_{TCO}$, the depletion zone spreads mainly in the a-Si:H part of the junction \cite{Bivour.2013,Ritzau.2014,Roessler.2013,Arch.1991}. Defects in a-Si:H can help to keep the depletion width
+sufficiently narrow for effective tunneling \cite{Arch.1991}. %genauer, was für defekte?? nee, bleibt wohl so...
+$N_{TCO}$ is rather easily accessible via Hall effect measurements. Because of the low charge carrier concentrations, this technique cannot be applied on a-Si:H. Hence, the a-Si:H activation energy ($E_a$), determined from temperature-dependent dark $J-V$ measurements \cite{Zhao.2021}, is often used as a measure of the position of the Fermi-level in a-Si:H. 
+
+
+%Simple solar cell structures for which transport is limited only by the hole contact have been simulated with Senta...
+Fig. \ref{fig:Sim-Rs-doping-n} shows a map of simulated $R_s$ values as a function of the doping concentration in a-Si:H($n$) and TCO at the electron contact. The results were obtained with Sentaurus TCAD \cite{Synopsys.2019} based on the band diagram and the trap-assisted tunneling paths depicted in Fig. \ref{fig:banddiagram-n-MPP} using simulation parameters as described in Ref. \cite{Messmer.2020}. The hole contact was assumed to be ideal and lateral transport was not included in this 1D solar cell simulation. Hence, for (almost) ideal behavior also at the electron contact, i.e., very low $\rho_c$, the wafer's resistivity is the only contributor to $R_s$ (20 m$\upOmega$cm$^2$, dark blue area). 
+For the electron contact, the TCO/a-Si:H($n$) junction is isotype, which means that electrons are majority carriers on either side. %This makes the contact engineering somewhat easier as 
+Increasing the doping on both sides reduces both, the barrier height and the depletion width, resulting in lower $R_s$ the higher $N_{TCO}$ and $N_{a-Si:H(n)}$ are (Fig. \ref{fig:Sim-Rs-doping-n}). The contact is mainly limited by the poor doping efficiency of a-Si:H and very low $R_s$ (dark blue area) are only accessible with micro-crystalline Si ($\upmu$c-Si). %noch mehr ausführen?
+%In solar cells, however, the constraints of proper optical properties for the TCO doping obviously still remain. 
+
+
+%h-contact version
+
+For the hole contact the engineering of the TCO/a-Si:H($p$) junction is more complex and deserves a more detailed discussion.
+The large valence band offset $\Delta E_v > 2 ~\textrm{eV}$ is representing a sufficiently high transport barrier that cannot be overcome via thermionic emission \cite{Kanevce.2009}. %messmer zitiert bivour.2015, ist aber wohl fehler! eigentlich wollte er steinkemper diss zitieren, steinkemper ist in bivour.2015 co-author, aber trotzdem kein gutes zitat!! kanevce ist gutes zitat! 
+Thus, if no tunneling occurred at the TCO/a-Si:H transition, hole transport from $p$-type a-Si:H to $n$-type TCO would be completely blocked. This makes the TCO/a-Si:H($p$) interface a recombination junction, a-Si:H($p$) holes must recombine with electrons of the TCO conduction band at or close to the TCO/a-Si:H interface to contribute to the charge transport \cite{Leilaeioun.2017,Kanevce.2009}. The lower doping efficiency of a-Si:H($p$) compared to a-Si:H($n$) \cite{Spear.1975} further complicates the contact formation. 
+
+%This is identical with the case of a metal/p-doped semiconductor contact. In this sense, the TCO/a-Si:H(p) contact can be described as a Schottky contact with $\rho_c$ determined by the barrier height ($\Phi_B$) and the barrier width $x$ \cite{Sze.2002,Jackson.1986}, as introduced in Section \ref{sec:transport-mechanisms}. A low barrier height improves transport via thermionic emission whereas a narrow barrier makes transport via tunnelling efficient \cite{Sze.2002,...}. The barrier height $\Phi_B$ is determined by the work functions and electron affinities of the adjacent materials. The barrier width is the depletion zone which depends on the charge carrier concentration $N_{TCO}$ and $N_{a-Si:H(p)}$ on either side of the junction (Eq. \ref{eq:depletion-width}). %hier könnte man noch schroder zitieren, auch sze sicherlich...
+
+
+%Since the charge carrier concentration $N_{a-Si:H(p)}$ is several orders of magnitude lower compared with $N_{TCO}$, the depletion zone is mainly in the a-Si:H part of the junction according to Eq. \ref{eq:depletion-width} and several publications \cite{Bivour.2013,Ritzau.2014,Roessler.2013,Arch.1991}. Defects in a-Si:H can help to keep the depletion width sufficiently narrow for effective tunnelling \cite{Arch.1991}. %genauer, was für defekte??
+%$N_{TCO}$ is rather easily accessible via Hall effect measurements. Because of the low charge carrier concentrations, this technique cannot be applied on a-Si:H. Hence, the a-Si:H activation energy ($E_a$), determined from temperature dependent dark $I-V$ measurements \cite{Zhao.2021,...}, is often used as a measure of the position of the Fermi-level in a-Si:H. 
+
+%in b einzeichnen, welche bereiche mit experimenten abgedeckt? nee sonst zu busy!
+%in a auch thermische emission ins aSi(i)? laut martin auch ohne tunneln gut zu simulieren, laut kanevce.2009 aber über 0.35/38 eV barriere tunneln nötig, um realisitsche SHJ sim zu erhalten...
+%christoph nach anteil des tunnelstroms fragen, tunnelstrom vs. thermische emission.., siehe kapitel 5.1.2
+\begin{figure}[htp]
+	\centering{
+		\begin{minipage}[b]{0.6\textwidth}
+			\centering
+			\subfloat[\textbf{(a)}  \label{fig:banddiagram-p-MPP}] {\includegraphics[width=\textwidth]{images/SHJ/banddiagramm-p-MPP}}
+		\end{minipage}
+		\par\bigskip % force a bit of vertical whitespace
+		\begin{minipage}[b]{0.7\textwidth}
+			\centering
+			\subfloat[\textbf{(b)}  \label{fig:Sim-Rs-doping}] {\includegraphics[width=\textwidth]{images/SHJ/Sim-Rs-doping-variation}}
+		\end{minipage}
+	}
+	\caption[Simulated band diagram and $R_s$ for the SHJ hole contact]{(a) Band diagram of the SHJ hole contact at maximum power point. Important transport mechanisms are indicated (adapted from Ref. \cite{Messmer.2020}). (b) Simulated $R_s$ for SHJ solar cells as a function of doping in a-Si:H($p$) and TCO at the hole contact. The map was created via extrapolation between simulated data points (black).}
+	\label{fig:SIM-h-contact}
+\end{figure}
+
+Fig. \ref{fig:banddiagram-p-MPP} shows a simulated band diagram at \ac{MPP} of the SHJ hole contact. 
+Basically, low resistive hole extraction from the absorber towards the TCO is enabled by ensuring sufficient high hole conductivity in all layers and at all interfaces along the transport paths \cite{Wuerfel.Cuevas.Wuerfel.2015,Messmer.2018b}. 
+%As seen in the previous section, total resistance is typically governed by the series connection of the (i) a-Si:H/c-Si and (ii) TCO/a-Si:H contact resistance, as indicated in Fig. \ref{fig:banddiagram-p-MPP}. 
+The influence of the a-Si:H and TCO doping on the series resistance is highlighted by the results from numerical device simulations shown in Fig. \ref{fig:Sim-Rs-doping}. 
+%Fig. \ref{fig:Sim-Rs-doping} shows a map of simulated $R_s$ values as a function of the doping concentration in p-type a-Si:H and n-type TCO at the hole contact. The results were obtained with Sentaurus TCAD \cite{Synopsys.2019} based on the band diagram and the trap-assisted tunnelling paths depicted in Fig. \ref{fig:banddiagram-p-MPP} using simulation parameters as described in \cite{Messmer.2020}. The electron contact was assumed to be ideal and lateral transport was not included in this 1D simulation. Hence, for (almost) ideal behaviour also at the hole contact, i. e. very low $\rho_c$, the wafer's resistivity is the only contributor to $R_s$ (20 m$\upOmega$cm$^2$, dark blue area). 
+For a highly doped and therefore metal-like TCO ($N_{TCO} > 4.0 \times 10^{20} ~\textrm{cm}^{-3}$), increasing the a-Si:H doping ($x$-axis) improves the contact to the absorber and to the TCO, as well as the transport through the a-Si:H "bulk". For TCOs with lower doping ($N_{TCO} < 2.0 \times 10^{20} ~\textrm{cm}^{-3}$), which are typically used in solar cells due to higher transparency, higher resistance losses at the TCO/a-Si:H contact are responsible for the increase in $R_s$. For very low TCO doping a positive influence due to better work function matching between TCO and a-Si:H($p$) is predicted by the simulation (bottom right). While such an improved work function matching could be shown experimentally \cite{Klein.2010,Bivour.PhD,Messmer.2020}, no improved transport on device level was observed \cite{Bivour.PhD,Messmer.2020}.
+Different tunneling scenarios have already been discussed in detail, e.g., in Refs. \cite{Messmer.2020} and \cite{Procel.2020}. For the hole contact, \ac{B2BT} is possible across the TCO/a-Si:H($p$) interface if the a-Si:H($p$) valence band is properly aligned with the TCO conduction band. Band alignment can be reached with two cases:
+\begin{enumerate}
+	\item First, the activation energy $E_a$ in a-Si:H($p$) (top $x$-axis in Fig. \ref{fig:Sim-Rs-doping}) has to be lower than the energy gap between conduction band edge and electron Fermi energy in the degenerate TCO\footnotemark\footnotetext{Note that the Fermi level lies above the conduction band egde in a degenerate TCO.} %am MPP wäre es quasi Fermi level der Elektronen...
+	 \cite{Bivour.PhD,Procel.2020}. %also Ea aSi muss kleiner sein als Ea TCO, wobei Ea TCO ist ja negativ! ne, also stimmt es nicht, Ea gibt es nicht für TCO!
+	This would be fulfilled for very high $N_{TCO}$ or very low $E_a$. The latter is difficult for a-Si:H($p$) since $E_a$ values below $200 ~\textrm{meV}$ cannot be reached in the amorphous state \cite{Spear.1975}. To reach lower $E_a$ values the deposition parameters have to be adapted to form micro- or nano-crystalline Si. Interestingly, the barrier height would be very high in this scenario but transport is efficient via B2BT (top right in \ref{fig:Sim-Rs-doping}).
+	\item Second, for TCO work functions higher than the a-Si:H($p$) work function \cite{Bivour.2013}. This case is also difficult to achieve with common ITO work functions reported in the range of $4.0-5.5 ~\textrm{eV}$ \cite{Klein.2010} and the a-Si:H valence band edge being at $E_{v, a-Si:H(p)} = 5.62 ~\textrm{eV}$. %cite?	
+\end{enumerate}
+
+Failing proper band alignment, transport relies on trap states within the bandgap via capture and emission processes (\ac{TAT}), as discussed in detail in Refs. \cite{Kirner.2015,Messmer.2018b,Procel.2020}.
+The efficiency of \ac{TAT} is given by the energetic position of the trap states relative to the Fermi level \cite{Procel.2020,Goes.2018}. Hence, it depends on doping with the general trend of high $N_{TCO}$ and $N_{a-Si:H(p)}$ being beneficial for transport.
+
+
+
+\subsection{Doping variation}\label{sec:TCO doping}
+%hier nur aSi, TCO dann zusammen in 5.2.3? nee, bleibt so..
+\subsubsection{a-Si:H doping variation}
+
+%0.6 anstatt 0.65? nee, passt
+\begin{figure}[htp]
+	\centering{
+		\begin{minipage}[b]{0.65\textwidth}
+			\centering
+			\subfloat[\textbf{(a)}  \label{fig:B-doping}] {\includegraphics[width=\textwidth]{images/SHJ/B-doping}}
+		\end{minipage}
+		\par\bigskip % force a bit of vertical whitespace
+		\begin{minipage}[b]{0.65\textwidth}
+			\centering
+			\subfloat[\textbf{(b)}  \label{fig:P-doping}] {\includegraphics[width=\textwidth]{images/SHJ/P-doping}}
+		\end{minipage}
+	}
+	\caption[Influence of doping gas concentration on $\rho_c$ for hole and electron contact]{Influence of doping gas concentration on contact resistivity $\rho_c$ for (a) hole and (b) electron contact after annealing at 180 °C. Dashed lines represent structures with ITO, solid lines represent structures without ITO.}
+	\label{fig:a-Si-doping}
+\end{figure}
+
+
+%vorher E_a als actiavtion energy für aSi einführen, check 17.12.20
+A low $\rho_c$ at the TCO/a-Si:H and a-Si:H/c-Si heterojunctions can be reached by sufficient a-Si:H net doping \cite{Leilaeioun.2019,Nogay.2016}. The net doping of a-Si:H is defined by the dopant concentration and the doping efficiency, which is reduced by defect creation \cite{Stutzmann.1987,Street.1985,Korte.2009b}. Experimentally, the doping level can be controlled, among other deposition parameters, by the doping gas concentration. In Fig. \ref{fig:a-Si-doping}, $\rho_c$ for the electron and hole contact after annealing at $180 ~\textrm{°C}$ is displayed for varying doping gas concentrations during deposition. 
+The dopant gas concentration is defined here as the ratio of dopant atoms \ac{B} or \ac{P} to \ac{Si} atoms in the gas phase, taking into account the number of dopant atoms per molecule.
+Samples with ITO (dashed lines) and without ITO (solid lines) between a-Si:H and the metal contact were fabricated (structures 3 and 4 as depicted in Figs. \ref{fig:stack-structures-p} and \ref{fig:stack-structures-n}). The ITO \acp{O2} content was $1.6 ~\%$ for all samples, corresponding to $N_{TCO} \approx 1.9 \times 10^{20} ~\textrm{cm}^{-3}$ measured on glass after $180 ~\textrm{°C}$ annealing. For the hole contact in Fig. \ref{fig:B-doping} a pronounced optimum was observed for both doping gases investigated. Using \ac{TMB}, optimum $\rho_c$ was $150 ~\textrm{m}\upOmega\textrm{cm}^2$ without and $200 ~\textrm{m}\upOmega\textrm{cm}^2$ with ITO. Very similar results were obtained with \ac{B2H6} ($160 ~\textrm{m}\upOmega\textrm{cm}^2$ without and $200 ~\textrm{m}\upOmega\textrm{cm}^2$ with ITO). In case of the same electrode material (either metal or ITO), the lowest $\rho_c$ values are expected for a-Si:H with the highest charge carrier concentration $N_{a-Si:H(p)}$, i.e., with the lowest $E_a$. The increase in $\rho_c$ for lower doping gas concentrations can be explained by insufficient incorporation of dopants in the a-Si:H layer. In addition to the insufficiently induced c-Si band bending in the contact region, transport through the a-Si:H "bulk" is deteriorated with lower $N_{a-Si:H(p)}$ and lower density of states within the a-Si:H bandgap. An increased $\rho_c$ was also observed for doping concentrations above the optimum. In this process region, dopants are available in abundance. The defect density increases significantly with rising doping concentration \cite{Stutzmann.1987,Street.1985,Korte.2009b,Pysch.2011}. Therefore, decreasing $N_{a-Si:H(p)}$ (increasing $E_a$) can be assumed also in this region as a result of the reduced doping efficiency. 
+%für TMB wurden barrierenhöhen in Abhängigkeit der Dotierung extrahiert, passen zum verlauf von rhoc, erwähnen? wohl eher nicht
+
+Adding ITO to the structure increased $\rho_c$ for all doping concentrations. That ITO increases $\rho_c$ of the SHJ stack was shown previously (Section \ref{sec:rhoc-different-stacks}). Interestingly, the increase due to ITO was not constant for the different doping concentrations. Using TMB for example, at minimum $\rho_c$, the increase in $\rho_c$ due to ITO was $50 ~\textrm{m}\upOmega\textrm{cm}^2$, whereas it was $200 ~\textrm{m}\upOmega\textrm{cm}^2$ for the lowest and even $500 ~\textrm{m}\upOmega\textrm{cm}^2$ for the highest doping concentration. This shows, that $N_{a-Si:H(p)}$ influences both the a-Si:H/c-Si and the TCO/a-Si:H contact significantly.
+
+These trends were also observed for the electron contact (Fig. \ref{fig:P-doping}). Without ITO $\rho_c$ values below $10 ~\textrm{m}\upOmega\textrm{cm}^2$ were reached. Such low values are prone to errors, as discussed in Section \ref{sec:rhoc-measurements}. With ITO electrode the optimum was less pronounced for the electron contact than for the hole contact. Similar $\rho_c$ values were reached in the doping gas concentration range between 0.8 and $2.4 ~\%$ with lowest $\rho_c = 25 ~\textrm{m}\upOmega\textrm{cm}^2$ at $1.6 ~\%$. Optimum doping concentrations of TMB and PH3 were used for further investigations in the following.
+
+
+
+\subsubsection{TCO doping variation}
+
+
+
+\begin{figure}[htp]
+	\centering{
+		\begin{minipage}[b]{0.6\textwidth}
+			\centering
+			\subfloat[\textbf{(a) ITO on \boldmath{$n$}- and \boldmath{$p$}-type a-Si:H}  \label{fig:ITO-rhoc}] {\includegraphics[width=\textwidth]{images/SHJ/ITO-rhoc}}
+		\end{minipage}
+		\par\bigskip % force a bit of vertical whitespace
+		\begin{minipage}[b]{0.6\textwidth}
+			\centering
+			\subfloat[\textbf{(b) AZO on \boldmath{$n$}- and \boldmath{$p$}-type a-Si:H}  \label{fig:AZO-n-p}] {\includegraphics[width=\textwidth]{images/SHJ/AZO-n-p}}
+		\end{minipage}
+	}
+	\caption[Influence of the TCO O$_2$ content and annealing on $\rho_c$]{Influence of the TCO O$_2$ content and annealing on $\rho_c$ and TCO layer properties. (a) ITO/a-Si:H(n) and ITO/a-Si:H(p) contact resistivity. $R_{sheet}$ values on the top $x$-axis were measured after $200 ~\textrm{°C}$ annealing. (b) AZO contacts on a-Si:H($p$) and a-Si:H($n$). $R_{sheet}$ values on the top $x$-axis were measured as sputtered. The intrinsic a-Si:H layer was omitted in the resistance test structures to be more sensitive to the TCO/a-Si:H contact. As a reference,  $\rho_c$ for the metal/a-Si:H contact is indicated by horizontal lines.}
+	\label{fig:rhoc-overview-AZO-ITO}
+\end{figure}
+%vielleicht nur in Bildunterschrift, hier eigentlich fehl am Platz...in Bildunterschrift aber kein platz mehr, also weglassen!
+%TCO sheet resistances displayed at the top x-axis were measured on glass after 200°C annealing for ITO and in the as deposited state for AZO. It can be seen in Fig. \ref{fig:rhoc-vs-Ne} and \ref{fig:ITO-Rsheet-Ne} that Hall parameters change upon annealing and depend on the used substrate. For that reason, displayed TCO sheet resistance values are only meant to show the relevance of the particular TCO for device integration.
+
+
+As discussed in Section \ref{sec:discussion-sim-TCO/a-Si} and addressed in Refs. \cite{Procel.2018,Bivour.PhD}, low $\rho_c$ at the TCO/doped a-Si:H interface results from efficient tunneling rather than efficient work function matching. Assuming that the a-Si:H is sufficiently doped, efficient tunneling can be
+achieved if the TCO provides a metal like behavior, i.e., the TCO is degenerately doped and if the interface is free of resistive interlayers \cite{Messmer.2020}. Experimentally, depositing TCO with low O$_2$ content in the sputtering gas facilitates both. The influence of the O$_2$ content on $\rho_c$ for both ITO and AZO on $n$- and $p$-type a-Si:H is depicted in Figs. \ref{fig:ITO-rhoc} and \ref{fig:AZO-n-p}. The different colors indicate the influence of the post deposition annealing temperature. As a reference, $\rho_c$ of the metal/a-Si:H contact annealed at 180 °C is indicated with horizontal lines. Please note that unlike for the investigations of the a-Si:H doping, the intrinsic a-Si:H layer was omitted in these resistance test structures to be more sensitive to the TCO/a-Si:H contact (structure 2 in Figs. \ref{fig:stack-structures-p} and \ref{fig:stack-structures-n}).
+
+In the case of ITO, at the electron contact, $\rho_c$ decreased monotonically with decreasing O$_2$ content (open boxes in Fig. \ref{fig:ITO-rhoc}). In the range of $0-2.3 ~\%$, which results in $R_{sheet}$ values typically applied in SHJ cells, $\rho_c$ increased only slightly and was almost constant on a very low level for a-Si:H($n$). Similarly, $\rho_c$ for the hole contact increased with rising O$_2$ content (closed boxes in Fig. \ref{fig:ITO-rhoc}). Lowest $\rho_c$ values for ITO deposited with a medium O$_2$ content of $1.6 ~\%$ indicate an optimum for this process. %However, this is close to the wafer to wafer scattering. 
+It is obvious, that even for highest $N_{TCO}$, the TCO/a-Si:H contact is inferior compared to the metal/a-Si:H contact. 
+
+
+%sollte vielleicth schon vor fig rhoc vs. ne angesprochen werden! wie aktuell der FAll!
+AZO contacts (Fig. \ref{fig:AZO-n-p}), similar to ITO contacts, showed increasing resistance with increasing O$_2$ content independent of the a-Si:H doping polarity, with $\rho_c$ about an order of magnitude higher for the hole contact than for the electron contact.
+On $p$-type a-Si:H, the optimal $\rho_c$ values for the lowest AZO O$_2$ content were lower than the optimal $\rho_c$ values for ITO.
+With the introduction of additional O$_2$ into the sputtering plasma during AZO deposition, $\rho_c$ increased steeply by two orders of magnitude.
+
+As indicated by the different colors in Fig. \ref{fig:rhoc-overview-AZO-ITO}, similar to the previous section, the resistance of the $\textrm{metal/TCO/a-Si:H}$ stack changed upon annealing in ambient air with an optimum between 140 and $180 ~\textrm{°C}$, depending on the TCO O$_2$ content and the a-Si:H doping polarity. The same trends were observed for AZO as for ITO. At $200 ~\textrm{°C}$, a temperature commonly used to cure screen-printed Ag pastes for SHJ solar cells, the resistance already degraded for all investigated structures. %wie schon vorher geschrieben...
+
+
+\begin{figure}[ht] 
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/SHJ/ITO-Rsheet-Ne}
+	\caption[ITO Hall measurement parameters]{$N_{TCO}$ and $R_{sheet}$ for ITO as measured on glass.}
+	\label{fig:ITO-Rsheet-Ne}
+\end{figure}
+
+
+Fig. \ref{fig:ITO-Rsheet-Ne} shows $N_{TCO}$ and $R_{sheet}$ of $\approx 105$ nm ITO measured on glass as a function of O$_2$ content in the sputtering gas. Rising O$_2$ content decreased $N_{TCO}$ on glass by three orders of magnitude in the as deposited state. Annealing in air at different temperatures steadily increased $N_{TCO}$ for all ITO layers. This increase is more apparent for oxygen-rich ITOs with lower initial $N_{TCO}$. The same trend was observed by Haschke \textit{et al.} for two ITO layers with different O$_2$ content \cite{Haschke.2019}. Accordingly, $R_{sheet}$ increased with rising O$_2$ content and decreased for all groups during annealing. Hall Effect parameters are highly dependent on the used substrate, i.e., planar glass or hydrogen-rich a-Si:H on a random pyramid textured c-Si wafer \cite{Ritzau.2016,Cruz.2020b,Erfurt.2020,Tutsch.2021}. Nevertheless, the same qualitative trends seen on glass were also observed for $N_{TCO}$ and $R_{sheet}$ obtained from Hall Effect measurements on textured SHJ precursor (not shown). AZO was more sensitive to small changes in O$_2$ content. This lead to scattering of Hall parameters from run to run (not shown). 
+Nevertheless, similar to ITO, on average $N_{TCO}$ for AZO decreased with increasing O$_2$ content in the sputtering gas from $3.1 \times 10^{20} ~\textrm{cm}^{-3}$ at $0 ~\%$ to $6 \times 10^{19} ~\textrm{cm}^{-3}$ at $1.2 ~\%$ O$_2$ in the sputtering gas.
+
+
+%annealing für hole contact muss dann noch kurz beschrieben werden, wenn nicht geplottet...bleibt wohl so, verhalten mit annealling ist ja mit boxplots weiter oben gezeigt vs. O2 content...
+\begin{figure}[htp]
+	\centering{
+		\begin{minipage}[b]{0.7\textwidth}
+			\centering
+			\subfloat[\textbf{(a) hole contact } \label{fig:rhoc-vs-Ne}] {\includegraphics[width=\textwidth]{images/SHJ/rhoc-vs-Ne}}
+		\end{minipage}
+		\par\bigskip % force a bit of vertical whitespace
+		\begin{minipage}[b]{0.7\textwidth}
+			\centering
+			\subfloat[\textbf{(b) electron contact}  \label{fig:rhoc-vs-Ne-n}] {\includegraphics[width=\textwidth]{images/SHJ/rhoc-vs-Ne-n}}
+		\end{minipage}
+	}
+	\caption[$\rho_c$ vs. $N_{ITO}$ for the hole and electron contact]{(a) $\rho_c$ for the hole contact plotted against N$_{ITO}$ measured on a glass or SHJ substrate after 200 °C annealing. For comparison, simulated data with $E_{a,a-Si:H(p)}$ fixed at $275 ~\textrm{meV}$ is added. (b) $\rho_c$ for the electron contact plotted against N$_{ITO}$ measured on a SHJ substrate after annealing at 140, 180 and $200 ~\textrm{°C}$.}
+	\label{fig:rhoc-vs-Ne-n-und-p}
+\end{figure}
+
+
+%simulated Rs vs NTCO vs. NaSi muss vorher kommen...passt!
+%To compare the TCO/a-Si:H contact with a classical metal/semiconductor contact introduced in Section \ref{sec:transport-mechanisms}, %kann nichth genau verglichen werden, dazu müsste man rhoc vs. N im aSi plotten! also besser nicht so schreiben...
+In Fig. \ref{fig:rhoc-vs-Ne} $\rho_c$ for the hole contact is plotted against $N_{ITO}$ measured on glass and on a textured SHJ precursor after 200 °C annealing. On SHJ substrate higher $N_{TCO}$ was obtained, but absolute $N_{TCO}$ values on different substrates cannot be compared, as mentioned above \cite{Ritzau.2016,Cruz.2020b,Erfurt.2020,Tutsch.2021}. The experimentally obtained trend coincided with the simulated $R_s$ for $E_{a,a-Si:H(p)} = 275 ~\textrm{meV}$. Please note that the contributions of the wafer (20 m$\upOmega$cm$^2$) and the intrinsic layer ($\approx 150 ~\textrm{m}\upOmega$cm$^2$, Section \ref{sec:rhoc-different-stacks}) were subtracted from simulated $R_s$, thereby making it comparable to the experimental $\rho_c$ data. The slight increase in resistance for the hole contact at highest $N_{TCO}$ approaching $10^{21} ~\textrm{cm}^{-3}$ observed experimentally was also predicted by the simulation for $E_{a,a-Si:H(p)} > 220 ~\textrm{meV}$. This could be explained by an increased work function mismatch due to a too low work function of the highly doped TCO. When the simulated a-Si:H activation energy was below $220 ~\textrm{meV}$, this trend was not observed. Most likely because tunneling is more efficient and the increased work function mismatch is irrelevant in that case. %noch genauer, alignment mit urbach tail states?
+%e contact noch dazu plotten und diskutieren, sim passt nicht so gut zu exp! rhoc geht für höchste ne nicht auf 0, vielleicht wegen grenzflächen oxid? für niedrige N, viel O2, steigt rhoc exponentiell, anstatt zu saturieren wie in sim, das durch verstärktes Oxidwachstum mit mehr O2 zu erklären? e contact passt nicht so gut zu sim, da niedrigere rhoc und daher sensitivier für oxide?
+%plot rhoc vs. ne für verschiedene annealings für e (und h?) contact, um zu zeigen, dass rhoc ansteigt obwohl auch Ne mit anenaling zu nimmt?
+
+For $N_{TCO} < 2.0 \times 10^{20} ~\textrm{cm}^{-3}$ $\rho_c$ increased monotonically with decreasing $N_{TCO}$ (increasing ITO work function). 
+Thus, the reduction in transport barrier height due to increasing ITO work function was not large enough to be beneficial to $\rho_c$ because it was (over)compensated by less efficient tunneling due to lower $N_{TCO}$.
+A material with higher work function than low-oxygen ITO is needed for proper band alignment with a-Si:H($p$). Indeed, $\rho_c$ for the hole contact could be reduced with a 10 nm layer of high work function \ac{WOx} at the TCO/a-Si:H($p$) interface (stars in Fig. \ref{fig:ITO-rhoc}). \ac{WOx} work functions up to 6.7 eV have been reported \cite{Meyer.2010}, depending on the composition of the oxide \cite{Vasilopoulou.2011,Mews.2016,Menzel.2018}. It has to be mentioned, however, that the effective work function at the junction depends highly on the interface properties like the defect density ("Fermi-level pinning", Section \ref{sec:transport-mechanisms}) \cite{Dimoulas.2006,Agrawal.2014}. Bivour \textit{et al.} showed that a WO$_x$ interlayer at the hole contact can improve the $FF$ of SHJ cells \cite{Bivour.2015}.
+%fazit: ist es jetzt wie metal/semiconductor contact oder nicht? By comparing Fig. \ref{fig:rhoc-vs-Ne} $\rho_c$ with Fig. \ref{fig:rhoc-vs-Ne-theorie} $\rho_c$
+
+For the electron contact in Fig. \ref{fig:rhoc-vs-Ne-n} $\rho_c$ increased monotonically with decreasing $N_{TCO}$ over the entire $N_{TCO}$ range studied, as expected from the simulation. Again the contributions of the wafer (20 m$\upOmega$cm$^2$) and the intrinsic layer ($\approx 10 ~\textrm{m}\upOmega$cm$^2$, Section \ref{sec:rhoc-different-stacks}) were subtracted from the simulated $R_s$ to compare with the experimental $\rho_c$ data. There were two qualitative differences between simulation and experiment. In the simulation, $\rho_c$ approached zero ($R_s$ limited by the wafer) for $N_{TCO}$ approaching $10^{21} ~\textrm{cm}^{-3}$. The experimental data saturated at $\rho_{c} \approx 12 ~\textrm{m}\upOmega\textrm{cm}^2$ after 140 °C and at $\rho_{c} \approx 23 ~\textrm{m}\upOmega\textrm{cm}^2$ after 200 °C annealing. Further, the experimental $\rho_c$ diverged with lower $N_{TCO}$ (higher O$_2$ content) after annealing at 180 and 200 °C, whereas the simulated resistance data seemed to saturated at a finite value for $N_{TCO} < 10^{19} ~\textrm{cm}^{-3}$. These aspects will be briefly discussed in Section \ref{sec:discussion-TCO-aSi-annealing}.
+
+
+
+
+
+%\begin{figure}[htp]
+%	\centering{
+%		\begin{minipage}[b]{0.75\textwidth}
+%			\centering
+%			\subfloat[\textbf{(a) ITO Hall parameters on glass}  \label{fig:ITO-Rsheet-Ne}] {\includegraphics[width=\textwidth]{images/SHJ/ITO-Rsheet-Ne}}
+%		\end{minipage}
+%		\par\bigskip % force a bit of vertical whitespace
+%		\begin{minipage}[b]{0.65\textwidth}
+%			\centering
+%			\subfloat[\textbf{(b) $\rho_c$ vs. $N_{ITO}$ for the hole contact}  \label{fig:rhoc-vs-Ne}] {\includegraphics[width=\textwidth]{images/SHJ/rhoc-vs-Ne}}
+%		\end{minipage}
+%	}
+%	\caption[ITO Hall parameters and $\rho_c$ vs. $N_{ITO}$ for the hole contact.]{(a) $N_{TCO}$ and $R_{sheet}$ for ITO as measured on glass. (b) $\rho_c$ for the hole contact plotted against N$_{ITO}$ measured on glass or SHJ substrate after 200 °C annealing. For comparison, simulated data with $E_a$ fixed at 275 meV is added. }
+%	\label{fig:rhoc-vs-Ne-and-ITO-Rsheet-Ne}
+%\end{figure}
+
+
+
+%\clearpage
+%\newpage
+
+\subsection{TCO layer stack: Lower and more temperature stable $\rho_c$}\label{sec:TCO-interlayer}
+
+\paragraph{Test structures}
+
+In the previous section it was shown that highly transparent oxygen-rich TCOs result in high $\rho_c$ (in addition to high $R_{sheet}$). Fig. \ref{fig:interlayer-rhoc-structures} displays again $\rho_c$ of medium-O$_2$ ITO ($1.6 ~\%$, group 1) in comparison to $\rho_c$ of oxygen-rich ITO ($3.5 ~\%$, group 2). To improve $\rho_c$ of the oxygen-rich ITO without adding much parasitic absorption a $20 ~\textrm{nm}$ thin, highly conductive ITO interlayer ($1.0 ~\%$ O$_2$) was introduced at either the ITO/a-Si:H (group 3) or ITO/metal interface (group 4). In both cases $\rho_{c}$ could be reduced compared to the reference structure without any ITO interlayer. The interlayer at the ITO/a-Si:H interface seemed to be more effective, as slightly lower $\rho_c$ values were obtained compared to the structure with the interlayer at the ITO/metal interface. With the ITO interlayer at the a-Si:H interface similar $\rho_c$ as for $1.6 ~\%$-O$_2$ ITO (group 1) was obtained. 
+
+%discussion...
+%The reason for the lower overall resistance with such interlayer could be an improved contact at the interfaces due to higher $N_{TCO}$. Another reason could be a less pronounced formation of resistive oxides \cite{Messmer.2020} due to less excess oxygen at the ITO/a-Si:H interface.
+%besser:
+%The lower overall resistance with a low-oxygen interlayer at the ITO/a-Si:H interface can be explained by an improved contact due to i) higher $N_{TCO}$, ii) a less pronounced formation of resistive oxides due to less excess oxygen at the ITO/a-Si:H interface or a combination of both effects.
+
+
+%\begin{figure}[htp]
+%	\hspace{-0.3 cm}
+%	\centering{
+%		\begin{minipage}[b]{4.4 cm}
+%			\subfloat[\textbf{(a)}  \label{fig:interlayer-rhoc-structures}] {\includegraphics[width=1.1\textwidth]{images/SHJ/interlayer-rhoc-structures}}
+%		\end{minipage}
+%		\hspace{1.25 cm}
+%		\begin{minipage}[b]{4.4 cm}
+%			\subfloat[\textbf{(b)} dicken umrechnen!  \label{fig:interlayer-thickness}] {\includegraphics[width=1.1\textwidth]{images/SHJ/interlayer-thickness}}
+%		\end{minipage}
+%	}
+%	\caption[Contact resistivity of different ITO/a-Si:H(p) heterojunction stacks.]{(a) $\rho_c$ values of different ITO/a-Si:H(p) heterojunction stacks. The samples consisted of a metal/ITO/boron doped a-Si:H stack at the front (as depicted above) and a low-ohmic rear contact. (b) $\rho_c$ as a function of the ITO interlayer thickness at the a-Si:H interface. The intrinsic a-Si:H layer was omitted in (a) and (b) to be more sensitive to the TCO/a-Si:H contact.}
+%	\label{fig:TCO-interlayer}
+%\end{figure}
+
+
+\begin{figure}[htp]
+	\centering{
+		\begin{minipage}[b]{0.6\textwidth}
+			\centering
+			\subfloat[\textbf{(a)}  \label{fig:interlayer-rhoc-structures}] {\includegraphics[width=\textwidth]{images/SHJ/interlayer-rhoc-structures}}
+		\end{minipage}
+		\par\bigskip % force a bit of vertical whitespace
+		\begin{minipage}[b]{0.6\textwidth}
+			\centering
+			\subfloat[\textbf{(b)}  \label{fig:interlayer-thickness}] {\includegraphics[width=\textwidth]{images/SHJ/interlayer-thickness}}
+		\end{minipage}
+	}
+	\caption[$\rho_c$ of different ITO/a-Si:H($p$) heterojunction stacks]{(a) $\rho_c$ values of different ITO/a-Si:H($p$) heterojunction stacks. The samples consisted of a metal/ITO/B-doped a-Si:H stack at the front (as depicted above) and a low-ohmic rear contact. (b) $\rho_c$ as a function of the ITO interlayer thickness at the a-Si:H($p$) interface. The intrinsic a-Si:H layer was omitted in (a) and (b) to be more sensitive to the TCO/a-Si:H contact.}
+	\label{fig:TCO-interlayer}
+\end{figure}
+
+For the resistance test structures presented here, as for other structures commonly used to extract $\rho_c$ of SHJ (TLM, Cox and Strack), the TCO was capped by metal during the annealing. In solar cells, however, only a small fraction of the TCO is capped by the metal grid, leaving most of the TCO in direct contact with ambient air during curing of the metal paste after screen-printing. In an attempt to account for that, annealing of resistance test structures was performed prior to the front side metallization, i.e., the ITO layer was uncapped during annealing in air. Red, blue and green data in Fig. \ref{fig:interlayer-rhoc-structures} was obtained from samples consecutively annealed at different temperatures after metallization. Violet data resulted from samples that were exposed to the same temperature treatments but prior to metallization at the front. Note that these samples received an additional annealing at $180 ~\textrm{°C}$ after metallization to ensure that there was no influence of uncured metallization at the front. The rear side for all samples was metallized prior to annealing to ensure low-ohmic behavior. For medium-O$_2$ ITO ($1.6 ~\%$ O$_2$, group 1) no significant difference in $\rho_{c}$ was observed between the capped and uncapped annealing. Therefore, it seems legitimate to use our standard approach of annealing structures capped with metal to quantify resistive losses of heterojunction stacks containing low- to medium-O$_2$ ITOs. However, for oxygen-rich ITO ($3.5 ~\%$ O$_2$, group 2) higher $\rho_{c}$ was observed for uncapped ITO compared to capped ITO. 
+%Therefore, it can be concluded that changes at the interfaces rather than vertical transport via the TCO bulk seem to dominate $\rho_c$. 
+%discussion...aber kann man wohl trotzdem hier lassen...
+Apparently, there was stronger interaction of oxygen-rich ITO with oxygen from the air compared to low- or medium-O$_2$ ITO. For example, in Ref. \cite{Erfurt.2019} it was shown for \ac{IOH} that the higher the O$_2$ content during deposition, the larger the difference in $N_{TCO}$ of films annealed in air or in vacuum.
+
+With an ITO interlayer at the metal interface (group 4), annealing prior to metallization (ITO uncapped) still lead to increased $\rho_c$. With the ITO interlayer at the a-Si:H interface, however, $\rho_c$ was independent of the annealing method. It is worth mentioning, that the same trends were also observed on a-Si:H($n$) (not shown). %in 1-2 weiteren sätzen ausbauen, nee, passt so..
+This indicates that the ITO/a-Si:H interface is not only limiting regarding the overall $\rho_c$, but also most sensitive to (chemical) modification during annealing resulting in higher contact resistance.
+
+A thickness variation of the oxygen-poor ITO interlayer was performed to determine the minimum thickness required to benefit from the improved contact properties (Fig. \ref{fig:interlayer-thickness}). 
+The total ITO stack thickness was fixed to $\approx 70 ~\textrm{nm}$. Even for the thinnest interlayer of only $2.7 ~\textrm{nm}$ a reduction in $\rho_{c}$ of about $50 ~\textrm{m}\upOmega\textrm{cm}^2$ to (almost) the level of $\rho_{c, 1.6\%\textrm{-O}_2}$ was observed. With increasing interlayer thickness, $\rho_c$ hardly changed. Thus, $\rho_c$ can be considered quite independent of the interlayer thickness. 
+
+%discussion
+%If efficient homogenization of both ITOs during annealing occurs, one would expect to obtain lower $\rho_c$ the higher the share of low-oxygen ITO is in the stack, i.e. with increasing interlayer thickness. However, this is not the case, indicating that the O$_2$ content respectively $N_{TCO}$ directly at or in the immediate vicinity of the ITO/a-Si:H interface dominates the transport behaviour. The weak thickness dependence could also point towards the avoidance of an O$_2$-rich layer at the ITO/a-Si:H interface by using O$_2$-poor sputtering gas during the initial TCO growth.
+
+As a result, in solar cells oxygen-rich ITO can be used as "bulk" ITO to form an overall highly transparent layer while the ultra-thin interlayer prevents deterioration of $\rho_c$. Similarly, Leilaeioun \textit{et al.} found $\rho_c$ to be independent of the O$_2$ content within the "bulk" ITO with a 15 nm thick low-O$_2$ interlayer \cite{Leilaeioun.2019}. %hier noch auf kirner.2015 verweisen? Nee, oben schon zitiert.., passt
+Instead of oxygen-rich ITO also other even more transparent materials like \ac{SiNx}, \ac{SiOx} or \ac{TiOx} could be used as anti-reflection coating replacing the oxygen-rich "bulk" TCO with the additional benefit of less indium consumption \cite{Herasimenka.2016,Baetzner.2019,MoralesVilches.2019}.
+
+
+
+
+
+
+%\section{discussion: annealing and TCO stack}\label{sec:discussion-TCO/a-Si}
+
+
+
+%\begin{figure}[htp] 
+%	\centering
+%	\includegraphics[width=0.55\linewidth]{images/SHJ/banddiagramm-n}
+%	\includegraphics[width=0.55\linewidth]{images/SHJ/banddiagramm-p}
+%	\caption[CV Messung an einer LSMO-Dünnschicht]{better show at MPP}
+%	\label{fig:SHJ-banddiagrams}
+%\end{figure}
+
+%parameters, like Na-Si influence both TCO/a-Si and a-Si/c-Si junction. however, since TCO properties do not really influence the a-Si/c-Si junction, transport across TCO/a-Is interface will be discussed here before the transport across the a-Si:H/c-Si interface will be discussed in more detail in Section \ref{sec:aSi-cSi}.
+
+
+
+
+%regarding annealing mit/ohne metall, nur o2 rich TCO wird schlechter ohne metall...
+%Possible could be a stronger interaction of O$_2$-rich ITO with oxygen from the air compared to low- or medium-O$_2$ ITO. For example, in \cite{Erfurt.2019} it was shown for \ac{IOH} that the difference in  $N_{TCO}$ of films annealed in air or in vacuum is larger the higher the O$_2$ content during deposition was.
+
+
+
+
+
+
+
+\paragraph{Solar cells}
+
+In solar cells optical and electrical properties have to be balanced to achieve high $J_{sc}$ and low $R_s$. Regarding $R_s$ not only $\rho_c$ but also sufficient lateral transport (low $R_{sheet}$) has to be ensured. $J_{sc}$ and $R_s$, as well as the power conversion efficiency $\eta$ of fabricated monofacial $n$-type SHJ solar cells in rear emitter design (hole contact at the rear side) are shown in Fig. \ref{fig:cells-TCO}. 
+%nötig hier zu schreiben?
+Please note, that the cell performance was limited by the low $J_{sc}$ due to a simplistic grid design with a busbar shading of $4 ~\%$ of the total cell area.
+
+
+\begin{figure}[htp] 
+	\centering
+	\includegraphics[width=0.49\textwidth]{images/SHJ/interlayer-cell-structures}
+	\includegraphics[width=0.7\textwidth]{images/SHJ/interlayer-cell-results}
+	\caption[$J-V$ parameters of SHJ solar cells comprising different ITO layers]{$J-V$ parameters of SHJ solar cells in the rear emitter design comprising different ITO layers. The sketched structure for each group is depicted at the top.}
+	\label{fig:cells-TCO}
+\end{figure}
+
+Reference group 1 represents cells with the Fraunhofer ISE baseline ITO of $1.6 ~\%$ O$_2$ on both front and rear side. A gain in $J_{sc}$ was observed using oxygen-rich ITO ($3.5 ~\%$ O$_2$) only on the rear side (group 2) and an even more pronounced $J_{sc}$ gain was observed when oxygen-rich ITO was used on both sides (group 3). However, $R_s$ increased accordingly due to increased $\rho_c$ and $R_{sheet}$ for oxygen-rich ITO, as depicted in Fig. \ref{fig:rhoc-overview-AZO-ITO}. To combine high transparency with low $\rho_c$ and to ensure only moderate chemical modification of the TCO/a-Si:H interface during curing of the screen-printed metal paste at 200°C, the oxygen-rich ITO was deposited in between two low-O$_2$ ITO interlayers ($1.0 ~\%$ O$_2$, $13.3 ~\textrm{nm}$ thickness each) on the rear side (group 4) or on both sides (group 5). Especially for group 5 a clear gain in $J_{sc}$ was achieved compared to reference group 1, whereas $R_s$ was in the same range for both groups. This shows that in addition to $\rho_c$ also $R_{sheet}$ was sufficiently low using oxygen-rich ITO in combination with the low-O$_2$ ITO interlayer. 
+It is important to mention again that lateral transport is provided not only by the TCO, but also by the silicon absorber \cite{Haschke.2020}. %cruz.2019 zitiern wie leo im abstract eupvsec21? in cruz geht es schon mehr um das tco...
+The distribution of lateral transport between absorber and TCO is determined by $\rho_c$ and efficient coupling is only possibly with low $\rho_c$. Therefore the reduction of $\rho_c$ is not only important for vertical but also for lateral transport. 
+
+The passivation quality was not influenced by the TCO variation. p$FF$ was $83.1 \pm 1.1 \%$ and $V_{oc}$ was $730 \pm 3 ~\textrm{mV}$ for all groups (not shown). Hence, group 5 lead to a maximum $\eta$ of $22.1 ~\%$, which is higher compared to the cells with single TCO layers. Even thinner interlayers well below $13.3 ~\textrm{nm}$ have not been tested in solar cells, but are expected to provide even better optics and consequently further improved $\eta$.
+
+
+
+
+%diskussion als eigenes unterkapitel, nach solar cell results? vielleicht besser, dann taucht es auch in TOC auf...
+\subsection{Discussion: Thermal stability of the TCO/a-Si:H junction}\label{sec:discussion-TCO-aSi-annealing}
+
+
+From the degradation of $\rho_c$ with annealing one could expect decreased $N_{TCO}$ in ITO or increased $E_a$ in a-Si:H. However, Fig. \ref{fig:ITO-Rsheet-Ne} shows that $N_{TCO}$ on glass increased during annealing in this temperature range.
+Note that ITO used for Hall Effect measurements was uncapped and in direct contact with air during annealing unlike the resistance test structures. This might influence the TCO modification during annealing, as shown in Fig. \ref{fig:interlayer-rhoc-structures}.
+Due to the overall lower $\rho_c$, the electron contact is more sensitive to changes at the TCO/a-Si:H junction during annealing compared to the hole contact.
+In Fig. \ref{fig:rhoc-vs-Ne-n} the trend of increased $\rho_c$ despite increased $N_{TCO}$ with annealing could be seen. %in contradiction to the overall opposite trend in both experimental and simulation data. 
+Increased $E_a$ within a-Si:H($n$) (reduced $N_{a-Si:H(n)}$) cannot be excluded, as $E_a$ was not measured directly. However, for structures without TCO (and without intrinsic a-Si:H) no degradation of $\rho_c$ was observed with annealing (Section \ref{sec:rhoc-different-stacks}), even up to 400 °C. %Andere Fragen von Martin: zeigen p-aSi Schichten mit B2H6 die gleiche Thermische degradation? für optimale dotierung ähnlich, für zu hohe dotierflüsse ist rhoc sehr schlecht und wird bis 220 °C besser, da wohl noch dotierstoff aktiviert wird.
+This would not be expected if $E_a$ was already increasing after annealing at $\approx 200 ~\textrm{°C}$. 
+Thus, $\rho_{c}$ seems not to be determined by the "bulk" properties $N_{TCO}$ and $E_a$, but by interface properties. 
+It is fitting that very similar $\rho_{c}$ with twice the ITO thickness was obtained (not shown). 
+Therefore it is most likely that changes directly at the TCO/a-Si:H interface are responsible for the increased $\rho_c$ after annealing for both electron and hole contact. 
+%wirklich feasiable...?
+Feasible from thermodynamic considerations based on Gibbs formation energies \cite{Greiner.2013,Gerling.2017} is the formation, thickening or densification of silicon oxide at the TCO/a-Si:H interface during annealing with oxygen from the TCO \cite{Wimmer.2011,Bivour.PhD,Tutsch.2018,Messmer.2020}. %oder tutsch2019 implementing zitieren..?
+An oxide transport barrier could explain why experimental $\rho_c$ was limited to a finite value for very high $N_{TCO}$ close to $10^{21} ~\textrm{cm}^{-3}$, in contrast to the simulation. Likewise, a pronounced formation and thickening of this barrier for oxygen-rich TCOs might explain the exponential increase in $\rho_c$ observed in Fig. \ref{fig:rhoc-vs-Ne-n} after annealing.
+
+%regarding ITO stack 
+With respect to the ITO layer stack, the overall lower resistance with a low-O$_2$ interlayer at the ITO/a-Si:H interface can be explained by an improved contact due to i) higher $N_{TCO}$, ii) a less pronounced formation of resistive oxides due to less excess oxygen at the ITO/a-Si:H interface or a combination of both effects.
+%and interlayer thickness variation..
+With efficient homogenization of the O$_2$ content in an ITO stack during annealing, one would have expected the $\rho_c$ to be lower the higher the fraction of low-O$_2$ ITO in the stack, i.e., with increasing interlayer thickness.
+However, this was not the case, indicating that the O$_2$ content respectively $N_{TCO}$ directly at or in the immediate vicinity of the ITO/a-Si:H interface dominates the transport behavior. %This is supported by the fact that very similar $\rho_{c}$ was obtained with twice the ITO "bulk" thickness. 
+The weak interlayer thickness dependence could further point towards the avoidance of an oxygen-rich layer at the ITO/a-Si:H interface by using low-O$_2$ sputtering gas during the initial TCO growth. In-depth structural analysis of the TCO/a-Si:H interface and its changes during annealing, e.g., via transmission electron microscopy (TEM) assisted by electron energy loss spectroscopy (EELS) or energy dispersive X-ray spectroscopy (EDX), would help to find a definitive explanation.
+%A further analysis of the chemical composition of the interface e.g. via electron energy-loss spec-troscopy (EELS) and / or energy dispersive X-ray spectroscopy (EDXS), as performed in [183], would potentially allow a better understanding of the contact barrier formation.
+
+
+%aus leo diss:
+%An explanation here could be the annealing of defects within the a-Si:H thin-films at this temperature range [203]. While this can be beneficial for passivation purposes, these defects are suggested to substantially contribute to the majority carrier transport both through the a-Si:H thin-films but also across the interfaces [131]. Fur-ther, the oxidation of the a-Si:H interface with oxygen coming from the adjacent TCO films during these annealing steps was considered as an addi-tional contribution to the ?c increase [131].
+%For poly-Si based contacts, the formation of low-ohmic junctions with the TCO is facilitated by the high net doping of typically applied poly-Si layers. This would in principle relax the requirements for the TCO film to obtain low ?c values. However, at least for thin poly-Si based passivating contacts an annealing step is crucial to recover the passivation after the TCO sputter-
+%130 7.5 Discussion
+%ing. The necessity for higher curing temperatures, compared to SHJ con-tacts, constitutes the main challenge for the ?c of these contacts. Here again the formation of an insulating SiOx layer at the TCO / poly-Si interface comes to mind. This assumption is supported by experimental investiga-tions on comparable contact structures [183,200]. A further analysis of the chemical composition of the interface e.g. via electron energy-loss spec-troscopy (EELS) and / or energy dispersive X-ray spectroscopy (EDXS), as performed in [183], would potentially allow a better understanding of the contact barrier formation. Also in case of poly-Si based contacts, the insertion of an oxygen-poor ITO interlayer turned out to be beneficial, improving the thermal stability for both the electron (Figure 7-5) and the hole contact (Figure 7-7). However, also here structural investigations are necessary to differentiate whether the lower ?c stems from the higher Ne in the ITO close to the poly-Si inter-face (reducing the barrier width) or from the reduced number of oxygen atoms present in the interface region (mitigating the SiOx growth), or both.
+%Fortunately, the temperature budget for the mechanisms attributed to the recovery of the poly-Si / SiOx surface passivation differs sufficiently from the one related to the formation of the TCO / poly-Si contact barrier. Hence, besides the insertion of interlayers, also the proper design of the annealing process yields the possibility to achieve low J0,contact and low ?c simultane-ously. As an example thereof, the irradiation with pulses of infrared light in vacuum was successfully developed.
+
+
+
+
+
+
+
+%achtung header könnte falsch sein!!
+%\sectionmark{Intrinsic layer modification in silicon heterojunctions}
+\section[Intrinsic layer modification in silicon heterojunctions: Balancing transport and surface passivation]{Intrinsic layer modification in silicon heterojunctions: Balancing transport and surface passivation}\label{sec:aSi-cSi}
+\sectionmark{Intrinsic layer modification in silicon heterojunctions}
+
+%~8-10 Seiten, Beitrag SiPV2021+Schichtdicken
+
+%\widowpenalty-10000
+
+%noch nicht in SHJ state of the art verwendet:
+As mentioned in Section \ref{sec:SHJ-art}, multilayer a-Si:H($i$) stacks are used in state-of-the-art SHJ solar cells to ensure an abrupt a-Si:H/c-Si interface for excellent surface passivation. A porous, void-rich a-Si:H interfacial layer ($i$1) deposited in pure \ac{SiH4} plasma in combination with a dense a-Si:H layer ($i$2) deposited in highly \acp{H2} diluted plasma has been shown to increase the passivation quality of SHJ cells (compared to single intrinsic layers deposited in the transition zone between amorphous and micro-crystalline Si) \cite{Lee.2014b,Liu.2016,Zhang.2017}. However, detrimental effects of the void-rich a-Si:H layer on $R_s$ and $J_{sc}$ have been reported by Sai \textit{et al.} for the hole contact \cite{Sai.2018}. They investigated the modification of the a-Si:H($i$1) microstructure by varying deposition parameters like pressure and power density and their influence on the passivation quality \cite{Sai.2018}. Recently, Wu \textit{et al.} reported on an increased valence band offset for void-rich, high bandgap a-Si:H($i$) layers, being especially detrimental for the transport of holes \cite{Wu.2020}. Moreover, the influence of a \ac{HPT} before, after or in between intrinsic a-Si:H deposition was studied by several groups with respect to improving the surface passivation \cite{Liu.2016,Granata.2012,Geissbuhler.2013,Schuttauf.2011,Descoeudres.2011,Mews.2013}.
+
+In this section\footnotemark\footnotetext{The results of this section were obtained in collaboration with master student Dilara Kurt who assisted the author with sample processing and characterization.}
+%wie frank: The results 	of Sec. 6.3.2 were obtained in collaboration with Diplom student M. Simon who assisted the author with processing and characterization.
+a similar approach to that by Sai \textit{et al.} is followed, but the investigations are extended by using test structures to directly compare passivation and contact resistivity $\rho_c$ of different a-Si:H($i$) (multi)layers. The a-Si:H($i$1) microstructure is modified by varying PECVD process parameters and by an \ac{HPT} after a-Si:H($i$1) and prior to a-Si:H($i$2) deposition. Similar investigations for the hole and electron contact are performed to check if an intrinsic difference exists between both types of contacts. %By doing so we provide a holistic picture of the trade-off between transport and passivation at the SHJ and how this can be engineered.  
+
+
+\subsection{Influence of different a-Si:H($i$) layers and layer stacks}
+
+%ist i2 überhaupt 9 nm dick für rhoc strukturen!! dicke gemessen auf planar mit siox! direkt nach h2 dip wächst i2 epitaktisch..!
+%mit ohne i2 iVoc ist angegeben mit 600 und 640 mV, allerdings ohne i2 nur p nur geschätzter Wert, oder? wenn echter wert, wäre der unterschied von 40 mV doch starkes indiz dafür, dass i2 nicht komplett epitaktisch...
+
+
+
+Fig. \ref{fig:rhoc-iVoc-groups} shows $\rho_c$ of SHJ electron (\ref{fig:rhoc-groups-200334}) and hole (\ref{fig:rhoc-groups-200031}) contacts comprising the intrinsic a-Si:H stack or only the individual layer, all with a similar total thickness of $\approx 6 ~\textrm{nm}$. Different colors represent different cumulative post-deposition thermal treatments of 10 min each. Average implied open-circuit voltages i$V_{oc}$ at 1 sun illumination are indicated for each group as a measure of the passivation quality. Basically, a very similar trend was observed for hole and electron contact but with overall lower $\rho_c$ and recombination for the electron contact. Without intrinsic a-Si:H layer the passivation quality was poor and $\rho_c$ was limited by the TCO/a-Si:H interface. Adding a dense intrinsic a-Si:H layer ($i$2) between c-Si and doped a-Si:H did not increase $\rho_c$. The i$V_{oc}$ was improved to some extent, but still poor, especially for the hole contact. Using a void-rich $i$-layer and the hydrogen plasma treatment ($i$1+HPT) instead, increased the i$V_{oc}$ significantly at the cost of higher $\rho_c$. The stack of $i$1+HPT+$i$2, in which both $i$1 and $i$2 were $\approx 3 ~\textrm{nm}$ thick, showed the best passivation but also the highest $\rho_c$. These results clearly show that a void-rich i-layer ($i$1) is necessary for good passivation at the hole and electron contact but it is also mainly responsible for resistive losses at both contacts.
+%As a side note, for structures without TCO layer $\rho_c$ of group "only i2" did not degrade with annealing and was stable up to 400 °C, similar to structures without i-layer. structures of group only i1 and the stack degraded for a total thickness of 6 nm each, but not if the total thickness was only 4.5 nm!!
+
+
+
+
+
+
+%0.65
+\begin{figure}%[htp]
+	\centering{
+		\begin{minipage}[b]{0.65\textwidth}
+			\centering
+			\subfloat[\textbf{(a) electron contact}  \label{fig:rhoc-groups-200334}] {\includegraphics[width=\textwidth]{images/SHJ/rhoc-groups-200334}}
+		\end{minipage}
+		\par\bigskip % force a bit of vertical whitespace
+		\begin{minipage}[b]{0.65\textwidth}
+			\centering
+			\subfloat[\textbf{(b) hole contact}  \label{fig:rhoc-groups-200031}] {\includegraphics[width=\textwidth]{images/SHJ/rhoc-groups-200031}}
+		\end{minipage}
+	}
+	\caption[$\rho_c$ and i$V_{oc}$ of SHJ contacts comprising different intrinsic a-Si:H (multi)layers]{$\rho_c$ and i$V_{oc}$ of (a) electron and (b) hole contacts comprising different intrinsic a-Si:H (multi)layers as indicated by the sketches above the graph. Colors refer to different annealing temperatures.}
+	\label{fig:rhoc-iVoc-groups}
+\end{figure}
+
+
+
+\subsection{a-Si:H($i$1) modification}\label{sec:microstructure}
+
+
+%The increased density of atomic hydrogen in the plasma increases the rate of exothermic H-exchange reactions at the substrate?s surface. Due to the exothermic nature of these reactions the diffusion energy of Si atoms (atoms to be deposited) on the surface is increased and a denser film is formed [20].
+
+
+
+%\begin{figure}[htp] 
+%	\centering
+%	\includegraphics[width=0.55\linewidth]{images/SHJ/i-layer-R-conductivity-mouro}
+%	\caption[CV Messung an einer LSMO-Dünnschicht]{....}
+%	\label{fig:Beispiel-CV-LSMO}
+%\end{figure}
+
+In the previous section, it was shown that $i$1 is necessary to obtain excellent passivation of the c-Si absorber, but $\rho_c$ is increased thereby. The goal for further optimization is therefore to minimize the i1 thickness fraction and to modify the $i$1 microstructure towards slightly more dense properties to improve the transport while maintaining a high passivation quality. By varying the deposition conditions the a-Si:H($i$) microstructure can be altered. 
+
+%A figure of merit for the a-Si:H microstructure is the so-called microstructure factor $R^*$, determined from the deconvolution of the Si-H stretching band into SiH and SiH2 stretching modes, located at $\approx 2000 ~\textrm{cm}^{-1}$ and $\approx 2100 ~\textrm{cm}^{-1}$, respectively [19?21]: Cite more?
+%\begin{align}
+%	R^* = \frac{I_{2100}}{I_{2000} + I_{2100}}
+%\end{align}
+%with
+%\begin{align}
+%	I = \int_{\omega_{min}}^{\omega_{max}} \frac{\alpha(\omega)}{\omega} \textrm{d}\omega.
+%\end{align}
+%alpha kann aus ATR nicht bestimmt werden, also besser nicht so schreiben hier!!
+
+
+\begin{figure}[ht] 
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/SHJ/ATR-i1-i2-stack}
+	\caption[Infrared spectroscopy signal of different a-Si:H($i$)]{Infrared spectroscopy signal of different a-Si:H($i$). The intensity was normalized on the a-Si:H($i$) layer thickness.}
+	\label{fig:ATR-i1-i2-stack}
+\end{figure}
+
+
+%R ist eigentlich immer H2/SiH4 nicht H2 zu total gas flow! hier aber schon, passt!
+Fig. \ref{fig:ATR-i1-i2-stack} shows the Si-H stretching band obtained from infrared spectroscopy of different a-Si:H($i$) layers with a total thickness of $9 ~\textrm{nm}$ on a planar c-Si wafer. %The Si-H stretching band is decisive of the a-Si:H microstructure \cite{...}. 
+A figure of merit for the a-Si:H microstructure is the so-called microstructure factor $R^*$, which is determined from the Gaussian deconvolution of the Si-H stretching band into a \ac{LSM} and a \ac{HSM}, located at $\approx 2000 ~\textrm{cm}^{-1}$ and $\approx 2100 ~\textrm{cm}^{-1}$, respectively \cite{Brodsky.1977,Smets.2003,Mouro.2013}: %hier vielleicth doch R=I2100/(I2000+I2100) aber eben intensity nicht genauer erklären....
+\begin{equation}
+	R^* = \frac{I_{HSM}}{I_{LSM} + I_{HSM}}.
+\end{equation}
+A clear difference in the microstructure between $i$1, $i$2 and the stack can be seen. In dense $i$2 the LSM is dominant, corresponding to isolated monohydrides (SiH) \cite{Langford.1992}, resulting in a low $R^*$ of $0.15$. In contrast to that, in void-rich $i$1 the HSM plays a major role, corresponding to hydrogen bonded to a void surface \cite{Smets.2003} as well as dihydrides (SiH$_2$) \cite{Langford.1992}, displayed by a high microstructure factor ($R^* = 0.88$). Consequently, in the stack of $i$1 and $i$2 a combination of both microstructures was measured ($R^* = 0.34$). 
+
+%symbole R, R* kursiv in insettabelle!
+\begin{figure}[ht] 
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/SHJ/ATR-i1-mod}
+	\caption[Infrared spectroscopy signal of different a-Si:H($i$1)]{Infrared spectroscopy signal as indicator of the a-Si:H($i$1) microstructure for several process parameters. The intensity was normalized on the a-Si:H($i$1) layer thickness.}
+	\label{fig:ATR-i1-mod}
+\end{figure}
+
+
+As one approach to lower the void density and to improve the structural quality of $i$1 (thereby reducing the $i$1 $R^*$ value), the H$_2$ dilution ratio $R$ in the plasma was increased (Fig. \ref{fig:ATR-i1-mod}). 
+Whereas the LSM intensity was basically unchanged, the HSM intensity decreased markedly (red).
+This can be explained by an increased diffusion energy on the surface by a higher rate of exothermic hydrogen exchange reactions due to the increased density of atomic hydrogen in the plasma \cite{Matsuda.2004}. 
+
+The optical bandgap $E_g$, determined by spectroscopic ellipsometry, decreased with increased H$_2$ dilution ratio (not shown), also indicating a densification of the intrinsic layer. In Ref. \cite{Liu.2020} the positive correlation between the microstructure factor $R^*$ obtained from infrared spectroscopy and the optical bandgap $E_g$ extracted from spectroscopic ellipsometry measurements was shown. Therefore, usually a higher $E_g$ and higher $R^*$ indicate a film with more voids and less order whereas lower $E_g$ and lower $R^*$ indicate a denser, more ordered film. 
+
+
+Further, a plasma power reduction (green) similarly decreased $R^*$ and $E_g$, %at low H$_2$ dilution
+presumably due to a lower void fraction as a result of a lower deposition rate. 
+%At high $R$ values the effect of the power reduction on $E_g$ was only minor. Increased pressure during deposition led to a constant $E_g$ of 1.85 eV independently of $R$ (green triangles). For $R=0 ~\%$ this yielded a slightly reduced $E_g$ whereas at $R=30 ~\%$ $E_g$ was higher compared to the process with lower pressure. However, at higher pressure the plasma did not ignite reliably, thus, this approach was not pursued further. 
+$R^*$ was also lower for the $i$1 after an HPT of $35 ~\textrm{s}$ (blue) compared to the untreated reference $i$1 (black). In this case, however, a different trend in $E_g$ was observed as $E_g$ increased with increasing HPT duration (not shown). The total intensity of the Si-H stretching band and especially the LSM intensity was increased after HPT, which is a sign for more hydrogen in the a-Si:H layer \cite{Langford.1992}.
+The a-Si:H($i$) thickness was unchanged up to $35 ~\textrm{s}$ of HPT and decreased for longer HPT durations (not shown). This confirms the etching effect of such an HPT reported in Refs. \cite{FontcubertaiMorral.2002,Descoeudres.2011,Geissbuhler.2013} with an incubation time of $\approx 35 ~\textrm{s}$ for our process conditions during which hydrogen diffusion into the film dominates over etching \cite{FontcubertaiMorral.2002,Geissbuhler.2013}.
+
+
+%A variation in HPT duration from 0 to 90 s resulted in slightly higher $E_g$ with increased HPT duration (blue triangles). In this case, $R^*$ obtained from infrared spectroscopy deviated from this trend, as $R^*$ was lower for the i1 after 35 s of HPT compared to the untreated i1 (Fig. \ref{fig:ATR-i1-mod}). The total intensity of the Si-H stretching band and especially the SiH intensity was increased after HPT, which is a sign for more hydrogen in the a-Si:H layer \cite{Langford.1992}. %Note, however, that quantitative analysis is not possible using the ATR-FTIR setup....
+%(in ATR steigt gesamtpeak intensität an und HSM intensität sinkt leicht nach HPT, das ist tendenziell zeichen für höherenWasserstoffanteil, kann eher nicht aus atr bestimmt warden. Deshalb nochmal normal FTIR messen?)
+%gesamtpeak bei 640 wellenzahlen anschauen, sollte höher sein mit mehr h2 laut smets.2003. Every H bonded to silicon contributes to the 640 cm-1 wagging mode and consequently this mode is used to determine the hydrogen density.
+%Eg anstieg eventuell durch mehr H2? könnte vielleicht unterschiedlichen trend von Eg und R* erklären, laut ATR H2 Gehaltunterschied mit/ohne HPT sehr gering, quantitative auswertung mit ATR aber nicht möglich, müsste man normal FTIR messen? 
+
+
+
+%Eg in appendix? ganz raus, wie im paper!
+%\begin{figure}[htp] 
+%	\centering
+%	\includegraphics[width=0.7\textwidth]{images/SHJ/Eg-vs-H2-dillution}
+%	\caption[Optical bandgap $E_g$ of different a-Si:H layers]{Optical bandgap $E_g$ as indicator of the i-layer microstructure for several process parameters.}
+%	\label{fig:Eg}
+%\end{figure}
+
+
+As a next step, transport ($\rho_c$) and passivation ($\tau$) with modified intrinsic a-Si:H layers at the hole contact were tested on co-fabricated test structures. In Fig. \ref{fig:overview-rhoc-vs-tau-p} $\rho_c$ after 180 °C annealing of various hole contact stacks comprising different a-Si:H(i) layers is plotted against the minority carrier lifetime ($\tau$) at an injection level of $1.0 \times 10^{15} ~\textrm{cm}^{-3}$. Each data point represents the median value of at least ten measurements. The symbol size was chosen proportional to $E_g$ of the particular intrinsic layer.
+The reference (closed black square) comprised a high power $i$1 ($\approx 3 ~\textrm{nm}$) with no H$_2$ dilution, an HPT of $7 ~\textrm{s}$ and a highly H$_2$ diluted $i$2 ($\approx 3 ~\textrm{nm}$) and yielded $\tau \approx 4.3 ~\textrm{ms}$ and $\rho_{c} \approx 214 ~\textrm{m}\upOmega\textrm{cm}^2$.
+
+\begin{figure}[hb] 
+	\centering
+	\includegraphics[width=0.95\textwidth]{images/SHJ/overview-rhoc-tau-hole-contact}
+	\caption[$\rho_c$ and $\tau$ for $i$-layer stacks with different microstructure]{$\rho_c$ and $\tau$ at an injection level of $1.0 \times 10^{15} ~\textrm{cm}^{-3}$ for $i$-layer stacks with different microstructure and $i$1 thickness fraction. The black closed square represents the reference process with an $i$1 thickness ratio of 0.55 and an $i$1 $R$ value of $0 ~\%$. Closed symbols refer to $\approx 6 ~\textrm{nm}$ and open symbols to $\approx 4.5 ~\textrm{nm}$ total $i$-layer stack thickness on textured surface. Semi-closed symbols represent $i$1 deposition with lower power. Different shades of red and yellow represent the $i$1 thickness fraction variation and different shades of blue represent the $i$1 H$_2$ dilution variation.}
+	\label{fig:overview-rhoc-vs-tau-p}
+\end{figure}
+
+
+As indicated by the arrow, generally an increase in $\tau$ comes at the cost of higher $\rho_c$. However, there were $i$-layers providing similar passivation as the baseline reference (closed black square) while $\rho_c$ was reduced. Reducing the total thickness of the reference a-Si:H stack from $\approx 6$ (closed black square) to $\approx 4.5 ~\textrm{nm}$ (open black square) reduced both $\tau$ (from 4.3 to $1.3 ~\textrm{ms}$) and $\rho_c$ (from 214 to $91 ~\textrm{m}\upOmega\textrm{cm}^2$) significantly, highlighting the strong trade-off between high passivation quality and efficient transport linked with the intrinsic layer's thickness. For comparison, results of groups "only $i$2" and "only $i$1+HPT" from Fig. \ref{fig:rhoc-groups-200031} are shown as dark red respectively yellow closed circles. The mediocre passivation level of "only $i$1" ($1.2 ~\textrm{ms}$) was further reduced down to $1.1 ~\textrm{ms}$ by reducing the total a-Si:H($i$) thickness from $\approx 6$ to $\approx 4.5 ~\textrm{nm}$, while $\rho_c$ was reduced significantly reduced significantly from 185 to $110 ~\textrm{m}\upOmega\textrm{cm}^2$ (closed vs. open yellow circle). In another attempt, starting from "only $i$1" the $i$1 thickness fraction ($i$1 thickness to total a-Si:H($i$) thickness) was gradually reduced to zero ("only $i$2") while a total a-Si:H thickness of $6 ~\textrm{nm}$ was maintained (see legend, closed red and yellow circles). The optimum $i$1 fraction regarding $\tau$ remained at 0.55, as for the baseline reference. However, a slightly reduced $i$1 thickness fraction (0.44) led to similarly high $\tau$ and a reduction in $\rho_c$ from 214 to $150 ~\textrm{m}\upOmega\textrm{cm}^2$. 
+
+Reducing the power during i1 deposition, but maintaining similar thickness, reduced $\rho_c$ by about $\approx 50 ~\textrm{m}\upOmega\textrm{cm}^2$ while $\tau$ degraded only slightly ("$i$/$p$ 2") compared to the reference. Using the lower-power $i$1 at reduced $i$1 thickness fraction led to further $\rho_c$ reduction down to $140 ~\textrm{m}\upOmega\textrm{cm}^2$ and similar $\tau$ ("$i$/$p$ 3"). Increasing the H$_2$ dilution during $i$1 deposition while trying to keep the thickness constant (closed blue symbols), led to a reduction in $\rho_c$ by about $\approx 80 ~\textrm{m}\upOmega\textrm{cm}^2$ down to $130 ~\textrm{m}\upOmega\textrm{cm}^2$ at $R=30 ~\%$ while $\tau$ was essentially unaffected ("$i$/$p$ 1"). Increasing $R$ further reduced $\tau$ significantly for $R > 30 ~\%$ while $\rho_c$ gradually approached the lower limit of $\rho_c \approx 90 ~\textrm{m}\upOmega\textrm{cm}^2$ for samples without intrinsic layer (dashed horizontal line). 
+The positive influence of an HPT after i1 deposition on transport and passivation can be seen by comparing the reference with a group that did not receive the treatment (black square vs. green diamond).
+
+
+
+
+To summarize, compared to the baseline reference (Ref., black square) a slight reduction in the $i$1 thickness fraction from 0.55 to 0.44 (orange closed circle), as well as a slightly denser $i$1 due to deposition with lower power ("$i$/$p$ 2") or a H$_2$ diluted plasma ("$i$/$p$ 1") reduced $\rho_{c}$ markedly, while $\tau$ was still on a high level. 
+Both beneficial effects could be combined by using a slightly denser, lower-power $i$1 and adapting the $i$1 thickness fraction to 0.44 ("$i$/$p$ 3").
+The $i$1 microstructure can be further modified with a post-deposition HPT, which can be beneficial for both transport and passivation.
+
+
+
+
+
+
+
+\subsection{Solar cells with modified a-Si:H($i$) at the hole contact}
+
+%pFF wird falsch angezeigt, warum auch immer!! passt jetzt, oder?
+\begin{figure}[] 
+	\centering
+	\includegraphics[width=1\textwidth]{images/SHJ/200211-cell-results}
+	\caption[SHJ solar cell parameters of three modified $i$/$p$ stacks]{SHJ solar cell parameters of three modified $i$/$p$ stacks compared to the reference process. Group $i$/$p$ 1 comprised a H$_2$ diluted $i$1. For groups $i$/$p$ 2 and $i$/$p$ 3 the $i$1 deposition power was lower and for group $i$/$p$ 3 also the $i$1 thickness fraction was lower compared to the reference. $J_{sc}$ (not shown) was constant for all groups.} 
+	\label{fig:cells-200211}
+\end{figure}
+
+The most promising modified a-Si:H($i$)/a-Si:H($p$) hole contact stacks taken from Fig. \ref{fig:overview-rhoc-vs-tau-p} were tested on cell level in the rear emitter design. Namely, "$i$/$p$ 1" with a $30 ~\%$ H$_2$ diluted plasma during $i$1 deposition (dark blue pentagon), "$i$/$p$ 2" with a reduced $i$1 deposition power (black semi-closed square) and "$i$/$p$ 3" with lower-power $i$1 as in "$i$/$p$ 2" and reduced $i$1 thickness fraction (light red semi-closed circle). Solar cell parameters of the three modified hole contacts are shown in Fig. \ref{fig:cells-200211} in comparison to the baseline reference. The beneficial transport properties seen on test structures are reflected in the significant reduction in $R_s$ and increase in $FF$.
+The difference in $V_{oc}$ was small, which shows that the passivation quality is at similar level with a $V_{oc}$ loss of $1-2 ~\textrm{mV}$ for process $i$/$p$ 3.
+%The slightly lower $V_{oc}$ indicates slightly reduced passivation quality. 
+The pseudo fill factor (p$FF$), also reflecting the passivation quality, remained on a high level for all groups comparable to the reference. $J_{sc}$ (not shown) was very similar for all groups. %Sai et al. observed an influence of the i1 microstructure on the Jsc in front-emitter solar cells due to a difference in EQE in the wavelength range of 400 to 550 nm [11]. 
+This resulted in an increase in $\eta$ of about $0.3~\%_{abs}$ compared to the reference with a very similar maximum $\eta$ of $22.0 ~\%$ for all three modifications. %Please note again that the cell performance is limited by a low Jsc due to a simplistic grid design with a busbar shading of 4% of the total cell area.
+
+
+
+%In another cell batch, the total thickness of the i-layer stack at the hole contact was varied by changing the i1 thickness, while the HPT and the i2 thickness was constant (Fig. 6). Again, the lower power i1 was used, as in ?i/p 2? and ?i/p 3?. A strong correlation of the i1 thickness and Rs was observed. A linear fit was performed, yielding a slope of ? 80 m?cm2/nm. Since exact determination of the i1 thickness is very difficult and considerable scatter is present in the Rs data, this is only intended as a rough estimate to highlight the significant impact of the i1 thickness on Rs.
+
+
+\begin{figure}[] 
+	\centering
+	\includegraphics[width=1\textwidth]{images/SHJ/200395-cell-results}
+	\caption[SHJ solar cell parameters in dependence of the HPT duration time at the hole contact]{SHJ solar cell parameters in dependence of the HPT duration time at the hole contact. An HPT duration of $7 ~\textrm{s}$ corresponds to the baseline reference process. $J_{sc}$ (not shown) was constant for all groups.}
+	\label{fig:cells-200395}
+\end{figure}
+
+Motivated by the beneficial effect of the HPT after $i$1 deposition on $\rho_c$ and on $\tau$ seen in Fig. \ref{fig:overview-rhoc-vs-tau-p}, an HPT duration time variation was conducted on cell level. The HPT duration time was varied between 0 and $35 ~\textrm{s}$ with $7 ~\textrm{s}$ corresponding to the baseline reference. As can be seen in Fig. \ref{fig:cells-200395}, the HPT is clearly beneficial for the surface passivation. This is reflected in an increased $V_{oc}$ and p$FF$ of groups with HPT compared to the group without HPT. No clear trend for the passivation quality in dependence of the duration time was observed. The $V_{oc}$ was very similar for 35 and $7 ~\textrm{s}$ HPT, whereas p$FF$ values for the $7 ~\textrm{s}$ process were slightly higher compared to 18 respectively $35 ~\textrm{s}$ HPT.
+
+
+
+
+Regarding transport, $R_s$ after $7 ~\textrm{s}$ HPT is still similar to the untreated group, but a significant $R_s$ reduction was obtained for 18 and $35 ~\textrm{s}$ HPT. The beneficial effect of the HPT on transport can also be seen in the increased $FF$ with increasing HPT duration, reaching a maximum value of $83.5 ~\%$ for the $35 ~\textrm{s}$ process. Overall, this trend transferred to $\eta$ with a maximum of $22.6 ~\%$.   
+%An HPT duration variation was also performed at the electron contact on cell level (not shown), but besides an initial improved passivation after 7s HPT, a longer HPT did neither affect passivation nor transport. Note that the i-layer at the electron contact was already optimized previously and had therefore a lower total thickness and a lower i1 thickness fraction. Moreover, $\rho_c$ at the electron contact is markedly lower, hence there is less room for improvement and the impact on cell performance is lower. This might explain, why no benefit was observed for increased HPT duration at the electron contact. 
+An HPT duration variation was also performed at the electron contact on cell level (not shown), but besides an initial improved passivation after $7 ~\textrm{s}$ HPT, a longer HPT did neither affect passivation nor transport. Note that $\rho_{c}$ of the electron contact is generally much lower and that the $i$-layer stack at the electron contact had a lower total thickness and a lower $i$1 thickness fraction compared to the reference $i$-layer stack used for the hole contact.
+
+
+
+
+
+
+
+
+
+
+%
+%\newpage
+%\subsection{a-Si thickness and mu-doping}\label{sec:aSi thickness}
+%eventuell raus oder appendix...
+%für n Kontakt konnte i-layer etwas dünner gemacht werden, aber Passivierung leidet, tradeoff transport-passivierung..., zu dünne dotierte Schicht schlecht für Transport und Passivierung (Feldeffektpassivierung).
+%
+%\begin{figure}[htp] 
+%	\centering
+%	\includegraphics[width=0.55\linewidth]{images/SHJ/190409-n-rhoc}
+%	\includegraphics[width=0.55\linewidth]{images/SHJ/190409-cell-FF}
+%	\includegraphics[width=0.55\linewidth]{images/SHJ/190409-tau}
+%	\caption[CV Messung an einer LSMO-Dünnschicht]{....}
+%	\label{fig:Beispiel-CV-LSMO}
+%\end{figure}
+%
+%für a-Si(p) dünnerer i-layer keine Option, siehe 190390 oder mu-doping...
+%
+%rhoc und oder Zellergebnisse zu aSi(p) Dickenvariation fehlen noch!! rhoc aSi bulk? 
+%
+%\begin{figure}[htp] 
+%	\centering
+%	\includegraphics[width=0.55\linewidth]{images/SHJ/mu-doping}
+%	\caption[CV Messung an einer LSMO-Dünnschicht]{klarer Tradeoff zu sehen, ähnlich wie wenn i-layer zu dünn...}
+%	\label{fig:Beispiel-CV-LSMO}
+%\end{figure}
+
+
+
+
+\subsection{Discussion: a-Si:H/c-Si junction, hole vs. electron transport}\label{sec:discussion-aSi-cSi}
+%annealing wird hier bisher nicht diskutiert...
+
+%Stefan will, dass h2 diff in a-Si abgeschätzt wird, könnte auch h2 aus ITO durch aSi an c-Si oberfläche gelangen? nein, eher nicht, kommt nicht durch dichtes doped asi und i2, oder? cite...
+
+In Fig. \ref{fig:i-p-zoom-MPP} a sketch of the band structure of the a-Si:H($p$)/a-Si:H($i$)/c-Si heterojunction (at MPP) is shown. Possible transport paths are indicated, as partly adapted from Ref. \cite{Schulze.2010}.
+
+
+While low and ohmic transport losses were observed when doped a-Si:H was in direct contact with c-Si (structures nNn and pPp in Section \ref{sec:critical junctions}), the addition of a-Si:H($i$) increased $\rho_c$ and its temperature dependence especially
+for the hole contact (piPp, Fig. \ref{fig:overview-rhoc-SHJ}). Because of the difference in bandgap
+between amorphous and crystalline silicon, a heterobarrier arises
+at the interface between a-Si:H and the c-Si bulk. Depending
+on the hydrogen content, the conduction band offset can be about
+three times smaller than the valence band offset (e.g., $\approx 200$
+versus $\approx 600 ~\textrm{meV}$ for $24 ~\textrm{at}\%$ hydrogen content \cite{Schulze.2011}). In the
+simulations in Sections \ref{sec:critical junctions} and \ref{sec:discussion-sim-TCO/a-Si}, the conduction band offset was $150 ~\textrm{meV}$ and the
+valence band offset was $450 ~\textrm{meV}$.
+
+
+\begin{figure}[hb] 
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/SHJ/i-p-zoom-MPP}
+	\caption[Simulated band diagram of the a-Si:H/c-Si junction at the hole contact]{Simulated band diagram of the a-Si:H/c-Si junction at the hole contact. Possible transport paths 1)-5) are illustrated and discussed in the text. The resistance is governed by the a-Si:H/c-Si interface and the $i$1 and $i$2 "bulk" properties, as indicated by the series connection at the top.}
+	\label{fig:i-p-zoom-MPP}
+\end{figure}
+
+Thermionic emission is therefore more efficient to overcome the band offset for the electron contact compared to the hole contact (path 1 in Fig. \ref{fig:i-p-zoom-MPP}). The hole contact is thus more reliant on tunneling
+of holes from the c-Si valence band towards the a-Si:H($p$) valence
+band via the intrinsic a-Si:H \cite{Messmer.2018b, Procel.2020} (path 3 in Fig. \ref{fig:i-p-zoom-MPP}). This is one
+reason why especially hole transport is impeded by the intrinsic
+passivation layer \cite{Schulze.2011,Seif.2016b}. 
+
+However, since doped a-Si:H without intrinsic layer (structure pPp in Fig. \ref{fig:SHJ-structures} forms a low-ohmic contact to the c-Si
+bulk, the higher band offset between c-Si and a-Si:H will not be
+the only explanation. Doping adds a large number of free charge
+carriers and defects to a-Si:H \cite{Stutzmann.1987, Street.1985}, which leads to a lower
+screening length in doped a-Si:H compared to less-defective
+a-Si:H($i$). Since it promotes tunneling, it seems likely that the
+low screening length in doped a-Si:H is responsible for the low-resistive and ohmic characteristic of group 1 (pPp). In addition,
+the induced hole density, and hence, hole conductivity on either
+side of the a-Si:H/c-Si interface is lower with the insertion
+of intrinsic a-Si:H, as some band bending is induced in the
+intrinsic layer as well \cite{Bivour.2015}. 
+
+
+
+Another possible transport path is \ac{TAT} across the heterobarrier \cite{Schulze.2010,Mews.2015,Messmer.2018b,Procel.2020} (path 4 in Fig. \ref{fig:i-p-zoom-MPP}). With doped a-Si:H in direct contact with c-Si TAT is facilitated by
+the large number of defects in the doped a-Si:H \cite{Stutzmann.1987, Street.1985}. 
+Moreover, recombination at the highly defective doped a-Si:H/c-Si interface contributes to charge transport (path 2 in Fig. \ref{fig:i-p-zoom-MPP}). 
+The
+less-defective intrinsic a-Si:H might screen these defects from
+the a-Si:H/c-Si interface and lower the TAT probability as well as the recombination directly at the interface. 
+
+
+%änderung rhoc mit annealing...muss noch diskutiert werden! nee, wird wohl nicht diskutiert...
+%De Wolf and Kondo reported on defect density reduction
+%within intrinsic a-Si:H with annealing in the temperature range
+%between 120 and 280 °C due to amorphous network relaxation
+%\cite{fehler warum auch immmer}. Being beneficial for the surface passivation quality, less
+%defects might be detrimental for the charge carrier transport
+%across the intrinsic layer. This could be an explanation for
+%the increasing $\rho_c$ with annealing for heterojunctions including
+%a-Si:H(i). Further investigations are needed for a holistic understanding.
+
+%genauer ausführen, für aSi deposited at 200 °C kaum änderung bei annealing...für Tdep =180 °C leichter effekt...zusätzlich für strukturen mit TCO ausheilen der sputter schädigung diskutieren, siehe leos diss...
+
+
+
+\subsubsection{$i$1 vs. $i$2: Passivation and transport}
+
+%auf schaltbild rhoc = r interface + r i1 + r i2 hinweisen..?
+
+%Warum macht i2 kaum passivierung und keinen widerstand: only i2 ivoc aus TMO75, auf plan und textur
+Using a single layer of dense a-Si:H($i$2), without a-Si:H($p$) layer deposited on top, a good passivation of the c-Si surface with i$V_{oc}$ values above 730 mV (not shown) can be obtained. However, after a-Si:H($p$) layer deposition the passivation quality was impeded and the i$V_{oc}$ decreased to $\approx 640 ~\textrm{mV}$, as depicted in Fig. \ref{fig:rhoc-iVoc-groups}. Doped layer deposition was found detrimental by several other groups before (e.g., Refs. \cite{Wolf.2007,Liu.2016}). De Wolf and Kondo explained that with a lowered Si-H bond rupture energy in a-Si:H($i$) due to the shift of the Fermi level in the presence of a doped layer \cite{Wolf.2007}.  Liu \textit{et al.} argued that partial crystallization occurred at the a-Si:H/c-Si interface due to hydrogen bombardment during a-Si:H($p$) deposition \cite{Liu.2016}. In that case, dangling bonds at the c-Si surface are no longer passivated efficiently, resulting in a high defect density at the interface \cite{Wu.2020}. 
+
+
+%Only i2: 2 hoch, bulk leitfähigkeit hoch
+%Only i1: 1 niedriger, 2 deutlich niedriger, 3 etwas niedriger, 4 gleich oder etwas höher, 5 höher?
+%I1+HPT: 1 wohl etwas niedriger (höheres Eg), 2 nochmal niedriger, 3 eher niedriger, 4 und 5 eher gleich, -->kann nur mit bulk Leitfähigkeit erklärt werden...
+%Stack: 1 ähnlich wie i1, 2 nochmal niedriger als i1, 3 wie i1, 4 und 5 eher niedriger als i1
+
+
+The high interface defect density due to partial crystallization for group "only $i$2" might promote transport as it enables a transport path via recombination at these states (path 2 in Fig. \ref{fig:i-p-zoom-MPP}). This might explain the negligible difference in $\rho_c$ between groups "w/o $i$-layer" and "only $i$2" in Fig. \ref{fig:rhoc-iVoc-groups}. %Kann man da was simulieren?
+%I2 muss auch so recht leitfähig sein?
+%Schulze.phd: aSi(n)/cSi(p) transport über tunneln, aSi(p)/cSi(n) auch über grenzflächendefekte, da passivierung am pcontact nicht so gut, grenzfläche defektreicher?
+
+%Erklären,warum i1 höheren widerstand hat:
+Applying a void-rich a-Si:H($i$1) ensures an abrupt a-Si:H($i$)/c-Si interface with a low defect density (with and without HPT) \cite{Liu.2016}. On one hand, this low-defective interface enables a lower minority carrier recombination rate and therefore higher i$V_{oc}$ compared to "only $i$2". On the other hand, transport via recombination of majority carriers at such interface states is strongly impeded. This is expected to be one reason why $\rho_c$ is higher with a void-rich a-Si:H($i$) at the c-Si surface. 
+Another explanation for higher $\rho_c$ of $i$1 compared to $i$2 could be the lower bulk conductivity of void-rich a-Si:H compared to denser, lower-bandgap a-Si:H as reported in Ref. \cite{Liu.2020}. % nee, martin b. würde das weglassen...It must be mentioned, however, that these results were obtained from measuring the lateral conductivity of a-Si:H films deposited on glass %(stimmt das? SI leider nicht verfügbar für liu.2020) and this might differ from the vertical transport determining $\rho_c$. 
+An alternative description is that the thin, void-rich a-Si:H($i$) layer has an effectively smaller contact area to the c-Si due to a lower effective surface coverage of the c-Si absorber \cite{Schulze.2010c}, resulting in an increased effective contact resistance.
+
+The above mentioned effects modify both hole and electron transport, explaining the same qualitative trend for the hole and electron contact in Fig. \ref{fig:rhoc-iVoc-groups}.
+%the higher increase in rhoc with insertion of i1 might be again explainable with the hole contact being more reliant on tunneling compared to the electron contact.
+However, the increase in $\rho_c$ due to the insertion of $i$1 was about three times higher for the hole contact ($\approx+150 ~\textrm{m}\upOmega\textrm{cm}^2$ compared to $\approx+50 ~\textrm{m}\upOmega\textrm{cm}^2$ for the electron contact). The electron transport is not as heavily reliant on recombination tunneling as the hole transport,%50 tunneln für hole, 33 % für e-contact laut sim christoph...
+since thermionic emission across the smaller conduction band offset is more efficient.
+Moreover, the doping efficiency in a-Si:H($n$) is higher \cite{Spear.1975}, explaining the lower overall $\rho_c$ for the electron contact.  A further role for less efficient majority carrier transport for the hole contact might by the lower mobility of holes compared to electrons \cite{Street.1982b}.
+
+
+With respect to the $i$-layer stack, the passivation quality of $i$1 is further improved with the deposition of dense $i$2 (Fig. \ref{fig:rhoc-iVoc-groups}). Hydrogen can penetrate the void-rich $i$1 and saturate defects at the a-Si:H/c-Si interface and thereby further reduce the interface defect density \cite{Liu.2016}. 
+%Stefan will, dass h2 diff in a-Si abgeschätzt wird, könnte auch h2 aus ITO durch aSi an c-Si oberfläche gelangen? nein, eher nicht, kommt nicht durch dichtes doped asi und i2, oder? cite...
+Beyond this, the role of the $i$2 in the $i$-layer stack might also be to function as a "spacer" to screen the a-Si:H($p$) defects from the minority carriers at the well passivated a-Si:H($i$1)/c-Si interface \cite{Bivour.PhD}.
+
+
+\subsubsection{Influence of lower power, H$_2$ dilution and $i$1 thickness}
+
+The high power density enabling a high $i$1 deposition rate ($>1.0 ~\textrm{nm/s}$ compared to $\approx0.1 ~\textrm{nm/s}$ for $i$2) is one key factor to achieve a void-rich a-Si:H($i$) layer and to prevent epitaxial growth \cite{Sai.2018}. Hence, reducing the power during $i$1 deposition ("$i$/$p$ 2", "$i$/$p$ 3" in Figs. \ref{fig:overview-rhoc-vs-tau-p} and \ref{fig:cells-200211}) leads to a denser a-Si:H($i$), as indicated by the lower $R^*$ (and lower $E_g$) in Fig. \ref{fig:ATR-i1-mod}. 
+
+Since denser layers more readily lead to epitaxial growth, this can also lead to increased defect density at the a-Si:H($i$)/c-Si heterojunction. This is accompanied by a higher majority and minority carrier recombination at and close to the interface. Whereas the latter has a detrimental effect on surface passivation, as evidenced by the lower minority carrier lifetime on the test structures and also the slightly lower $V_{oc}$ on cell level compared to the reference. 
+
+The higher majority carrier (hole) recombination enables more efficient transport and is one explanation for lower $\rho_c$ and $R_s$ with the low-power $i$1. Additionally, higher bulk conductivity in a denser a-Si:H($i$) might contribute to the reduction in $R_s$. Similarly, H$_2$ dilution results in a denser a-Si:H($i$) layer, as mentioned above. Accordingly, the same trends were also observed for "$i$/$p$ 1" with increased H$_2$ dilution.
+
+Further, reduction of the $i$1 thickness also reduced $\rho_c$ and $R_s$ ("$i$/$p$ 3", Figs. \ref{fig:overview-rhoc-vs-tau-p} and \ref{fig:cells-200211}). On one hand, this is explained by the higher thickness fraction of denser, more conductive $i$2. On the other hand, a reduced $i$1 thickness increases the probability of direct tunneling transport through this layer. This is supported by the observation that $\rho_c$ for an $i$1+HPT+$i$2 stack with a total thickness of $4.5 ~\textrm{nm}$ was reduced to $\approx 90 ~\textrm{m}\upOmega\textrm{cm}^2$ (Fig. \ref{fig:overview-rhoc-vs-tau-p}), a value also reached with no $i$-layer present. Thus, although a thin $i$1 and the corresponding a-Si:H/c-Si interface was present, the $i$-layer contribution to $\rho_c$ was negligible, which might indicate very efficient transport via tunneling once the $i$1 thickness is below a certain critical thickness. %verweis auf crandall.2012? direct tunneling vs. hopping, für sehr dünne schichten direct tunnling effizienter als hopping, für dicke schichten aber auf hopping angewiesen...könnte das auch den effekt durch annealing erklären, dass dünner stack nicht degradiert mit annealing? i2 degradiert auch nicht...wenn also i1 dünn genug, dass direkt durchgetunnelt werden kann, ist änderung des i1 durch annealing egal...direktes tunneling bedeutet aber auch, dass zustände im i2 für minority carriers erreichbar sind, deshalb leidet für zu dünne i1 die passivierung...(passt nicht so ganz, i2 ist doch eigentlich defektarm...)
+
+%aSi i bulk conductivity = hopping? laut schulze phd gibt es hopping conduction at the fermi level, conduction in localized tail states und conduction in extended states (welche valenz bzw. leitungsband representieren)
+
+%aus \cite{Schulze.2010}:
+%Both trapping in tail states and a high DB DOS facilitating
+%hopping can lead to a transition from injection-limited transport
+%as in the models of Anderson and successors to bulklimited
+%transport as for the space-charge-limited current
+%model25,26 and the variable range hopping model27.
+
+Thinner $i$1 could also increase the band bending in c-Si induced by the doped a-Si:H, as less band bending would drop across $i$1. This would increase the hole concentration and hole conduction close to the c-Si surface. However, using the surface photovoltage method \cite{Heilig.1978}, no significant difference in c-Si bend bending was observed between structures comprising either only $i$2, only $i$1 (with and without HPT) or the $i$1+HPT+$i$2 stack (not shown).
+%auch bei schulze ähnliches gemessen...
+
+%Sorgt dünneres i1 für besseres tunneln? Sim? Oder einfach besser da weniger ?bulk? resistance?
+
+
+
+
+\subsubsection{Influence of the HPT on transport and passivation}
+
+%Several groups reported on the influence of a HPT on a-Si:H(i) material properties. As a-Si:H is a very complex material that heavily depends on numerous process parameter, it is not sur?
+%Allgemein: verschiedene HPTs getestet mit verschiednen auswirkungen?, schwierig zu bewwerten
+%Für plasma treatment in liu2016 sinkt R*, wie es auch sinn Machen würde?aber sonst bei descoeud [16]?steigt es an, zusammen mit band gap?
+
+
+%soman.2021 "A critical study on different Hydrogen Plasma treatment methods of a-Si: H/c-Si interface for enhanced defect passivation": therefore in order to optimize H2 plasma condition for passivation it is critical to perform the treatmentin ?incubation regime? of the plasma where the H radicals in the discharge begin to saturate, resultingin no etching of the surface[24]. The incubation regime refers to the initial phase of plasma generationwhere the plasma species haven?t reached a state of equilibration. This transition phase usuallylasts for few seconds after which the plasma obtains a steady state. The etching of the a-Si:H film canbe prevented by performing plasma treatment in this incubation regime since during this phase the H2saturation takes place and is referred to as incubation time.
+
+
+%grund warum HPT so gut und besser wirksam als andere modifikationen könnte sein, dass grenzfläche nicht stark geändert, ädnerung vor allem an i1 oberfläche!
+
+%Warum bessere passivierung und transport nach HPT:
+The effect of an HPT on the passivation quality was already discussed by other groups:
+The HPT introduces hydrogen which can diffuse easily through the void-rich a-Si:H($i$1) and saturate dangling bonds at the interface, thereby improve the passivation \cite{Mews.2013,Liu.2016}. The HPT can also induce a-Si:H network relaxation by replacing strained Si-Si bonds with Si-H bonds \cite{Sriraman.2002}. This can even cause an epitaxial layer at the a-Si:H/c-Si interface for a transition-zone a-Si:H film \cite{Liu.2016}. In the case of heavily disordered, void-rich a-Si:H films, however, network relaxations requires more energy \cite{Liu.2016}. Therefore, an epitaxial layer is avoided for $i$1 even after HPT. 
+A thinner $i$1 could further facilitate hydrogen diffusion to the interface \cite{Liu.2016} and might therefore be beneficial for passivation. However, a too thin $i$1 might not protect the a-Si:H/c-Si interface sufficiently from the plasma, resulting in damage detrimental for passivation \cite{Granata.2012,Geissbuhler.2013,Schuttauf.2011}. 
+%The fact that "i/p 3" (thinner) showed higher $\tau$ on test structures but lower $V_{oc}$ on cell level compared to "i/p 2" (thicker) might be an indication for the precision necessary for tailoring the process parameters for these ultra-thin films.%tau und voc nicth das gleiche! wie ist es mit iVoc?
+
+Schulze \textit{et al.} reported on the bandgap widening effect of hydrogen \cite{Schulze.2011}. They also discussed that the retreat of the valence band is responsible for the increased $E_g$. As a result, the valence band offset increased systematically with higher hydrogen content (higher $E_g$), whereas the conduction band offset remained basically unchanged \cite{Schulze.2011}. The introduced hydrogen might therefore be responsible for the bandgap widening after HPT observed here and also in Ref. \cite{Descoeudres.2011}. The increased valence band offset was used by Wu \textit{et al.} to explain impeded hole transport after hydrogen modification of the intrinsic layer \cite{Wu.2020}. However, they mentioned that this effect was overestimated in their simulation since they did not include tunneling transport. %(Liu et al. argued similarly [22]., ist die gleiche gruppe, also kann eigentlich raus?) hier auch seif.2014 und seif.2016b zitieren..seif.2016b ganz am anfang der diskussion zitiert, passt dann so...
+Nevertheless, here significant $R_s$ reduction by applying the HPT at the hole contact was observed. 
+
+The beneficial structural changes regarding transport induced by the HPT clearly overcompensated the potentially increased valance band offset, i.e., transport barrier. In addition, since the hole transport is heavily reliant on tunneling anyway \cite{Messmer.2018b,Procel.2020}, the further increased barrier height due to the valence band retreat might not be relevant. 
+Possible would be an increased valence band tail state density due to changes in the a-Si:H network introduced by the HPT. This could facilitate hole transport (path 4 in Fig. \ref{fig:i-p-zoom-MPP}), if the broadened valence band tail (increased Urbach energy) overcompensates the retreat of the valence band (by an increased Si-H bond density) \cite{Schulze.2011}. However, this case would result in a decreased $E_g$ measured via SE after HPT, which was not observed. Mews \textit{et al.} also reported that an HPT did not increase the Urbach energy of their a-Si:H($i$) layers \cite{Mews.2013}.
+
+$R^*$ was decreased after HPT, a sign for a slightly more ordered film with a lower void density \cite{Smets.2003,Descoeudres.2011}. This correlates with a slightly decreased broadening term observed via fitting the SE data with a Tauc-Lorentz model \cite{Jellison.1996} (not shown). For the cells presented in Fig. \ref{fig:cells-200395} the HPT therefore apparently i) provides a low-defective interface by supplying hydrogen for the saturation of dangling bonds and ii) reduces voids and increases the $i$1 "bulk" conductivity or a-Si:H/c-Si contact area. The etching effect of the HPT and accompanied $i$1 thickness reduction only plays a minor role for the cell results in Fig. \ref{fig:cells-200395} since the $i$1 thickness was almost constant up to $35 ~\textrm{s}$ and only started to decrease for longer HPT durations. %which were not tested on cell level.%doch in 210006... 
+
+%7 s HPT seems to be the optimum regarding surface passivation. For too long HPT structural changes might also be detrimental for passivation again, epitaxy? Damage of the c-Si surface? Etching probably detrimental at one point! (as might be indicated in the pFF trend in Fig. 5). For transport, in the range tested in this study, HPT was the longer the better?., 7s not enough for significant Rs reduction. (might fit to ATR Daten mit 7s HPT nach i1?... könnte man messen?)
+
+%hier könnte man dann noch auf fundamental correlation between passivation and transport eingehen..
+%man könnte schreiben, dass auf jeden fall starke korrelation, siehe rhoc vs. tau, und natürlich auch gewisse fundamental links (low defective interface nötig für passivierung, nimmt aber einen wichtigen transport weg). daher muss transport pfad so tailored werden, dass low-defective interface okay für transport. scheint to some extent possible for SHJ, siehe eta results with HPT variation... 
+%erst in final summary (chapter 8)? Ja, hat Leo auch so gemacht!! also siehe summary....
+
+
+\section{Chapter summary}
+
+%vergleich zu table baseline zu beginn der arbeit kommt raus!
+%stattdessen hier nochmal banddiagramme für e und h zeigen und in bullet points main findings auflisten mit jeweiliger gewichtung für zellen, wie von hermle verlangt "was sind die größten hebel?". anstatt transport pfade in banddiagrammen A, B, .. für die verschiedenen bullet points, wenn möglich, --> das ist dann in final summary versucht, hier einfach conclusions aus den Papern
+
+In the first section of this chapter, a systematic investigation of the influence of different layers
+and thermal treatment on the vertical transport losses at the
+electron and hole contact of SHJ cells was presented. The validity of the experimental results
+was substantiated by good correlation with numerical device
+simulations, which gave further insight into the transport properties.
+Especially for the hole contact, the presence of either the
+intrinsic a-Si:H or the TCO layer not only increased the contact
+resistance significantly, but also reduced the thermal stability
+of the heterojunction stack and caused a negative temperature
+coefficient of transport-related $FF$ losses. %The nonohmic nature of these transport losses will eventually dominate the FF´s temperature coefficients and hence, the power output of SHJ cells.
+
+%conclusion TCO/asi paper...wohin damit? --> chapter summary
+In the second section, the influence of a-Si:H and TCO doping on the transport losses at the electron and hole contact of SHJ cells was investigated. For a-Si:H, there is an optimum doping gas concentration regarding $\rho_c$. For both investigated TCOs, AZO and ITO, $\rho_c$ increased and showed lower tolerance to annealing with increasing O$_2$ content, independently of the a-Si:H doping polarity.
+However, higher overall $\rho_c$ was obtained for the hole contact compared to the electron contact throughout all TCO variations. 
+$\rho_c$ of contacts including AZO can be as low as or even lower than $\rho_c$ of standard ITO/a-Si:H contacts if optimum conditions are used, i.e., no O$_2$ added to the sputtering gas during AZO deposition. Furthermore, it was shown that $\rho_c$ can strongly depend on the thermal budget of the post deposition treatment and on whether or not the TCO was capped with metal during this treatment.
+It could also be shown that the trade-off between optical and electrical TCO properties can be relaxed using a low-O$_2$ ITO interlayer at the ITO/a-Si:H interface in combination with oxygen-rich "bulk" ITO. The use of such a TCO stack lead to an improved power conversion efficiency $\eta$ on cell level.
+
+
+%conclusions i-layer mod:
+In the third section it was shown that the void-rich a-Si:H($i$1) used to prevent epitaxial growth is the main source of $i$-layer induced transport losses. Higher resistance was observed for both electron and hole contact, showing that it is not dominated by asymmetric effects like different band offsets for electrons or holes. Instead, the absence/low density of interface states was suggested to be the reason for impeded transport using void-rich a-Si:H($i$), in combination with a lower "bulk" conductivity or a possibly lower effective contact area of such void-rich films. Carefully modifying the void-rich a-Si:H($i$) toward more order and higher density proved to be a lever to significantly reduce $R_s$ and resulted in improved $\eta$ despite slightly decreased passivation quality. Further, a prolonged HPT after a-Si:H($i$1) deposition at the hole contact was found to decrease $R_s$ while also being beneficial for passivation. This was ascribed to the simultaneous reduction of void density enabling more efficient transport and the saturation of interface states during HPT for a high passivation quality.
+
+%\begin{table}[h!]
+%	\centering
+%	\renewcommand{\arraystretch}{1.3}
+%	\begin{tabular}{|c|c|c|c|c|c|c|}
+%		\toprule & \boldmath{$\eta$}  & \boldmath{$V_{oc}$}  & \boldmath{$J_{sc}$}   & \textbf{p}\boldmath$FF$   & \boldmath{$FF$}   & \boldmath{$R_{s}$}   \\ 
+%		  & (\%) & (mV) & (mAcm$^{-2}$) & (\%) & (\%) & ($\upOmega$cm$^{2}$) \\ 
+%		\midrule beginning &  21.4 & 728.5 & 35.7 & 85.2 & 82.0 & 0.7? \\ 
+%		\midrule end & 22.6 & 736.3 & 37.0 & 85.4 & 83.0 & 0.5  \\ 
+%		\midrule end & 22.5 & 735.5 & 36.7 & 85.6 & 83.5 & 0.5  \\ 
+%		\bottomrule
+%	\end{tabular} 
+%	\caption[Development of SHJ solar cells at Fraunhofer ISE.]{Development of SHJ solar cells at Fraunhofer ISE during the course of this thesis.}
+%	\label{tab:SHJ-before-after}
+%\end{table}
+%%erste werte sind von der kleinen sonne, oder? also nicht zu vergleichen!!! felix meint, strom wird höher gemessen and der LOANA! FF auch? auf jeden fall in 210006 FF werte für 35 s bis max 82 %, mit 60 und 90 s bis 83.2%
+%
+%Tab. \ref{tab:SHJ-before-after} shows SHJ solar cell parameters of the Fraunhofer ISE baseline champion cell at the beginning and at the end of this thesis. All solar cell parameters were improved. $J_{sc}$ gain due to lower a-Si thickness (i/n) at front side, which was optimized by collegues of the author during the course of this thesis. Further gain in $J_{sc}$ is possible by utilizing TCO stacks, which were not applied for the cells in Tab. \ref{tab:SHJ-before-after}, as shown in Section \ref{sec:TCO-interlayer}. %woher kommt gain in Voc? 
+%The author was responsible for the reduction in hole contact $\rho_c$, which is the main contribution to the reduction of $R_s$ by $0.2 ~\upOmega\textrm{cm}^2$ and the gain of $\approx 1 ~\%_{abs}$ in $FF$.%eventuell noch otimierbar mit kombination von ip1-3 und hpt duration...
+
+These results allow for further fine-tuning of the hole and electron contact. An outlook on future prospects of optimizing transport in SHJ solar cells will be given in Chapter \ref{chap:summary}. 
+
